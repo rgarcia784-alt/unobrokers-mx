@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solicitud de Arrendamiento con Obligado Solidario | UNO Brokers</title>
+<meta name="description" content="Genera gratis tu solicitud de arrendamiento completa: datos generales, identificación, ocupación, referencias y obligado solidario (aval). Descarga en PDF o Word en minutos. UNO Brokers, Zapopan.">
+<meta name="keywords" content="solicitud de arrendamiento, formato solicitud renta, solicitud inquilino, obligado solidario, aval arrendamiento, datos arrendatario, referencias arrendamiento Guadalajara Zapopan">
+<meta property="og:title" content="Solicitud de Arrendamiento con Obligado Solidario | UNO Brokers">
+<meta property="og:description" content="Genera gratis tu solicitud de arrendamiento completa, con datos del obligado solidario. Descarga en PDF o Word en minutos.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0c1f3d;
+    --navy-deep:#081326;
+    --navy-soft:#152b4d;
+    --gold:#c6a15b;
+    --gold-light:#e3cd9a;
+    --cream:#f7f4ee;
+    --ink:#1c2530;
+    --line:rgba(198,161,91,0.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;line-height:1.6;}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:600;margin:0 0 .4em;color:var(--navy);}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+
+  header{background:var(--navy);color:var(--cream);padding:16px 0;border-bottom:1px solid var(--gold);}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;}
+  .brand{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:.5px;color:var(--gold-light);}
+  .hdr-contact a{color:var(--gold-light);font-weight:500;font-size:14px;}
+
+  .hero{background:linear-gradient(160deg,var(--navy) 0%, var(--navy-deep) 100%);color:#fff;padding:56px 0 46px;text-align:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;}
+  .eyebrow::before,.eyebrow::after{content:"";width:22px;height:1px;background:var(--gold);display:inline-block;}
+  .hero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.6rem);}
+  .hero p{max-width:560px;margin:14px auto 0;color:#cdd8e3;font-weight:300;font-size:1.02rem;}
+
+  .personaliza-box{max-width:100%;margin:24px auto 0;padding:16px 20px;background:#fff8e6;border:2px solid #e8a020;border-radius:10px;box-shadow:0 2px 10px rgba(232,160,32,0.25);}
+  .personaliza-toggle{background:none;border:none;cursor:pointer;font-size:15px;font-weight:800;color:#b8720a;padding:0;display:flex;align-items:center;gap:8px;width:100%;text-align:left}
+  .personaliza-panel{display:none;margin-top:14px}
+  .personaliza-panel p{font-size:12.5px;color:#5a6a7a;margin-bottom:10px}
+  .p-inputs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .p-inputs input{padding:9px 10px;border:1px solid #cfd8e0;border-radius:6px;font-size:13px}
+  .p-inputs input#pAgentName{flex:1;min-width:180px}
+  .p-inputs input#pAgentTel{width:170px}
+  #pGenBtn{background:#e8a020;color:#fff;border:none;padding:9px 18px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer}
+  #pResultBox{display:none;margin-top:12px;padding:10px 12px;background:#fff;border:1px solid #cfd8e0;border-radius:6px}
+  #pResultLink{width:100%;border:none;font-size:12px;color:#333;background:transparent}
+  #pCopyBtn{margin-top:8px;background:var(--navy);color:#fff;border:none;padding:7px 14px;border-radius:6px;font-size:12px;cursor:pointer}
+
+  section{padding:44px 0;}
+  .card{background:#fff;border:1px solid #e6ddc8;border-radius:6px;padding:36px;box-shadow:0 20px 50px -34px rgba(12,31,61,0.25);}
+  .section-title{font-size:1.5rem;color:var(--navy);}
+  .section-sub{color:#6b7482;font-size:.92rem;font-weight:300;margin-bottom:22px;}
+  .divider{height:1px;background:var(--line);margin:26px 0;}
+
+  .field-group-title{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:#9a7a2e;font-weight:600;margin:26px 0 14px;}
+  .field-group-title:first-child{margin-top:0;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:.78rem;letter-spacing:.03em;text-transform:uppercase;color:#8a7b56;margin-bottom:6px;font-weight:500;}
+  .field input,.field select{width:100%;padding:11px 12px;border:1px solid #d8cfba;border-radius:4px;font-family:'Jost',sans-serif;font-size:.95rem;color:var(--ink);background:#fcfaf5;}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--gold);background:#fff;}
+  .field.full{grid-column:1/-1;}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;font-family:'Jost',sans-serif;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;font-weight:500;border-radius:2px;border:none;cursor:pointer;transition:.2s;}
+  .btn-gold{background:var(--gold);color:var(--navy-deep);}
+  .btn-gold:hover{background:var(--gold-light);}
+  .btn-block{width:100%;justify-content:center;}
+
+  #resultado{display:none;}
+  #resultado.show{display:block;}
+  .contract-box{background:#fffefb;border:1px solid #e6ddc8;border-radius:6px;padding:36px;max-height:520px;overflow-y:auto;font-size:.9rem;line-height:1.8;white-space:pre-wrap;color:#2a2f36;margin-top:10px;}
+
+  .upsell{background:var(--navy);border-radius:8px;padding:32px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;margin-top:24px;}
+  .upsell h3{color:var(--gold-light);font-size:1.3rem;}
+  .upsell p{color:#c8cedb;font-size:.9rem;font-weight:300;max-width:420px;}
+
+  footer{background:var(--navy-deep);color:#8b98a8;padding:28px 0;font-size:.82rem;text-align:center;}
+  footer strong{color:#d9c48f;}
+
+  @media (max-width:700px){
+    .grid2{grid-template-columns:1fr;}
+    .card{padding:24px;}
+    .upsell{flex-direction:column;align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="brand">UNO Brokers</span>
+    <span class="hdr-contact">📞 <a id="hdrTelLink" href="tel:+523339675255">33 3967 5255</a></span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Gratis · Sin registro</span>
+    <h1>Solicitud de Arrendamiento</h1>
+    <p id="heroP">Genera la solicitud que todo candidato a inquilino debe llenar antes de firmar contrato: datos generales, identificación, ocupación, referencias y obligado solidario. Descarga en PDF o Word en minutos.</p>
+
+    <div class="personaliza-box" id="personalizaBox">
+      <button class="personaliza-toggle" id="personalizaToggle">
+        <span style="background:#e8a020;color:#fff;padding:2px 8px;border-radius:5px;font-size:12px;letter-spacing:.03em">NUEVO</span>
+        🔗 <span>¿Eres asesor inmobiliario? Genera tu propio link personalizado →</span>
+      </button>
+      <div class="personaliza-panel" id="personalizaPanel">
+        <p>Pon tu nombre y tu WhatsApp. Te damos un link único de esta misma solicitud — cuando tus clientes o candidatos entren por ahí, el documento generado va a mostrar tus datos, no los nuestros.</p>
+        <div class="p-inputs">
+          <input id="pAgentName" type="text" placeholder="Tu nombre o el de tu inmobiliaria">
+          <input id="pAgentTel" type="text" placeholder="WhatsApp (10 dígitos)" maxlength="10">
+        </div>
+        <button id="pGenBtn">Generar mi link</button>
+        <div id="pResultBox">
+          <input id="pResultLink" type="text" readonly>
+          <button id="pCopyBtn">📋 Copiar link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="card">
+      <div class="section-title">Datos de la solicitud</div>
+      <div class="section-sub">Toda la información se usa únicamente para generar tu documento.</div>
+
+      <form id="solicitudForm">
+
+        <div class="field-group-title">Datos del inmueble y arrendador</div>
+        <div class="grid2">
+          <div class="field full">
+            <label for="domicilioInmueble">Domicilio del inmueble en renta</label>
+            <input type="text" id="domicilioInmueble" required placeholder="Calle, número, colonia, municipio">
+          </div>
+          <div class="field">
+            <label for="nombreArrendador">Nombre del arrendador / inmobiliaria</label>
+            <input type="text" id="nombreArrendador" placeholder="Ej. UNO Brokers">
+          </div>
+          <div class="field">
+            <label for="rentaMensual">Renta mensual solicitada (MXN)</label>
+            <input type="text" id="rentaMensual" placeholder="Ej. 15,000">
+          </div>
+        </div>
+
+        <div class="field-group-title">Datos generales del solicitante (arrendatario)</div>
+        <div class="grid2">
+          <div class="field full">
+            <label for="nombreSolicitante">Nombre completo</label>
+            <input type="text" id="nombreSolicitante" required placeholder="Nombre completo del solicitante">
+          </div>
+          <div class="field">
+            <label for="fechaNacimiento">Fecha de nacimiento</label>
+            <input type="date" id="fechaNacimiento">
+          </div>
+          <div class="field">
+            <label for="estadoCivil">Estado civil</label>
+            <select id="estadoCivil">
+              <option value="Soltero(a)">Soltero(a)</option>
+              <option value="Casado(a)">Casado(a)</option>
+              <option value="Unión libre">Unión libre</option>
+              <option value="Divorciado(a)">Divorciado(a)</option>
+              <option value="Viudo(a)">Viudo(a)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="telSolicitante">Teléfono</label>
+            <input type="text" id="telSolicitante" placeholder="33 0000 0000">
+          </div>
+          <div class="field">
+            <label for="correoSolicitante">Correo electrónico</label>
+            <input type="email" id="correoSolicitante" placeholder="correo@ejemplo.com">
+          </div>
+          <div class="field full">
+            <label for="domicilioActual">Domicilio actual</label>
+            <input type="text" id="domicilioActual" placeholder="Calle, número, colonia, municipio">
+          </div>
+          <div class="field">
+            <label for="tiempoDomicilio">Tiempo viviendo en el domicilio actual</label>
+            <input type="text" id="tiempoDomicilio" placeholder="Ej. 2 años">
+          </div>
+          <div class="field">
+            <label for="motivoMudanza">Motivo de la mudanza</label>
+            <input type="text" id="motivoMudanza" placeholder="Ej. Cambio de trabajo">
+          </div>
+        </div>
+
+        <div class="field-group-title">Identificación</div>
+        <div class="grid2">
+          <div class="field">
+            <label for="curp">CURP</label>
+            <input type="text" id="curp" placeholder="18 caracteres">
+          </div>
+          <div class="field">
+            <label for="ine">Número de identificación oficial (INE u otra)</label>
+            <input type="text" id="ine" placeholder="Número de folio o clave de elector">
+          </div>
+        </div>
+
+        <div class="field-group-title">Ocupación</div>
+        <div class="grid2">
+          <div class="field">
+            <label for="ocupacion">Ocupación / puesto</label>
+            <input type="text" id="ocupacion" placeholder="Ej. Gerente de ventas">
+          </div>
+          <div class="field">
+            <label for="empresa">Empresa donde labora</label>
+            <input type="text" id="empresa" placeholder="Nombre de la empresa">
+          </div>
+          <div class="field">
+            <label for="ingresoMensual">Ingreso mensual aproximado (MXN)</label>
+            <input type="text" id="ingresoMensual" placeholder="Ej. 30,000">
+          </div>
+          <div class="field">
+            <label for="antiguedadLaboral">Antigüedad laboral</label>
+            <input type="text" id="antiguedadLaboral" placeholder="Ej. 3 años">
+          </div>
+        </div>
+
+        <div class="field-group-title">Referencias personales</div>
+        <div class="grid2">
+          <div class="field">
+            <label for="ref1Nombre">Referencia 1 — Nombre</label>
+            <input type="text" id="ref1Nombre" placeholder="Nombre completo">
+          </div>
+          <div class="field">
+            <label for="ref1Tel">Referencia 1 — Teléfono</label>
+            <input type="text" id="ref1Tel" placeholder="33 0000 0000">
+          </div>
+          <div class="field">
+            <label for="ref1Relacion">Referencia 1 — Relación</label>
+            <input type="text" id="ref1Relacion" placeholder="Ej. Amigo, familiar, jefe">
+          </div>
+          <div class="field">
+            <label for="ref2Nombre">Referencia 2 — Nombre</label>
+            <input type="text" id="ref2Nombre" placeholder="Nombre completo">
+          </div>
+          <div class="field">
+            <label for="ref2Tel">Referencia 2 — Teléfono</label>
+            <input type="text" id="ref2Tel" placeholder="33 0000 0000">
+          </div>
+          <div class="field">
+            <label for="ref2Relacion">Referencia 2 — Relación</label>
+            <input type="text" id="ref2Relacion" placeholder="Ej. Amigo, familiar, jefe">
+          </div>
+        </div>
+
+        <div class="field-group-title">Referencia de arrendador anterior (si aplica)</div>
+        <div class="grid2">
+          <div class="field">
+            <label for="arrAntNombre">Nombre del arrendador anterior</label>
+            <input type="text" id="arrAntNombre" placeholder="Nombre completo">
+          </div>
+          <div class="field">
+            <label for="arrAntTel">Teléfono</label>
+            <input type="text" id="arrAntTel" placeholder="33 0000 0000">
+          </div>
+        </div>
+
+        <div class="field-group-title">Datos del obligado solidario (aval)</div>
+        <div class="section-sub" style="margin-top:-8px;margin-bottom:16px;">Persona que garantiza el cumplimiento del contrato junto con el solicitante.</div>
+        <div class="grid2">
+          <div class="field full">
+            <label for="obNombre">Nombre completo</label>
+            <input type="text" id="obNombre" placeholder="Nombre completo del obligado solidario">
+          </div>
+          <div class="field">
+            <label for="obRelacion">Relación con el solicitante</label>
+            <input type="text" id="obRelacion" placeholder="Ej. Padre, hermano, amigo">
+          </div>
+          <div class="field">
+            <label for="obEstadoCivil">Estado civil</label>
+            <select id="obEstadoCivil">
+              <option value="Soltero(a)">Soltero(a)</option>
+              <option value="Casado(a)">Casado(a)</option>
+              <option value="Unión libre">Unión libre</option>
+              <option value="Divorciado(a)">Divorciado(a)</option>
+              <option value="Viudo(a)">Viudo(a)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="obTelefono">Teléfono</label>
+            <input type="text" id="obTelefono" placeholder="33 0000 0000">
+          </div>
+          <div class="field">
+            <label for="obCorreo">Correo electrónico</label>
+            <input type="email" id="obCorreo" placeholder="correo@ejemplo.com">
+          </div>
+          <div class="field full">
+            <label for="obDomicilio">Domicilio</label>
+            <input type="text" id="obDomicilio" placeholder="Calle, número, colonia, municipio">
+          </div>
+          <div class="field">
+            <label for="obEsPropietario">¿Es propietario de ese domicilio?</label>
+            <select id="obEsPropietario">
+              <option value="Sí">Sí</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="obCurp">CURP</label>
+            <input type="text" id="obCurp" placeholder="18 caracteres">
+          </div>
+          <div class="field">
+            <label for="obIne">Identificación oficial (INE u otra), número</label>
+            <input type="text" id="obIne" placeholder="Número de folio o clave de elector">
+          </div>
+          <div class="field">
+            <label for="obOcupacion">Ocupación / puesto</label>
+            <input type="text" id="obOcupacion" placeholder="Ej. Gerente de ventas">
+          </div>
+          <div class="field">
+            <label for="obEmpresa">Empresa donde labora</label>
+            <input type="text" id="obEmpresa" placeholder="Nombre de la empresa">
+          </div>
+          <div class="field">
+            <label for="obIngresoMensual">Ingreso mensual aproximado (MXN)</label>
+            <input type="text" id="obIngresoMensual" placeholder="Ej. 40,000">
+          </div>
+          <div class="field">
+            <label for="obAntiguedadLaboral">Antigüedad laboral</label>
+            <input type="text" id="obAntiguedadLaboral" placeholder="Ej. 5 años">
+          </div>
+        </div>
+
+
+        <div class="divider"></div>
+        <button type="submit" class="btn btn-gold btn-block">Generar mi solicitud</button>
+        <div style="text-align:center;font-size:.82rem;color:#8a93a0;margin-top:10px;">Toma menos de 2 minutos.</div>
+      </form>
+    </div>
+
+    <div id="resultado">
+      <div class="card" style="margin-top:26px;">
+        <div class="section-title">Tu solicitud está lista</div>
+        <div class="section-sub">Revísala, descárgala, y compártela con el candidato o el propietario.</div>
+        <div class="contract-box" id="contractText"></div>
+        <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;">
+          <button class="btn btn-gold" style="flex:1;min-width:200px;" onclick="descargarPDF()">📄 Descargar en PDF</button>
+          <button class="btn btn-gold" style="flex:1;min-width:200px;background:#25D366;border:none;color:#fff;" onclick="compartirPDFWhatsApp()">💬 Compartir por WhatsApp</button>
+          <button class="btn btn-gold" style="flex:1;min-width:200px;background:transparent;border:1.5px solid var(--gold);color:var(--navy);" onclick="descargarWord()">Descargar en Word</button>
+        </div>
+      </div>
+
+      <div class="upsell">
+        <div>
+          <h3>¿Ya investigaste a este candidato?</h3>
+          <p>Verifica su historial en Buró de Crédito, antecedentes judiciales y capacidad de pago antes de comprometer tu propiedad.</p>
+        </div>
+        <a class="btn btn-gold" id="upsellInvestigacion" href="investigacion-inquilinos.html">Investigar inquilino</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span id="footerBrand">UNO Brokers · Zapopan, Jalisco</span><br>
+    <a href="https://wa.me/523339675255" id="footerWa" target="_blank">WhatsApp <span id="footerTel">33 3967 5255</span></a>
+  </div>
+</footer>
+
+<script>
+// ── PERSONALIZACIÓN POR ASESOR ──
+const DEFAULT_AGENT = { name:'UNO Brokers', tel:'523339675255', telDisplay:'33 3967 5255', isDefault:true };
+function buildAgentFromParams(){
+  const qs = new URLSearchParams(window.location.search);
+  const nombre = qs.get('asesor');
+  const telRaw = qs.get('tel');
+  if(!nombre || !telRaw) return DEFAULT_AGENT;
+  const telClean = telRaw.replace(/\D/g,'');
+  if(telClean.length < 10) return DEFAULT_AGENT;
+  const tel10 = telClean.slice(-10);
+  const telFull = telClean.length===10 ? '52'+telClean : telClean;
+  const display = tel10.replace(/(\d{2})(\d{4})(\d{4})/,'$1 $2 $3');
+  return { name: decodeURIComponent(nombre).slice(0,60), tel: telFull, telDisplay: display, isDefault:false };
+}
+const AGENT = buildAgentFromParams();
+function applyAgentBranding(){
+  const a = AGENT;
+  const setHref = (id,href)=>{const el=document.getElementById(id); if(el) el.href=href;};
+  const setTxt = (id,txt)=>{const el=document.getElementById(id); if(el) el.textContent=txt;};
+  setHref('hdrTelLink', `tel:+${a.tel}`); setTxt('hdrTelLink', a.telDisplay);
+  setHref('footerWa', `https://wa.me/${a.tel}`);
+  setTxt('footerTel', a.telDisplay);
+  setTxt('footerBrand', a.isDefault ? 'UNO Brokers · Zapopan, Jalisco' : a.name);
+  if(!a.isDefault){
+    setTxt('heroP', `Genera la solicitud que todo candidato a inquilino debe llenar antes de firmar contrato: datos generales, identificación, ocupación, referencias y obligado solidario. Un servicio de ${a.name}.`);
+  }
+}
+applyAgentBranding();
+
+(function(){
+  const toggleBtn = document.getElementById('personalizaToggle');
+  const panel = document.getElementById('personalizaPanel');
+  if(toggleBtn) toggleBtn.addEventListener('click', ()=>{ panel.style.display = panel.style.display==='none' ? 'block' : 'none'; });
+  const genBtn = document.getElementById('pGenBtn');
+  if(genBtn) genBtn.addEventListener('click', ()=>{
+    const nombre = document.getElementById('pAgentName').value.trim();
+    const tel = document.getElementById('pAgentTel').value.trim().replace(/\D/g,'');
+    if(!nombre || tel.length!==10){ alert('Escribe tu nombre y un WhatsApp válido a 10 dígitos.'); return; }
+    const base = window.location.origin + window.location.pathname;
+    const link = `${base}?asesor=${encodeURIComponent(nombre)}&tel=${tel}`;
+    document.getElementById('pResultLink').value = link;
+    document.getElementById('pResultBox').style.display = 'block';
+  });
+  const copyBtn = document.getElementById('pCopyBtn');
+  if(copyBtn) copyBtn.addEventListener('click', ()=>{
+    const input = document.getElementById('pResultLink');
+    input.select(); input.setSelectionRange(0,9999);
+    navigator.clipboard.writeText(input.value).then(()=>{
+      copyBtn.textContent='✅ ¡Copiado!'; setTimeout(()=>{copyBtn.textContent='📋 Copiar link';},2000);
+    }).catch(()=>{document.execCommand('copy');});
+  });
+  if(!AGENT.isDefault){
+    const box = document.getElementById('personalizaBox');
+    if(box) box.style.display='none';
+  }
+})();
+
+function val(id){ return document.getElementById(id).value || '________________________'; }
+
+function fechaLarga(iso){
+  if(!iso) return '____/____/______';
+  const d = new Date(iso + 'T00:00:00');
+  return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+}
+
+function hoyLargo(){
+  const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const d = new Date();
+  return `${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
+}
+
+document.getElementById('solicitudForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const texto = `SOLICITUD DE ARRENDAMIENTO
+
+Fecha: ${hoyLargo()}
+Recibida por: ${AGENT.name}
+
+DATOS DEL INMUEBLE Y ARRENDADOR
+
+Domicilio del inmueble en renta: ${val('domicilioInmueble')}
+Arrendador / Inmobiliaria: ${val('nombreArrendador')}
+Renta mensual solicitada: $${val('rentaMensual')} (M.N.)
+
+DATOS GENERALES DEL SOLICITANTE (ARRENDATARIO)
+
+Nombre completo: ${val('nombreSolicitante')}
+Fecha de nacimiento: ${fechaLarga(document.getElementById('fechaNacimiento').value)}
+Estado civil: ${val('estadoCivil')}
+Teléfono: ${val('telSolicitante')}
+Correo electrónico: ${val('correoSolicitante')}
+Domicilio actual: ${val('domicilioActual')}
+Tiempo viviendo en el domicilio actual: ${val('tiempoDomicilio')}
+Motivo de la mudanza: ${val('motivoMudanza')}
+
+IDENTIFICACIÓN
+
+CURP: ${val('curp')}
+Identificación oficial (INE u otra), número: ${val('ine')}
+
+OCUPACIÓN
+
+Ocupación / puesto: ${val('ocupacion')}
+Empresa donde labora: ${val('empresa')}
+Ingreso mensual aproximado: $${val('ingresoMensual')} (M.N.)
+Antigüedad laboral: ${val('antiguedadLaboral')}
+
+REFERENCIAS PERSONALES
+
+Referencia 1:
+  Nombre: ${val('ref1Nombre')}
+  Teléfono: ${val('ref1Tel')}
+  Relación: ${val('ref1Relacion')}
+
+Referencia 2:
+  Nombre: ${val('ref2Nombre')}
+  Teléfono: ${val('ref2Tel')}
+  Relación: ${val('ref2Relacion')}
+
+REFERENCIA DE ARRENDADOR ANTERIOR
+
+Nombre: ${val('arrAntNombre')}
+Teléfono: ${val('arrAntTel')}
+
+DATOS DEL OBLIGADO SOLIDARIO (AVAL)
+
+Nombre completo: ${val('obNombre')}
+Relación con el solicitante: ${val('obRelacion')}
+Estado civil: ${val('obEstadoCivil')}
+Teléfono: ${val('obTelefono')}
+Correo electrónico: ${val('obCorreo')}
+Domicilio: ${val('obDomicilio')}
+¿Es propietario de ese domicilio?: ${val('obEsPropietario')}
+CURP: ${val('obCurp')}
+Identificación oficial (INE u otra), número: ${val('obIne')}
+Ocupación / puesto: ${val('obOcupacion')}
+Empresa donde labora: ${val('obEmpresa')}
+Ingreso mensual aproximado: $${val('obIngresoMensual')} (M.N.)
+Antigüedad laboral: ${val('obAntiguedadLaboral')}
+
+DECLARACIÓN
+
+El solicitante manifiesta que los datos proporcionados en este documento son verídicos, y autoriza al arrendador y/o a su representante a verificar la información aquí contenida con fines de evaluación para el arrendamiento del inmueble descrito.
+
+El obligado solidario manifiesta que los datos aquí proporcionados son verídicos, y declara su conformidad en constituirse como obligado solidario del solicitante para garantizar el cumplimiento de todas las obligaciones derivadas del contrato de arrendamiento que en su caso se celebre, incluyendo el pago de rentas, mantenimiento y demás cargos, renunciando expresamente a los beneficios de orden y excusión que la ley le concede.
+
+
+_________________________________
+FIRMA DEL SOLICITANTE
+${val('nombreSolicitante')}
+
+
+_________________________________
+FIRMA DEL OBLIGADO SOLIDARIO
+${val('obNombre')}
+
+
+Esta solicitud fue generada a través de ${AGENT.name} · ${AGENT.telDisplay}`;
+
+  document.getElementById('contractText').innerText = texto;
+  document.getElementById('resultado').classList.add('show');
+  document.getElementById('resultado').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+function descargarWord(){
+  const contenido = document.getElementById('contractText').innerText;
+  if(!contenido){ return; }
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+  <body style="font-family:Georgia, serif; font-size:12pt; line-height:1.6;">
+  <pre style="white-space:pre-wrap; font-family:Georgia, serif;">${contenido.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</pre>
+  </body></html>`;
+  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'solicitud-arrendamiento.doc';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function generarDocPDF(){
+  const contenido = document.getElementById('contractText').innerText;
+  if(!contenido){ return null; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'letter' });
+  const marginLeft = 20, marginRight = 20, marginTop = 25, marginBottom = 20;
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const usableWidth = pageWidth - marginLeft - marginRight;
+  let y = marginTop;
+
+  const sectionTitles = ['DATOS DEL INMUEBLE Y ARRENDADOR','DATOS GENERALES DEL SOLICITANTE (ARRENDATARIO)','IDENTIFICACIÓN','OCUPACIÓN','REFERENCIAS PERSONALES','REFERENCIA DE ARRENDADOR ANTERIOR','DATOS DEL OBLIGADO SOLIDARIO (AVAL)','DECLARACIÓN'];
+
+  function nuevaPaginaSiHaceFalta(alturaNecesaria){
+    if(y + alturaNecesaria > pageHeight - marginBottom){
+      doc.addPage();
+      y = marginTop;
+    }
+  }
+
+  // Encabezado
+  doc.setFont('helvetica','bold');
+  doc.setFontSize(15);
+  doc.setTextColor(12,31,61);
+  doc.text('SOLICITUD DE ARRENDAMIENTO', pageWidth/2, y, { align:'center' });
+  y += 6;
+  doc.setDrawColor(198,161,91);
+  doc.setLineWidth(0.6);
+  doc.line(marginLeft, y, pageWidth - marginRight, y);
+  y += 10;
+
+  const lineas = contenido.split('\n');
+  doc.setFontSize(10.5);
+
+  lineas.forEach(linea => {
+    const limpio = linea.trim();
+    const esTitulo = sectionTitles.includes(limpio);
+    const esFirmaLinea = limpio.startsWith('___');
+
+    if(limpio === ''){ y += 4; return; }
+
+    if(esTitulo){
+      nuevaPaginaSiHaceFalta(14);
+      y += 4;
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(11);
+      doc.setTextColor(155,120,46);
+      doc.text(limpio, marginLeft, y);
+      y += 2;
+      doc.setDrawColor(198,161,91);
+      doc.setLineWidth(0.2);
+      doc.line(marginLeft, y, pageWidth - marginRight, y);
+      y += 6;
+      doc.setFontSize(10.5);
+      doc.setTextColor(28,37,48);
+      return;
+    }
+
+    if(esFirmaLinea){
+      nuevaPaginaSiHaceFalta(8);
+      doc.setDrawColor(28,37,48);
+      doc.setLineWidth(0.3);
+      doc.line(marginLeft, y, marginLeft + 80, y);
+      y += 5;
+      return;
+    }
+
+    doc.setFont('helvetica', linea.includes(':') && !linea.startsWith('El ') && !linea.startsWith('  ') ? 'bold' : 'normal');
+    const partido = doc.splitTextToSize(limpio, usableWidth);
+    partido.forEach(sub => {
+      nuevaPaginaSiHaceFalta(6);
+      doc.text(sub, marginLeft, y);
+      y += 5.2;
+    });
+  });
+
+  return doc;
+}
+
+function nombreArchivoPDF(){
+  const nombre = (document.getElementById('nombreSolicitante').value || 'solicitud').trim();
+  const sinAcentos = nombre.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const limpio = sinAcentos.replace(/[^a-zA-Z0-9\s]/g,'').replace(/\s+/g,'-').toLowerCase() || 'solicitud';
+  return `solicitud-arrendamiento-${limpio}.pdf`;
+}
+
+function descargarPDF(){
+  const doc = generarDocPDF();
+  if(!doc) return;
+  doc.save(nombreArchivoPDF());
+}
+
+async function compartirPDFWhatsApp(){
+  const doc = generarDocPDF();
+  if(!doc){ return; }
+  const nombreArchivo = nombreArchivoPDF();
+  const blob = doc.output('blob');
+
+  // Intento 1: compartir nativo con el archivo adjunto (funciona en iPhone/Android)
+  if(navigator.canShare){
+    const archivo = new File([blob], nombreArchivo, { type: 'application/pdf' });
+    if(navigator.canShare({ files: [archivo] })){
+      try{
+        await navigator.share({
+          files: [archivo],
+          title: 'Solicitud de arrendamiento',
+          text: 'Te comparto mi solicitud de arrendamiento en PDF.'
+        });
+        return;
+      }catch(err){
+        // el usuario canceló el share o hubo un error; seguimos al respaldo
+        if(err && err.name === 'AbortError') return;
+      }
+    }
+  }
+
+  // Respaldo (computadoras de escritorio, navegadores sin soporte): descarga + abre WhatsApp con texto
+  doc.save(nombreArchivo);
+  const msg = encodeURIComponent('Hola, te comparto mi solicitud de arrendamiento. Adjunto el PDF que se acaba de descargar en mi computadora.');
+  window.open(`https://wa.me/${AGENT.tel}?text=${msg}`, '_blank');
+  alert('Tu navegador no permite adjuntar el PDF directo a WhatsApp. Se descargó el archivo — solo adjúntalo manualmente en el chat que se va a abrir.');
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WBZQNYLQYF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WBZQNYLQYF');
+</script>
+
+</body>
+</html>

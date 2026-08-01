@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renta tu Departamento en Santa Fe CDMX | Para Propietarios | UNO Brokers</title>
+<meta name="description" content="¿Eres propietario de un departamento en Santa Fe, Lomas de Santa Fe o Contadero? UNO Brokers lo renta por ti: investigación de arrendatario, contrato legal y administración profesional. Llama hoy.">
+<meta name="keywords" content="rentar mi departamento Santa Fe CDMX, propietario departamento Santa Fe, arrendar departamento Lomas de Santa Fe, administración de rentas Cuajimalpa, inmobiliaria Santa Fe Ciudad de México, poner en renta departamento Contadero CDMX">
+<meta property="og:title" content="Renta tu Departamento en Santa Fe CDMX | Para Propietarios | UNO Brokers">
+<meta property="og:description" content="Inmobiliaria especializada en Santa Fe. Investigación de inquilino, contrato legal y comisión solo al concretar.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy-light: #162338;
+    --amber: #E8A020;
+    --amber-light: #F5B845;
+    --teal: #1D9E75;
+    --teal-light: #22B884;
+    --white: #FFFFFF;
+    --off-white: #F8F7F4;
+    --gray-100: #F0EFEC;
+    --gray-300: #C8C5BF;
+    --gray-500: #7A7770;
+    --gray-700: #3D3C3A;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--navy); line-height: 1.6; font-size: 16px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: rgba(13,27,42,0.97);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    border-bottom: 1px solid rgba(232,160,32,0.2);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--white); letter-spacing: 0.03em; }
+  .nav-logo span { color: var(--amber); }
+  .nav-cta {
+    background: var(--amber); color: var(--navy);
+    padding: 8px 18px; border-radius: 6px;
+    font-weight: 600; font-size: 13px; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--amber-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0D1B2A 0%, #162338 50%, #0D2535 100%);
+    display: flex; align-items: center;
+    padding: 100px 24px 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23E8A020' fill-opacity='0.04'%3E%3Cpath d='M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h2l-2 2V0zm0 4l4-4h2l-6 6V4zm0 4l8-8h2L40 10V8zm0 4L52 0h2L40 14v-2zm0 4L56 0h2L40 18v-2zm0 4L60 0h2L40 22v-2zm0 4L64 0h2L40 26v-2zm0 4L68 0h2L40 30v-2zm0 4L72 0h2L40 34v-2zm0 4L76 0h2L40 38v-2zm0 4L80 0v2L42 40h-2zm4 0L80 4v2L46 40h-2zm4 0L80 8v2L50 40h-2zm4 0l28-28v2L54 40h-2zm4 0l24-24v2L58 40h-2zm4 0l20-20v2L62 40h-2zm4 0l16-16v2L66 40h-2zm4 0l12-12v2L70 40h-2zm4 0l8-8v2l-6 6h-2zm4 0l4-4v2l-2 2h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
+  .hero-accent {
+    position: absolute; width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(29,158,117,0.15) 0%, transparent 70%);
+    top: -100px; right: -100px; pointer-events: none;
+  }
+  .hero-accent-2 {
+    position: absolute; width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,160,32,0.1) 0%, transparent 70%);
+    bottom: 50px; left: -80px; pointer-events: none;
+  }
+  .hero-inner { max-width: 760px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(232,160,32,0.12); border: 1px solid rgba(232,160,32,0.3);
+    color: var(--amber); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 99px; margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--amber); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 58px);
+    color: var(--white); line-height: 1.2; margin-bottom: 20px; font-weight: 700;
+  }
+  .hero h1 em { font-style: normal; color: var(--amber); }
+  .hero-sub {
+    font-size: 18px; color: rgba(255,255,255,0.7); margin-bottom: 40px;
+    max-width: 560px; margin-left: auto; margin-right: auto; line-height: 1.7;
+  }
+  .hero-sub strong { color: var(--teal-light); font-weight: 600; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 52px; }
+  .btn-primary {
+    background: var(--amber); color: var(--navy);
+    padding: 16px 32px; border-radius: 8px;
+    font-weight: 700; font-size: 15px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s; box-shadow: 0 4px 20px rgba(232,160,32,0.3);
+  }
+  .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,160,32,0.4); }
+  .btn-secondary {
+    background: transparent; color: var(--white);
+    padding: 16px 32px; border-radius: 8px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--teal-light); color: var(--teal-light); transform: translateY(-2px); }
+  .hero-zones { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+  .zone-tag {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.65); font-size: 12px; font-weight: 500;
+    padding: 5px 14px; border-radius: 99px; letter-spacing: 0.03em;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--navy); padding: 20px 24px;
+    display: flex; flex-wrap: wrap; gap: 24px;
+    justify-content: center; align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .trust-item { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 500; }
+  .trust-icon {
+    width: 32px; height: 32px; background: rgba(29,158,117,0.15);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px;
+  }
+
+  /* SECTIONS */
+  section { padding: 80px 24px; }
+  .container { max-width: 1040px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 12px; display: block;
+  }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3.5vw, 40px); color: var(--navy); line-height: 1.25; margin-bottom: 16px; font-weight: 700; }
+  h2 em { font-style: normal; color: var(--amber); }
+  .section-desc { font-size: 17px; color: var(--gray-500); max-width: 560px; line-height: 1.7; margin-bottom: 48px; }
+
+  /* BENEFITS */
+  .benefits-bg { background: var(--off-white); }
+  .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .benefit-card {
+    background: var(--white); border-radius: 12px; padding: 28px;
+    border: 1px solid #ECEAE6; transition: box-shadow 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .benefit-card::after {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--teal); transform: scaleY(0); transition: transform 0.3s; transform-origin: top;
+  }
+  .benefit-card:hover { box-shadow: 0 8px 32px rgba(13,27,42,0.1); transform: translateY(-3px); }
+  .benefit-card:hover::after { transform: scaleY(1); }
+  .benefit-icon {
+    width: 48px; height: 48px;
+    background: linear-gradient(135deg, rgba(29,158,117,0.1), rgba(29,158,117,0.05));
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 16px;
+  }
+  .benefit-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .benefit-card p { font-size: 14px; color: var(--gray-500); line-height: 1.65; }
+
+  /* ZONAS */
+  .zonas-header { margin-bottom: 48px; }
+  .zonas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 48px; }
+  .zona-card { border: 1.5px solid #ECEAE6; border-radius: 12px; padding: 24px; text-align: center; transition: all 0.2s; }
+  .zona-card:hover { border-color: var(--amber); background: rgba(232,160,32,0.04); transform: translateY(-2px); }
+  .zona-card .zona-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .zona-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .zona-card p { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
+  .zona-badge { display: inline-block; background: rgba(29,158,117,0.1); color: var(--teal); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 99px; margin-top: 10px; }
+  .zonas-cta-box {
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    border-radius: 16px; padding: 40px; text-align: center; color: var(--white);
+    position: relative; overflow: hidden;
+  }
+  .zonas-cta-box::before {
+    content: ''; position: absolute; top: -40px; right: -40px;
+    width: 200px; height: 200px; border-radius: 50%; background: rgba(232,160,32,0.08);
+  }
+  .zonas-cta-box h3 { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+  .zonas-cta-box p { color: rgba(255,255,255,0.65); margin-bottom: 24px; font-size: 15px; }
+
+  /* PROCESO */
+  .proceso-bg { background: var(--off-white); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0; position: relative; }
+  .step { padding: 32px 24px; position: relative; text-align: center; }
+  .step-num {
+    width: 52px; height: 52px; background: var(--navy); color: var(--amber);
+    font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+  }
+  .step h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .step p { font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+  .step-connector { position: absolute; top: 58px; right: -20px; width: 40px; height: 2px; background: var(--amber); opacity: 0.4; }
+
+  /* TESTIMONIOS */
+  .testimonios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .testimonio-card { background: var(--white); border: 1px solid #ECEAE6; border-radius: 12px; padding: 28px; }
+  .stars { color: var(--amber); font-size: 16px; margin-bottom: 16px; letter-spacing: 2px; }
+  .testimonio-card p { font-size: 14px; color: var(--gray-700); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, var(--teal), var(--navy));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-weight: 700; font-size: 14px;
+  }
+  .testi-info strong { display: block; font-size: 14px; color: var(--navy); font-weight: 600; }
+  .testi-info span { font-size: 12px; color: var(--gray-500); }
+
+  /* FAQ */
+  .faq-bg { background: var(--off-white); }
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid #ECEAE6; }
+  .faq-btn {
+    width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 0; background: none; border: none; cursor: pointer;
+    font-size: 15px; font-weight: 600; color: var(--navy); gap: 16px; font-family: 'Inter', sans-serif;
+  }
+  .faq-arrow {
+    width: 28px; height: 28px; background: var(--gray-100); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    transition: transform 0.3s, background 0.2s; font-size: 13px; color: var(--gray-500);
+  }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); background: var(--amber); color: var(--navy); }
+  .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; font-size: 14px; color: var(--gray-500); line-height: 1.75; }
+  .faq-item.open .faq-body { max-height: 300px; padding-bottom: 20px; }
+
+  /* FINAL CTA */
+  .final-cta { background: linear-gradient(135deg, #0D1B2A 0%, #0D2535 100%); padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+  .final-cta::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231D9E75' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .final-cta-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+  .final-cta h2 { color: var(--white); margin-bottom: 14px; }
+  .final-cta h2 em { color: var(--amber); font-style: normal; }
+  .final-cta p { color: rgba(255,255,255,0.65); font-size: 17px; margin-bottom: 36px; line-height: 1.7; }
+  .final-cta-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .btn-whatsapp {
+    background: #25D366; color: var(--white); padding: 16px 32px; border-radius: 8px;
+    font-weight: 700; font-size: 15px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 0.2s; box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  }
+  .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.4); background: #20bc5a; }
+
+  /* FOOTER */
+  footer { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.07); padding: 32px 24px; text-align: center; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--white); margin-bottom: 8px; }
+  .footer-logo span { color: var(--amber); }
+  footer p { color: rgba(255,255,255,0.4); font-size: 13px; margin-bottom: 6px; line-height: 1.5; }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 16px; }
+  .footer-links a { color: rgba(255,255,255,0.4); font-size: 12px; text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--amber); }
+
+  @media (max-width: 640px) {
+    .step-connector { display: none; }
+    nav { padding: 0 16px; }
+    .zonas-cta-box { padding: 28px 20px; }
+    .final-cta { padding: 60px 16px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "UNO Brokers",
+  "description": "Inmobiliaria especializada en renta y administración de departamentos en Santa Fe, Lomas de Santa Fe, Contadero y Cuajimalpa de Morelos, Ciudad de México.",
+  "telephone": "+523339675255",
+  "areaServed": [
+    {"@type": "Place", "name": "Lomas de Santa Fe, Cuajimalpa de Morelos, CDMX"},
+    {"@type": "Place", "name": "Contadero, Cuajimalpa de Morelos, CDMX"},
+    {"@type": "Place", "name": "Santa Fe Cuajimalpa, CDMX"}
+  ],
+  "url": "https://unobrokers.com.mx/departamentos-renta-santa-fe-cdmx.html",
+  "sameAs": ["https://www.instagram.com/unobrokersmx"]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">UNO <span>Brokers</span></div>
+  <a class="nav-cta" href="#contacto">Quiero rentar mi depa &rarr;</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-accent"></div>
+  <div class="hero-accent-2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Ciudad de M&eacute;xico</div>
+    <h1>&iquest;Tienes un departamento<br>en <em>Santa Fe</em> sin rentar?</h1>
+    <p class="hero-sub">
+      Lo rentamos por ti con <strong>inquilinos investigados</strong>, contrato legal
+      y administraci&oacute;n profesional. <strong>Sin estr&eacute;s, sin vacancia prolongada.</strong>
+    </p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/523339675255?text=Hola%2C%20tengo%20un%20departamento%20en%20Santa%20Fe%20CDMX%20y%20me%20interesa%20rentarlo%20con%20UNO%20Brokers" class="btn-primary">
+        &#128241; Cotizar mi renta gratis
+      </a>
+      <a href="#proceso" class="btn-secondary">
+        &iquest;C&oacute;mo funciona?
+      </a>
+    </div>
+        <div class="hero-zones">
+      <span class="zone-tag">Lomas de Santa Fe</span>
+      <span class="zone-tag">Contadero</span>
+      <span class="zone-tag">Santa Fe Cuajimalpa</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><div class="trust-icon">&#127942;</div> Intermediaci&oacute;n inmobiliaria profesional</div>
+  <div class="trust-item"><div class="trust-icon">&#128269;</div> Investigaci&oacute;n de arrendatario</div>
+  <div class="trust-item"><div class="trust-icon">&#128196;</div> Contrato con pagar&eacute; y fiador</div>
+  <div class="trust-item"><div class="trust-icon">&#128176;</div> Sin comisi&oacute;n anticipada</div>
+</div>
+
+<!-- BENEFICIOS -->
+<section class="benefits-bg">
+  <div class="container">
+    <span class="section-label">&iquest;Por qu&eacute; elegirnos?</span>
+    <h2>Rentar tu depa en Santa Fe<br><em>nunca fue tan f&aacute;cil</em></h2>
+    <p class="section-desc">Nos encargamos de todo el proceso: desde valuar tu propiedad hasta firmar el contrato con el inquilino ideal.</p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">&#128270;</div>
+        <h3>Investigaci&oacute;n de inquilino</h3>
+        <p>Verificamos historial crediticio, ingresos comprobables, referencias laborales y bur&oacute; de cr&eacute;dito para proteger tu patrimonio.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">&#128203;</div>
+        <h3>Contrato 100% legal</h3>
+        <p>Redactamos el contrato de arrendamiento con pagar&eacute; sin protesto, obligado solidario y cl&aacute;usulas de protecci&oacute;n al propietario.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">&#128227;</div>
+        <h3>Difusi&oacute;n en todos los portales</h3>
+        <p>Tu departamento aparece en Inmuebles24, Lamudi, Propiedades.com, Vivanuncios, redes sociales y Google.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">&#128172;</div>
+        <h3>Atenci&oacute;n directa con broker</h3>
+        <p>Hablas con tu asesor por WhatsApp, sin call centers ni tiempos de espera. Seguimiento real a cada interesado.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">&#128248;</div>
+        <h3>Fotograf&iacute;a profesional</h3>
+        <p>Incluimos sesi&oacute;n fotogr&aacute;fica para que tu departamento destaque en los portales y genere m&aacute;s visitas calificadas.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">&#9989;</div>
+        <h3>Comisi&oacute;n solo al concretar</h3>
+        <p>No cobras nada por adelantado. La comisi&oacute;n se descuenta del primer mes de renta, una vez firmado el contrato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONAS -->
+<section id="zonas">
+  <div class="container">
+    <div class="zonas-header">
+      <span class="section-label">Cobertura en Santa Fe</span>
+      <h2>Operamos en <em>toda la zona</em></h2>
+      <p class="section-desc">Conocemos el mercado de Santa Fe a fondo: precios reales, demanda por colonia y perfil de inquilinos que buscan vivir ah&iacute;.</p>
+    </div>
+        <div class="zonas-grid">
+      <div class="zona-card">
+        <span class="zona-icon">&#127807;</span>
+        <h3>Lomas de Santa Fe</h3>
+        <p>La zona premium de la alcald&iacute;a. Alta demanda ejecutiva y rentas que promedian $35,000/mes.</p>
+        <span class="zona-badge">Renta prom. $35,000</span>
+      </div>
+      <div class="zona-card">
+        <span class="zona-icon">&#127968;</span>
+        <h3>Contadero</h3>
+        <p>Mercado activo y al alza. Perfil ejecutivo y familiar con promedio de $37,000/mes.</p>
+        <span class="zona-badge">Renta prom. $37,000</span>
+      </div>
+      <div class="zona-card">
+        <span class="zona-icon">&#127979;</span>
+        <h3>Santa Fe Cuajimalpa</h3>
+        <p>Zona corporativa con alta rotaci&oacute;n y demanda sostenida de arrendatarios calificados.</p>
+        <span class="zona-badge">Alta demanda</span>
+      </div>
+    </div>
+      <div class="zona-card">
+        <span class="zona-icon">&#127968;</span>
+        <h3>Contadero</h3>
+        <p>Alta demanda y buena rotaci&oacute;n. Perfil ejecutivo y familiar. Promedio de mercado al alza.</p>
+        <span class="zona-badge">Renta prom. $37,000</span>
+      </div>
+      <div class="zona-card">
+        <span class="zona-icon">&#127979;</span>
+        <h3>Santa Fe Cuajimalpa</h3>
+        <p>Zona de alta conectividad corporativa con demanda sostenida de arrendatarios calificados.</p>
+        <span class="zona-badge">Alta demanda</span>
+      </div>
+      <div class="zona-card">
+        <span class="zona-icon">&#127795;</span>
+        <h3></h3>
+        <p>Entorno arbolado y tranquilo. Muy valorado por familias que buscan calidad de vida.</p>
+        <span class="zona-badge">Perfil familiar</span>
+      </div>
+      <div class="zona-card">
+        <span class="zona-icon">&#127959;&#65039;</span>
+        <h3> / </h3>
+        <p>Colonias consolidadas con oferta de departamentos grandes. Buena retenci&oacute;n de inquilinos.</p>
+        <span class="zona-badge">Baja vacancia</span>
+      </div>
+      <div class="zona-card">
+        <span class="zona-icon">&#127807;</span>
+        <h3> / </h3>
+        <p>Proyectos modernos en zonas de crecimiento. Rentas competitivas con gran potencial de plusval&iacute;a.</p>
+        <span class="zona-badge">En crecimiento</span>
+      </div>
+    </div>
+    <div class="zonas-cta-box" id="contacto">
+      <h3>&iquest;Tu depa est&aacute; en esta zona?</h3>
+      <p>Cont&aacute;ctanos hoy y recibe una opini&oacute;n de valor de tu propiedad sin costo.</p>
+      <a href="https://wa.me/523339675255?text=Hola%2C%20tengo%20un%20departamento%20en%20Santa%20Fe%20CDMX%20y%20quiero%20saber%20cu%C3%A1nto%20puedo%20rentarlo" class="btn-primary">
+        &#128241; Hablar con un broker ahora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="proceso-bg" id="proceso">
+  <div class="container">
+    <span class="section-label">As&iacute; funciona</span>
+    <h2>De propietario a<br><em>rentista tranquilo</em> en 4 pasos</h2>
+    <p class="section-desc">Un proceso claro, r&aacute;pido y sin sorpresas. T&uacute; nos das acceso a la propiedad, nosotros hacemos el resto.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Contacto inicial</h3>
+        <p>Nos escribes por WhatsApp. Un broker te llama en menos de 2 horas.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Valuaci&oacute;n del inmueble</h3>
+        <p>Determinamos el precio de renta ideal con base en el mercado real de Santa Fe hoy.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Publicaci&oacute;n y visitas</h3>
+        <p>Fotografiamos y publicamos en portales. Filtramos prospectos y coordinamos visitas.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Investigaci&oacute;n y firma</h3>
+        <p>Investigamos al inquilino, redactamos el contrato y lo firmamos. Tu depa ya est&aacute; rentado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section>
+  <div class="container">
+    <span class="section-label">Lo dicen nuestros clientes</span>
+    <h2>Propietarios que ya<br><em>conf&iacute;an en UNO Brokers</em></h2>
+    <p class="section-desc">Propietarios de Santa Fe y zona poniente que rentaron su depa con nosotros.</p>
+    <div class="testimonios-grid">
+      <div class="testimonio-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Ten&iacute;a mi departamento vac&iacute;o en Lomas de Santa Fe m&aacute;s de 3 meses. Con UNO lo rentamos en 18 d&iacute;as y con un excelente inquilino investigado. El proceso fue muy ordenado.&rdquo;</p>
+        <div class="testi-author">
+          <div class="testi-avatar">MR</div>
+          <div class="testi-info">
+            <strong>Marcela R.</strong>
+            <span>Propietaria &middot; Lomas de Santa Fe</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;Lo que m&aacute;s me gust&oacute; fue la investigaci&oacute;n de arrendatario. Me entregaron un reporte completo antes de firmar. Se siente mucho m&aacute;s seguro que hacerlo uno solo.&rdquo;</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JA</div>
+          <div class="testi-info">
+            <strong>Jorge A.</strong>
+            <span>Propietario &middot; Contadero</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>&ldquo;El asesor fue muy transparente con el precio de renta desde el principio y cumplieron el tiempo estimado. Ya voy por mi segundo departamento con ellos.&rdquo;</p>
+        <div class="testi-author">
+          <div class="testi-avatar">CP</div>
+          <div class="testi-info">
+            <strong>Carlos P.</strong>
+            <span>Propietario &middot; Lomas de Santa Fe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-bg">
+  <div class="container">
+    <span class="section-label">Preguntas frecuentes</span>
+    <h2>Todo lo que necesitas<br><em>saber antes de rentar</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">&iquest;Cu&aacute;nto cobran por rentar mi departamento en Santa Fe?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-body">Nuestra comisi&oacute;n equivale a un mes de renta m&aacute;s IVA, que se descuenta del primer pago del inquilino. No existe ning&uacute;n cobro por adelantado ni cuota fija mensual. Solo cobramos cuando tu depa est&aacute; rentado y el contrato firmado.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">&iquest;Cu&aacute;nto tiempo tardan en encontrar inquilino en la zona de Santa Fe?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-body">El tiempo promedio en Santa Fe y Lomas de Santa Fe es de 2 a 4 semanas, dependiendo del precio de renta y el estado del inmueble. Con un precio competitivo y fotograf&iacute;as profesionales, la vacancia se acorta notablemente.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">&iquest;Qu&eacute; incluye la investigaci&oacute;n de arrendatario?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-body">El reporte incluye an&aacute;lisis de ingresos comprobables, consulta en Bur&oacute; de Cr&eacute;dito, verificaci&oacute;n de referencias laborales y personales, y revisi&oacute;n de antecedentes legales. Entregamos un reporte escrito antes de que firmes el contrato.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">&iquest;Qu&eacute; tipo de contrato redactan?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-body">Redactamos un contrato de arrendamiento civil con pagar&eacute; sin protesto por el importe total del arrendamiento, la figura de obligado solidario o fiador, y cl&aacute;usulas espec&iacute;ficas de protecci&oacute;n al propietario conforme a la legislaci&oacute;n vigente en Ciudad de M&eacute;xico.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">&iquest;Qu&eacute; pasa si el inquilino deja de pagar la renta?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-body">Gracias al pagar&eacute; sin protesto y al obligado solidario incluidos en el contrato, tienes herramientas legales s&oacute;lidas para cobrar en caso de impago. Adem&aacute;s, la investigaci&oacute;n de arrendatario previa reduce significativamente este riesgo desde el inicio.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFAQ(this)">&iquest;Ofrecen administraci&oacute;n de rentas en Santa Fe?<span class="faq-arrow">&#9660;</span></button>
+        <div class="faq-body">S&iacute;. Adem&aacute;s de la colocaci&oacute;n del inquilino, ofrecemos servicios de administraci&oacute;n de rentas: cobro mensual, seguimiento a pagos, renovaci&oacute;n de contratos y atenci&oacute;n a inquilinos. Preg&uacute;ntanos por el esquema que mejor se adapta a tu caso.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Tu departamento en Santa Fe<br><em>merece estar rentado</em></h2>
+    <p>Habla con un broker especialista en la zona. Sin costo, sin compromiso. Solo resultados.</p>
+    <div class="final-cta-btns">
+      <a href="https://wa.me/523339675255?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20rentar%20mi%20departamento%20en%20Santa%20Fe%20CDMX" class="btn-whatsapp">
+        &#128172; Escribir por WhatsApp
+      </a>
+      <a href="tel:+523339675255" class="btn-secondary">
+        &#128222; Llamar ahora
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">UNO <span>Brokers</span></div>
+  <p>Inmobiliaria especializada en renta y administraci&oacute;n de propiedades</p>
+  <p>Lomas de Contadero &middot; Cuajimalpa de Morelos &middot; Ciudad de M&eacute;xico</p>
+  <div class="footer-links">
+    <a href="#">Inicio</a>
+    <a href="#zonas">Zonas</a>
+    <a href="#proceso">C&oacute;mo funciona</a>
+    <a href="#contacto">Contacto</a>
+    <a href="https://unobrokers.mx">unobrokers.mx</a>
+  </div>
+  <p style="margin-top:20px; font-size:11px;">&copy; 2026 UNO Brokers &middot; Todos los derechos reservados</p>
+</footer>
+
+<script>
+function toggleFAQ(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

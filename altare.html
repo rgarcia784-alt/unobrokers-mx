@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALTARE Suites — Av. México 2849, Guadalajara | UNO Brokers</title>
+<meta name="description" content="ALTARE Suites by Dala Desarrollos. Suites de 34.30 m² en Av. México 2849, Vallarta Norte, Guadalajara. Zona corporativa premium. Desde $2.22 MDP. Contado diferido hasta 30 meses. UNO Brokers.">
+<meta name="keywords" content="ALTARE Suites, departamentos Guadalajara, Av México Guadalajara, Dala Desarrollos, suites inversión GDL, Ladrón de Guevara, Vallarta Poniente, UNO Brokers">
+<meta property="og:title" content="ALTARE Suites — Departamentos en Av. México, Guadalajara">
+<meta property="og:description" content="Suites compactas de diseño en zona corporativa premium. Desde $2.22 MDP. Hasta 30 mensualidades.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a1a2e;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --dark: #111118;
+    --text: #1a1a2e;
+    --muted: #6b6b80;
+    --border: rgba(26,26,46,0.12);
+    --bg: #faf9f7;
+    --surface: #f0ede8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 10vw, 88px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 0.25rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 300;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.55s;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 1.75rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.65s;
+  }
+
+  .hero-address {
+    font-size: 13px;
+    color: rgba(245,240,232,0.55);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.75s;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.85s;
+  }
+
+  .badge {
+    font-size: 11px;
+    padding: 5px 14px;
+    border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold);
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .hero-cta {
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 1s;
+  }
+
+  .btn-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 14px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.3); }
+
+  .btn-wa svg { width: 20px; height: 20px; fill: #fff; }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(245,240,232,0.3);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: fadeUp 1s ease forwards 1.4s;
+    opacity: 0;
+  }
+
+  .scroll-hint span { width: 1px; height: 32px; background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent); animation: scrollLine 1.5s ease-in-out infinite; }
+
+  @keyframes scrollLine { 0%,100%{opacity:0.3;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.15)} }
+
+  /* SECTIONS */
+  .section {
+    padding: 5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 300;
+    color: var(--navy);
+    margin-bottom: 2rem;
+    line-height: 1.15;
+  }
+
+  .divider-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .stat-item {
+    background: var(--bg);
+    padding: 1.75rem 1.5rem;
+  }
+
+  .stat-item .s-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .stat-item .s-value { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+  .stat-item .s-sub { font-size: 12px; color: var(--muted); }
+
+  /* AMENIDADES */
+  .amenity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+
+  .amenity-item {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 1.25rem;
+    border: 1px solid var(--border);
+  }
+
+  .amenity-icon { font-size: 20px; margin-bottom: 10px; color: var(--gold); }
+  .amenity-name { font-size: 13px; font-weight: 500; color: var(--navy); }
+
+  /* PAGOS */
+  .pay-section { background: var(--navy); padding: 5rem 2rem; }
+  .pay-inner { max-width: 900px; margin: 0 auto; }
+
+  .pay-section .section-title { color: var(--cream); }
+  .pay-section .section-label { color: var(--gold); }
+  .pay-section .divider-line { background: var(--gold); }
+
+  .unit-tabs { display: flex; gap: 8px; margin-bottom: 2rem; flex-wrap: wrap; }
+
+  .unit-tab {
+    font-size: 13px;
+    padding: 7px 18px;
+    border-radius: 24px;
+    border: 1px solid rgba(201,168,76,0.3);
+    background: transparent;
+    color: rgba(245,240,232,0.5);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .unit-tab.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 500; }
+  .unit-tab:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+
+  .unit-panel { display: none; }
+  .unit-panel.active { display: block; }
+
+  .pay-card {
+    background: rgba(245,240,232,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 14px;
+    padding: 2rem;
+  }
+
+  .pay-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+    gap: 12px;
+    font-size: 14px;
+  }
+
+  .pay-row:last-of-type { border-bottom: none; }
+  .pay-row .pl { color: rgba(245,240,232,0.6); flex: 1; }
+  .pay-row .pr { font-weight: 500; color: var(--cream); white-space: nowrap; }
+
+  .pay-note {
+    font-size: 11px;
+    color: rgba(201,168,76,0.7);
+    font-style: italic;
+    padding: 6px 0 10px;
+    border-bottom: 1px solid rgba(245,240,232,0.08);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .plazo-section { margin-top: 1.5rem; }
+  .plazo-label { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(201,168,76,0.8); margin-bottom: 10px; }
+
+  .plazo-btns { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
+
+  .plazo-btn {
+    font-size: 13px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    border: 1px solid rgba(245,240,232,0.2);
+    background: transparent;
+    color: rgba(245,240,232,0.5);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .plazo-btn.active { background: var(--gold); color: var(--navy); border-color: var(--gold); font-weight: 500; }
+  .plazo-btn:hover:not(.active) { border-color: var(--gold); color: var(--gold); }
+
+  .mensual-box {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mensual-box .ml { font-size: 12px; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+  .mensual-box .mr { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; color: var(--cream); }
+
+  .pay-note-foot { font-size: 12px; color: rgba(245,240,232,0.35); margin-top: 1rem; font-style: italic; }
+
+  /* POR QUÉ */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  .why-item {
+    border-left: 2px solid var(--gold);
+    padding: 1rem 1.25rem;
+  }
+
+  .why-item .w-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+  .why-item .w-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--navy); margin-bottom: 3px; }
+  .why-item .w-sub { font-size: 12px; color: var(--muted); }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--navy);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+
+  .contact-inner { max-width: 520px; margin: 0 auto; }
+
+  .contact-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 4px;
+  }
+
+  .contact-sub { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 2.5rem; }
+
+  .contact-phone {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--cream);
+    margin-bottom: 1.75rem;
+    letter-spacing: 1px;
+  }
+
+  .btn-wa-lg {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 16px 36px;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 1rem;
+  }
+
+  .btn-wa-lg:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.35); }
+  .btn-wa-lg svg { width: 22px; height: 22px; fill: #fff; }
+
+  .contact-note { font-size: 12px; color: rgba(245,240,232,0.35); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 11px;
+    color: rgba(245,240,232,0.2);
+    letter-spacing: 0.5px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 3.5rem 1.25rem; }
+    .pay-section { padding: 3.5rem 1.25rem; }
+    .contact-section { padding: 3.5rem 1.25rem; }
+    .pay-card { padding: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Dala Desarrollos · Guadalajara, Jalisco</p>
+  <h1>ALTARE</h1>
+  <p class="hero-sub">Suites</p>
+  <div class="hero-divider"></div>
+  <p class="hero-address">Av. México 2849, Vallarta Norte · Col. Terranova · 44690 Guadalajara, Jal.</p>
+  <div class="hero-badges">
+    <span class="badge">34.30 m² por suite</span>
+    <span class="badge">12 niveles</span>
+    <span class="badge">Desde $2.22 MDP</span>
+    <span class="badge">Disponibles</span>
+  </div>
+  <div class="hero-cta">
+    <a class="btn-wa" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20información%20sobre%20ALTARE%20Suites%20en%20Av.%20México%202849%2C%20Guadalajara" target="_blank">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.526 5.855L.057 23.882a.5.5 0 0 0 .611.611l6.084-1.496A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.032-1.385l-.36-.214-3.733.918.952-3.645-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Solicitar información
+    </a>
+  </div>
+  <div class="scroll-hint">
+    <p>Ver más</p>
+    <span></span>
+  </div>
+</section>
+
+<!-- EL PROYECTO -->
+<section class="section">
+  <p class="section-label">El proyecto</p>
+  <h2 class="section-title">Un nuevo estándar<br>en Av. México</h2>
+  <div class="divider-line"></div>
+  <div class="stats-grid">
+    <div class="stat-item">
+      <p class="s-label">Superficie</p>
+      <p class="s-value">34.30</p>
+      <p class="s-sub">m² por suite</p>
+    </div>
+    <div class="stat-item">
+      <p class="s-label">Niveles</p>
+      <p class="s-value">12</p>
+      <p class="s-sub">+ local comercial PB</p>
+    </div>
+    <div class="stat-item">
+      <p class="s-label">Precio desde</p>
+      <p class="s-value">$2.22</p>
+      <p class="s-sub">MDP · contado diferido</p>
+    </div>
+    <div class="stat-item">
+      <p class="s-label">Entrega estimada</p>
+      <p class="s-value">30</p>
+      <p class="s-sub">meses a partir de hoy</p>
+    </div>
+  </div>
+</section>
+
+<!-- AMENIDADES -->
+<section style="padding: 0 2rem 5rem; max-width: 900px; margin: 0 auto;">
+  <p class="section-label">Amenidades</p>
+  <h2 class="section-title">Espacios que<br>elevan la experiencia</h2>
+  <div class="divider-line"></div>
+  <div class="amenity-grid">
+    <div class="amenity-item">
+      <div class="amenity-icon">🏬</div>
+      <p class="amenity-name">Local comercial PB</p>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon">🌿</div>
+      <p class="amenity-name">Patio jardín</p>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon">🌅</div>
+      <p class="amenity-name">Roof garden nivel 12</p>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon">🛎</div>
+      <p class="amenity-name">Lobby de recepción</p>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon">🏙</div>
+      <p class="amenity-name">Vista panorámica</p>
+    </div>
+    <div class="amenity-item">
+      <div class="amenity-icon">📍</div>
+      <p class="amenity-name">Zona corporativa</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAGOS -->
+<section class="pay-section">
+  <div class="pay-inner">
+    <p class="section-label">Esquema de pagos</p>
+    <h2 class="section-title">Ejemplos de inversión</h2>
+    <div class="divider-line"></div>
+
+    <div class="unit-tabs">
+      <button class="unit-tab active" onclick="switchUnit('u203', this)">Unidad 203 — Suite Sur</button>
+      <button class="unit-tab" onclick="switchUnit('u303', this)">Unidad 303 — Suite Sur</button>
+    </div>
+
+    <!-- UNIDAD 203 -->
+    <div class="unit-panel active" id="u203">
+      <div class="pay-card">
+        <div class="pay-row"><span class="pl">Precio de lista</span><span class="pr">$2,274,090</span></div>
+        <div class="pay-row"><span class="pl">10% Anticipo — al apartar</span><span class="pr">$227,409</span></div>
+        <div class="pay-row"><span class="pl">20% — a la exhibición de la licencia de construcción</span><span class="pr">$454,818</span></div>
+        <div class="pay-note">⚑ Se paga en el momento en que el desarrollador exhibe la licencia de construcción</div>
+        <div class="pay-row"><span class="pl">70% en mensualidades</span><span class="pr">$1,591,863</span></div>
+
+        <div class="plazo-section">
+          <p class="plazo-label">Elige el plazo</p>
+          <div class="plazo-btns" id="plazo-203">
+            <button class="plazo-btn" onclick="setPlazo('203', 12, this)">12 meses</button>
+            <button class="plazo-btn" onclick="setPlazo('203', 18, this)">18 meses</button>
+            <button class="plazo-btn" onclick="setPlazo('203', 24, this)">24 meses</button>
+            <button class="plazo-btn active" onclick="setPlazo('203', 30, this)">30 meses</button>
+          </div>
+          <div class="mensual-box">
+            <span class="ml">Mensualidad estimada</span>
+            <span class="mr" id="mensual-203">$53,062 / mes</span>
+          </div>
+        </div>
+      </div>
+      <p class="pay-note-foot">* Ejemplo orientativo. Mensualidades a partir de la fecha de apartado. Piso 2, Suite Sur.</p>
+    </div>
+
+    <!-- UNIDAD 303 -->
+    <div class="unit-panel" id="u303">
+      <div class="pay-card">
+        <div class="pay-row"><span class="pl">Precio de lista</span><span class="pr">$2,319,572</span></div>
+        <div class="pay-row"><span class="pl">10% Anticipo — al apartar</span><span class="pr">$231,957</span></div>
+        <div class="pay-row"><span class="pl">20% — a la exhibición de la licencia de construcción</span><span class="pr">$463,914</span></div>
+        <div class="pay-note">⚑ Se paga en el momento en que el desarrollador exhibe la licencia de construcción</div>
+        <div class="pay-row"><span class="pl">70% en mensualidades</span><span class="pr">$1,623,700</span></div>
+
+        <div class="plazo-section">
+          <p class="plazo-label">Elige el plazo</p>
+          <div class="plazo-btns" id="plazo-303">
+            <button class="plazo-btn" onclick="setPlazo('303', 12, this)">12 meses</button>
+            <button class="plazo-btn" onclick="setPlazo('303', 18, this)">18 meses</button>
+            <button class="plazo-btn" onclick="setPlazo('303', 24, this)">24 meses</button>
+            <button class="plazo-btn active" onclick="setPlazo('303', 30, this)">30 meses</button>
+          </div>
+          <div class="mensual-box">
+            <span class="ml">Mensualidad estimada</span>
+            <span class="mr" id="mensual-303">$54,123 / mes</span>
+          </div>
+        </div>
+      </div>
+      <p class="pay-note-foot">* Ejemplo orientativo. Mensualidades a partir de la fecha de apartado. Piso 3, Suite Sur.</p>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ -->
+<section class="section">
+  <p class="section-label">Por qué ALTARE</p>
+  <h2 class="section-title">Inversión con sentido<br>en el corazón de GDL</h2>
+  <div class="divider-line"></div>
+  <div class="why-grid">
+    <div class="why-item">
+      <p class="w-label">Uso</p>
+      <p class="w-value">Vivienda o renta</p>
+      <p class="w-sub">Habitual o temporal</p>
+    </div>
+    <div class="why-item">
+      <p class="w-label">Diseño</p>
+      <p class="w-value">Alturas plus</p>
+      <p class="w-sub">Mobiliario modular</p>
+    </div>
+    <div class="why-item">
+      <p class="w-label">Ubicación</p>
+      <p class="w-value">Av. México</p>
+      <p class="w-sub">Nodo corporativo GDL</p>
+    </div>
+    <div class="why-item">
+      <p class="w-label">Desarrollador</p>
+      <p class="w-value">Dala Desarrollos</p>
+      <p class="w-sub">Empresa 100% mexicana</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="contact-section">
+  <div class="contact-inner">
+    <p class="contact-brand">UNO Brokers</p>
+    <p class="contact-sub">Asesor comercial de ALTARE Suites</p>
+    <p class="contact-phone">33 3967 5255</p>
+    <a class="btn-wa-lg" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20información%20sobre%20ALTARE%20Suites%20en%20Av.%20México%202849%2C%20Guadalajara" target="_blank">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.526 5.855L.057 23.882a.5.5 0 0 0 .611.611l6.084-1.496A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.032-1.385l-.36-.214-3.733.918.952-3.645-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      Escríbenos por WhatsApp
+    </a>
+    <p class="contact-note">Respuesta inmediata · unobrokers.mx</p>
+  </div>
+</section>
+
+<footer>
+  ALTARE Suites by Dala Desarrollos · Comercialización exclusiva UNO Brokers · Información sujeta a cambios sin previo aviso
+</footer>
+
+<script>
+  var bases = { '203': 1591863, '303': 1623700 };
+
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('es-MX') + ' / mes';
+  }
+
+  function setPlazo(unit, meses, el) {
+    document.querySelectorAll('#plazo-' + unit + ' .plazo-btn').forEach(function(b) { b.classList.remove('active'); });
+    el.classList.add('active');
+    document.getElementById('mensual-' + unit).textContent = fmt(bases[unit] / meses);
+  }
+
+  function switchUnit(id, el) {
+    document.querySelectorAll('.unit-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.unit-tab').forEach(function(t) { t.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

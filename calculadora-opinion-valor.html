@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WBZQNYLQYF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WBZQNYLQYF');
+</script>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Calculadora de Opinión de Valor Inmobiliario en Guadalajara y Zapopan | UNO Brokers</title>
+<meta name="description" content="Calcula gratis el valor estimado de tu casa, departamento o terreno en Guadalajara y Zapopan. Opinión de valor inmobiliaria con comparables de mercado 2026. UNO Brokers."/>
+<meta name="keywords" content="opinión de valor inmobiliario Guadalajara, valor de mi casa Zapopan, calculadora inmobiliaria GDL, cuánto vale mi casa, valuación inmobiliaria Zapopan"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+  --navy:#0D1B2A;--navy2:#1D2E40;--amber:#E8A020;--teal:#1D9E75;
+  --coral:#E8402A;--bg:#F4F5F7;--white:#FFFFFF;--gray:#6B7280;
+  --border:#E2E8F0;--text:#1A202C;--wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* HEADER */
+header{background:var(--navy);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo-main{font-size:24px;font-weight:900;color:var(--white);letter-spacing:3px}
+.logo-main span{color:var(--amber)}
+.logo-sub{font-size:11px;color:#8899AA;letter-spacing:2px;margin-top:2px}
+.header-contact{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.hdr-wa{background:var(--wa);color:var(--white);font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px;text-decoration:none;display:flex;align-items:center;gap:5px}
+.hdr-tel{color:var(--amber);font-size:13px;font-weight:700;text-decoration:none}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);padding:40px 24px 32px;text-align:center}
+.hero h1{color:var(--white);font-size:clamp(22px,4vw,32px);font-weight:900;line-height:1.25}
+.hero h1 span{color:var(--amber)}
+.hero p{color:#9BB0C4;font-size:15px;margin-top:12px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6}
+.hero-cta{display:flex;gap:12px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+.hero-btn-wa{background:var(--wa);color:var(--white);font-size:14px;font-weight:700;padding:12px 22px;border-radius:25px;text-decoration:none;display:flex;align-items:center;gap:7px;transition:all .2s}
+.hero-btn-wa:hover{background:#1db954;transform:translateY(-1px)}
+.hero-btn-ghost{background:transparent;border:2px solid rgba(255,255,255,.35);color:var(--white);font-size:14px;font-weight:700;padding:12px 22px;border-radius:25px;text-decoration:none;transition:all .2s}
+.hero-btn-ghost:hover{border-color:var(--amber);color:var(--amber)}
+
+/* MAIN */
+main{max-width:780px;margin:0 auto;padding:24px 16px 60px}
+
+/* CARD */
+.card{background:var(--white);border-radius:14px;box-shadow:0 2px 16px rgba(0,0,0,.08);margin-bottom:20px;overflow:hidden}
+.card-header{background:var(--navy);padding:14px 20px;display:flex;align-items:center;gap:10px}
+.card-header .icon{background:var(--amber);border-radius:8px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.card-header h2{color:var(--white);font-size:15px;font-weight:700;letter-spacing:.4px}
+.card-body{padding:20px}
+
+/* FORM */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.form-grid{grid-template-columns:1fr}}
+.form-full{grid-column:1/-1}
+.field label{display:block;font-size:12px;font-weight:700;color:var(--gray);letter-spacing:.5px;text-transform:uppercase;margin-bottom:6px}
+.field input,.field select,.field textarea{width:100%;padding:11px 14px;border:2px solid var(--border);border-radius:9px;font-size:14px;color:var(--text);background:#FAFBFC;transition:border-color .2s;appearance:none;-webkit-appearance:none}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--teal);background:var(--white)}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+.field-hint{font-size:11px;color:var(--gray);margin-top:4px}
+
+/* CHECKS */
+.check-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.check-item{display:flex;align-items:center;gap:8px;padding:9px 12px;border:2px solid var(--border);border-radius:9px;cursor:pointer;transition:all .2s;font-size:13px;font-weight:600;color:var(--navy2)}
+.check-item:hover{border-color:var(--teal);background:#F0FBF7}
+.check-item input{width:16px;height:16px;accent-color:var(--teal);cursor:pointer;flex-shrink:0}
+.check-item.checked{border-color:var(--teal);background:#E8F8F3;color:var(--teal)}
+
+/* BUTTONS */
+.btn-calc{width:100%;padding:18px;background:var(--amber);color:var(--navy);font-size:18px;font-weight:900;border:none;border-radius:12px;cursor:pointer;letter-spacing:1px;transition:all .2s;margin-top:8px}
+.btn-calc:hover{background:#D4911A;transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,160,32,.35)}
+
+/* RESULTADO */
+#resultado{display:none}
+
+.valor-hero{background:var(--navy);border-radius:14px;padding:28px 20px;text-align:center;margin-bottom:20px}
+.valor-hero .label{color:#8899AA;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+.valor-hero .mid-value{color:var(--amber);font-size:clamp(28px,6vw,44px);font-weight:900;line-height:1}
+.valor-tabs{display:flex;justify-content:center;gap:0;margin-top:18px;background:#1a2f46;border-radius:10px;overflow:hidden}
+.valor-tab{flex:1;text-align:center;padding:12px 8px}
+.valor-tab .tv{font-size:clamp(14px,3vw,18px);font-weight:800;color:var(--white)}
+.valor-tab .tl{font-size:11px;color:#8899AA;margin-top:3px}
+.valor-tab.renta-tab{border-left:1px solid #2D4A66}
+.valor-tab.renta-tab .tv{color:var(--teal)}
+.valor-tab-div{width:1px;background:#2D4A66}
+
+/* RESUMEN */
+.resumen-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.resumen-grid{grid-column:1fr}}
+.resumen-item{background:#F8FAFC;border-radius:10px;padding:12px 14px;border-left:3px solid var(--amber)}
+.resumen-item .ri-label{font-size:11px;color:var(--gray);font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.resumen-item .ri-val{font-size:15px;font-weight:800;color:var(--navy);margin-top:3px}
+
+/* COMPARABLES */
+.comp-table{width:100%;border-collapse:collapse;font-size:13px}
+.comp-table th{background:var(--navy);color:var(--amber);padding:9px 10px;text-align:left;font-size:11px;letter-spacing:.4px;text-transform:uppercase}
+.comp-table td{padding:9px 10px;border-bottom:1px solid var(--border);color:var(--text);font-size:12.5px}
+.comp-table tr:nth-child(even) td{background:#F8FAFC}
+.comp-table .row-sujeto td{background:#E8F8F3;font-weight:700;color:var(--teal);border-top:2px solid var(--teal)}
+.comp-badge{display:inline-block;background:#E8F8F3;color:var(--teal);font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:5px}
+
+.disclaimer{background:#FFF8EC;border:1px solid #F5D89A;border-radius:10px;padding:14px;font-size:12px;color:#7A5C1A;line-height:1.6;margin-top:16px}
+
+/* CTA CARD */
+.cta-card{background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);border-radius:14px;padding:28px 24px;text-align:center;margin-bottom:20px}
+.cta-card h3{color:var(--white);font-size:20px;font-weight:800;margin-bottom:8px}
+.cta-card p{color:#9BB0C4;font-size:14px;margin-bottom:20px;line-height:1.6}
+.cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-wa-big{background:var(--wa);color:var(--white);font-size:15px;font-weight:800;padding:14px 24px;border-radius:25px;text-decoration:none;display:flex;align-items:center;gap:8px;transition:all .2s}
+.btn-wa-big:hover{background:#1db954;transform:translateY(-1px)}
+.btn-tel-big{background:var(--amber);color:var(--navy);font-size:15px;font-weight:800;padding:14px 24px;border-radius:25px;text-decoration:none;display:flex;align-items:center;gap:8px;transition:all .2s}
+.btn-tel-big:hover{background:#D4911A;transform:translateY(-1px)}
+
+.btn-pdf{width:100%;padding:15px;background:var(--teal);color:var(--white);font-size:15px;font-weight:800;border:none;border-radius:12px;cursor:pointer;transition:all .2s;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-pdf:hover{background:#178A64;transform:translateY(-1px)}
+.btn-nueva{width:100%;padding:13px;background:transparent;color:var(--gray);font-size:14px;font-weight:700;border:2px solid var(--border);border-radius:12px;cursor:pointer;margin-top:10px;transition:all .2s}
+.btn-nueva:hover{border-color:var(--navy);color:var(--navy)}
+
+/* FAQ */
+.faq-section{max-width:780px;margin:0 auto 60px;padding:0 16px}
+.faq-section h2{font-size:22px;font-weight:900;color:var(--navy);margin-bottom:6px}
+.faq-section .faq-sub{font-size:14px;color:var(--gray);margin-bottom:24px}
+.faq-item{background:var(--white);border-radius:12px;margin-bottom:12px;box-shadow:0 1px 8px rgba(0,0,0,.06);overflow:hidden}
+.faq-q{width:100%;text-align:left;padding:16px 20px;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700;color:var(--navy);line-height:1.4}
+.faq-q:hover{background:#F8FAFC}
+.faq-q .faq-icon{font-size:18px;color:var(--amber);flex-shrink:0;margin-left:12px;transition:transform .25s}
+.faq-q.open .faq-icon{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 20px 18px;font-size:14px;color:#4A5568;line-height:1.7;border-top:1px solid var(--border)}
+.faq-a.open{display:block}
+.faq-a p{margin-top:12px}
+.faq-a ul{margin:8px 0 0 18px}
+.faq-a ul li{margin-bottom:6px}
+
+/* CTA BOTTOM */
+.cta-bottom{background:var(--navy);padding:40px 24px;text-align:center}
+.cta-bottom h2{color:var(--white);font-size:24px;font-weight:900;margin-bottom:8px}
+.cta-bottom p{color:#9BB0C4;margin-bottom:24px;font-size:15px}
+.cta-bottom .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+/* FLOATING WA */
+.wa-float{position:fixed;bottom:24px;right:20px;background:var(--wa);color:var(--white);width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.5);z-index:999;transition:all .2s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 22px rgba(37,211,102,.7)}
+
+footer{background:var(--navy);text-align:center;padding:20px;color:#8899AA;font-size:12px;border-top:3px solid var(--amber)}
+footer strong{color:var(--amber)}
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo-main">UNO <span>BROKERS</span></div>
+    <div class="logo-sub">INMOBILIARIA · GDL · ZPN</div>
+  </div>
+  <div class="header-contact">
+    <a class="hdr-wa" id="hdrWa" href="https://wa.me/523339675255" target="_blank">💬 WhatsApp</a>
+    <a class="hdr-tel" id="hdrTel" href="tel:+523339675255">📞 33 3967 5255</a>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>¿Cuánto vale tu propiedad en<br/><span>Guadalajara o Zapopan?</span></h1>
+  <p id="heroP">Obtén gratis una opinión de valor inmobiliario con comparables de mercado actualizados y estimación de renta mensual. Respaldado por UNO Brokers.</p>
+  <div class="hero-cta">
+    <a class="hero-btn-wa" id="heroWa" href="https://wa.me/523339675255" target="_blank">💬 Hablar con un asesor</a>
+    <a class="hero-btn-ghost" href="#calculadora">⬇ Calcular ahora</a>
+  </div>
+</div>
+
+<main id="calculadora">
+
+  <!-- Personalización para asesores -->
+  <div id="personalizaBox" style="max-width:640px;margin:0 auto 24px;padding:16px 20px;background:#fff8e6;border:2px solid #e8a020;border-radius:10px;box-shadow:0 2px 10px rgba(232,160,32,0.25);">
+    <button id="personalizaToggle" style="background:none;border:none;cursor:pointer;font-size:15px;font-weight:800;color:#b8720a;padding:0;display:flex;align-items:center;gap:8px;width:100%;text-align:left">
+      <span style="background:#e8a020;color:#fff;padding:2px 8px;border-radius:5px;font-size:12px;letter-spacing:.03em">NUEVO</span>
+      🔗 <span>¿Eres asesor inmobiliario? Genera tu propio link personalizado →</span>
+    </button>
+    <div id="personalizaPanel" style="display:none;margin-top:14px">
+      <p style="font-size:12.5px;color:#5a6a7a;margin-bottom:10px">Pon tu nombre y tu WhatsApp. Te damos un link único de esta misma calculadora — cuando tus clientes entren por ahí, todos los botones de contacto y la opinión de valor descargable van a aparecer con tus datos, no los nuestros.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+        <input id="pAgentName" type="text" placeholder="Tu nombre o el de tu inmobiliaria" style="flex:1;min-width:180px;padding:9px 10px;border:1px solid #cfd8e0;border-radius:6px;font-size:13px">
+        <input id="pAgentTel" type="text" placeholder="WhatsApp (10 dígitos)" maxlength="10" style="width:170px;padding:9px 10px;border:1px solid #cfd8e0;border-radius:6px;font-size:13px">
+      </div>
+      <button id="pGenBtn" style="background:#e8a020;color:#fff;border:none;padding:9px 18px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer">Generar mi link</button>
+      <div id="pResultBox" style="display:none;margin-top:12px;padding:10px 12px;background:#fff;border:1px solid #cfd8e0;border-radius:6px">
+        <input id="pResultLink" type="text" readonly style="width:100%;border:none;font-size:12px;color:#333;background:transparent">
+        <button id="pCopyBtn" style="margin-top:8px;background:var(--navy,#0a1f3d);color:#fff;border:none;padding:7px 14px;border-radius:6px;font-size:12px;cursor:pointer">📋 Copiar link</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="formulario">
+
+    <!-- CLIENTE -->
+    <div class="card">
+      <div class="card-header"><div class="icon">👤</div><h2>DATOS DEL CLIENTE</h2></div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="field form-full">
+            <label>Nombre completo</label>
+            <input type="text" id="cliente" placeholder="Ej. Juan García López"/>
+          </div>
+          <div class="field">
+            <label>Correo electrónico</label>
+            <input type="email" id="email" placeholder="correo@ejemplo.com"/>
+          </div>
+          <div class="field">
+            <label>Teléfono</label>
+            <input type="tel" id="telefono" placeholder="33 XXXX XXXX"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- UBICACIÓN -->
+    <div class="card">
+      <div class="card-header"><div class="icon">📍</div><h2>UBICACIÓN</h2></div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="field">
+            <label>Municipio / Zona</label>
+            <select id="zona">
+              <option value="">Selecciona una zona</option>
+              <option value="zapopan-premium">Zapopan Residencial Premium</option>
+              <option value="zapopan-residencial">Zapopan Residencial</option>
+              <option value="zapopan-popular">Zapopan Popular</option>
+              <option value="gdl-poniente">Guadalajara Poniente / Vallarta</option>
+              <option value="gdl-centro">Guadalajara Centro / Tradicional</option>
+              <option value="gdl-oriente">Guadalajara Oriente / Norte / Sur</option>
+              <option value="tlajomulco">Tlajomulco de Zúñiga</option>
+              <option value="tlaquepaque">San Pedro Tlaquepaque</option>
+              <option value="tonala">Tonalá</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Colonia / Fraccionamiento</label>
+            <input type="text" id="colonia" placeholder="Ej. Los Sueños Residencial"/>
+          </div>
+          <div class="field form-full">
+            <label>Dirección o referencia (opcional)</label>
+            <input type="text" id="direccion" placeholder="Calle, número, referencias…"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARACTERÍSTICAS -->
+    <div class="card">
+      <div class="card-header"><div class="icon">🏠</div><h2>CARACTERÍSTICAS DE LA PROPIEDAD</h2></div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="field">
+            <label>Tipo de inmueble</label>
+            <select id="tipo">
+              <option value="">Selecciona tipo</option>
+              <option value="casa">Casa</option>
+              <option value="departamento">Departamento</option>
+              <option value="terreno">Terreno</option>
+              <option value="local">Local Comercial</option>
+              <option value="oficina">Oficina</option>
+              <option value="bodega">Bodega / Nave Industrial</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Estado de conservación</label>
+            <select id="conservacion">
+              <option value="">Selecciona estado</option>
+              <option value="excelente">Excelente (nuevo o remodelado)</option>
+              <option value="bueno">Bueno (mantenimiento regular)</option>
+              <option value="regular">Regular (detalles menores)</option>
+              <option value="remodelacion">Requiere remodelación</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>m² de construcción</label>
+            <input type="number" id="mConst" placeholder="Ej. 180" min="0"/>
+          </div>
+          <div class="field">
+            <label>m² de terreno</label>
+            <input type="number" id="mTerr" placeholder="Ej. 250" min="0"/>
+          </div>
+          <div class="field">
+            <label>Recámaras</label>
+            <select id="recamaras">
+              <option value="0">Estudio / 0 recámaras</option>
+              <option value="1">1 recámara</option>
+              <option value="2">2 recámaras</option>
+              <option value="3" selected>3 recámaras</option>
+              <option value="4">4 recámaras</option>
+              <option value="5">5 o más recámaras</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Baños completos</label>
+            <select id="banos">
+              <option value="1">1 baño</option>
+              <option value="2" selected>2 baños</option>
+              <option value="3">3 baños</option>
+              <option value="4">4 baños</option>
+              <option value="5">5 o más</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Medios baños</label>
+            <select id="mediobanos">
+              <option value="0">Sin medio baño</option>
+              <option value="1">1 medio baño</option>
+              <option value="2">2 medios baños</option>
+              <option value="3">3 o más</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Estacionamientos</label>
+            <select id="estacionamiento">
+              <option value="0">Sin estacionamiento</option>
+              <option value="1">1 lugar</option>
+              <option value="2" selected>2 lugares</option>
+              <option value="3">3 lugares</option>
+              <option value="4">4 o más</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Antigüedad (años)</label>
+            <input type="number" id="antiguedad" placeholder="Ej. 10" min="0" max="100"/>
+          </div>
+          <div class="field">
+            <label>Niveles / Plantas</label>
+            <select id="niveles">
+              <option value="1">1 nivel</option>
+              <option value="2">2 niveles</option>
+              <option value="3">3 niveles</option>
+              <option value="4">4 o más niveles</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Valor catastral / Predial anual (MXN)</label>
+            <input type="number" id="predial" placeholder="Ej. 12500" min="0"/>
+            <div class="field-hint">Dato del recibo de predial anual — mejora la precisión del cálculo</div>
+          </div>
+          <div class="field">
+            <label>Uso que se busca</label>
+            <select id="uso">
+              <option value="venta">Venta</option>
+              <option value="renta">Renta</option>
+              <option value="ambos">Ambos (venta y renta)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AMENIDADES -->
+    <div class="card">
+      <div class="card-header"><div class="icon">✨</div><h2>AMENIDADES Y EXTRAS</h2></div>
+      <div class="card-body">
+        <div class="check-grid" id="checkGrid">
+          <label class="check-item"><input type="checkbox" value="alberca"/> 🏊 Alberca</label>
+          <label class="check-item"><input type="checkbox" value="jardin"/> 🌿 Jardín privado</label>
+          <label class="check-item"><input type="checkbox" value="gym"/> 💪 Gimnasio</label>
+          <label class="check-item"><input type="checkbox" value="roof"/> 🌇 Roof garden</label>
+          <label class="check-item"><input type="checkbox" value="vigilancia"/> 🔒 Vigilancia 24h</label>
+          <label class="check-item"><input type="checkbox" value="elevador"/> 🛗 Elevador</label>
+          <label class="check-item"><input type="checkbox" value="bodega_util"/> 📦 Bodega/Utility</label>
+          <label class="check-item"><input type="checkbox" value="cuarto_serv"/> 🛏 Cuarto de servicio</label>
+          <label class="check-item"><input type="checkbox" value="terraza"/> 🏡 Terraza/Balcón</label>
+          <label class="check-item"><input type="checkbox" value="cisterna"/> 💧 Cisterna propia</label>
+          <label class="check-item"><input type="checkbox" value="paneles"/> ☀️ Paneles solares</label>
+          <label class="check-item"><input type="checkbox" value="smart"/> 📱 Casa inteligente</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- OBSERVACIONES -->
+    <div class="card">
+      <div class="card-header"><div class="icon">📝</div><h2>OBSERVACIONES</h2></div>
+      <div class="card-body">
+        <div class="field">
+          <label>Notas adicionales (opcional)</label>
+          <textarea id="notas" rows="3" placeholder="Descripción breve, estado actual, información adicional relevante…" style="resize:vertical"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-calc" onclick="calcular()">⚡ CALCULAR OPINIÓN DE VALOR</button>
+  </div>
+
+  <!-- ══ RESULTADO ══ -->
+  <div id="resultado">
+
+    <!-- Valor hero -->
+    <div class="valor-hero">
+      <div class="label" id="resLabel">OPINIÓN DE VALOR — UNO BROKERS 2026</div>
+      <div class="mid-value" id="res-mid">$0</div>
+      <div style="color:#8899AA;font-size:12px;margin-top:5px">Valor de venta estimado</div>
+      <div class="valor-tabs" style="margin-top:16px">
+        <div class="valor-tab">
+          <div class="tv" id="res-min">$0</div>
+          <div class="tl">Valor mínimo</div>
+        </div>
+        <div class="valor-tab-div"></div>
+        <div class="valor-tab">
+          <div class="tv" id="res-max">$0</div>
+          <div class="tl">Valor máximo</div>
+        </div>
+        <div class="valor-tab-div" id="renta-divider"></div>
+        <div class="valor-tab renta-tab" id="renta-tab" style="display:none">
+          <div class="tv" id="res-renta">$0</div>
+          <div class="tl">Renta mensual est.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resumen -->
+    <div class="card">
+      <div class="card-header"><div class="icon">📋</div><h2>RESUMEN DE LA PROPIEDAD</h2></div>
+      <div class="card-body">
+        <div class="resumen-grid" id="resumenGrid"></div>
+      </div>
+    </div>
+
+    <!-- Comparables -->
+    <div class="card">
+      <div class="card-header"><div class="icon">📊</div><h2>COMPARABLES DE MERCADO — REFERENCIA ZMG 2026</h2></div>
+      <div class="card-body">
+        <p style="font-size:12px;color:var(--gray);margin-bottom:12px">Propiedades similares en la misma zona con base en datos de referencia del mercado inmobiliario de la ZMG.</p>
+        <div style="overflow-x:auto">
+          <table class="comp-table">
+            <thead><tr><th>Descripción</th><th>Superficie</th><th>Rango de precio</th><th>Precio/m²</th></tr></thead>
+            <tbody id="compBody"></tbody>
+          </table>
+        </div>
+        <!-- Renta comparables -->
+        <div id="rentaComps" style="display:none;margin-top:18px">
+          <p style="font-size:12px;color:var(--gray);margin-bottom:10px;font-weight:700">📅 COMPARABLES DE RENTA MENSUAL — ZMG 2026</p>
+          <div style="overflow-x:auto">
+            <table class="comp-table">
+              <thead><tr><th>Descripción</th><th>Superficie</th><th>Renta mensual est.</th><th>$/m² mensual</th></tr></thead>
+              <tbody id="compRentaBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA resultado -->
+    <div class="cta-card">
+      <h3>¿Quieres vender o rentar tu propiedad?</h3>
+      <p id="ctaP">En UNO Brokers te ayudamos a obtener el mejor precio del mercado con una estrategia de venta o renta personalizada. Contacta ahora a un asesor.</p>
+      <div class="cta-buttons">
+        <a class="btn-wa-big" id="ctaWa" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20vender%20o%20rentar%20mi%20propiedad.%20Me%20puede%20dar%20m%C3%A1s%20informaci%C3%B3n%3F" target="_blank">💬 WhatsApp directo</a>
+        <a class="btn-tel-big" id="ctaTel" href="tel:+523339675255">📞 33 3967 5255</a>
+      </div>
+    </div>
+
+    <!-- Referidos -->
+    <div class="card">
+      <div class="card-header"><div class="icon">🎁</div><h2>COMPARTE Y OBTÉN TU OPINIÓN DE VALOR PREMIUM GRATIS</h2></div>
+      <div class="card-body">
+        <p style="font-size:13px;color:var(--gray);margin-bottom:14px">
+          Comparte esta calculadora con <strong>3 personas</strong> que también estén pensando en vender o rentar su propiedad, y te regalamos una opinión de valor <strong>premium</strong> — con visita física de un asesor y comparables exactos de tu zona, sin costo.
+        </p>
+        <a class="btn-wa-big" id="refShare" style="margin-bottom:10px" href="#" target="_blank">📤 Compartir con 3 personas</a>
+        <a class="btn-tel-big" id="refClaim" style="width:100%;justify-content:center;box-sizing:border-box" href="#" target="_blank">✅ Ya compartí, reclamar mi premio</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header"><div class="icon">🧮</div><h2>¿Vas a vender? Calcula también tu ISR</h2></div>
+      <div class="card-body">
+        <p style="font-size:13px;color:var(--gray);margin-bottom:12px">Antes de fijar tu precio final, conoce cuánto pagarías de impuesto sobre la renta por la ganancia de la venta, con la tarifa fiscal 2026 vigente.</p>
+        <a href="https://unobrokers.com.mx/calculadora-isr-venta-propiedad.html" style="display:block;text-align:center;background:var(--navy);color:var(--amber);font-weight:800;padding:14px;border-radius:10px;text-decoration:none;font-size:14px">📊 Ir a la Calculadora de ISR por Venta →</a>
+      </div>
+    </div>
+
+    <!-- PDF + Nueva -->
+    <div class="card">
+      <div class="card-header"><div class="icon">⚖️</div><h2>CONCLUSIÓN Y DESCARGA</h2></div>
+      <div class="card-body">
+        <div class="disclaimer">⚠️ Esta opinión de valor es una estimación referencial elaborada con base en datos del mercado inmobiliario de la ZMG y no sustituye un avalúo comercial formal emitido por perito valuador certificado. Los valores pueden variar según condiciones específicas del inmueble, negociación entre partes y condiciones de mercado al momento de la operación.</div>
+        <button class="btn-pdf" onclick="generarPDF()">📄 Descargar PDF para el cliente</button>
+        <button class="btn-nueva" onclick="nuevaConsulta()">← Nueva consulta</button>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ══ FAQ SEO ══ -->
+<div class="faq-section">
+  <h2>Preguntas Frecuentes sobre Valuación Inmobiliaria en Guadalajara</h2>
+  <p class="faq-sub">Todo lo que necesitas saber sobre el valor de tu propiedad en la zona metropolitana de Guadalajara.</p>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué es una opinión de valor inmobiliario? <span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>Una opinión de valor es un estimado del precio de mercado de un inmueble elaborado por un agente inmobiliario profesional con base en comparables de propiedades similares en la misma zona. Es una herramienta útil para orientar al propietario antes de poner en venta o renta su propiedad. A diferencia del avalúo formal, la opinión de valor no tiene validez oficial ante notario pero ofrece una referencia rápida y confiable del mercado actual.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto vale una casa en Zapopan en 2026? <span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>El valor de una casa en Zapopan varía significativamente según la zona:</p>
+      <ul>
+        <li><strong>Zapopan Residencial Premium</strong> (Valle Real, Puerta de Hierro, Los Sueños): $30,000–$58,000/m²</li>
+        <li><strong>Zapopan Residencial</strong> (Country Club, Ciudad Bugambilias): $20,000–$38,000/m²</li>
+        <li><strong>Zapopan Popular</strong> (Santa Margarita, Jardines de Nuevo México): $12,000–$21,000/m²</li>
+      </ul>
+      <p>Usa nuestra calculadora para obtener un estimado preciso según las características de tu propiedad.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto vale un departamento en Guadalajara? <span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>En Guadalajara, el precio de departamentos varía según la colonia:</p>
+      <ul>
+        <li><strong>Zona Vallarta / Providencia</strong>: $18,000–$34,000/m²</li>
+        <li><strong>Guadalajara Centro</strong>: $14,000–$26,000/m²</li>
+        <li><strong>GDL Oriente / Norte</strong>: $9,000–$17,000/m²</li>
+      </ul>
+      <p>Factores como antigüedad, amenidades y estado de conservación pueden aumentar o reducir el valor hasta un 30%.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto se puede pedir de renta por una casa en Zapopan? <span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>La renta mensual estimada en Zapopan depende del valor comercial del inmueble y la zona. Como referencia general:</p>
+      <ul>
+        <li><strong>Zapopan Premium</strong>: entre el 0.4% y 0.5% del valor comercial mensual</li>
+        <li><strong>Zapopan Residencial</strong>: entre el 0.45% y 0.55% mensual</li>
+        <li><strong>Zapopan Popular</strong>: entre el 0.5% y 0.65% mensual</li>
+      </ul>
+      <p>Nuestra calculadora incluye la estimación de renta mensual cuando seleccionas la opción "Renta" o "Ambos".</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cuál es la diferencia entre opinión de valor y avalúo? <span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>Son dos instrumentos distintos:</p>
+      <ul>
+        <li><strong>Opinión de valor</strong>: emitida por un agente inmobiliario, gratuita o de bajo costo, útil para orientación de mercado. No tiene validez legal oficial.</li>
+        <li><strong>Avalúo comercial</strong>: realizado por un perito valuador certificado, tiene validez ante notario y se requiere para trámites bancarios, herencias, garantías hipotecarias y compraventas formales.</li>
+      </ul>
+      <p>Si necesitas un avalúo formal, en UNO Brokers podemos orientarte con un perito de confianza.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Qué factores afectan más el valor de una propiedad? <span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>Los principales factores que determinan el valor de un inmueble en Guadalajara son:</p>
+      <ul>
+        <li><strong>Ubicación y zona</strong>: es el factor más importante; puede representar hasta el 50% del valor</li>
+        <li><strong>Superficie de construcción y terreno</strong>: a mayor superficie, mayor valor</li>
+        <li><strong>Antigüedad y estado de conservación</strong>: un inmueble bien conservado puede valer hasta 30% más</li>
+        <li><strong>Amenidades</strong>: alberca, jardín, vigilancia 24h y paneles solares incrementan el valor</li>
+        <li><strong>Plusvalía de la zona</strong>: zonas con desarrollo y servicios mantienen mejor su valor</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Para qué sirve el predial en el cálculo del valor? <span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>El valor catastral que aparece en tu recibo de predial es asignado por el municipio y normalmente representa entre el 15% y el 40% del valor comercial real del inmueble. Cuando introduces el monto de tu predial anual en nuestra calculadora, lo usamos como punto de calibración adicional para mejorar la precisión del estimado. No reemplaza otros factores del cálculo, pero ayuda a ajustar el resultado cuando el valor catastral está disponible.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cómo contacto a <span id="faqAgentName">UNO Brokers</span> para vender o rentar mi propiedad? <span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>Puedes contactarnos por cualquiera de estos canales:</p>
+      <ul>
+        <li>💬 <strong>WhatsApp</strong>: <a id="faqWa" href="https://wa.me/523339675255" target="_blank" style="color:var(--teal)">33 3967 5255</a></li>
+        <li>📞 <strong>Teléfono</strong>: <span id="faqTelTxt">33 3967 5255</span></li>
+        <li>🌐 <strong>Sitio web</strong>: unobrokers.mx</li>
+      </ul>
+      <p>Atendemos propiedades en Guadalajara, Zapopan, Tlajomulco, Tlaquepaque y toda la zona metropolitana.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BOTTOM -->
+<div class="cta-bottom">
+  <h2>¿Listo para vender o rentar tu propiedad?</h2>
+  <p id="bottomP">Asesórate con expertos. En UNO Brokers te ayudamos a conseguir el mejor precio del mercado.</p>
+  <div class="cta-row">
+    <a class="btn-wa-big" id="bottomWa" href="https://wa.me/523339675255?text=Quiero%20informaci%C3%B3n%20sobre%20vender%20o%20rentar%20mi%20propiedad" target="_blank">💬 WhatsApp</a>
+    <a class="btn-tel-big" id="bottomTel" href="tel:+523339675255">📞 33 3967 5255</a>
+  </div>
+</div>
+
+<footer>
+  <strong id="footerName">UNO BROKERS</strong> · Inmobiliaria Guadalajara y Zapopan, Jalisco<br/>
+  📞 <strong id="footerTel">33 3967 5255</strong> · unobrokers.mx
+  <div id="poweredBy" style="margin-top:6px;font-size:11px;color:#5a6a7a"></div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a class="wa-float" id="floatWa" href="https://wa.me/523339675255" target="_blank" title="Contactar por WhatsApp">💬</a>
+
+<script>
+// ── PERSONALIZACIÓN POR ASESOR ──
+const DEFAULT_AGENT = { name:'UNO Brokers', tel:'523339675255', telDisplay:'33 3967 5255', isDefault:true };
+function buildAgentFromParams(){
+  const qs = new URLSearchParams(window.location.search);
+  const nombre = qs.get('asesor');
+  const telRaw = qs.get('tel');
+  if(!nombre || !telRaw) return DEFAULT_AGENT;
+  const telClean = telRaw.replace(/\D/g,'');
+  if(telClean.length < 10) return DEFAULT_AGENT;
+  const tel10 = telClean.slice(-10);
+  const telFull = telClean.length===10 ? '52'+telClean : telClean;
+  const display = tel10.replace(/(\d{2})(\d{4})(\d{4})/,'$1 $2 $3');
+  return { name: decodeURIComponent(nombre).slice(0,60), tel: telFull, telDisplay: display, isDefault:false };
+}
+const AGENT = buildAgentFromParams();
+
+function applyAgentBranding(){
+  const a = AGENT;
+  const waLink = (msg) => `https://wa.me/${a.tel}` + (msg ? `?text=${encodeURIComponent(msg)}` : '');
+  const telLink = `tel:+${a.tel}`;
+
+  const setHref = (id,href)=>{const el=document.getElementById(id); if(el) el.href=href;};
+  const setTxt = (id,txt)=>{const el=document.getElementById(id); if(el) el.textContent=txt;};
+
+  setHref('hdrWa', waLink()); setTxt('hdrTel','📞 '+a.telDisplay); setHref('hdrTel', telLink);
+  setHref('heroWa', waLink());
+  setHref('ctaWa', waLink('Hola, me interesa vender o rentar mi propiedad. ¿Me puede dar más información?'));
+  setTxt('ctaTel','📞 '+a.telDisplay); setHref('ctaTel', telLink);
+  setHref('bottomWa', waLink('Quiero información sobre vender o rentar mi propiedad'));
+  setTxt('bottomTel','📞 '+a.telDisplay); setHref('bottomTel', telLink);
+  setHref('faqWa', waLink()); setTxt('faqWa', a.telDisplay);
+  setTxt('faqTelTxt', a.telDisplay);
+  setTxt('faqAgentName', a.name);
+  setHref('floatWa', waLink());
+  setTxt('footerName', a.isDefault ? 'UNO BROKERS' : a.name.toUpperCase());
+  setTxt('footerTel', a.telDisplay);
+
+  const resLabel = document.getElementById('resLabel');
+  if(resLabel) resLabel.textContent = `OPINIÓN DE VALOR — ${a.isDefault ? 'UNO BROKERS' : a.name.toUpperCase()} 2026`;
+
+  if(!a.isDefault){
+    setTxt('heroP', `Obtén gratis una opinión de valor inmobiliario con comparables de mercado actualizados y estimación de renta mensual. Respaldado por ${a.name}.`);
+    setTxt('ctaP', `Con ${a.name} te ayudamos a obtener el mejor precio del mercado con una estrategia de venta o renta personalizada. Contacta ahora a un asesor.`);
+    setTxt('bottomP', `Asesórate con expertos. Con ${a.name} te ayudamos a conseguir el mejor precio del mercado.`);
+    const pb = document.getElementById('poweredBy');
+    if(pb) pb.textContent = 'Herramienta de UNO Brokers, usada por ' + a.name;
+  }
+
+  // Link de referidos: comparte la MISMA url actual (con los params del asesor) para que el crédito se mantenga
+  const shareUrl = window.location.origin + window.location.pathname + window.location.search;
+  const refShare = document.getElementById('refShare');
+  if(refShare) refShare.href = `https://wa.me/?text=${encodeURIComponent('Encontré esta calculadora gratis de opinión de valor para saber cuánto vale tu casa o depa en Guadalajara/Zapopan: '+shareUrl)}`;
+  const refClaim = document.getElementById('refClaim');
+  if(refClaim) refClaim.href = waLink('Hola, ya compartí la calculadora de opinión de valor con 3 personas, quiero reclamar mi opinión de valor premium gratis.');
+}
+applyAgentBranding();
+
+// ── Generador de link personalizado para asesores ──
+(function(){
+  const toggleBtn = document.getElementById('personalizaToggle');
+  const panel = document.getElementById('personalizaPanel');
+  if(toggleBtn) toggleBtn.addEventListener('click', ()=>{ panel.style.display = panel.style.display==='none' ? 'block' : 'none'; });
+
+  const genBtn = document.getElementById('pGenBtn');
+  if(genBtn) genBtn.addEventListener('click', ()=>{
+    const nombre = document.getElementById('pAgentName').value.trim();
+    const tel = document.getElementById('pAgentTel').value.trim().replace(/\D/g,'');
+    if(!nombre || tel.length!==10){
+      alert('Escribe tu nombre y un WhatsApp válido a 10 dígitos.');
+      return;
+    }
+    const base = window.location.origin + window.location.pathname;
+    const link = `${base}?asesor=${encodeURIComponent(nombre)}&tel=${tel}`;
+    document.getElementById('pResultLink').value = link;
+    document.getElementById('pResultBox').style.display = 'block';
+  });
+
+  const copyBtn = document.getElementById('pCopyBtn');
+  if(copyBtn) copyBtn.addEventListener('click', ()=>{
+    const input = document.getElementById('pResultLink');
+    input.select(); input.setSelectionRange(0,9999);
+    navigator.clipboard.writeText(input.value).then(()=>{
+      copyBtn.textContent='✅ ¡Copiado!';
+      setTimeout(()=>{copyBtn.textContent='📋 Copiar link';},2000);
+    }).catch(()=>{document.execCommand('copy');});
+  });
+
+  // Si alguien entra ya con datos de asesor, ocultamos el panel de auto-generación (no aplica para el cliente final)
+  if(!AGENT.isDefault){
+    const box = document.getElementById('personalizaBox');
+    if(box) box.style.display='none';
+  }
+})();
+
+const PRECIOS={
+  'zapopan-premium':     {min:30000,mid:42000,max:58000,tierra:.35,yield:[.0045,.0055]},
+  'zapopan-residencial': {min:20000,mid:28000,max:38000,tierra:.28,yield:[.005,.006]},
+  'zapopan-popular':     {min:12000,mid:16000,max:21000,tierra:.20,yield:[.006,.0075]},
+  'gdl-poniente':        {min:18000,mid:25000,max:34000,tierra:.26,yield:[.005,.0065]},
+  'gdl-centro':          {min:14000,mid:19000,max:26000,tierra:.22,yield:[.0055,.007]},
+  'gdl-oriente':         {min: 9000,mid:12000,max:17000,tierra:.16,yield:[.007,.009]},
+  'tlajomulco':          {min:10000,mid:14000,max:19000,tierra:.18,yield:[.006,.008]},
+  'tlaquepaque':         {min:11000,mid:15000,max:20000,tierra:.19,yield:[.0065,.008]},
+  'tonala':              {min: 8000,mid:11000,max:15000,tierra:.15,yield:[.007,.009]},
+};
+const DEP=a=>{if(a<=0)return 1;if(a<=5)return .97;if(a<=10)return .92;if(a<=20)return .84;if(a<=30)return .73;if(a<=40)return .62;return .50;};
+const CONS={excelente:1.12,bueno:1.00,regular:.86,remodelacion:.70};
+const TIPOF={casa:1.00,departamento:.90,terreno:0,local:.85,oficina:.82,bodega:.68};
+const ZL={'zapopan-premium':'Zapopan Residencial Premium','zapopan-residencial':'Zapopan Residencial','zapopan-popular':'Zapopan Popular','gdl-poniente':'GDL Poniente / Vallarta','gdl-centro':'GDL Centro / Tradicional','gdl-oriente':'GDL Oriente / Norte / Sur','tlajomulco':'Tlajomulco de Zuniga','tlaquepaque':'San Pedro Tlaquepaque','tonala':'Tonala'};
+const TL={casa:'Casa',departamento:'Departamento',terreno:'Terreno',local:'Local Comercial',oficina:'Oficina',bodega:'Bodega / Nave Industrial'};
+const CL={excelente:'Excelente',bueno:'Bueno',regular:'Regular',remodelacion:'Requiere remodelacion'};
+// Factores catastral → mercado por zona (valor mercado ≈ catastral × factor)
+const CATF={'zapopan-premium':5.5,'zapopan-residencial':4.8,'zapopan-popular':4.0,'gdl-poniente':4.5,'gdl-centro':3.8,'gdl-oriente':3.2,'tlajomulco':3.5,'tlaquepaque':3.6,'tonala':3.2};
+
+let DC={};
+const fmt=n=>'$'+Math.round(n).toLocaleString('es-MX');
+const rnd10=n=>Math.round(n/10)*10;
+
+function getAms(){return[...document.querySelectorAll('#checkGrid input:checked')].map(c=>c.value);}
+
+function generarComparables(d){
+  const b=PRECIOS[d.zona],dep=DEP(d.ant),cf=CONS[d.cons]||1,tf=TIPOF[d.tipo]||1;
+  const zl=ZL[d.zona]||d.zona,tl=TL[d.tipo]||d.tipo;
+  const vars=d.tipo==='terreno'
+    ?[{cf2:.65,tf2:.65,lbl:'Menor superficie'},{cf2:.85,tf2:.85,lbl:'Superficie parecida'},{cf2:1,tf2:1,lbl:'Superficie similar'},{cf2:1.4,tf2:1.4,lbl:'Mayor superficie'}]
+    :[{cf2:.70,tf2:.70,lbl:'Menor superficie'},{cf2:.90,tf2:.85,lbl:'Parecida'},{cf2:1.10,tf2:1.10,lbl:'Similar'},{cf2:1.35,tf2:1.30,lbl:'Mayor superficie'}];
+  return vars.map((v,i)=>{
+    const mc=rnd10(d.mConst*v.cf2),mt=rnd10(d.mTerr*v.tf2);
+    const depV=DEP(Math.max(0,d.ant+(i<2?3:-2)));
+    let pm,px;
+    if(d.tipo==='terreno'){pm=Math.round(mt*b.min*.80);px=Math.round(mt*b.max*.80);}
+    else{pm=Math.round((mc*b.min*depV*cf*tf)+(mt*b.min*b.tierra));px=Math.round((mc*b.max*depV*cf*tf)+(mt*b.max*b.tierra));}
+    const sup=d.tipo==='terreno'?`${mt} m² terr.`:`${mc} m² const. / ${mt} m² terr.`;
+    const pm2=Math.round(b.min*tf*depV*cf),px2=Math.round(b.max*tf*depV*cf);
+    return{desc:`${tl} en ${zl} — ${v.lbl}`,sup,precio:`${fmt(pm)} – ${fmt(px)}`,porM2:`${fmt(pm2)} – ${fmt(px2)} /m²`,ref:i===2};
+  });
+}
+
+function generarComparablesRenta(d,vMid){
+  const b=PRECIOS[d.zona],tl=TL[d.tipo]||d.tipo,zl=ZL[d.zona]||d.zona;
+  const yl=b.yield[0],yh=b.yield[1];
+  const vars=[{f:.70,lbl:'Menor superficie'},{f:.90,lbl:'Parecida'},{f:1.00,lbl:'Similar'},{f:1.30,lbl:'Mayor superficie'}];
+  return vars.map((v,i)=>{
+    const m=rnd10((d.tipo==='terreno'?d.mTerr:d.mConst)*v.f);
+    const rentaLow=Math.round(vMid*v.f*yl);
+    const rentaHigh=Math.round(vMid*v.f*yh);
+    const pm2Low=m>0?Math.round(rentaLow/m):0;
+    const pm2High=m>0?Math.round(rentaHigh/m):0;
+    return{desc:`${tl} en ${zl} — ${v.lbl}`,sup:`${m} m²`,
+           renta:`${fmt(rentaLow)} – ${fmt(rentaHigh)}/mes`,porM2:`${fmt(pm2Low)} – ${fmt(pm2High)} /m²/mes`,ref:i===2};
+  });
+}
+
+function calcular(){
+  const zona=document.getElementById('zona').value;
+  const tipo=document.getElementById('tipo').value;
+  const cons=document.getElementById('conservacion').value;
+  const mConst=parseFloat(document.getElementById('mConst').value)||0;
+  const mTerr=parseFloat(document.getElementById('mTerr').value)||0;
+  const ant=parseInt(document.getElementById('antiguedad').value)||0;
+  const predial=parseFloat(document.getElementById('predial').value)||0;
+  const uso=document.getElementById('uso').value;
+
+  if(!zona){alert('Selecciona una zona o municipio');return;}
+  if(!tipo){alert('Selecciona el tipo de inmueble');return;}
+  if(!cons){alert('Selecciona el estado de conservación');return;}
+  if(tipo!=='terreno'&&mConst<=0){alert('Ingresa los metros de construcción');return;}
+  if(mTerr<=0){alert('Ingresa los metros de terreno');return;}
+
+  const b=PRECIOS[zona],dep=DEP(ant),cf=CONS[cons]||1,tf=TIPOF[tipo];
+  const ams=getAms();
+
+  let amenBonus=1.0;
+  const BN={alberca:.04,jardin:.03,gym:.02,roof:.025,vigilancia:.02,elevador:.02,paneles:.02,smart:.015,cuarto_serv:.015,terraza:.01,cisterna:.01,bodega_util:.01};
+  ams.forEach(a=>{if(BN[a])amenBonus+=BN[a];});
+
+  let vMin,vMid,vMax;
+  if(tipo==='terreno'){
+    vMin=mTerr*b.min*.80*(amenBonus-.03);
+    vMid=mTerr*b.mid*.80*amenBonus;
+    vMax=mTerr*b.max*.80*(amenBonus+.03);
+  } else {
+    const cMin=mConst*b.min*dep*cf*tf,cMid=mConst*b.mid*dep*cf*tf,cMax=mConst*b.max*dep*cf*tf;
+    const lMin=mTerr*b.min*b.tierra,lMid=mTerr*b.mid*b.tierra,lMax=mTerr*b.max*b.tierra;
+    vMin=(cMin+lMin)*(amenBonus-.03);
+    vMid=(cMid+lMid)*amenBonus;
+    vMax=(cMax+lMax)*(amenBonus+.03);
+  }
+
+  // Calibración con predial
+  if(predial>0){
+    const catFactor=CATF[zona]||4.0;
+    const vCatastral=predial*catFactor;
+    // Promedio ponderado: 70% mercado, 30% catastral
+    vMid=vMid*.70+vCatastral*.30;
+    vMin=vMid*.82; vMax=vMid*1.18;
+  }
+
+  // Renta mensual estimada
+  const rentaMid=Math.round(vMid*((b.yield[0]+b.yield[1])/2));
+  const rentaMin=Math.round(vMid*b.yield[0]);
+  const rentaMax=Math.round(vMid*b.yield[1]);
+
+  DC={
+    cliente:document.getElementById('cliente').value||'No especificado',
+    email:document.getElementById('email').value,
+    tel:document.getElementById('telefono').value,
+    zona,tipo,cons,mConst,mTerr,ant,predial,uso,
+    recamaras:document.getElementById('recamaras').value,
+    banos:document.getElementById('banos').value,
+    mediobanos:document.getElementById('mediobanos').value,
+    estacionamiento:document.getElementById('estacionamiento').value,
+    niveles:document.getElementById('niveles').value,
+    colonia:document.getElementById('colonia').value,
+    direccion:document.getElementById('direccion').value,
+    notas:document.getElementById('notas').value,
+    amenidades:ams,vMin,vMid,vMax,rentaMid,rentaMin,rentaMax,
+    fecha:new Date().toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric'})
+  };
+
+  document.getElementById('res-min').textContent=fmt(vMin);
+  document.getElementById('res-mid').textContent=fmt(vMid);
+  document.getElementById('res-max').textContent=fmt(vMax);
+
+  // Renta display
+  const showRenta=uso==='renta'||uso==='ambos';
+  document.getElementById('renta-tab').style.display=showRenta?'block':'none';
+  document.getElementById('renta-divider').style.display=showRenta?'block':'none';
+  if(showRenta) document.getElementById('res-renta').textContent=fmt(rentaMid)+'/mes';
+
+  // Resumen
+  const esTerr=tipo==='terreno';
+  const items=[
+    ['Tipo de inmueble',TL[tipo]||tipo],['Zona / Municipio',ZL[zona]||zona],
+    ['Colonia / Fracc.',DC.colonia||'No especificada'],
+    ['m² construcción',esTerr?'N/A':mConst+' m²'],['m² terreno',mTerr+' m²'],
+    ['Recámaras',esTerr?'N/A':DC.recamaras],['Baños completos',esTerr?'N/A':DC.banos],
+    ['Estacionamiento',esTerr?'N/A':DC.estacionamiento+' lugar(es)'],
+    ['Antigüedad',ant>0?ant+' años':'Nueva'],['Conservación',CL[cons]||cons],
+    ['Predial anual',predial>0?fmt(predial):'No proporcionado'],['Uso solicitado',uso==='ambos'?'Venta y Renta':uso==='renta'?'Renta':'Venta'],
+  ];
+  document.getElementById('resumenGrid').innerHTML=items.map(([l,v])=>`
+    <div class="resumen-item"><div class="ri-label">${l}</div><div class="ri-val">${v}</div></div>`).join('');
+
+  // Comparables venta
+  const comps=generarComparables(DC);
+  document.getElementById('compBody').innerHTML=comps.map(c=>`
+    <tr${c.ref?' class="comp-ref"':''}>
+      <td>${c.desc}${c.ref?'<span class="comp-badge">★ Referencia</span>':''}</td>
+      <td>${c.sup}</td><td><strong>${c.precio}</strong></td>
+      <td style="color:var(--teal);font-weight:700">${c.porM2}</td>
+    </tr>`).join('')+`
+    <tr class="row-sujeto">
+      <td>Tu propiedad — Valor estimado</td>
+      <td>${esTerr?mTerr+' m² terr.':mConst+' m² const.'}</td>
+      <td>${fmt(vMin)} – ${fmt(vMax)}</td>
+      <td>${fmt(Math.round(vMid/(esTerr?mTerr:mConst)))} /m²</td>
+    </tr>`;
+
+  // Comparables renta
+  const rentaDiv=document.getElementById('rentaComps');
+  if(showRenta){
+    rentaDiv.style.display='block';
+    const cr=generarComparablesRenta(DC,vMid);
+    document.getElementById('compRentaBody').innerHTML=cr.map(c=>`
+      <tr${c.ref?' class="comp-ref"':''}>
+        <td>${c.desc}${c.ref?'<span class="comp-badge">★ Referencia</span>':''}</td>
+        <td>${c.sup}</td><td><strong>${c.renta}</strong></td>
+        <td style="color:var(--teal);font-weight:700">${c.porM2}</td>
+      </tr>`).join('')+`
+      <tr class="row-sujeto">
+        <td>Tu propiedad — Renta estimada</td>
+        <td>${esTerr?mTerr+' m² terr.':mConst+' m² const.'}</td>
+        <td>${fmt(rentaMin)} – ${fmt(rentaMax)}/mes</td>
+        <td>${fmt(Math.round(rentaMid/(esTerr?mTerr:mConst)))}/m²/mes</td>
+      </tr>`;
+  } else rentaDiv.style.display='none';
+
+  document.getElementById('formulario').style.display='none';
+  document.getElementById('resultado').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function nuevaConsulta(){
+  document.getElementById('resultado').style.display='none';
+  document.getElementById('formulario').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleFaq(btn){
+  const ans=btn.nextElementSibling;
+  const isOpen=ans.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(a=>{a.classList.remove('open');a.previousElementSibling.classList.remove('open');});
+  if(!isOpen){ans.classList.add('open');btn.classList.add('open');}
+}
+
+document.querySelectorAll('.check-item input').forEach(cb=>{
+  cb.addEventListener('change',function(){this.closest('.check-item').classList.toggle('checked',this.checked);});
+});
+
+// ── PDF ──
+function san(s){if(!s)return'';
+  return String(s).replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u')
+   .replace(/ñ/g,'n').replace(/Á/g,'A').replace(/É/g,'E').replace(/Í/g,'I').replace(/Ó/g,'O')
+   .replace(/Ú/g,'U').replace(/Ñ/g,'N').replace(/ü/g,'u').replace(/Ü/g,'U').replace(/–/g,'-').replace(/°/g,' ');
+}
+
+function generarPDF(){
+  const{jsPDF}=window.jspdf;
+  const doc=new jsPDF({unit:'mm',format:'a4'});
+  const W=210,mar=14;let y=0;
+  const NAVY=[13,27,42],AMBER=[232,160,32],TEAL=[29,158,117],WHITE=[255,255,255],
+        GRAY=[100,112,130],BGL=[248,250,252],BGR=[244,247,250],BGGREEN=[232,248,242],BGYELLOW=[255,251,235],WA=[37,211,102];
+  const d=DC,esTerr=d.tipo==='terreno',showRenta=d.uso==='renta'||d.uso==='ambos';
+
+  // ══ HEADER ══
+  doc.setFillColor(...NAVY);doc.rect(0,0,W,40,'F');
+  doc.setFillColor(...AMBER);doc.rect(0,40,W,3,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(21);doc.setTextColor(...WHITE);
+  doc.text(san(AGENT.name.toUpperCase()),mar,16);
+  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(150,175,200);
+  doc.text('INMOBILIARIA  |  GUADALAJARA & ZAPOPAN, JALISCO',mar,23);
+  doc.text('Tel: '+AGENT.telDisplay+(AGENT.isDefault?'   |   unobrokers.mx':''),mar,29);
+  doc.setFontSize(7.5);doc.setTextColor(100,140,170);
+  doc.text('wa.me/'+AGENT.tel,mar,35);
+
+  doc.setFillColor(...AMBER);doc.roundedRect(W-70,7,58,24,3,3,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(8.5);doc.setTextColor(...NAVY);
+  doc.text('OPINION DE VALOR',W-41,15,{align:'center'});
+  doc.text('REFERENCIAL 2026',W-41,21,{align:'center'});
+  doc.setFontSize(7);
+  doc.text(san(AGENT.name),W-41,27,{align:'center'});
+  y=52;
+
+  // Datos generales
+  const secH=(lbl,col)=>{
+    doc.setFillColor(...col);doc.rect(mar,y,W-(mar*2),7,'F');
+    doc.setFont('helvetica','bold');doc.setFontSize(8.5);doc.setTextColor(...AMBER);
+    doc.text('  '+lbl,mar,y+5);y+=10;
+  };
+  const row2=(items)=>{
+    const cw=(W-(mar*2)-2)/2;
+    items.forEach(([lbl,val],i)=>{
+      const col=i%2,row=Math.floor(i/2),xc=mar+col*(cw+2),yc=y+row*7;
+      doc.setFillColor(...(col===0?BGL:BGR));doc.rect(xc,yc,cw,6.5,'F');
+      doc.setFont('helvetica','normal');doc.setFontSize(8.5);doc.setTextColor(...GRAY);
+      doc.text(lbl+':',xc+2,yc+4.5);
+      doc.setFont('helvetica','bold');doc.setTextColor(...NAVY);
+      doc.text(san(String(val)),xc+cw*.52,yc+4.5);
+    });
+    y+=Math.ceil(items.length/2)*7+4;
+  };
+
+  secH('DATOS GENERALES',NAVY);
+  row2([['Cliente',san(d.cliente)],['Email',san(d.email)||'No especificado'],['Telefono',san(d.tel)||'No especificado'],['Fecha',d.fecha]]);
+
+  secH('CARACTERISTICAS DE LA PROPIEDAD',NAVY);
+  row2([
+    ['Tipo',san(TL[d.tipo]||d.tipo)],['Zona',san(ZL[d.zona]||d.zona)],
+    ['Colonia',san(d.colonia)||'No especificada'],['Direccion',san(d.direccion)||'No especificada'],
+    ['m2 construccion',esTerr?'N/A':d.mConst+' m2'],['m2 terreno',d.mTerr+' m2'],
+    ['Recamaras',esTerr?'N/A':d.recamaras],['Banos',esTerr?'N/A':d.banos],
+    ['Medios banos',esTerr?'N/A':d.mediobanos],['Estacionamiento',esTerr?'N/A':d.estacionamiento+' lugar(es)'],
+    ['Niveles',esTerr?'N/A':d.niveles],['Antiguedad',d.ant>0?d.ant+' anos':'Nueva'],
+    ['Conservacion',san(CL[d.cons]||d.cons)],['Predial anual',d.predial>0?fmt(d.predial):'No proporcionado'],
+    ['Uso solicitado',d.uso==='ambos'?'Venta y Renta':d.uso==='renta'?'Renta':'Venta'],['','-'],
+  ]);
+
+  if(d.amenidades&&d.amenidades.length>0){
+    const amap={alberca:'Alberca',jardin:'Jardin',gym:'Gimnasio',roof:'Roof garden',vigilancia:'Vigilancia 24h',elevador:'Elevador',bodega_util:'Bodega',cuarto_serv:'Cto. servicio',terraza:'Terraza',cisterna:'Cisterna',paneles:'Paneles solares',smart:'Casa inteligente'};
+    doc.setFillColor(...BGGREEN);doc.rect(mar,y,W-(mar*2),7,'F');
+    doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(...TEAL);
+    doc.text('Amenidades:',mar+2,y+5);
+    doc.setFont('helvetica','normal');doc.setTextColor(40,80,60);
+    doc.text(d.amenidades.map(a=>amap[a]||a).join('  •  '),mar+26,y+5);
+    y+=10;
+  }
+  if(d.notas){
+    doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(...TEAL);
+    doc.text('Notas:',mar+2,y+4);
+    doc.setFont('helvetica','normal');doc.setTextColor(60,80,100);
+    const nl=doc.splitTextToSize(san(d.notas),W-(mar*2)-24);
+    doc.text(nl,mar+20,y+4);y+=nl.length*4.5+5;
+  }
+  y+=3;
+
+  // ══ OPINION DE VALOR ══
+  secH('OPINION DE VALOR REFERENCIAL',TEAL);
+  doc.setFillColor(...NAVY);doc.roundedRect(mar,y,W-(mar*2),28,3,3,'F');
+  doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(150,175,200);
+  doc.text('VALOR ESTIMADO DE MERCADO',W/2,y+6,{align:'center'});
+  doc.setFont('helvetica','bold');doc.setFontSize(21);doc.setTextColor(...AMBER);
+  doc.text(fmt(d.vMid),W/2,y+18,{align:'center'});
+  doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(150,175,200);
+  doc.text('Valor de venta estimado',W/2,y+24,{align:'center'});
+  y+=32;
+
+  // Min/Max/Renta
+  const nCols=showRenta?3:2;
+  const colW2=(W-(mar*2)-(nCols-1)*2)/nCols;
+  [[fmt(d.vMin),'Valor minimo'],[fmt(d.vMax),'Valor maximo'],showRenta?[fmt(d.rentaMid)+'/mes','Renta mensual est.']:null]
+    .filter(Boolean).forEach(([v,lbl],i)=>{
+      const xv=mar+i*(colW2+2);
+      doc.setFillColor(...BGGREEN);doc.roundedRect(xv,y,colW2,15,2,2,'F');
+      doc.setFont('helvetica','bold');doc.setFontSize(showRenta?10:12);doc.setTextColor(...TEAL);
+      doc.text(v,xv+colW2/2,y+7,{align:'center'});
+      doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(...GRAY);
+      doc.text(lbl,xv+colW2/2,y+13,{align:'center'});
+    });
+  if(d.predial>0){
+    y+=18;
+    doc.setFillColor(255,248,220);doc.roundedRect(mar,y,W-(mar*2),7,'F');
+    doc.setFont('helvetica','italic');doc.setFontSize(7.5);doc.setTextColor(140,100,20);
+    doc.text('Calculo calibrado con valor catastral (predial anual: '+fmt(d.predial)+')',W/2,y+5,{align:'center'});
+  }
+  y+=22;
+
+  // ══ COMPARABLES VENTA ══
+  secH('COMPARABLES DE MERCADO — REFERENCIA ZMG 2026',NAVY);
+  const cols=[68,30,44,32];
+  const hds=['Descripcion','Superficie','Rango de precio','Precio/m2'];
+  let xr=mar;
+  doc.setFillColor(...NAVY);doc.rect(mar,y,W-(mar*2),7,'F');
+  hds.forEach((h,i)=>{doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(...AMBER);doc.text(h,xr+2,y+5);xr+=cols[i];});
+  y+=9;
+
+  const comps=generarComparables(DC);
+  comps.forEach((c,idx)=>{
+    doc.setFillColor(...(idx%2===0?BGL:BGR));doc.rect(mar,y,W-(mar*2),8,'F');
+    let xrr=mar;
+    [san(c.desc),san(c.sup),san(c.precio),san(c.porM2)].forEach((cell,ci)=>{
+      doc.setFont('helvetica',c.ref?'bold':'normal');doc.setFontSize(7.5);doc.setTextColor(...(c.ref?NAVY:[60,80,100]));
+      doc.text(doc.splitTextToSize(cell,cols[ci]-3),xrr+2,y+5);xrr+=cols[ci];
+    });
+    y+=9;
+  });
+  doc.setFillColor(...BGGREEN);doc.rect(mar,y,W-(mar*2),8,'F');
+  let xs=mar;
+  const pm2s=Math.round(d.vMid/(esTerr?d.mTerr:d.mConst));
+  [san('Tu propiedad (valor estimado)'),san(esTerr?d.mTerr+' m2 terr.':d.mConst+' m2 const.'),san(fmt(d.vMin)+' - '+fmt(d.vMax)),san(fmt(pm2s)+'/m2')]
+    .forEach((cell,ci)=>{doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(...TEAL);doc.text(cell,xs+2,y+5);xs+=cols[ci];});
+  y+=13;
+
+  // ══ COMPARABLES RENTA ══
+  if(showRenta){
+    secH('COMPARABLES DE RENTA MENSUAL — ZMG 2026',NAVY);
+    const rCols=[68,24,52,30];
+    const rHds=['Descripcion','Superficie','Renta mensual est.','$/m2/mes'];
+    let rxr=mar;
+    doc.setFillColor(...NAVY);doc.rect(mar,y,W-(mar*2),7,'F');
+    rHds.forEach((h,i)=>{doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(...AMBER);doc.text(h,rxr+2,y+5);rxr+=rCols[i];});
+    y+=9;
+    const cr=generarComparablesRenta(DC,d.vMid);
+    cr.forEach((c,idx)=>{
+      doc.setFillColor(...(idx%2===0?BGL:BGR));doc.rect(mar,y,W-(mar*2),8,'F');
+      let rr=mar;
+      [san(c.desc),san(c.sup),san(c.renta),san(c.porM2)].forEach((cell,ci)=>{
+        doc.setFont('helvetica',c.ref?'bold':'normal');doc.setFontSize(7.5);doc.setTextColor(...(c.ref?NAVY:[60,80,100]));
+        doc.text(doc.splitTextToSize(cell,rCols[ci]-3),rr+2,y+5);rr+=rCols[ci];
+      });y+=9;
+    });
+    doc.setFillColor(...BGGREEN);doc.rect(mar,y,W-(mar*2),8,'F');
+    let rs=mar;
+    const rm2=Math.round(d.rentaMid/(esTerr?d.mTerr:d.mConst));
+    [san('Tu propiedad (renta estimada)'),san(esTerr?d.mTerr+' m2':d.mConst+' m2'),san(fmt(d.rentaMin)+' - '+fmt(d.rentaMax)+'/mes'),san(fmt(rm2)+'/m2/mes')]
+      .forEach((cell,ci)=>{doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(...TEAL);doc.text(cell,rs+2,y+5);rs+=rCols[ci];});
+    y+=13;
+  }
+
+  // ══ AVISO ══
+  y+=3;
+  doc.setFillColor(...BGYELLOW);doc.roundedRect(mar,y,W-(mar*2),18,2,2,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(7);doc.setTextColor(180,120,20);
+  doc.text('AVISO IMPORTANTE:',mar+3,y+5);
+  doc.setFont('helvetica','normal');
+  const av='Esta opinion de valor es una estimacion referencial y no constituye un avaluo comercial formal certificado. Para una valuacion con validez notarial o bancaria consulte a un perito valuador certificado. Valores sujetos a condiciones de mercado.';
+  doc.setTextColor(140,90,10);
+  doc.text(doc.splitTextToSize(av,W-(mar*2)-6),mar+3,y+10);
+  y+=22;
+
+  // ══ CTA ══
+  doc.setFillColor(...NAVY);doc.roundedRect(mar,y,W-(mar*2),22,3,3,'F');
+  doc.setFillColor(...WA);doc.roundedRect(mar+3,y+4,52,14,3,3,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(...WHITE);
+  doc.text('WhatsApp: '+AGENT.telDisplay,mar+7,y+12);
+  doc.setFillColor(...AMBER);doc.roundedRect(mar+60,y+4,60,14,3,3,'F');
+  doc.setTextColor(...NAVY);doc.text('Tel: '+AGENT.telDisplay,mar+64,y+12);
+  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(150,175,200);
+  doc.text(AGENT.isDefault?'unobrokers.mx  |  Guadalajara & Zapopan':'Guadalajara & Zapopan, Jalisco',mar+125,y+12);
+  y+=26;
+
+  // ══ FOOTER ══
+  doc.setFillColor(...AMBER);doc.rect(0,279,W,2,'F');
+  doc.setFillColor(...NAVY);doc.rect(0,281,W,16,'F');
+  doc.setFont('helvetica','bold');doc.setFontSize(9.5);doc.setTextColor(...WHITE);
+  doc.text(san(AGENT.name.toUpperCase()),mar,289);
+  doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(150,175,200);
+  doc.text('Tel: '+AGENT.telDisplay+(AGENT.isDefault?'   |   unobrokers.mx':'')+'   |   Guadalajara & Zapopan, Jalisco',mar+38,289);
+  doc.setFontSize(6.5);doc.setTextColor(80,110,130);
+  doc.text('Generado el '+d.fecha+' por '+san(AGENT.name)+' — Documento referencial, no sustituye avaluo formal.',mar,294);
+
+  doc.save('Opinion-de-Valor-UNO-Brokers.pdf');
+}
+</script>
+</body>
+</html>

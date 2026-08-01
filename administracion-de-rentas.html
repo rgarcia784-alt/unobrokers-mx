@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administración de Rentas en Guadalajara y Zapopan | UNO Brokers</title>
+<meta name="description" content="Administramos tu propiedad en renta: investigamos al inquilino, elaboramos el contrato con respaldo notarial, cobramos la renta mes a mes y la facturamos. Tú solo recibes el depósito.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1C2B28;
+    --cream:#F6F2EA;
+    --gold:#C9A55C;
+    --sage:#3E5C50;
+    --text:#2A2A2A;
+    --line:rgba(28,43,40,0.14);
+    --paper:#FFFFFF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    color:var(--ink);
+    line-height:1.12;
+  }
+  .mono{
+    font-family:'JetBrains Mono',monospace;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 32px;}
+  @media (max-width:640px){.wrap{padding:0 20px;}}
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,242,234,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;color:var(--ink);
+  }
+  .brand span{color:var(--gold);}
+  .nav-cta{
+    background:var(--ink);color:var(--cream);
+    padding:10px 20px;border-radius:2px;
+    font-size:0.85rem;font-weight:600;
+    transition:background 0.2s ease;
+  }
+  .nav-cta:hover{background:var(--sage);}
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    padding:110px 0 90px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;top:0;right:-10%;width:55%;height:100%;
+    background:
+      repeating-linear-gradient(
+        135deg,
+        transparent 0 38px,
+        rgba(201,165,92,0.07) 38px 39px
+      );
+    pointer-events:none;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start;
+    position:relative;
+  }
+  @media (max-width:880px){.hero-grid{grid-template-columns:1fr;gap:40px;}}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    color:var(--sage);margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";width:28px;height:1px;background:var(--gold);
+  }
+  .hero h1{
+    font-size:clamp(2.3rem,4.4vw,3.6rem);
+    margin-bottom:24px;
+    max-width:13ch;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--sage);
+  }
+  .hero p.lede{
+    font-size:1.08rem;color:var(--text);max-width:46ch;margin-bottom:34px;
+    opacity:0.88;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--ink);color:var(--cream);
+    padding:15px 26px;border-radius:2px;
+    font-weight:600;font-size:0.95rem;
+    transition:transform 0.18s ease, background 0.18s ease;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary:hover{background:var(--sage);transform:translateY(-1px);}
+  .btn-secondary{
+    border:1px solid var(--ink);color:var(--ink);
+    padding:15px 26px;border-radius:2px;font-weight:600;font-size:0.95rem;
+    transition:background 0.18s ease;
+  }
+  .btn-secondary:hover{background:rgba(28,43,40,0.06);}
+
+  /* expediente card */
+  .file-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:30px 28px;
+    position:relative;
+    box-shadow:0 24px 48px -24px rgba(28,43,40,0.25);
+  }
+  .file-card::before{
+    content:"EXP. 0142-UB";
+    position:absolute;top:-11px;left:28px;
+    background:var(--cream);
+    font-family:'JetBrains Mono',monospace;
+    font-size:0.68rem;letter-spacing:0.08em;color:var(--sage);
+    padding:0 8px;
+  }
+  .file-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:13px 0;border-bottom:1px solid var(--line);
+    font-size:0.9rem;
+  }
+  .file-row:last-child{border-bottom:none;}
+  .file-row .label{color:var(--text);opacity:0.62;}
+  .file-row .value{font-weight:600;color:var(--ink);text-align:right;}
+  .file-stamp{
+    margin-top:18px;padding-top:18px;border-top:1px dashed var(--line);
+    display:flex;align-items:center;gap:10px;
+  }
+  .stamp-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);}
+  .file-stamp span{font-size:0.82rem;color:var(--sage);font-weight:600;}
+
+  /* ===== SECTION SCAFFOLD ===== */
+  section{padding:78px 0;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head .mono{color:var(--sage);display:block;margin-bottom:14px;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem);}
+  .section-head p{margin-top:14px;color:var(--text);opacity:0.78;font-size:1.02rem;}
+
+  /* divider folio strip */
+  .folio-divider{
+    border-top:1px solid var(--line);
+    position:relative;
+  }
+  .folio-divider::after{
+    content:"";
+    position:absolute;top:-1px;left:0;
+    width:120px;height:1px;background:var(--gold);
+  }
+
+  /* ===== SERVICES ===== */
+  .services{background:var(--ink);color:var(--cream);}
+  .services .section-head h2{color:var(--cream);}
+  .services .section-head p{color:var(--cream);opacity:0.72;}
+  .services .mono{color:var(--gold)!important;}
+  .service-list{display:flex;flex-direction:column;}
+  .service-row{
+    display:grid;grid-template-columns:80px 1fr;gap:28px;
+    padding:36px 0;border-top:1px solid rgba(246,242,234,0.14);
+  }
+  .service-row:first-child{border-top:1px solid rgba(246,242,234,0.14);}
+  @media (max-width:700px){.service-row{grid-template-columns:48px 1fr;gap:18px;}}
+  .service-num{
+    font-family:'JetBrains Mono',monospace;font-size:0.85rem;
+    color:var(--gold);padding-top:6px;
+  }
+  .service-row h3{
+    color:var(--cream);font-size:1.4rem;margin-bottom:10px;font-weight:400;
+  }
+  .service-row p{color:var(--cream);opacity:0.74;max-width:58ch;font-size:0.98rem;}
+  .service-tag{
+    display:inline-block;margin-top:14px;
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;
+    color:var(--gold);letter-spacing:0.05em;
+    border:1px solid rgba(201,165,92,0.4);
+    padding:4px 10px;border-radius:2px;
+  }
+
+  /* ===== HOW IT WORKS ===== */
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+  @media (max-width:880px){.process-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:540px){.process-grid{grid-template-columns:1fr;}}
+  .process-step{
+    border-left:1px solid var(--line);padding:0 24px 0 24px;
+  }
+  .process-step:first-child{border-left:none;padding-left:0;}
+  @media (max-width:880px){
+    .process-step{border-left:none;padding:24px 0;border-top:1px solid var(--line);}
+    .process-step:first-child{border-top:none;padding-top:0;}
+  }
+  .process-step .mono{color:var(--gold);display:block;margin-bottom:10px;}
+  .process-step h3{font-size:1.15rem;margin-bottom:10px;font-weight:500;}
+  .process-step p{font-size:0.92rem;opacity:0.72;}
+
+  /* ===== FAQ ===== */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-item:first-child{border-top:1px solid var(--line);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:20px;
+    padding:24px 0;font-family:'Fraunces',serif;font-size:1.12rem;color:var(--ink);
+  }
+  .faq-q .plus{
+    font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:1.3rem;
+    flex-shrink:0;transition:transform 0.25s ease;
+  }
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;overflow:hidden;transition:max-height 0.3s ease;
+  }
+  .faq-a p{padding-bottom:24px;max-width:62ch;opacity:0.78;font-size:0.97rem;}
+
+  /* ===== CLOSING CTA ===== */
+  .closing{
+    background:linear-gradient(135deg,var(--sage),var(--ink));
+    color:var(--cream);text-align:center;border-radius:2px;
+    padding:64px 40px;
+    margin:0 auto;max-width:1100px;
+  }
+  .closing h2{color:var(--cream);font-size:clamp(1.8rem,3.4vw,2.6rem);max-width:24ch;margin:0 auto 18px;}
+  .closing p{opacity:0.8;max-width:46ch;margin:0 auto 32px;}
+  .closing .btn-primary{background:var(--gold);color:var(--ink);}
+  .closing .btn-primary:hover{background:#dab873;}
+
+  footer{
+    padding:36px 0;text-align:center;
+    font-size:0.82rem;color:var(--text);opacity:0.6;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">UNO <span>Brokers</span></div>
+    <a href="#contacto" class="nav-cta">Quiero rentar con respaldo</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow mono">Administración de rentas · Guadalajara y Zapopan</span>
+      <h1>Tu propiedad rentada, <em>sin que tú la administres</em>.</h1>
+      <p class="lede">Investigamos al inquilino, formalizamos el contrato con respaldo notarial, cobramos la renta cada mes y la facturamos. Tú solo recibes el depósito.</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn-primary">Quiero rentar mi propiedad con respaldo →</a>
+        <a href="#servicios" class="btn-secondary">Ver qué incluye</a>
+      </div>
+    </div>
+    <div class="file-card">
+      <div class="file-row"><span class="label">Inquilino</span><span class="value">Verificado en Buró</span></div>
+      <div class="file-row"><span class="label">Ingresos</span><span class="value">Comprobados</span></div>
+      <div class="file-row"><span class="label">Antecedentes</span><span class="value">Sin demandas</span></div>
+      <div class="file-row"><span class="label">Contrato</span><span class="value">Transacción notarial</span></div>
+      <div class="file-row"><span class="label">Cobro mensual</span><span class="value">Puntual, facturado</span></div>
+      <div class="file-stamp">
+        <span class="stamp-dot"></span>
+        <span>Expediente listo para firma</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono">Qué incluye</span>
+      <h2>Cuatro capas de protección, un solo servicio</h2>
+      <p>No es solo encontrar quién rente tu casa. Es saber quién entra, con qué garantía, y que el pago llegue cada mes sin que tengas que perseguirlo.</p>
+    </div>
+
+    <div class="service-list">
+      <div class="service-row">
+        <span class="service-num">01</span>
+        <div>
+          <h3>Investigación completa del inquilino</h3>
+          <p>Revisamos buró de crédito, comprobamos ingresos con estados de cuenta reales y verificamos que no existan demandas o antecedentes legales antes de presentarte al candidato.</p>
+          <span class="service-tag">Buró · Ingresos · Antecedentes</span>
+        </div>
+      </div>
+      <div class="service-row">
+        <span class="service-num">02</span>
+        <div>
+          <h3>Contrato con respaldo notarial</h3>
+          <p>Formalizamos un contrato de transacción con pagaré sin protesta. Si el inquilino incumple, no se necesita demanda: se solicita directamente la ejecución forzosa ante el juez.</p>
+          <span class="service-tag">Transacción notarial</span>
+        </div>
+      </div>
+      <div class="service-row">
+        <span class="service-num">03</span>
+        <div>
+          <h3>Cobro de renta mes a mes</h3>
+          <p>Cobramos al inquilino, damos seguimiento a pagos atrasados y te depositamos el neto. Tú no tienes que llamar, recordar fechas ni lidiar con justificaciones.</p>
+          <span class="service-tag">Sin demoras</span>
+        </div>
+      </div>
+      <div class="service-row">
+        <span class="service-num">04</span>
+        <div>
+          <h3>Facturación de la renta</h3>
+          <p>Emitimos el CFDI correspondiente cada mes, para que tanto tú como tu inquilino tengan el comprobante fiscal en orden, sin que tengas que dar de alta nada por tu cuenta.</p>
+          <span class="service-tag">CFDI mensual</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="folio-divider">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono">Cómo funciona</span>
+      <h2>De la llave a la renta cobrada</h2>
+      <p>Un proceso ordenado, sin sorpresas a la mitad del camino.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <span class="mono">Paso 1</span>
+        <h3>Evaluamos tu propiedad</h3>
+        <p>Definimos precio de renta y condiciones según la zona y el tipo de inmueble.</p>
+      </div>
+      <div class="process-step">
+        <span class="mono">Paso 2</span>
+        <h3>Filtramos candidatos</h3>
+        <p>Investigamos a cada interesado antes de mostrarte una sola opción.</p>
+      </div>
+      <div class="process-step">
+        <span class="mono">Paso 3</span>
+        <h3>Formalizamos</h3>
+        <p>Contrato y trámite notarial listos para firma de ambas partes.</p>
+      </div>
+      <div class="process-step">
+        <span class="mono">Paso 4</span>
+        <h3>Administramos</h3>
+        <p>Cobro, factura y depósito mensual mientras dure el contrato.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono">Preguntas frecuentes</span>
+      <h2>Lo que más nos preguntan los propietarios</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Cuánto cobra una administradora de rentas en Guadalajara?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Depende del alcance del servicio. Lo habitual en la zona es una comisión equivalente a una mensualidad por colocar al inquilino, más una cuota por la administración mensual si decides que también nos encarguemos del cobro y la facturación recurrente. Te damos el desglose exacto según tu propiedad antes de firmar cualquier cosa.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Qué pasa si mi inquilino no paga?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Al formalizar el contrato con transacción notarial y pagaré sin protesta, no es necesario iniciar una demanda para exigir el pago. Se puede solicitar directamente la ejecución forzosa ante el juez correspondiente, lo que acorta el proceso de manera importante frente a un contrato sin este respaldo.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Necesito facturar la renta de mi casa?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Si rentas de forma regular, lo recomendable es declarar ese ingreso ante el SAT bajo el régimen de arrendamiento. Nosotros nos encargamos de emitir el comprobante fiscal cada mes como parte del servicio de administración, para que no tengas que dar de alta nada por tu cuenta.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿Puedo contratar solo la investigación del inquilino, sin la administración completa?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Sí. Muchos propietarios prefieren administrar ellos mismos el cobro mensual, pero quieren la tranquilidad de saber a quién le están rentando. Podemos hacer únicamente la investigación y el contrato, y tú te encargas del resto.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">¿En qué zonas de Guadalajara y Zapopan trabajan?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Operamos en toda la zona metropolitana de Guadalajara, con presencia particular en Zapopan, incluyendo desarrollos residenciales y propiedades individuales tanto para uso habitacional como comercial.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="closing">
+      <h2>Renta tu propiedad sin perseguir pagos ni firmar a ciegas</h2>
+      <p>Cuéntanos sobre tu propiedad y te decimos en qué consiste el proceso completo, sin compromiso.</p>
+      <a href="https://wa.me/523339675255" class="btn-primary">Quiero rentar mi propiedad con respaldo →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    UNO Brokers · Bienes raíces en Guadalajara y Zapopan · 33 3967 5255
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const item=btn.closest('.faq-item');
+      const answer=item.querySelector('.faq-a');
+      const isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o=>{
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight=null;
+        o.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        answer.style.maxHeight=answer.scrollHeight+'px';
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

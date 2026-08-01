@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¿Qué Propiedad Buscas? Cuéntanos y te Ayudamos a Encontrarla | UNO BROKERS</title>
+<meta name="description" content="Dinos qué buscas: comprar o rentar, tipo de propiedad, recámaras, zona y presupuesto. En UNO BROKERS te contactamos con opciones reales que sí encajan, en Guadalajara y Zapopan.">
+<meta name="keywords" content="buscar casa Guadalajara, buscar departamento Zapopan, quiero comprar casa Zapopan, quiero rentar departamento Guadalajara, asesor inmobiliario Zapopan, UNO BROKERS">
+<meta name="author" content="UNO BROKERS">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://unobrokers.com.mx/encuentra-tu-propiedad.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="¿Qué Propiedad Buscas? | UNO BROKERS">
+<meta property="og:description" content="Cuéntanos qué buscas y te contactamos con opciones reales. Compra o renta en Guadalajara y Zapopan.">
+<meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://unobrokers.com.mx/encuentra-tu-propiedad.html">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "UNO BROKERS",
+  "description": "Asesoría inmobiliaria personalizada para compra y renta de casas, departamentos y terrenos en Guadalajara y Zapopan, Jalisco.",
+  "areaServed": ["Guadalajara", "Zapopan", "Jalisco"],
+  "telephone": "+523339675255",
+  "url": "https://unobrokers.com.mx/encuentra-tu-propiedad.html",
+  "address": {"@type": "PostalAddress","addressLocality": "Zapopan","addressRegion": "Jalisco","addressCountry": "MX"},
+  "knowsLanguage": "es-MX"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0E1525;--navy-2:#141D33;--navy-3:#1C273F;--gold:#D4AC52;--gold-light:#F2D88E;--gold-deep:#A8853A;--cream:#FFFFFF;--body:#EDF1F8;--muted:#8b93a5;--line:rgba(201,162,75,.22);--wa:#25D366;}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--navy)}
+body{font-family:'Outfit',sans-serif;background:var(--navy);color:var(--cream);line-height:1.65;overflow-x:hidden;font-weight:400;min-height:100vh;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--cream);}
+.wrap{max-width:640px;margin:0 auto;padding:0 20px;}
+
+.topbar{padding:22px 20px;text-align:center;border-bottom:1px solid var(--line);}
+.topbar .brand{font-family:'Fraunces',serif;font-size:1.15rem;letter-spacing:.04em;color:var(--gold-light);}
+.topbar .brand span{color:var(--gold);}
+
+.hero{padding:48px 0 20px;text-align:center;}
+.hero .eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:14px;}
+.hero h1{font-size:1.9rem;line-height:1.25;font-style:italic;font-weight:500;margin-bottom:12px;}
+.hero p{color:var(--muted);font-size:.98rem;max-width:480px;margin:0 auto;}
+
+.progress-wrap{padding:18px 0 0;}
+.progress-track{height:3px;background:var(--navy-3);border-radius:3px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold-light));width:11%;transition:width .4s ease;}
+.progress-label{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);margin-top:8px;letter-spacing:.02em;}
+
+.card-area{padding:28px 0 60px;}
+.step{display:none;animation:fadein .35s ease;}
+.step.active{display:block;}
+@keyframes fadein{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.step h2{font-size:1.35rem;font-style:italic;font-weight:500;margin-bottom:22px;line-height:1.3;}
+
+.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.opt-grid.single{grid-template-columns:1fr;}
+.opt{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:20px 16px;text-align:center;cursor:pointer;transition:border-color .2s, background .2s, transform .15s;}
+.opt:hover{border-color:var(--gold);transform:translateY(-2px);}
+.opt.selected{border-color:var(--gold);background:var(--navy-3);box-shadow:0 0 0 1px var(--gold) inset;}
+.opt .opt-label{font-family:'Fraunces',serif;font-size:1.02rem;color:var(--cream);}
+.opt .opt-sub{font-size:.78rem;color:var(--muted);margin-top:4px;}
+
+.stepper-row{display:flex;align-items:center;justify-content:center;gap:18px;background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:14px;}
+.stepper-row .lbl{font-family:'Fraunces',serif;font-size:1rem;min-width:110px;text-align:left;}
+.stepper-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--gold);background:transparent;color:var(--gold-light);font-size:1.3rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.stepper-btn:hover{background:var(--navy-3);}
+.stepper-val{font-family:'Fraunces',serif;font-size:1.3rem;min-width:34px;text-align:center;color:var(--gold-light);}
+
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:8px;letter-spacing:.02em;}
+.field input,.field select,.field textarea{width:100%;background:var(--navy-2);border:1px solid var(--line);border-radius:10px;padding:14px 16px;color:var(--cream);font-family:'Outfit',sans-serif;font-size:.98rem;outline:none;transition:border-color .2s;}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold);}
+.field input::placeholder{color:var(--muted);}
+
+.nav-row{display:flex;gap:12px;margin-top:26px;}
+.btn{flex:1;padding:15px 18px;border-radius:10px;font-family:'Outfit',sans-serif;font-weight:500;font-size:.95rem;cursor:pointer;border:none;transition:transform .15s, opacity .2s;}
+.btn:active{transform:scale(.98);}
+.btn-primary{background:linear-gradient(135deg,var(--gold-light),var(--gold-deep));color:var(--navy);}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed;}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--muted);flex:0 0 auto;padding:15px 20px;}
+
+.summary-list{background:var(--navy-2);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:20px;}
+.summary-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem;gap:12px;}
+.summary-row:last-child{border-bottom:none;}
+.summary-row .k{color:var(--muted);}
+.summary-row .v{color:var(--gold-light);font-family:'Fraunces',serif;text-align:right;}
+
+.btn-wa{background:var(--wa);color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;}
+
+.done{text-align:center;padding:30px 0;}
+.done .check{width:64px;height:64px;border-radius:50%;background:var(--navy-2);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.8rem;color:var(--gold-light);}
+.done h2{font-style:italic;margin-bottom:10px;}
+.done p{color:var(--muted);font-size:.95rem;}
+
+footer{text-align:center;padding:24px 20px 40px;color:var(--muted);font-size:.78rem;border-top:1px solid var(--line);}
+footer a{color:var(--gold-light);text-decoration:none;}
+
+/* SEO content — placed after the quiz so it never blocks the conversion flow */
+.seo-section{padding:50px 0 30px;border-top:1px solid var(--line);}
+.seo-section h2{font-size:1.4rem;font-style:italic;font-weight:500;margin-bottom:16px;}
+.seo-section h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;color:var(--gold-light);margin:24px 0 10px;}
+.seo-section p{color:var(--muted);font-size:.92rem;margin-bottom:14px;}
+.seo-section ul{color:var(--muted);font-size:.92rem;margin:0 0 14px 20px;}
+.seo-section li{margin-bottom:6px;}
+.seo-divider{height:1px;background:var(--line);margin:4px 0 14px;}
+.seo-group-label{font-size:.72rem;letter-spacing:.12em;color:var(--gold);font-weight:500;margin-bottom:8px;}
+.seo-faq details{border-bottom:1px solid var(--line);padding:14px 0;}
+.seo-faq summary{font-family:'Fraunces',serif;font-size:.98rem;color:var(--cream);cursor:pointer;list-style:none;}
+.seo-faq summary::-webkit-details-marker{display:none;}
+.seo-faq summary::after{content:"+";float:right;color:var(--gold);}
+.seo-faq details[open] summary::after{content:"−";}
+.seo-faq p{margin-top:10px;margin-bottom:0;}
+
+@media(max-width:400px){
+  .hero h1{font-size:1.6rem;}
+  .opt-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">UNO <span>BROKERS</span></div>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow">30 años en el mercado de Guadalajara y Zapopan</div>
+    <h1 id="heroTitle">Cuéntanos qué buscas y te ayudamos a encontrarlo</h1>
+    <p>Con estos datos concentramos las propiedades que realmente se ajustan a lo que necesitas y te contactamos solo con opciones que tienen sentido para ti, sin perder tiempo viendo lo que no te sirve.</p>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label"><span id="progressText">Paso 1 de 9</span><span id="progressPct">11%</span></div>
+  </div>
+
+  <div class="card-area">
+    <form id="quizForm" onsubmit="return false;">
+
+      <div class="step active" data-step="operacion">
+        <h2>¿Qué estás buscando?</h2>
+        <div class="opt-grid" id="operacionGrid">
+          <div class="opt" data-value="Venta">
+            <div class="opt-label">Comprar</div>
+            <div class="opt-sub">Busco adquirir una propiedad</div>
+          </div>
+          <div class="opt" data-value="Renta">
+            <div class="opt-label">Rentar</div>
+            <div class="opt-sub">Busco arrendar una propiedad</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-step="compraTipo">
+        <h2>¿Es compra directa o preventa?</h2>
+        <div class="opt-grid" id="compraTipoGrid">
+          <div class="opt" data-value="Compra">
+            <div class="opt-label">Compra directa</div>
+            <div class="opt-sub">Propiedad ya construida y disponible</div>
+          </div>
+          <div class="opt" data-value="Preventa">
+            <div class="opt-label">Preventa</div>
+            <div class="opt-sub">Desarrollo aún en construcción</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-step="tipo">
+        <h2>¿Qué tipo de propiedad?</h2>
+        <div class="opt-grid" id="tipoGrid">
+          <div class="opt" data-value="Casa"><div class="opt-label">Casa</div></div>
+          <div class="opt" data-value="Departamento"><div class="opt-label">Departamento</div></div>
+          <div class="opt" data-value="Terreno"><div class="opt-label">Terreno</div></div>
+          <div class="opt" data-value="Local/Oficina"><div class="opt-label">Local u oficina</div></div>
+        </div>
+      </div>
+
+      <div class="step" data-step="recamaras">
+        <h2>¿Cuántas recámaras necesitas?</h2>
+        <div class="stepper-row">
+          <div class="lbl">Recámaras</div>
+          <button type="button" class="stepper-btn" data-target="recamaras" data-dir="-1">−</button>
+          <div class="stepper-val" id="recamarasVal">2</div>
+          <button type="button" class="stepper-btn" data-target="recamaras" data-dir="1">+</button>
+        </div>
+      </div>
+
+      <div class="step" data-step="banos">
+        <h2>¿Y cuántos baños?</h2>
+        <div class="stepper-row">
+          <div class="lbl">Baños</div>
+          <button type="button" class="stepper-btn" data-target="banos" data-dir="-1">−</button>
+          <div class="stepper-val" id="banosVal">1</div>
+          <button type="button" class="stepper-btn" data-target="banos" data-dir="1">+</button>
+        </div>
+      </div>
+
+      <div class="step" data-step="zona">
+        <h2>¿En qué zona o colonia te gustaría?</h2>
+        <div class="field">
+          <label for="zona">Colonia, zona o referencia</label>
+          <input type="text" id="zona" placeholder="Ej. Puerta de Hierro, Valle Real, Providencia...">
+        </div>
+      </div>
+
+      <div class="step" data-step="presupuesto">
+        <h2 id="presupuestoTitle">¿Cuál es tu presupuesto?</h2>
+        <div class="field">
+          <label id="presupuestoLabel" for="presupuesto">Presupuesto aproximado en MXN</label>
+          <input type="text" id="presupuesto" placeholder="Ej. $3,500,000">
+        </div>
+      </div>
+
+      <div class="step" data-step="formaPago">
+        <h2 id="pagoTitle">¿Cuál es tu forma de pago?</h2>
+        <div class="opt-grid single" id="pagoGrid">
+          <div class="opt" data-value="Contado"><div class="opt-label">Contado</div></div>
+          <div class="opt" data-value="Crédito bancario"><div class="opt-label">Crédito bancario</div></div>
+          <div class="opt" data-value="Aún no sé"><div class="opt-label">Aún no sé, quiero asesoría</div></div>
+        </div>
+      </div>
+
+      <div class="step" data-step="timeline">
+        <h2>¿Para cuándo lo necesitas?</h2>
+        <div class="opt-grid single" id="timelineGrid">
+          <div class="opt" data-value="Inmediato"><div class="opt-label">Lo antes posible</div></div>
+          <div class="opt" data-value="1-3 meses"><div class="opt-label">En 1 a 3 meses</div></div>
+          <div class="opt" data-value="3-6 meses"><div class="opt-label">En 3 a 6 meses</div></div>
+          <div class="opt" data-value="Sin prisa"><div class="opt-label">Sin prisa, solo explorando</div></div>
+        </div>
+      </div>
+
+      <div class="step" data-step="contacto">
+        <h2>Por último, ¿cómo te contactamos?</h2>
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" placeholder="Tu nombre">
+        </div>
+        <div class="field">
+          <label for="telefono">Teléfono / WhatsApp</label>
+          <input type="tel" id="telefono" placeholder="10 dígitos">
+        </div>
+      </div>
+
+      <div class="step" data-step="resumen">
+        <h2>Revisa tu búsqueda</h2>
+        <div class="summary-list" id="summaryList"></div>
+        <button type="button" class="btn btn-primary btn-wa" id="submitBtn" style="width:100%;">
+          Enviar por WhatsApp
+        </button>
+      </div>
+
+      <div class="step" data-step="confirmacion">
+        <div class="done">
+          <div class="check">✓</div>
+          <h2>¡Listo, <span id="doneNombre">gracias</span>!</h2>
+          <p>Recibimos tu búsqueda. Un asesor de UNO BROKERS te va a contactar por WhatsApp con opciones que sí encajan con lo que buscas.</p>
+        </div>
+      </div>
+
+      <div class="nav-row" id="navRow">
+        <button type="button" class="btn btn-ghost" id="backBtn" style="display:none;">Atrás</button>
+        <button type="button" class="btn btn-primary" id="nextBtn" disabled>Siguiente</button>
+      </div>
+    </form>
+  </div>
+
+  <section class="seo-section">
+    <h2>Encuentra tu casa o departamento en Guadalajara y Zapopan</h2>
+    <p>En UNO BROKERS llevamos más de 30 años ayudando a familias e inversionistas a comprar, vender y rentar propiedades en la Zona Metropolitana de Guadalajara. Ya sea que busques una casa en Zapopan, un departamento en preventa o un terreno para tu próximo proyecto, contarnos qué necesitas nos permite mostrarte solo opciones reales y filtradas para ti.</p>
+
+    <h3>Zonas donde tenemos más inventario</h3>
+    <div class="seo-group-label">ZAPOPAN · GUADALAJARA · ZMG</div>
+    <ul>
+      <li>Puerta de Hierro y Valle Real, Zapopan</li>
+      <li>Providencia, Chapalita y Colonia Americana, Guadalajara</li>
+      <li>San Pedro Tlaquepaque</li>
+    </ul>
+    <div class="seo-divider"></div>
+    <div class="seo-group-label">CDMX</div>
+    <ul>
+      <li>Santa Fe, Ciudad de México</li>
+      <li>Bosque Real, Huixquilucan, Estado de México</li>
+    </ul>
+
+    <h3>Compra, preventa o renta: ¿cuál te conviene?</h3>
+    <p>La compra directa te da una propiedad lista para habitar de inmediato. La preventa suele tener mejor precio de entrada pero implica esperar la entrega del desarrollo. La renta es la opción más flexible si no buscas comprometer capital todavía. Sea cual sea tu caso, un asesor de UNO BROKERS puede orientarte sin costo, e incluso tramitamos tu crédito por ti para que el proceso avance sin trabas.</p>
+
+    <div class="seo-faq">
+      <details>
+        <summary>¿Cuánto tiempo tarda un asesor en contactarme?</summary>
+        <p>Normalmente respondemos por WhatsApp el mismo día hábil, ya que tu búsqueda llega directo a nuestro equipo comercial en cuanto la envías.</p>
+      </details>
+      <details>
+        <summary>¿Tiene costo que me ayuden a buscar propiedad?</summary>
+        <p>No. Ayudarte a encontrar la propiedad que buscas no tiene costo para ti; solo cobramos comisión si decides concretar una operación con nosotros.</p>
+      </details>
+      <details>
+        <summary>¿Me ayudan a tramitar mi crédito?</summary>
+        <p>Sí. Si vas a comprar con crédito bancario, nosotros nos encargamos de tramitarlo por ti para que avances sin complicaciones ni papeleo de más.</p>
+      </details>
+    </div>
+  </section>
+  </div>
+
+<footer>
+  UNO BROKERS · Zapopan, Jalisco · <a href="https://wa.me/523339675255">+52 33 3967 5255</a>
+</footer>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script>
+var firebaseConfig = {
+  apiKey: "AIzaSyD_REEMPLAZAR_CON_TU_API_KEY",
+  authDomain: "rafa-crm-unobrokers.firebaseapp.com",
+  projectId: "rafa-crm-unobrokers",
+  storageBucket: "rafa-crm-unobrokers.appspot.com",
+  messagingSenderId: "REEMPLAZAR",
+  appId: "REEMPLAZAR"
+};
+try{
+  firebase.initializeApp(firebaseConfig);
+}catch(e){ console.warn("Firebase no inicializado:", e); }
+
+var state = {
+  operacion: "",
+  compraTipo: "",
+  tipo: "",
+  recamaras: 2,
+  banos: 1,
+  zona: "",
+  presupuesto: "",
+  formaPago: "",
+  timeline: "",
+  nombre: "",
+  telefono: ""
+};
+
+var STEP_ORDER = ["operacion","compraTipo","tipo","recamaras","banos","zona","presupuesto","formaPago","timeline","contacto","resumen","confirmacion"];
+var CONTENT_STEPS = ["operacion","compraTipo","tipo","recamaras","banos","zona","presupuesto","formaPago","timeline","contacto"];
+
+function isStepVisible(name){
+  if(name === "compraTipo") return state.operacion === "Venta";
+  return true;
+}
+function visibleOrder(){ return STEP_ORDER.filter(isStepVisible); }
+function visibleContentSteps(){ return CONTENT_STEPS.filter(isStepVisible); }
+
+var currentStepName = "operacion";
+
+var progressFill = document.getElementById("progressFill");
+var progressText = document.getElementById("progressText");
+var progressPct = document.getElementById("progressPct");
+var nextBtn = document.getElementById("nextBtn");
+var backBtn = document.getElementById("backBtn");
+var navRow = document.getElementById("navRow");
+
+function updateProgress(){
+  var content = visibleContentSteps();
+  var idx = content.indexOf(currentStepName);
+  var shown = idx >= 0 ? idx + 1 : content.length;
+  var total = content.length;
+  var pct = Math.round((shown/total)*100);
+  progressFill.style.width = pct + "%";
+  progressText.textContent = "Paso " + shown + " de " + total;
+  progressPct.textContent = pct + "%";
+}
+
+function showStepByName(name){
+  document.querySelectorAll(".step").forEach(function(el){
+    el.classList.toggle("active", el.dataset.step === name);
+  });
+  currentStepName = name;
+  updateProgress();
+  var order = visibleOrder();
+  backBtn.style.display = order.indexOf(name) === 0 ? "none" : "block";
+
+  if(name === "resumen"){
+    buildSummary();
+    navRow.style.display = "none";
+  } else if(name === "confirmacion"){
+    navRow.style.display = "none";
+  } else {
+    navRow.style.display = "flex";
+  }
+  validateStep();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function validateStep(){
+  var ok = false;
+  switch(currentStepName){
+    case "operacion": ok = !!state.operacion; break;
+    case "compraTipo": ok = !!state.compraTipo; break;
+    case "tipo": ok = !!state.tipo; break;
+    case "recamaras": ok = true; break;
+    case "banos": ok = true; break;
+    case "zona": ok = document.getElementById("zona").value.trim().length > 0; break;
+    case "presupuesto": ok = document.getElementById("presupuesto").value.trim().length > 0; break;
+    case "formaPago": ok = !!state.formaPago; break;
+    case "timeline": ok = !!state.timeline; break;
+    case "contacto": ok = document.getElementById("nombre").value.trim().length > 0 && document.getElementById("telefono").value.trim().length >= 10; break;
+    default: ok = true;
+  }
+  nextBtn.disabled = !ok;
+}
+
+function wireOptGrid(gridId, stateKey){
+  var grid = document.getElementById(gridId);
+  grid.querySelectorAll(".opt").forEach(function(opt){
+    opt.addEventListener("click", function(){
+      grid.querySelectorAll(".opt").forEach(function(o){ o.classList.remove("selected"); });
+      opt.classList.add("selected");
+      state[stateKey] = opt.dataset.value;
+      if(stateKey === "operacion"){
+        document.getElementById("presupuestoTitle").textContent =
+          state.operacion === "Renta" ? "¿Cuál es tu presupuesto de renta mensual?" : "¿Cuál es tu presupuesto de compra?";
+        document.getElementById("presupuestoLabel").textContent =
+          state.operacion === "Renta" ? "Presupuesto mensual aproximado en MXN" : "Presupuesto aproximado en MXN";
+        document.getElementById("presupuesto").placeholder =
+          state.operacion === "Renta" ? "Ej. $18,000 al mes" : "Ej. $3,500,000";
+        document.getElementById("heroTitle").textContent =
+          state.operacion === "Renta" ? "Cuéntanos qué propiedad buscas rentar" : "Cuéntanos qué propiedad buscas comprar";
+        if(state.operacion === "Renta") state.compraTipo = "";
+      }
+      validateStep();
+    });
+  });
+}
+wireOptGrid("operacionGrid", "operacion");
+wireOptGrid("compraTipoGrid", "compraTipo");
+wireOptGrid("tipoGrid", "tipo");
+wireOptGrid("pagoGrid", "formaPago");
+wireOptGrid("timelineGrid", "timeline");
+
+document.querySelectorAll(".stepper-btn").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var target = btn.dataset.target;
+    var dir = parseInt(btn.dataset.dir);
+    var min = 1;
+    var max = 8;
+    state[target] = Math.max(min, Math.min(max, state[target] + dir));
+    document.getElementById(target + "Val").textContent = state[target];
+  });
+});
+
+document.getElementById("zona").addEventListener("input", function(e){ state.zona = e.target.value; validateStep(); });
+document.getElementById("presupuesto").addEventListener("input", function(e){ state.presupuesto = e.target.value; validateStep(); });
+document.getElementById("nombre").addEventListener("input", function(e){ state.nombre = e.target.value; validateStep(); });
+document.getElementById("telefono").addEventListener("input", function(e){ state.telefono = e.target.value; validateStep(); });
+
+nextBtn.addEventListener("click", function(){
+  var order = visibleOrder();
+  var idx = order.indexOf(currentStepName);
+  if(idx < order.length - 1) showStepByName(order[idx + 1]);
+});
+backBtn.addEventListener("click", function(){
+  var order = visibleOrder();
+  var idx = order.indexOf(currentStepName);
+  if(idx > 0) showStepByName(order[idx - 1]);
+});
+
+function buildSummary(){
+  var rows = [
+    ["Operación", state.operacion === "Renta" ? "Rentar" : "Comprar"]
+  ];
+  if(state.operacion === "Venta" && state.compraTipo){
+    rows.push(["Compra o preventa", state.compraTipo]);
+  }
+  rows.push(
+    ["Tipo de propiedad", state.tipo],
+    ["Recámaras", state.recamaras],
+    ["Baños", state.banos],
+    ["Zona de interés", state.zona],
+    ["Presupuesto", state.presupuesto],
+    ["Forma de pago", state.formaPago],
+    ["Para cuándo", state.timeline],
+    ["Nombre", state.nombre],
+    ["Teléfono", state.telefono]
+  );
+  var html = "";
+  rows.forEach(function(r){
+    html += '<div class="summary-row"><span class="k">' + r[0] + '</span><span class="v">' + r[1] + '</span></div>';
+  });
+  document.getElementById("summaryList").innerHTML = html;
+}
+
+document.getElementById("submitBtn").addEventListener("click", function(){
+  var btn = this;
+  btn.disabled = true;
+  btn.textContent = "Enviando...";
+
+  var lead = {
+    operacion: state.operacion,
+    compraTipo: state.compraTipo,
+    tipo: state.tipo,
+    recamaras: state.recamaras,
+    banos: state.banos,
+    zona: state.zona,
+    presupuesto: state.presupuesto,
+    formaPago: state.formaPago,
+    timeline: state.timeline,
+    nombre: state.nombre,
+    telefono: state.telefono,
+    origen: "encuentra-tu-propiedad.html",
+    fecha: new Date().toISOString()
+  };
+
+  function goToWhatsApp(){
+    var msg = "Hola UNO BROKERS, busco:\n" +
+      "• Operación: " + (state.operacion === "Renta" ? "Rentar" : "Comprar") + "\n" +
+      (state.operacion === "Venta" && state.compraTipo ? "• Compra o preventa: " + state.compraTipo + "\n" : "") +
+      "• Tipo: " + state.tipo + "\n" +
+      "• Recámaras: " + state.recamaras + "\n" +
+      "• Baños: " + state.banos + "\n" +
+      "• Zona: " + state.zona + "\n" +
+      "• Presupuesto: " + state.presupuesto + "\n" +
+      "• Forma de pago: " + state.formaPago + "\n" +
+      "• Para cuándo: " + state.timeline + "\n" +
+      "• Nombre: " + state.nombre + "\n" +
+      "• Teléfono: " + state.telefono;
+    var url = "https://wa.me/523339675255?text=" + encodeURIComponent(msg);
+    window.open(url, "_blank");
+    document.getElementById("doneNombre").textContent = state.nombre || "gracias";
+    showStepByName("confirmacion");
+    btn.disabled = false;
+    btn.textContent = "Enviar por WhatsApp";
+  }
+
+  try{
+    if(firebase.apps && firebase.apps.length){
+      firebase.firestore().collection("leads-calificacion").add(lead)
+        .then(goToWhatsApp)
+        .catch(function(err){ console.warn("Error guardando en Firestore:", err); goToWhatsApp(); });
+    } else {
+      goToWhatsApp();
+    }
+  }catch(e){
+    console.warn("Firestore no disponible:", e);
+    goToWhatsApp();
+  }
+});
+
+updateProgress();
+</script>
+</body>
+</html>

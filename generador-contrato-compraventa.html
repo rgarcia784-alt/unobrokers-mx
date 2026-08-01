@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WBZQNYLQYF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-WBZQNYLQYF');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Contrato de Compraventa | UNO Brokers</title>
+<meta name="description" content="Genera gratis tu contrato de promesa de compraventa o compraventa directa para tu casa, departamento, oficina, bodega o terreno. Asesoría profesional disponible con UNO Brokers, Zapopan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0e1f33;
+    --navy-deep:#081521;
+    --navy-soft:#16304d;
+    --gold:#c8a24d;
+    --gold-soft:#e4c988;
+    --cream:#f7f4ee;
+    --ink:#1c2530;
+    --line:rgba(200,162,77,0.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  .hero{
+    background:radial-gradient(120% 140% at 15% -10%, #1b3a5c 0%, var(--navy) 45%, var(--navy-deep) 100%);
+    color:#f4ede0;
+    padding:110px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-120px;top:-120px;
+    width:420px;height:420px;
+    border:1px solid var(--line);
+    border-radius:50%;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    right:20px;bottom:-160px;
+    width:300px;height:300px;
+    border:1px solid var(--line);
+    border-radius:50%;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12.5px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold-soft);margin-bottom:26px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.4rem,5vw,3.6rem);
+    font-weight:600;
+    max-width:760px;
+    line-height:1.12;
+    margin-bottom:22px;
+  }
+  .hero h1 em{color:var(--gold-soft);font-style:italic;}
+  .hero p.lead{
+    max-width:600px;
+    font-size:1.13rem;
+    color:#cdd8e3;
+    font-weight:300;
+    margin-bottom:38px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:16px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 30px;
+    font-family:'Jost',sans-serif;
+    font-size:.92rem;letter-spacing:.05em;text-transform:uppercase;font-weight:500;
+    border-radius:2px;
+    cursor:pointer;border:1px solid transparent;
+    transition:all .25s ease;
+  }
+  .btn-gold{background:var(--gold);color:var(--navy-deep);}
+  .btn-gold:hover{background:var(--gold-soft);}
+  .btn-ghost{border-color:rgba(244,237,224,0.35);color:#f4ede0;}
+  .btn-ghost:hover{border-color:var(--gold-soft);color:var(--gold-soft);}
+
+  .property-types{
+    display:flex;flex-wrap:wrap;gap:10px;margin-top:44px;
+  }
+  .chip{
+    font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+    border:1px solid var(--line);color:#d9c48f;
+    padding:8px 16px;border-radius:20px;
+  }
+
+  /* FORM SECTION */
+  .form-section{padding:90px 0 40px;}
+  .section-head{max-width:640px;margin-bottom:50px;}
+  .section-head .tag{
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#9a7a2e;
+    display:block;margin-bottom:14px;
+  }
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:600;color:var(--navy);line-height:1.2;}
+  .section-head p{margin-top:16px;color:#54606e;font-size:1.02rem;font-weight:300;max-width:560px;}
+
+  .toggle-op{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px;max-width:640px;
+  }
+  .toggle-op label{
+    border:1px solid #dcd3bd;background:#fff;
+    padding:18px 20px;border-radius:4px;cursor:pointer;
+    display:flex;flex-direction:column;gap:4px;
+    transition:all .2s ease;
+  }
+  .toggle-op input{display:none;}
+  .toggle-op .t-title{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:600;color:var(--navy);}
+  .toggle-op .t-sub{font-size:.82rem;color:#788;font-weight:300;color:#6b7482;}
+  .toggle-op label:has(input:checked){
+    border-color:var(--gold);
+    background:linear-gradient(180deg,#fffdf7,#fbf3e0);
+    box-shadow:0 4px 18px rgba(200,162,77,0.18);
+  }
+
+  .card{
+    background:#fff;
+    border:1px solid #e6ddc8;
+    border-radius:6px;
+    padding:44px;
+    box-shadow:0 20px 50px -30px rgba(14,31,51,0.25);
+  }
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .field{margin-bottom:22px;}
+  .field label{
+    display:block;font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;
+    color:#8a7b56;margin-bottom:8px;font-weight:500;
+  }
+  .field input, .field select{
+    width:100%;padding:13px 14px;
+    border:1px solid #d8cfba;border-radius:4px;
+    font-family:'Jost',sans-serif;font-size:.98rem;color:var(--ink);
+    background:#fcfaf5;
+    transition:border-color .2s ease;
+  }
+  .field input:focus, .field select:focus{outline:none;border-color:var(--gold);background:#fff;}
+  .field.full{grid-column:1/-1;}
+  .hint{font-size:.78rem;color:#9a9789;margin-top:6px;font-weight:300;}
+
+  .generate-row{
+    margin-top:8px;display:flex;justify-content:flex-end;
+  }
+  .btn-navy{background:var(--navy);color:#f4ede0;}
+  .btn-navy:hover{background:var(--navy-soft);}
+
+  /* CONTRACT PREVIEW */
+  .preview-wrap{display:none;margin-top:56px;}
+  .preview-wrap.show{display:block;}
+  .preview-head{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    margin-bottom:20px;
+  }
+  .preview-head h3{font-size:1.5rem;color:var(--navy);font-weight:600;}
+  .contract-doc{
+    background:#fffefb;
+    border:1px solid #e6ddc8;
+    border-radius:6px;
+    padding:48px;
+    max-height:560px;overflow-y:auto;
+    font-family:'Jost',sans-serif;
+    font-size:.92rem;line-height:1.85;color:#2a2f36;
+    white-space:pre-wrap;
+  }
+  .contract-doc::-webkit-scrollbar{width:8px;}
+  .contract-doc::-webkit-scrollbar-thumb{background:#d8cfba;border-radius:8px;}
+
+  /* UPSELL */
+  .upsell{
+    margin-top:64px;
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+    color:#f4ede0;
+    border-radius:8px;
+    padding:52px 48px;
+    display:grid;grid-template-columns:1.3fr 1fr;gap:40px;
+    align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .upsell::before{
+    content:"";position:absolute;left:-80px;bottom:-80px;
+    width:220px;height:220px;border:1px solid var(--line);border-radius:50%;
+  }
+  .upsell h3{font-size:1.9rem;font-weight:600;margin-bottom:14px;line-height:1.2;}
+  .upsell p{color:#cdd8e3;font-weight:300;font-size:.98rem;margin-bottom:0;}
+  .upsell-list{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px;}
+  .upsell-list li{
+    font-size:.9rem;color:#e3dcc9;display:flex;gap:10px;font-weight:300;
+  }
+  .upsell-list li::before{content:"✓";color:var(--gold-soft);font-weight:700;}
+  .upsell-cta{display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+
+  /* CROSS-LINKS */
+  .services{padding:70px 0 100px;}
+  .services-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;
+  }
+  .service-card{
+    background:#fff;border:1px solid #e6ddc8;border-radius:6px;
+    padding:30px 26px;transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .service-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px -28px rgba(14,31,51,0.3);}
+  .service-card .num{font-family:'Cormorant Garamond',serif;font-size:.85rem;color:var(--gold);letter-spacing:.1em;}
+  .service-card h4{font-size:1.28rem;font-family:'Cormorant Garamond',serif;font-weight:600;color:var(--navy);margin:10px 0 10px;}
+  .service-card p{font-size:.88rem;color:#5a6472;font-weight:300;margin-bottom:16px;}
+  .service-card .go{font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;color:#9a7a2e;font-weight:500;}
+
+  footer{
+    background:var(--navy-deep);color:#8b98a8;
+    padding:36px 0;font-size:.82rem;text-align:center;
+  }
+  footer strong{color:#d9c48f;}
+
+  @media (max-width:760px){
+    .grid2{grid-template-columns:1fr;}
+    .upsell{grid-template-columns:1fr;padding:38px 26px;}
+    .services-grid{grid-template-columns:1fr;}
+    .toggle-op{grid-template-columns:1fr;}
+    .card{padding:28px;}
+    .contract-doc{padding:26px;font-size:.86rem;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <span class="eyebrow">UNO Brokers · Zapopan · Guadalajara · CDMX</span>
+    <h1>Genera tu <em>contrato de compraventa</em><br>en minutos, sin costo.</h1>
+    <p class="lead">Ya sea que vendas tu casa, tu departamento, tu oficina o una bodega, arma aquí un contrato base de promesa de compraventa o compraventa directa — instantáneo y listo para descargar en Word.</p>
+    <div class="hero-actions">
+      <a href="#generador" class="btn btn-gold">Generar mi contrato ↓</a>
+      <a href="#" id="heroAsesoriaWa" class="btn btn-ghost" target="_blank" rel="noopener">Prefiero asesoría directa</a>
+    </div>
+    <div class="property-types">
+      <span class="chip">Casas</span>
+      <span class="chip">Departamentos</span>
+      <span class="chip">Oficinas</span>
+      <span class="chip">Bodegas / Naves</span>
+      <span class="chip">Terrenos</span>
+      <span class="chip">Locales comerciales</span>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="generador">
+  <div class="container">
+
+    <!-- Personalización para asesores -->
+    <div id="personalizaBox" style="max-width:100%;margin:0 0 24px;padding:16px 20px;background:#fff8e6;border:2px solid #e8a020;border-radius:10px;box-shadow:0 2px 10px rgba(232,160,32,0.25);">
+      <button id="personalizaToggle" style="background:none;border:none;cursor:pointer;font-size:15px;font-weight:800;color:#b8720a;padding:0;display:flex;align-items:center;gap:8px;width:100%;text-align:left">
+        <span style="background:#e8a020;color:#fff;padding:2px 8px;border-radius:5px;font-size:12px;letter-spacing:.03em">NUEVO</span>
+        🔗 <span>¿Eres asesor inmobiliario? Genera tu propio link personalizado →</span>
+      </button>
+      <div id="personalizaPanel" style="display:none;margin-top:14px">
+        <p style="font-size:12.5px;color:#5a6a7a;margin-bottom:10px">Pon tu nombre y tu WhatsApp. Te damos un link único de este mismo generador — cuando tus clientes entren por ahí, los botones de contacto van a aparecer con tus datos, no los nuestros.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+          <input id="pAgentName" type="text" placeholder="Tu nombre o el de tu inmobiliaria" style="flex:1;min-width:180px;padding:9px 10px;border:1px solid #cfd8e0;border-radius:6px;font-size:13px">
+          <input id="pAgentTel" type="text" placeholder="WhatsApp (10 dígitos)" maxlength="10" style="width:170px;padding:9px 10px;border:1px solid #cfd8e0;border-radius:6px;font-size:13px">
+        </div>
+        <button id="pGenBtn" style="background:#e8a020;color:#fff;border:none;padding:9px 18px;border-radius:6px;font-size:13px;font-weight:700;cursor:pointer">Generar mi link</button>
+        <div id="pResultBox" style="display:none;margin-top:12px;padding:10px 12px;background:#fff;border:1px solid #cfd8e0;border-radius:6px">
+          <input id="pResultLink" type="text" readonly style="width:100%;border:none;font-size:12px;color:#333;background:transparent">
+          <button id="pCopyBtn" style="margin-top:8px;background:var(--navy);color:#fff;border:none;padding:7px 14px;border-radius:6px;font-size:12px;cursor:pointer">📋 Copiar link</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <span class="tag">Paso 1</span>
+      <h2>Elige el tipo de contrato y llena los datos</h2>
+      <p>Con esta información generamos un contrato base, sencillo y funcional. Si tu operación involucra crédito hipotecario, copropietarios, o cláusulas especiales, te recomendamos la versión con asesoría profesional (ver abajo).</p>
+    </div>
+
+    <div class="toggle-op">
+      <label>
+        <input type="radio" name="tipoContrato" value="promesa" checked onchange="toggleCampos()">
+        <span class="t-title">Promesa de Compraventa</span>
+        <span class="t-sub">Compromiso previo con anticipo, antes de la escritura ante notario</span>
+      </label>
+      <label>
+        <input type="radio" name="tipoContrato" value="compraventa" onchange="toggleCampos()">
+        <span class="t-title">Compraventa Directa</span>
+        <span class="t-sub">Contrato privado de venta ya definitiva entre las partes</span>
+      </label>
+    </div>
+
+    <div class="card">
+      <div class="grid2">
+        <div class="field">
+          <label>Nombre completo del vendedor</label>
+          <input type="text" id="vendedor" placeholder="Ej. Juan Carlos Pérez López">
+        </div>
+        <div class="field">
+          <label>Nombre completo del comprador</label>
+          <input type="text" id="comprador" placeholder="Ej. María Fernanda Torres Ibarra">
+        </div>
+        <div class="field">
+          <label>Tipo de inmueble</label>
+          <select id="tipoInmueble">
+            <option value="casa">Casa habitación</option>
+            <option value="departamento">Departamento</option>
+            <option value="oficina">Oficina</option>
+            <option value="bodega">Bodega / Nave industrial</option>
+            <option value="terreno">Terreno / Lote</option>
+            <option value="local">Local comercial</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Superficie aproximada (m²)</label>
+          <input type="text" id="superficie" placeholder="Ej. 180">
+        </div>
+        <div class="field full">
+          <label>Domicilio completo del inmueble</label>
+          <input type="text" id="domicilio" placeholder="Calle, número, colonia, municipio, estado">
+        </div>
+        <div class="field">
+          <label>Precio total de venta (MXN)</label>
+          <input type="text" id="precio" placeholder="Ej. 3,200,000">
+        </div>
+        <div class="field" id="campoAnticipo">
+          <label>Monto del anticipo (MXN)</label>
+          <input type="text" id="anticipo" placeholder="Ej. 320,000">
+        </div>
+        <div class="field">
+          <label>Forma de pago</label>
+          <select id="formaPago">
+            <option value="transferencia bancaria">Transferencia bancaria</option>
+            <option value="efectivo">Efectivo</option>
+            <option value="crédito hipotecario">Crédito hipotecario</option>
+            <option value="cheque de caja">Cheque de caja</option>
+          </select>
+        </div>
+        <div class="field" id="campoPlazo">
+          <label>Plazo para firma de escritura definitiva (días)</label>
+          <input type="text" id="plazo" placeholder="Ej. 60">
+        </div>
+        <div class="field">
+          <label>Ciudad</label>
+          <input type="text" id="ciudad" placeholder="Ej. Zapopan, Jalisco" value="Zapopan, Jalisco">
+        </div>
+        <div class="field">
+          <label>Fecha del contrato</label>
+          <input type="date" id="fecha">
+        </div>
+      </div>
+
+      <div class="generate-row">
+        <button class="btn btn-navy" onclick="generarContrato()">Generar contrato ahora</button>
+      </div>
+    </div>
+
+    <div class="preview-wrap" id="previewWrap">
+      <div class="preview-head">
+        <h3>Tu contrato está listo</h3>
+        <button class="btn btn-gold" onclick="descargarWord()">Descargar en Word</button>
+      </div>
+      <div class="contract-doc" id="contractText"></div>
+    </div>
+
+    <div class="upsell">
+      <div>
+        <h3>¿Quieres un contrato profesional, blindado legalmente?</h3>
+        <p>Este contrato base cubre lo esencial, pero una venta involucra riesgos que un documento genérico no protege: gravámenes ocultos, adeudos prediales, copropietarios, o incumplimiento del comprador tras el anticipo.</p>
+        <ul class="upsell-list">
+          <li>Verificación de gravámenes y situación jurídica del inmueble</li>
+          <li>Cláusulas de penalización por incumplimiento de cualquiera de las partes</li>
+          <li>Retención y liberación de anticipo con condiciones claras</li>
+          <li>Coordinación con notaría para la escrituración</li>
+        </ul>
+      </div>
+      <div class="upsell-cta">
+        <a href="#" id="upsellAsesoriaWa" target="_blank" rel="noopener" class="btn btn-gold">Quiero asesoría por WhatsApp</a>
+        <span style="font-size:.82rem;color:#a9b6c4;">Respuesta el mismo día · Zapopan, GDL, CDMX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="tag">También te puede servir</span>
+      <h2>Otras herramientas de UNO Brokers</h2>
+    </div>
+    <div class="services-grid">
+      <a class="service-card" href="generador-contrato-renta.html">
+        <span class="num">01</span>
+        <h4>Contrato de Renta</h4>
+        <p>¿Vas a rentar en vez de vender? Genera tu contrato de arrendamiento básico aquí.</p>
+        <span class="go">Generar contrato →</span>
+      </a>
+      <a class="service-card" href="investigacion-inquilinos.html">
+        <span class="num">02</span>
+        <h4>Investigación de Inquilinos</h4>
+        <p>Dictamen completo de antecedentes antes de firmar con un candidato a inquilino.</p>
+        <span class="go">Conocer el servicio →</span>
+      </a>
+      <a class="service-card" href="calculadora-isr-venta-propiedad.html">
+        <span class="num">03</span>
+        <h4>Calculadora de ISR por Venta</h4>
+        <p>Estima el impuesto que pagarías al vender tu propiedad antes de fijar el precio.</p>
+        <span class="go">Calcular ahora →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <strong id="footerBrand">UNO Brokers</strong> · Zapopan, Jalisco · WhatsApp <span id="footerTel">33 3967 5255</span>
+  </div>
+</footer>
+
+<script>
+// ── PERSONALIZACIÓN POR ASESOR ──
+const DEFAULT_AGENT = { name:'UNO Brokers', tel:'523339675255', telDisplay:'33 3967 5255', isDefault:true };
+function buildAgentFromParams(){
+  const qs = new URLSearchParams(window.location.search);
+  const nombre = qs.get('asesor');
+  const telRaw = qs.get('tel');
+  if(!nombre || !telRaw) return DEFAULT_AGENT;
+  const telClean = telRaw.replace(/\D/g,'');
+  if(telClean.length < 10) return DEFAULT_AGENT;
+  const tel10 = telClean.slice(-10);
+  const telFull = telClean.length===10 ? '52'+telClean : telClean;
+  const display = tel10.replace(/(\d{2})(\d{4})(\d{4})/,'$1 $2 $3');
+  return { name: decodeURIComponent(nombre).slice(0,60), tel: telFull, telDisplay: display, isDefault:false };
+}
+const AGENT = buildAgentFromParams();
+function applyAgentBranding(){
+  const a = AGENT;
+  const setHref = (id,href)=>{const el=document.getElementById(id); if(el) el.href=href;};
+  const setTxt = (id,txt)=>{const el=document.getElementById(id); if(el) el.textContent=txt;};
+  setHref('heroAsesoriaWa', `https://wa.me/${a.tel}?text=${encodeURIComponent('Hola, quiero asesoría para vender mi propiedad')}`);
+  setHref('upsellAsesoriaWa', `https://wa.me/${a.tel}?text=${encodeURIComponent('Hola, quiero un contrato de compraventa profesional para mi propiedad')}`);
+  setTxt('footerTel', a.telDisplay);
+  setTxt('footerBrand', a.isDefault ? 'UNO Brokers' : a.name);
+}
+applyAgentBranding();
+
+// ── Generador de link personalizado para asesores ──
+(function(){
+  const toggleBtn = document.getElementById('personalizaToggle');
+  const panel = document.getElementById('personalizaPanel');
+  if(toggleBtn) toggleBtn.addEventListener('click', ()=>{ panel.style.display = panel.style.display==='none' ? 'block' : 'none'; });
+  const genBtn = document.getElementById('pGenBtn');
+  if(genBtn) genBtn.addEventListener('click', ()=>{
+    const nombre = document.getElementById('pAgentName').value.trim();
+    const tel = document.getElementById('pAgentTel').value.trim().replace(/\D/g,'');
+    if(!nombre || tel.length!==10){ alert('Escribe tu nombre y un WhatsApp válido a 10 dígitos.'); return; }
+    const base = window.location.origin + window.location.pathname;
+    const link = `${base}?asesor=${encodeURIComponent(nombre)}&tel=${tel}`;
+    document.getElementById('pResultLink').value = link;
+    document.getElementById('pResultBox').style.display = 'block';
+  });
+  const copyBtn = document.getElementById('pCopyBtn');
+  if(copyBtn) copyBtn.addEventListener('click', ()=>{
+    const input = document.getElementById('pResultLink');
+    input.select(); input.setSelectionRange(0,9999);
+    navigator.clipboard.writeText(input.value).then(()=>{
+      copyBtn.textContent='✅ ¡Copiado!'; setTimeout(()=>{copyBtn.textContent='📋 Copiar link';},2000);
+    }).catch(()=>{document.execCommand('copy');});
+  });
+  if(!AGENT.isDefault){
+    const box = document.getElementById('personalizaBox');
+    if(box) box.style.display='none';
+  }
+})();
+function toggleCampos(){
+  const tipo = document.querySelector('input[name="tipoContrato"]:checked').value;
+  const anticipoField = document.getElementById('campoAnticipo');
+  const plazoField = document.getElementById('campoPlazo');
+  if(tipo === 'compraventa'){
+    anticipoField.style.display = 'none';
+    plazoField.style.display = 'none';
+  } else {
+    anticipoField.style.display = 'block';
+    plazoField.style.display = 'block';
+  }
+}
+
+function numFmt(v){
+  const n = parseFloat((v||'').toString().replace(/[^0-9.]/g,''));
+  if(isNaN(n)) return v || '________';
+  return n.toLocaleString('es-MX', {minimumFractionDigits: 0});
+}
+
+function fechaLarga(iso){
+  if(!iso) return '____ de ______________ de 20____';
+  const meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const d = new Date(iso + 'T00:00:00');
+  return `${d.getDate()} de ${meses[d.getMonth()]} de ${d.getFullYear()}`;
+}
+
+const tipoInmuebleTexto = {
+  casa: 'casa habitación',
+  departamento: 'departamento',
+  oficina: 'oficina',
+  bodega: 'bodega / nave industrial',
+  terreno: 'terreno / lote',
+  local: 'local comercial'
+};
+
+function generarContrato(){
+  const tipo = document.querySelector('input[name="tipoContrato"]:checked').value;
+  const vendedor = document.getElementById('vendedor').value || '________________________';
+  const comprador = document.getElementById('comprador').value || '________________________';
+  const tipoInmueble = tipoInmuebleTexto[document.getElementById('tipoInmueble').value];
+  const superficie = document.getElementById('superficie').value || '____';
+  const domicilio = document.getElementById('domicilio').value || '________________________________';
+  const precio = numFmt(document.getElementById('precio').value);
+  const anticipo = numFmt(document.getElementById('anticipo').value);
+  const formaPago = document.getElementById('formaPago').value;
+  const plazo = document.getElementById('plazo').value || '____';
+  const ciudad = document.getElementById('ciudad').value || 'Zapopan, Jalisco';
+  const fecha = fechaLarga(document.getElementById('fecha').value);
+
+  let texto = '';
+
+  if(tipo === 'promesa'){
+    texto = `CONTRATO DE PROMESA DE COMPRAVENTA
+
+Que celebran, por una parte ${vendedor}, a quien en lo sucesivo se le denominará "EL PROMITENTE VENDEDOR", y por la otra ${comprador}, a quien en lo sucesivo se le denominará "EL PROMITENTE COMPRADOR", al tenor de las siguientes declaraciones y cláusulas:
+
+DECLARACIONES
+
+I. Declara "EL PROMITENTE VENDEDOR" ser legítimo propietario del inmueble tipo ${tipoInmueble} ubicado en ${domicilio}, con una superficie aproximada de ${superficie} m², encontrándose libre de gravamen, limitación de dominio o afectación alguna, y contar con las facultades necesarias para celebrar el presente contrato.
+
+II. Declara "EL PROMITENTE COMPRADOR" tener interés en adquirir el inmueble descrito, conocer sus condiciones físicas y legales, y contar con la solvencia necesaria para cubrir el precio pactado en los términos de este contrato.
+
+CLÁUSULAS
+
+PRIMERA. OBJETO. "EL PROMITENTE VENDEDOR" se obliga a vender y "EL PROMITENTE COMPRADOR" se obliga a comprar el inmueble descrito en la Declaración I, en los términos y condiciones que se establecen en el presente contrato.
+
+SEGUNDA. PRECIO. El precio total de la operación es la cantidad de $${precio} (M.N.), mismo que será cubierto mediante ${formaPago}.
+
+TERCERA. ANTICIPO. En este acto, "EL PROMITENTE COMPRADOR" entrega a "EL PROMITENTE VENDEDOR" la cantidad de $${anticipo} (M.N.) como anticipo a cuenta del precio total, cantidad que se descontará del pago final al momento de la firma de la escritura definitiva.
+
+CUARTA. PLAZO. Las partes convienen en que la escritura pública definitiva de compraventa deberá firmarse ante notario público dentro de un plazo de ${plazo} días naturales contados a partir de la firma del presente contrato, salvo prórroga acordada por escrito entre las partes.
+
+QUINTA. INCUMPLIMIENTO. En caso de que "EL PROMITENTE COMPRADOR" desista de la operación sin causa justificada, perderá el anticipo entregado a favor de "EL PROMITENTE VENDEDOR" como pena convencional. En caso de que "EL PROMITENTE VENDEDOR" desista de la operación, deberá restituir a "EL PROMITENTE COMPRADOR" el doble de la cantidad recibida como anticipo.
+
+SEXTA. GASTOS. Los gastos de escrituración, impuestos y derechos que se generen con motivo de la compraventa definitiva serán cubiertos en la proporción que las partes acuerden al momento de la firma ante notario.
+
+SÉPTIMA. JURISDICCIÓN. Para la interpretación y cumplimiento del presente contrato, las partes se someten a los tribunales competentes de ${ciudad}, renunciando a cualquier otro fuero que pudiera corresponderles.
+
+Leído que fue el presente contrato y enteradas las partes de su contenido y alcance legal, lo firman de conformidad en ${ciudad}, a ${fecha}.
+
+
+_________________________________          _________________________________
+   EL PROMITENTE VENDEDOR                        EL PROMITENTE COMPRADOR
+   ${vendedor}                                    ${comprador}`;
+  } else {
+    texto = `CONTRATO DE COMPRAVENTA
+
+Que celebran, por una parte ${vendedor}, a quien en lo sucesivo se le denominará "EL VENDEDOR", y por la otra ${comprador}, a quien en lo sucesivo se le denominará "EL COMPRADOR", al tenor de las siguientes declaraciones y cláusulas:
+
+DECLARACIONES
+
+I. Declara "EL VENDEDOR" ser legítimo propietario del inmueble tipo ${tipoInmueble} ubicado en ${domicilio}, con una superficie aproximada de ${superficie} m², libre de gravamen, y con facultades suficientes para transmitir su propiedad.
+
+II. Declara "EL COMPRADOR" conocer las condiciones físicas y legales del inmueble, y contar con la solvencia necesaria para cubrir el precio pactado.
+
+CLÁUSULAS
+
+PRIMERA. OBJETO. "EL VENDEDOR" transmite en este acto la propiedad del inmueble descrito en la Declaración I a favor de "EL COMPRADOR", quien lo adquiere de conformidad, en los términos de este contrato.
+
+SEGUNDA. PRECIO Y FORMA DE PAGO. El precio total de la compraventa es la cantidad de $${precio} (M.N.), misma que "EL COMPRADOR" cubre a "EL VENDEDOR" mediante ${formaPago} en este acto, sirviendo el presente instrumento como el mejor y más eficaz recibo que en derecho proceda.
+
+TERCERA. ENTREGA. "EL VENDEDOR" se obliga a entregar la posesión material del inmueble a "EL COMPRADOR" a la firma del presente contrato, libre de ocupantes, gravámenes, adeudos de servicios y contribuciones.
+
+CUARTA. SANEAMIENTO. "EL VENDEDOR" responde por la evicción y los vicios ocultos del inmueble conforme a la legislación civil aplicable.
+
+QUINTA. ESCRITURACIÓN. Las partes se obligan a formalizar la presente operación ante notario público a la brevedad posible, corriendo los gastos de escrituración, impuestos y derechos a cargo de la parte que las partes acuerden por separado.
+
+SEXTA. JURISDICCIÓN. Para la interpretación y cumplimiento del presente contrato, las partes se someten a los tribunales competentes de ${ciudad}, renunciando a cualquier otro fuero que pudiera corresponderles.
+
+Leído que fue el presente contrato y enteradas las partes de su contenido y alcance legal, lo firman de conformidad en ${ciudad}, a ${fecha}.
+
+
+_________________________________          _________________________________
+        EL VENDEDOR                                  EL COMPRADOR
+   ${vendedor}                                    ${comprador}`;
+  }
+
+  document.getElementById('contractText').innerText = texto;
+  document.getElementById('previewWrap').classList.add('show');
+  document.getElementById('previewWrap').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function descargarWord(){
+  const contenido = document.getElementById('contractText').innerText;
+  if(!contenido){ return; }
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"></head>
+  <body style="font-family:Georgia, serif; font-size:12pt; line-height:1.6;">
+  <pre style="white-space:pre-wrap; font-family:Georgia, serif;">${contenido.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</pre>
+  </body></html>`;
+  const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'contrato-compraventa-uno-brokers.doc';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+toggleCampos();
+</script>
+
+</body>
+</html>

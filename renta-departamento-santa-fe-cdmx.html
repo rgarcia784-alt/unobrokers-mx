@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Departamentos en Renta Santa Fe CDMX | UNO Brokers</title>
+<meta name="description" content="Encuentra departamento en renta en Santa Fe, Lomas de Santa Fe, Contadero y Cuajimalpa. Opciones desde $19,000/mes. Broker dedicado a tu b&uacute;squeda. Respuesta en 2 horas.">
+<meta name="keywords" content="departamentos en renta Santa Fe CDMX, renta departamento Lomas de Santa Fe, departamento amueblado Santa Fe, renta Contadero CDMX, arrendar departamento Cuajimalpa, departamentos baratos Santa Fe Ciudad de México">
+<meta property="og:title" content="Departamentos en Renta Santa Fe CDMX | UNO Brokers">
+<meta property="og:description" content="Renta departamento en Santa Fe desde $19,000/mes. Cuéntanos qué necesitas y te mostramos opciones reales en menos de 24 horas.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:       #0D1B2A;
+    --navy-mid:   #162338;
+    --amber:      #E8A020;
+    --amber-lt:   #F5B845;
+    --teal:       #1D9E75;
+    --teal-lt:    #22B884;
+    --white:      #FFFFFF;
+    --snow:       #F8F7F4;
+    --gray-100:   #F0EFEC;
+    --gray-200:   #E2E0DC;
+    --gray-500:   #7A7770;
+    --gray-700:   #3D3C3A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--white);color:var(--navy);line-height:1.6;font-size:16px}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;background:rgba(13,27,42,.97);backdrop-filter:blur(8px);z-index:100;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;border-bottom:1px solid rgba(232,160,32,.2)}
+  .nav-logo{font-family:'Playfair Display',serif;font-size:20px;color:var(--white);letter-spacing:.03em}
+  .nav-logo span{color:var(--amber)}
+  .nav-cta{background:var(--amber);color:var(--navy);padding:8px 18px;border-radius:6px;font-weight:600;font-size:13px;text-decoration:none;transition:background .2s}
+  .nav-cta:hover{background:var(--amber-lt)}
+
+  /* HERO */
+  .hero{min-height:100vh;background:linear-gradient(150deg,#0D1B2A 0%,#0c2218 55%,#101e2a 100%);padding:100px 24px 60px;display:flex;align-items:center;position:relative;overflow:hidden}
+  .hero-blob1{position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(29,158,117,.13) 0%,transparent 70%);top:-120px;right:-80px;pointer-events:none}
+  .hero-blob2{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(232,160,32,.08) 0%,transparent 70%);bottom:40px;left:-60px;pointer-events:none}
+  .hero-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:64px;align-items:center;width:100%;position:relative;z-index:2}
+
+  /* left */
+  .hero-eye{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,.12);border:1px solid rgba(29,158,117,.3);color:var(--teal-lt);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:99px;margin-bottom:24px}
+  .eye-dot{width:6px;height:6px;background:var(--teal-lt);border-radius:50%;animation:blink 2s infinite}
+  @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,52px);color:var(--white);line-height:1.18;margin-bottom:20px;font-weight:700}
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .hero-sub{font-size:17px;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:36px;max-width:500px}
+  .hero-sub strong{color:var(--teal-lt);font-weight:600}
+  .hero-pills{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+  .pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:rgba(255,255,255,.6);font-size:12px;font-weight:500;padding:5px 14px;border-radius:99px}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+  .h-stat{background:rgba(255,255,255,.04);padding:18px 16px;text-align:center}
+  .h-stat-num{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--amber);display:block}
+  .h-stat-lbl{font-size:11px;color:rgba(255,255,255,.45);margin-top:4px;line-height:1.4}
+
+  /* right: card */
+  .lead-card{background:var(--white);border-radius:20px;padding:36px 30px;box-shadow:0 12px 56px rgba(0,0,0,.25);width:100%}
+  .lc-head{text-align:center;margin-bottom:24px}
+  .lc-head h2{font-family:'Playfair Display',serif;font-size:21px;color:var(--navy);margin-bottom:6px}
+  .lc-head p{font-size:13px;color:var(--gray-500)}
+  .lc-prog{display:flex;gap:6px;margin-bottom:22px}
+  .lp{flex:1;height:3px;border-radius:99px;background:var(--gray-200);transition:background .3s}
+  .lp.done{background:var(--teal)}
+  .lp.on{background:var(--amber)}
+
+  /* steps */
+  .lc-step{display:none}
+  .lc-step.on{display:block}
+  .lc-label{font-size:12px;font-weight:700;color:var(--navy);letter-spacing:.04em;margin-bottom:10px;display:block}
+  .lc-opts{display:grid;gap:9px}
+  .lc-opts.g2{grid-template-columns:1fr 1fr}
+  .lopt{border:1.5px solid var(--gray-200);border-radius:10px;padding:11px 13px;cursor:pointer;display:flex;align-items:center;gap:9px;font-size:13px;color:var(--gray-700);font-weight:500;background:var(--white);text-align:left;transition:all .2s;font-family:'Inter',sans-serif}
+  .lopt:hover{border-color:var(--teal);color:var(--navy);background:rgba(29,158,117,.04)}
+  .lopt.sel{border-color:var(--teal);background:rgba(29,158,117,.06);color:var(--navy)}
+  .lopt-icon{font-size:18px;flex-shrink:0}
+  .lopt-txt{line-height:1.3}
+  .lopt-sub{font-size:11px;color:var(--gray-500);font-weight:400;display:block;margin-top:2px}
+  .lc-input{width:100%;padding:11px 14px;border-radius:8px;border:1.5px solid var(--gray-200);font-size:14px;font-family:'Inter',sans-serif;color:var(--navy);transition:border-color .2s;margin-bottom:10px}
+  .lc-input:focus{outline:none;border-color:var(--teal)}
+  .lc-input::placeholder{color:var(--gray-500)}
+  .lc-range-label{font-size:12px;color:var(--gray-500);margin-bottom:8px;display:block;margin-top:14px}
+  .lc-nav{display:flex;gap:10px;margin-top:18px}
+  .btn-back{flex:1;padding:12px;border-radius:8px;border:1.5px solid var(--gray-200);background:none;color:var(--gray-500);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:'Inter',sans-serif}
+  .btn-back:hover{border-color:var(--navy);color:var(--navy)}
+  .btn-next{flex:2;padding:12px;border-radius:8px;background:var(--navy);color:var(--white);font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s;font-family:'Inter',sans-serif}
+  .btn-next:hover{background:var(--teal)}
+  .btn-next:disabled{opacity:.35;cursor:not-allowed}
+  /* success */
+  .lc-success{text-align:center;padding:16px 0}
+  .suc-icon{font-size:48px;margin-bottom:14px}
+  .lc-success h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--navy);margin-bottom:10px}
+  .lc-success p{font-size:14px;color:var(--gray-500);line-height:1.7;margin-bottom:22px}
+  .btn-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:var(--white);padding:14px 24px;border-radius:8px;font-weight:700;font-size:14px;text-decoration:none;transition:all .2s}
+  .btn-wa:hover{background:#20bc5a;transform:translateY(-2px)}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero{padding:88px 20px 60px}
+  }
+
+  /* SECTIONS */
+  section{padding:80px 24px}
+  .container{max-width:1040px;margin:0 auto}
+  .sec-lbl{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:block}
+  h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,40px);color:var(--navy);line-height:1.25;margin-bottom:16px;font-weight:700}
+  h2 em{font-style:normal;color:var(--amber)}
+  .sec-desc{font-size:17px;color:var(--gray-500);max-width:560px;line-height:1.7;margin-bottom:48px}
+
+  /* OPCIONES */
+  .ops-bg{background:var(--snow)}
+  .ops-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+  .op-card{background:var(--white);border-radius:14px;border:1px solid #ECEAE6;overflow:hidden;transition:box-shadow .2s,transform .2s}
+  .op-card:hover{box-shadow:0 10px 36px rgba(13,27,42,.1);transform:translateY(-4px)}
+  .op-top{padding:24px 24px 18px;border-bottom:1px solid var(--gray-100);position:relative}
+  .op-icon{font-size:30px;margin-bottom:10px;display:block}
+  .op-top h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:4px}
+  .op-badge{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px}
+  .badge-green{background:rgba(29,158,117,.1);color:var(--teal)}
+  .badge-amber{background:rgba(232,160,32,.12);color:#9a6a10}
+  .badge-navy{background:rgba(13,27,42,.07);color:var(--navy)}
+  .op-price{position:absolute;top:20px;right:20px;font-size:13px;font-weight:700;color:var(--amber)}
+  .op-body{padding:18px 24px}
+  .op-body p{font-size:14px;color:var(--gray-500);line-height:1.65;margin-bottom:14px}
+  .op-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:20px}
+  .op-list li{font-size:13px;color:var(--gray-700);display:flex;align-items:center;gap:8px}
+  .op-list li::before{content:'';width:6px;height:6px;background:var(--teal);border-radius:50%;flex-shrink:0}
+  .op-cta{display:block;margin:0 24px 24px;background:var(--navy);color:var(--white);padding:12px;border-radius:8px;text-align:center;font-weight:600;font-size:14px;text-decoration:none;transition:background .2s}
+  .op-cta:hover{background:var(--teal)}
+
+  /* ZONAS TABLA */
+  .zonas-table{width:100%;border-collapse:collapse;margin-bottom:48px}
+  .zonas-table th{background:var(--navy);color:var(--white);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:14px 16px;text-align:left}
+  .zonas-table th:first-child{border-radius:8px 0 0 0}
+  .zonas-table th:last-child{border-radius:0 8px 0 0}
+  .zonas-table td{padding:14px 16px;font-size:14px;border-bottom:1px solid var(--gray-100);color:var(--gray-700)}
+  .zonas-table tr:last-child td{border-bottom:none}
+  .zonas-table tr:nth-child(even) td{background:var(--snow)}
+  .zonas-table td:first-child{font-weight:700;color:var(--navy)}
+  .price-cell{font-weight:700;color:var(--amber)}
+  .tag-small{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:99px}
+  .tag-sm-green{background:rgba(29,158,117,.1);color:var(--teal)}
+  .tag-sm-amber{background:rgba(232,160,32,.12);color:#9a6a10}
+  .tag-sm-navy{background:rgba(13,27,42,.07);color:var(--navy)}
+  @media(max-width:640px){
+    .zonas-table{display:block;overflow-x:auto}
+  }
+
+  /* DOCS */
+  .docs-bg{background:var(--snow)}
+  .docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .doc-card{background:var(--white);border-radius:12px;padding:24px;border:1px solid #ECEAE6;transition:all .2s}
+  .doc-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+  .doc-icon{font-size:26px;margin-bottom:12px;display:block}
+  .doc-card h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
+  .doc-card p{font-size:13px;color:var(--gray-500);line-height:1.6}
+  .doc-opt{font-size:11px;font-weight:600;color:var(--teal);margin-top:8px;display:block}
+
+  /* PROCESO */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+  .step{padding:28px 18px;text-align:center;position:relative}
+  .step-num{width:50px;height:50px;background:var(--navy);color:var(--amber);font-family:'Playfair Display',serif;font-size:19px;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+  .step h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:7px}
+  .step p{font-size:12px;color:var(--gray-500);line-height:1.6}
+  .step-conn{position:absolute;top:54px;right:-14px;width:28px;height:2px;background:var(--amber);opacity:.35}
+  @media(max-width:640px){.step-conn{display:none}}
+
+  /* FAQ */
+  .faq-list{max-width:720px;margin:0 auto}
+  .faq-item{border-bottom:1px solid #ECEAE6}
+  .faq-btn{width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;padding:20px 0;background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:var(--navy);gap:14px;font-family:'Inter',sans-serif}
+  .faq-arr{width:28px;height:28px;background:var(--gray-100);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,background .2s;font-size:13px;color:var(--gray-500)}
+  .faq-item.open .faq-arr{transform:rotate(180deg);background:var(--amber);color:var(--navy)}
+  .faq-body{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:14px;color:var(--gray-500);line-height:1.75}
+  .faq-item.open .faq-body{max-height:280px;padding-bottom:18px}
+
+  /* FINAL CTA */
+  .final-cta{background:linear-gradient(135deg,#0D1B2A 0%,#0c2218 100%);padding:80px 24px;text-align:center;position:relative;overflow:hidden}
+  .final-cta-inner{position:relative;z-index:2;max-width:640px;margin:0 auto}
+  .final-cta h2{color:var(--white);margin-bottom:14px}
+  .final-cta h2 em{color:var(--amber);font-style:normal}
+  .final-cta p{color:rgba(255,255,255,.6);font-size:17px;margin-bottom:36px;line-height:1.7}
+  .final-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+  .btn-p{background:var(--amber);color:var(--navy);padding:16px 32px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;box-shadow:0 4px 20px rgba(232,160,32,.3)}
+  .btn-p:hover{background:var(--amber-lt);transform:translateY(-2px)}
+  .btn-wf{background:#25D366;color:var(--white);padding:16px 32px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+  .btn-wf:hover{background:#20bc5a;transform:translateY(-2px)}
+  .btn-o{background:transparent;color:var(--white);padding:16px 32px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid rgba(255,255,255,.25);display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+  .btn-o:hover{border-color:var(--amber);color:var(--amber)}
+
+  /* CTA BOX */
+  .cta-box{background:linear-gradient(135deg,var(--navy),var(--navy-mid));border-radius:16px;padding:40px;text-align:center;color:var(--white)}
+  .cta-box h3{font-family:'Playfair Display',serif;font-size:24px;margin-bottom:10px}
+  .cta-box p{color:rgba(255,255,255,.6);margin-bottom:24px;font-size:15px}
+
+  /* FOOTER */
+  footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:32px 24px;text-align:center}
+  .ft-logo{font-family:'Playfair Display',serif;font-size:22px;color:var(--white);margin-bottom:8px}
+  .ft-logo span{color:var(--amber)}
+  footer p{color:rgba(255,255,255,.4);font-size:13px;margin-bottom:6px}
+  .ft-links{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:16px}
+  .ft-links a{color:rgba(255,255,255,.4);font-size:12px;text-decoration:none;transition:color .2s}
+  .ft-links a:hover{color:var(--amber)}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RealEstateAgent",
+  "name": "UNO Brokers",
+  "description": "Especialistas en renta de departamentos en Santa Fe, Lomas de Santa Fe, Contadero y Cuajimalpa de Morelos, Ciudad de México. Especialistas en renta en Santa Fe, CDMX.",
+  "telephone": "+523339675255",
+  "areaServed": [
+    {"@type": "Place", "name": "Lomas de Santa Fe, Cuajimalpa de Morelos, CDMX"},
+    {"@type": "Place", "name": "Contadero, Cuajimalpa de Morelos, CDMX"},
+    {"@type": "Place", "name": "Santa Fe Cuajimalpa, CDMX"}
+  ],
+  "url": "https://unobrokers.com.mx/renta-departamento-santa-fe-cdmx.html",
+  "sameAs": ["https://www.instagram.com/unobrokersmx"]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">UNO <span>Brokers</span></div>
+  <a class="nav-cta" href="#filtro">Ver opciones &rarr;</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="filtro">
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+  <div class="hero-grid">
+
+    <!-- texto -->
+    <div>
+      <div class="hero-eye"><div class="eye-dot"></div>Renta &middot; CDMX</div>
+      <h1>Renta tu departamento<br>en <em>Santa Fe</em><br>con un broker dedicado</h1>
+      <p class="hero-sub">
+        Tenemos opciones en <strong>Lomas de Santa Fe, Contadero y Santa Fe Cuajimalpa</strong>. Cu&eacute;ntanos qu&eacute; necesitas y un broker te manda opciones reales hoy.
+        Cu&eacute;ntanos qu&eacute; necesitas y un broker te manda opciones reales hoy.
+      </p>
+          <div class="hero-pills">
+      <span class="pill">Renta desde $19,000/mes</span>
+      <span class="pill">Amueblados y sin amueblar</span>
+      <span class="pill">Estudio hasta 4 rec&aacute;maras</span>
+    </div>
+      <div class="hero-stats">
+        <div class="h-stat">
+          <span class="h-stat-num">+50</span>
+          <div class="h-stat-lbl">Opciones activas en las 3 zonas premium</div>
+        </div>
+        <div class="h-stat">
+          <span class="h-stat-num">&lt;24h</span>
+          <div class="h-stat-lbl">Para recibir opciones curadas</div>
+        </div>
+        <div class="h-stat">
+          <span class="h-stat-num">4</span>
+          <div class="h-stat-lbl">Zonas cubiertas en Santa Fe</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- formulario -->
+    <div class="lead-card">
+      <div class="lc-head">
+        <h2>&#128205; Dinos qu&eacute; buscas</h2>
+        <p>4 preguntas r&aacute;pidas &bull; Te respondemos hoy</p>
+      </div>
+      <div class="lc-prog">
+        <div class="lp on" id="lp1"></div>
+        <div class="lp" id="lp2"></div>
+        <div class="lp" id="lp3"></div>
+        <div class="lp" id="lp4"></div>
+      </div>
+
+      <!-- STEP 1: recámaras -->
+      <div class="lc-step on" id="ls1">
+        <span class="lc-label">1 de 4 &mdash; &iquest;Cu&aacute;ntas rec&aacute;maras necesitas?</span>
+        <div class="lc-opts g2">
+          <button class="lopt" onclick="pick(this,'rec','estudio')"><span class="lopt-icon">&#127956;&#65039;</span><div class="lopt-txt">Estudio<span class="lopt-sub">Sin recámara separada</span></div></button>
+          <button class="lopt" onclick="pick(this,'rec','1')"><span class="lopt-icon">&#127916;</span><div class="lopt-txt">1 rec&aacute;mara<span class="lopt-sub">Ideal para 1-2 personas</span></div></button>
+          <button class="lopt" onclick="pick(this,'rec','2')"><span class="lopt-icon">&#127917;</span><div class="lopt-txt">2 rec&aacute;maras<span class="lopt-sub">Pareja o compañero</span></div></button>
+          <button class="lopt" onclick="pick(this,'rec','3+')"><span class="lopt-icon">&#127968;</span><div class="lopt-txt">3 o m&aacute;s<span class="lopt-sub">Familia o m&aacute;s espacio</span></div></button>
+        </div>
+        <div class="lc-nav"><button class="btn-next" id="bn1" onclick="ls(2)" disabled>Siguiente &rarr;</button></div>
+      </div>
+
+      <!-- STEP 2: zona + amueblado -->
+      <div class="lc-step" id="ls2">
+        <span class="lc-label">2 de 4 &mdash; &iquest;En qu&eacute; zona prefieres?</span>
+                <div class="lc-opts g2" style="margin-bottom:16px">
+          <button class="lopt" onclick="pick(this,'zona','lomas')"><span class="lopt-icon">&#127807;</span><div class="lopt-txt">Lomas de Santa Fe<span class="lopt-sub">Premium &middot; $28K&ndash;$80K</span></div></button>
+          <button class="lopt" onclick="pick(this,'zona','contadero')"><span class="lopt-icon">&#127968;</span><div class="lopt-txt">Contadero<span class="lopt-sub">Familiar &middot; $25K&ndash;$55K</span></div></button>
+          <button class="lopt" onclick="pick(this,'zona','sfe-cuajimalpa')" style="grid-column:span 2"><span class="lopt-icon">&#127979;</span><div class="lopt-txt">Santa Fe Cuajimalpa<span class="lopt-sub">Ejecutivo &middot; $22K&ndash;$45K</span></div></button>
+          <button class="lopt" onclick="pick(this,'zona','cualquiera')" style="grid-column:span 2"><span class="lopt-icon">&#128205;</span><div class="lopt-txt">Cualquier colonia de la zona</div></button>
+        </div></button>
+          <button class="lopt" onclick="pick(this,'zona','lomas')"><span class="lopt-icon">&#127807;</span><div class="lopt-txt">Lomas de S.Fe</div></button>
+          <button class="lopt" onclick="pick(this,'zona','contadero')"><span class="lopt-icon">&#127968;</span><div class="lopt-txt">Contadero</div></button>
+          <button class="lopt" onclick="pick(this,'zona','cuajimalpa')"><span class="lopt-icon">&#127956;&#65039;</span><div class="lopt-txt">Cuajimalpa</div></button>
+          <button class="lopt" onclick="pick(this,'zona','cualquiera')" style="grid-column:span 2"><span class="lopt-icon">&#128205;</span><div class="lopt-txt">Cualquiera de la zona Santa Fe</div></button>
+        </div>
+        <span class="lc-label">&#191;Lo quieres amueblado?</span>
+        <div class="lc-opts g2">
+          <button class="lopt" onclick="pick(this,'muebles','si')"><span class="lopt-icon">&#128249;</span><div class="lopt-txt">S&iacute;, amueblado<span class="lopt-sub">Listo para entrar</span></div></button>
+          <button class="lopt" onclick="pick(this,'muebles','no')"><span class="lopt-icon">&#129695;</span><div class="lopt-txt">Sin muebles<span class="lopt-sub">Pongo los m&iacute;os</span></div></button>
+        </div>
+        <div class="lc-nav">
+          <button class="btn-back" onclick="ls(1)">&#8592;</button>
+          <button class="btn-next" id="bn2" onclick="ls(3)" disabled>Siguiente &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: presupuesto + entrada -->
+      <div class="lc-step" id="ls3">
+        <span class="lc-label">3 de 4 &mdash; Presupuesto y fecha de entrada</span>
+        <div class="lc-opts" style="margin-bottom:14px">
+          <button class="lopt" onclick="pick(this,'budget','19-25')"><span class="lopt-icon">&#128176;</span><div class="lopt-txt">$19,000 &ndash; $25,000 / mes</div></button>
+          <button class="lopt" onclick="pick(this,'budget','25-40')"><span class="lopt-icon">&#128178;</span><div class="lopt-txt">$25,000 &ndash; $40,000 / mes</div></button>
+          <button class="lopt" onclick="pick(this,'budget','40-60')"><span class="lopt-icon">&#128181;</span><div class="lopt-txt">$40,000 &ndash; $60,000 / mes</div></button>
+          <button class="lopt" onclick="pick(this,'budget','60+')"><span class="lopt-icon">&#127775;</span><div class="lopt-txt">M&aacute;s de $60,000 / mes</div></button>
+        </div>
+        <span class="lc-label">&iquest;Cu&aacute;ndo quieres entrar?</span>
+        <div class="lc-opts g2">
+          <button class="lopt" onclick="pick(this,'fecha','inmediato')"><span class="lopt-icon">&#9889;</span><div class="lopt-txt">Inmediato<span class="lopt-sub">Este mes</span></div></button>
+          <button class="lopt" onclick="pick(this,'fecha','1-2m')"><span class="lopt-icon">&#128197;</span><div class="lopt-txt">1 &ndash; 2 meses<span class="lopt-sub">Sin prisa</span></div></button>
+          <button class="lopt" onclick="pick(this,'fecha','3m+')"><span class="lopt-icon">&#128336;</span><div class="lopt-txt">M&aacute;s de 3 meses<span class="lopt-sub">Planifico con tiempo</span></div></button>
+          <button class="lopt" onclick="pick(this,'fecha','explorando')"><span class="lopt-icon">&#128270;</span><div class="lopt-txt">Solo explorando<span class="lopt-sub">A&uacute;n no lo decido</span></div></button>
+        </div>
+        <div class="lc-nav">
+          <button class="btn-back" onclick="ls(2)">&#8592;</button>
+          <button class="btn-next" id="bn3" onclick="ls(4)" disabled>Siguiente &rarr;</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: contacto -->
+      <div class="lc-step" id="ls4">
+        <span class="lc-label">4 de 4 &mdash; &iquest;C&oacute;mo te enviamos las opciones?</span>
+        <input class="lc-input" type="text" id="r-nombre" placeholder="Tu nombre completo" oninput="ck4()">
+        <input class="lc-input" type="tel" id="r-tel" placeholder="WhatsApp (10 d&iacute;gitos)" oninput="ck4()">
+        <input class="lc-input" type="email" id="r-email" placeholder="Correo electr&oacute;nico (opcional)">
+        <div class="lc-nav">
+          <button class="btn-back" onclick="ls(3)">&#8592;</button>
+          <button class="btn-next" id="bn4" onclick="enviar()" disabled>Ver opciones disponibles &#127968;</button>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="lc-step" id="ls-ok">
+        <div class="lc-success">
+          <div class="suc-icon">&#127881;</div>
+          <h3>&#161;Perfecto, <span id="r-first"></span>!</h3>
+          <p>Un broker especialista en renta en Santa Fe te contactar&aacute; por WhatsApp en menos de 2 horas con opciones que se ajustan exactamente a lo que buscas.</p>
+          <a id="wa-ok" href="#" class="btn-wa" target="_blank">&#128172; Escribir ahora por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPCIONES DISPONIBLES -->
+<section class="ops-bg">
+  <div class="container">
+    <span class="sec-lbl">Opciones disponibles</span>
+    <h2>Tipos de departamento<br><em>en renta en Santa Fe</em></h2>
+    <p class="sec-desc">Desde estudios ejecutivos hasta residencias familiares de lujo. Todos con contrato legal y proceso transparente.</p>
+    <div class="ops-grid">
+
+      <div class="op-card">
+        <div class="op-top">
+          <span class="op-icon">&#127956;&#65039;</span>
+          <h3>Estudio ejecutivo</h3>
+          <span class="op-badge badge-green">Disponible</span>
+          <span class="op-price">Desde $19,000</span>
+        </div>
+        <div class="op-body">
+          <p>Para profesionistas solteros que trabajan en la zona corporativa. Dise&ntilde;o inteligente, todo en un espacio.</p>
+          <ul class="op-list">
+            <li>Sala-comedor-cocina integrados</li>
+            <li>Ba&ntilde;o completo</li>
+            <li>1 caj&oacute;n de estacionamiento</li>
+            <li>Gimnasio y &aacute;reas comunes</li>
+            <li>Disponibles amueblados</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/523339675255?text=Hola%2C%20busco%20estudio%20en%20renta%20en%20Santa%20Fe%20CDMX" class="op-cta">Quiero ver opciones</a>
+      </div>
+
+      <div class="op-card">
+        <div class="op-top">
+          <span class="op-icon">&#127968;</span>
+          <h3>Departamento de 1 rec&aacute;mara</h3>
+          <span class="op-badge badge-green">Disponible</span>
+          <span class="op-price">Desde $25,000</span>
+        </div>
+        <div class="op-body">
+          <p>Ideal para parejas o profesionistas que buscan m&aacute;s espacio y privacidad sin salirse de presupuesto.</p>
+          <ul class="op-list">
+            <li>Rec&aacute;mara separada con closet</li>
+            <li>Sala-comedor amplio</li>
+            <li>Cocina integral</li>
+            <li>1&ndash;2 cajones de estacionamiento</li>
+            <li>Opciones con balc&oacute;n</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/523339675255?text=Hola%2C%20busco%20departamento%20de%201%20rec%C3%A1mara%20en%20renta%20en%20Santa%20Fe%20CDMX" class="op-cta">Quiero ver opciones</a>
+      </div>
+
+      <div class="op-card">
+        <div class="op-top">
+          <span class="op-icon">&#127963;&#65039;</span>
+          <h3>Departamento familiar 2&ndash;3 rec</h3>
+          <span class="op-badge badge-amber">Alta demanda</span>
+          <span class="op-price">Desde $25,000</span>
+        </div>
+        <div class="op-body">
+          <p>Para familias que buscan espacio, seguridad y acceso a colegios en la zona poniente de CDMX.</p>
+          <ul class="op-list">
+            <li>2 o 3 rec&aacute;maras con closets</li>
+            <li>2 ba&ntilde;os completos</li>
+            <li>Cuarto de servicio disponible</li>
+            <li>2 cajones de estacionamiento</li>
+            <li>Alberca y club house</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/523339675255?text=Hola%2C%20busco%20departamento%20familiar%202%20o%203%20rec%C3%A1maras%20en%20renta%20en%20Santa%20Fe%20CDMX" class="op-cta">Quiero ver opciones</a>
+      </div>
+
+      <div class="op-card">
+        <div class="op-top">
+          <span class="op-icon">&#127775;</span>
+          <h3>Departamento premium</h3>
+          <span class="op-badge badge-navy">Lomas de Santa Fe</span>
+          <span class="op-price">Desde $45,000</span>
+        </div>
+        <div class="op-body">
+          <p>Acabados de lujo, vistas panor&aacute;micas y amenidades exclusivas. Para quienes no hacen concesiones.</p>
+          <ul class="op-list">
+            <li>3&ndash;4 rec&aacute;maras en suite</li>
+            <li>Terraza o roof privado</li>
+            <li>Cocina gourmet equipada</li>
+            <li>3 cajones de estacionamiento</li>
+            <li>Conserje 24/7</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/523339675255?text=Hola%2C%20busco%20departamento%20de%20lujo%20en%20renta%20en%20Lomas%20de%20Santa%20Fe%20CDMX" class="op-cta">Quiero ver opciones</a>
+      </div>
+
+      <div class="op-card">
+        <div class="op-top">
+          <span class="op-icon">&#128249;</span>
+          <h3>Departamento amueblado</h3>
+          <span class="op-badge badge-green">Especial ejecutivo</span>
+          <span class="op-price">Desde $22,000</span>
+        </div>
+        <div class="op-body">
+          <p>Para asignaciones corporativas o quienes llegan de otra ciudad sin querer comprar muebles nuevos.</p>
+          <ul class="op-list">
+            <li>Muebles, cama, sof&aacute; y comedor</li>
+            <li>Electrodom&eacute;sticos incluidos</li>
+            <li>TV y lavadora</li>
+            <li>Listo para entrar el mismo mes</li>
+            <li>Contratos desde 6 meses</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/523339675255?text=Hola%2C%20busco%20departamento%20amueblado%20en%20renta%20en%20Santa%20Fe%20CDMX" class="op-cta">Quiero ver opciones</a>
+      </div>
+
+      <div class="op-card">
+        <div class="op-top">
+          <span class="op-icon">&#128201;</span>
+          <h3>No encuentro lo que busco</h3>
+          <span class="op-badge badge-navy">Co-brokeraje activo</span>
+          <span class="op-price">Cualquier rango</span>
+        </div>
+        <div class="op-body">
+          <p>Si no tienes lo que buscas en portafolio propio, activamos nuestra red de co-brokeraje para encontrarlo.</p>
+          <ul class="op-list">
+            <li>B&uacute;squeda personalizada</li>
+            <li>Red de +50 asesores en CDMX</li>
+            <li>Gesti&oacute;n completa de tu b&uacute;squeda</li>
+            <li>Respuesta en 48 horas</li>
+            <li>Presenta tus requisitos exactos</li>
+          </ul>
+        </div>
+        <a href="https://wa.me/523339675255?text=Hola%2C%20busco%20un%20departamento%20en%20Santa%20Fe%20CDMX%20con%20caracter%C3%ADsticas%20espec%C3%ADficas%20y%20no%20encuentro%20lo%20que%20necesito" class="op-cta">Desc&iacute;beme lo que necesito</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ZONAS TABLA -->
+<section>
+  <div class="container">
+    <span class="sec-lbl">Precios reales de mercado</span>
+    <h2>Cu&aacute;nto cuesta rentar<br><em>en cada zona de Santa Fe</em></h2>
+    <p class="sec-desc">Rangos actualizados a junio 2026 con base en ofertas activas en portales y nuestro portafolio.</p>
+        <div style="overflow-x:auto;margin-bottom:48px;border-radius:10px;border:1px solid var(--gray-200)">
+    <table class="zonas-table">
+      <thead>
+        <tr>
+          <th>Colonia</th>
+          <th>Estudio / 1 rec</th>
+          <th>2 rec&aacute;maras</th>
+          <th>3+ rec&aacute;maras</th>
+          <th>Perfil</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&#127807; Lomas de Santa Fe</td>
+          <td class="price-cell">$22K &ndash; $35K</td>
+          <td class="price-cell">$28K &ndash; $50K</td>
+          <td class="price-cell">$45K &ndash; $80K</td>
+          <td><span class="tag-small tag-sm-navy">Premium</span></td>
+        </tr>
+        <tr>
+          <td>&#127968; Contadero</td>
+          <td class="price-cell">$22K &ndash; $30K</td>
+          <td class="price-cell">$25K &ndash; $38K</td>
+          <td class="price-cell">$35K &ndash; $55K</td>
+          <td><span class="tag-small tag-sm-amber">Ejecutivo</span></td>
+        </tr>
+        <tr>
+          <td>&#127979; Santa Fe Cuajimalpa</td>
+          <td class="price-cell">$22K &ndash; $30K</td>
+          <td class="price-cell">$28K &ndash; $45K</td>
+          <td class="price-cell">$38K &ndash; $60K</td>
+          <td><span class="tag-small tag-sm-amber">Corporativo</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="cta-box" id="contacto">
+      <h3>&iquest;Ya sabes qu&eacute; rango te interesa?</h3>
+      <p>Escr&iacute;benos y te mandamos opciones disponibles en esa zona hoy mismo.</p>
+      <a href="https://wa.me/523339675255?text=Hola%2C%20vi%20la%20tabla%20de%20precios%20y%20quiero%20ver%20opciones%20de%20renta%20en%20Santa%20Fe%20CDMX" class="btn-p">&#128172; Ver opciones por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- DOCS REQUISITOS -->
+<section class="docs-bg">
+  <div class="container">
+    <span class="sec-lbl">Documentos necesarios</span>
+    <h2>&iquest;Qu&eacute; necesitas<br><em>para rentar en Santa Fe?</em></h2>
+    <p class="sec-desc">Prepara estos documentos con anticipaci&oacute;n para agilizar tu proceso. Algunos son obligatorios y otros alternativos.</p>
+    <div class="docs-grid">
+      <div class="doc-card">
+        <span class="doc-icon">&#128196;</span>
+        <h3>Identificaci&oacute;n oficial</h3>
+        <p>INE / IFE, pasaporte vigente o c&eacute;dula profesional. Aplica para todos los arrendatarios y fiadores.</p>
+      </div>
+      <div class="doc-card">
+        <span class="doc-icon">&#128178;</span>
+        <h3>Comprobante de ingresos</h3>
+        <p>Recibos de n&oacute;mina de los &uacute;ltimos 3 meses (empleado) o declaraci&oacute;n de impuestos (independiente).</p>
+        <span class="doc-opt">Se pide ingreso m&iacute;nimo de 3x la renta mensual</span>
+      </div>
+      <div class="doc-card">
+        <span class="doc-icon">&#127974;</span>
+        <h3>Estados de cuenta</h3>
+        <p>&Uacute;ltimos 3 meses de cuenta bancaria para demostrar liquidez y respaldo financiero.</p>
+      </div>
+      <div class="doc-card">
+        <span class="doc-icon">&#127968;</span>
+        <h3>Fiador o alternativa</h3>
+        <p>Fiador con propiedad en CDMX o, como alternativa, p&oacute;liza de arrendamiento o dep&oacute;sito de garant&iacute;a.</p>
+        <span class="doc-opt">&#10003; Aceptamos extranjeros con p&oacute;liza</span>
+      </div>
+      <div class="doc-card">
+        <span class="doc-icon">&#128205;</span>
+        <h3>Comprobante de domicilio</h3>
+        <p>Recibo de luz, agua, gas o tel&eacute;fono no mayor a 3 meses del domicilio actual.</p>
+      </div>
+      <div class="doc-card">
+        <span class="doc-icon">&#128203;</span>
+        <h3>RFC y CURP</h3>
+        <p>Necesarios para el contrato de arrendamiento conforme a la legislaci&oacute;n vigente en Ciudad de M&eacute;xico.</p>
+        <span class="doc-opt">&#10003; Extranjeros: pasaporte + visa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section>
+  <div class="container">
+    <span class="sec-lbl">C&oacute;mo funciona</span>
+    <h2>De la b&uacute;squeda<br><em>a las llaves en 5 pasos</em></h2>
+    <p class="sec-desc">Sin vueltas ni p&eacute;rdida de tiempo. Un proceso claro, sin vueltas y con un broker dedicado.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Llena el formulario</h3>
+        <p>Cuéntanos zona, recámaras, presupuesto y cuándo entras.</p>
+        <div class="step-conn"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Recibe opciones</h3>
+        <p>En menos de 24 horas te mandamos una selecci&oacute;n curada por WhatsApp.</p>
+        <div class="step-conn"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Visitas</h3>
+        <p>Agendamos visitas a los que te interesen. Te acompa&ntilde;amos y resolvemos dudas.</p>
+        <div class="step-conn"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>Investigaci&oacute;n</h3>
+        <p>El propietario investiga tu perfil. Nos encargamos de gestionar el proceso.</p>
+        <div class="step-conn"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <h3>Firma y llaves</h3>
+        <p>Revisamos el contrato contigo. Firmas y recibes las llaves. &#127881;</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="background:var(--snow)">
+  <div class="container">
+    <span class="sec-lbl">Preguntas frecuentes</span>
+    <h2>Dudas comunes<br><em>al rentar en Santa Fe</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">&iquest;Cu&aacute;nto tengo que pagar al inicio para rentar un departamento?<span class="faq-arr">&#9660;</span></button>
+        <div class="faq-body">Normalmente se paga el primer mes de renta m&aacute;s un dep&oacute;sito equivalente a 1 o 2 meses. En algunos casos el propietario pide 1 mes adicional como garant&iacute;a extra. La suma inicial m&aacute;s com&uacute;n es de 2 a 3 meses de renta al momento de firmar el contrato.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">&iquest;Qu&eacute; cubre el servicio del broker para el arrendatario?<span class="faq-arr">&#9660;</span></button>
+        <div class="faq-body">El broker gestiona tu b&uacute;squeda, filtra opciones seg&uacute;n tu perfil, coordina visitas, te acompa&ntilde;a en la negociaci&oacute;n y revisa el contrato contigo antes de firmar. Los honorarios del broker son cubiertos por el propietario al momento del cierre, conforme a los t&eacute;rminos acordados con &eacute;l.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">&iquest;Puedo rentar si soy extranjero sin fiador en M&eacute;xico?<span class="faq-arr">&#9660;</span></button>
+        <div class="faq-body">S&iacute;. La alternativa m&aacute;s com&uacute;n para extranjeros es la p&oacute;liza de arrendamiento (seguro emitido por aseguradora especializada) o un dep&oacute;sito en garant&iacute;a equivalente a 2&ndash;3 meses de renta. Te orientamos sobre cu&aacute;l es m&aacute;s f&aacute;cil seg&uacute;n tu situaci&oacute;n migratoria.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">&iquest;En cu&aacute;nto tiempo puedo entrar al departamento desde que lo elijo?<span class="faq-arr">&#9660;</span></button>
+        <div class="faq-body">Una vez que eliges el departamento y apruebas la investigaci&oacute;n de arrendatario, el proceso dura entre 3 y 10 d&iacute;as h&aacute;biles hasta firma y entrega de llaves. Si ya tienes todos los documentos listos, puede resolverse en menos de una semana.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">&iquest;Hay departamentos amueblados disponibles en Santa Fe?<span class="faq-arr">&#9660;</span></button>
+        <div class="faq-body">S&iacute;. Contamos con opciones amuebladas, semamuebladas y sin muebles en Lomas de Santa Fe y Contadero, especialmente para ejecutivos en asignaci&oacute;n corporativa. Los contratos de amueblados suelen comenzar desde 6 meses. Ind&iacute;canos si lo necesitas y lo filtramos desde el inicio.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="faq(this)">&iquest;Puedo negociar el precio de renta?<span class="faq-arr">&#9660;</span></button>
+        <div class="faq-body">En muchos casos s&iacute;, especialmente si el departamento lleva tiempo publicado o si ofreces un contrato largo (12&ndash;24 meses). Te asesoramos sobre c&oacute;mo presentar una contraofertar sin da&ntilde;ar la negociaci&oacute;n. El ahorro promedio por negociaci&oacute;n suele ser de 5 a 10% sobre el precio inicial.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <h2>Tu departamento ideal<br><em>en Santa Fe est&aacute; disponible</em></h2>
+    <p>Escr&iacute;benos hoy. Un broker dedicado te responde en menos de 2 horas con opciones reales.</p>
+    <div class="final-btns">
+      <a href="https://wa.me/523339675255?text=Hola%2C%20busco%20departamento%20en%20renta%20en%20Santa%20Fe%20CDMX.%20Me%20pueden%20mostrar%20opciones%3F" class="btn-wf">&#128172; Escribir por WhatsApp</a>
+      <a href="tel:+523339675255" class="btn-o">&#128222; Llamar ahora</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">UNO <span>Brokers</span></div>
+  <p>Especialistas en renta y venta de propiedades en Santa Fe, CDMX</p>
+  <p>Lomas de Contadero &middot; Cuajimalpa de Morelos</p>
+  <div class="ft-links">
+    <a href="#">Inicio</a>
+    <a href="#filtro">Buscar depa</a>
+    <a href="#contacto">Zonas y precios</a>
+    <a href="https://unobrokers.mx">unobrokers.mx</a>
+  </div>
+  <p style="margin-top:20px;font-size:11px;">&copy; 2026 UNO Brokers &middot; Todos los derechos reservados</p>
+</footer>
+
+<script>
+const ans={};
+function pick(btn,k,v){
+  const grp=btn.closest('.lc-opts');
+  grp.querySelectorAll('.lopt').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  ans[k]=v;
+  if(k==='rec') document.getElementById('bn1').disabled=false;
+  if(k==='zona') document.getElementById('bn2').disabled=false;
+  if(k==='budget') document.getElementById('bn3').disabled=false;
+}
+function ls(n){
+  document.querySelectorAll('.lc-step').forEach(s=>s.classList.remove('on'));
+  const target=n==='ok'?'ls-ok':'ls'+n;
+  document.getElementById(target).classList.add('on');
+  ['lp1','lp2','lp3','lp4'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    el.className='lp';
+    if(i+1<(n==='ok'?5:n)) el.classList.add('done');
+    else if(i+1===(n==='ok'?4:n)) el.classList.add('on');
+  });
+}
+function ck4(){
+  const n=document.getElementById('r-nombre').value.trim();
+  const t=document.getElementById('r-tel').value.trim();
+  document.getElementById('bn4').disabled=!(n.length>1&&t.length>=10);
+}
+function enviar(){
+  const nombre=document.getElementById('r-nombre').value.trim();
+  const tel=document.getElementById('r-tel').value.trim();
+  const rec=ans['rec']||'no especificado';
+  const zona=ans['zona']||'cualquiera';
+  const budget=ans['budget']||'no especificado';
+  const fecha=ans['fecha']||'no especificado';
+  const muebles=ans['muebles']||'no especificado';
+  const msg=encodeURIComponent(
+    `Hola, busco departamento en renta en Santa Fe CDMX.\n`+
+    `- Recámaras: ${rec}\n`+
+    `- Zona: ${zona}\n`+
+    `- Amueblado: ${muebles}\n`+
+    `- Presupuesto: ${budget} MXN/mes\n`+
+    `- Entrada: ${fecha}\n`+
+    `- Nombre: ${nombre}\n`+
+    `- WhatsApp: ${tel}`
+  );
+  document.getElementById('r-first').textContent=nombre.split(' ')[0];
+  document.getElementById('wa-ok').href=`https://wa.me/523339675255?text=${msg}`;
+  ls('ok');
+}
+function faq(btn){
+  const item=btn.parentElement;
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(e=>e.classList.remove('open'));
+  if(!open) item.classList.add('open');
+}
+</script>
+</body>
+</html>
