@@ -80,6 +80,8 @@ body{font-family:'Inter',Arial,sans-serif;background:#fff;color:#222}
 .price-table2 td.lot-id2{font-weight:700;color:#fff}
 .price-table2 tr.total-row td{background:#C5992A;color:#1B2A4A;font-weight:700;border-bottom:none}
 .price-table2 .status-ok{color:#C5992A;font-weight:700;font-size:12px}
+.price-table2 .ficha-link{color:#C5992A;font-weight:700;font-size:12px;text-decoration:underline;white-space:nowrap}
+.price-table2 .ficha-link:hover{color:#fff}
 .price-table2 .status-sold{color:#8FA8C8;font-weight:700;font-size:12px}
 .bts-box{background:#243660;border:0.5px solid #C5992A;border-radius:8px;padding:20px;margin-top:18px}
 .bts-label{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:#C5992A;margin-bottom:8px}
@@ -278,6 +280,17 @@ body{font-family:'Inter',Arial,sans-serif;background:#fff;color:#222}
 
 <div class="price-section">
   <div class="price-inner">
+    <p class="section-label" style="color:#C5992A">Ubicaci&#243;n</p>
+    <h2 class="section-title" style="color:#fff">Conectividad estrat&#233;gica</h2>
+    <p style="color:#B8C4D6; font-size:15px; line-height:1.7; max-width:640px; margin-bottom:28px;">
+      Parque Nubax est&#225; sobre Carr. El Salto No. 253, a solo 9 km del Aeropuerto Internacional de Guadalajara y con acceso directo a las principales rutas de carga del pa&#237;s &mdash; Baj&#237;o, Puerto de Manzanillo, Ciudad de M&#233;xico y la frontera con Estados Unidos.
+    </p>
+    <img src="parque-nubax-conectividad.jpg" alt="Mapa de conectividad estrat&#233;gica de Parque Nubax" style="width:100%; border-radius:8px; display:block;">
+  </div>
+</div>
+
+<div class="price-section">
+  <div class="price-inner">
     <p class="section-label" style="color:#C5992A">Precios</p>
     <h2 class="section-title" style="color:#fff">Renta y venta</h2>
     <div class="price-table-wrap">
@@ -289,21 +302,22 @@ body{font-family:'Inter',Arial,sans-serif;background:#fff;color:#222}
             <th>Uso de suelo</th>
             <th>Estatus</th>
             <th class="num">Precio de venta</th>
+            <th>Ficha</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td class="lot-id2">T-01</td><td class="num">1,512 m²</td><td>Comercial</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$12,852,000 MXN</td></tr>
-          <tr><td class="lot-id2">T-02</td><td class="num">1,361 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$11,568,500 MXN</td></tr>
-          <tr><td class="lot-id2">T-03</td><td class="num">1,273 m²</td><td>Bodega</td><td><span class="status-sold">Vendido</span></td><td class="num">&mdash;</td></tr>
-          <tr><td class="lot-id2">T-04</td><td class="num">1,512 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$12,852,000 MXN</td></tr>
-          <tr><td class="lot-id2">T-05</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td></tr>
-          <tr><td class="lot-id2">T-06</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td></tr>
-          <tr><td class="lot-id2">T-07</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td></tr>
-          <tr><td class="lot-id2">T-08</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td></tr>
-          <tr><td class="lot-id2">T-09</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td></tr>
-          <tr><td class="lot-id2">T-10</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td></tr>
-          <tr><td class="lot-id2">T-11</td><td class="num">831 m²</td><td>Comercial</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$7,063,500 MXN</td></tr>
-          <tr class="total-row"><td>TOTAL DISPONIBLE</td><td class="num">11,774 m²</td><td></td><td></td><td class="num">$100,079,000 MXN</td></tr>
+          <tr><td class="lot-id2">T-01</td><td class="num">1,512 m²</td><td>Comercial</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$12,852,000 MXN</td><td>&mdash;</td></tr>
+          <tr><td class="lot-id2">T-02</td><td class="num">1,361 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$11,568,500 MXN</td><td><a href="ficha-lote-t02.pdf" target="_blank" class="ficha-link">Descargar PDF</a></td></tr>
+          <tr><td class="lot-id2">T-03</td><td class="num">1,273 m²</td><td>Bodega</td><td><span class="status-sold">Vendido</span></td><td class="num">&mdash;</td><td>&mdash;</td></tr>
+          <tr><td class="lot-id2">T-04</td><td class="num">1,512 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$12,852,000 MXN</td><td><a href="ficha-lote-t04.pdf" target="_blank" class="ficha-link">Descargar PDF</a></td></tr>
+          <tr><td class="lot-id2">T-05</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td><td><a href="ficha-lote-t05.pdf" target="_blank" class="ficha-link">Descargar PDF</a></td></tr>
+          <tr><td class="lot-id2">T-06</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td><td><a href="ficha-lote-t06.pdf" target="_blank" class="ficha-link">Descargar PDF</a></td></tr>
+          <tr><td class="lot-id2">T-07</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td><td><a href="ficha-lote-t07.pdf" target="_blank" class="ficha-link">Descargar PDF</a></td></tr>
+          <tr><td class="lot-id2">T-08</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td><td><a href="ficha-lote-t08.pdf" target="_blank" class="ficha-link">Descargar PDF</a></td></tr>
+          <tr><td class="lot-id2">T-09</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td><td><a href="ficha-lote-t09.pdf" target="_blank" class="ficha-link">Descargar PDF</a></td></tr>
+          <tr><td class="lot-id2">T-10</td><td class="num">1,093 m²</td><td>Bodega</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$9,290,500 MXN</td><td><a href="ficha-lote-t10.pdf" target="_blank" class="ficha-link">Descargar PDF</a></td></tr>
+          <tr><td class="lot-id2">T-11</td><td class="num">831 m²</td><td>Comercial</td><td><span class="status-ok">BTS y Venta</span></td><td class="num">$7,063,500 MXN</td><td>&mdash;</td></tr>
+          <tr class="total-row"><td>TOTAL DISPONIBLE</td><td class="num">11,774 m²</td><td></td><td></td><td class="num">$100,079,000 MXN</td><td></td></tr>
         </tbody>
       </table>
     </div>
