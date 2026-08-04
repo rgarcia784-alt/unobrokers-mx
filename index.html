@@ -14,12 +14,12 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-<link rel="canonical" href="https://unobrokers.com.mx/">
+<link rel="canonical" href="https://propiedades.unobrokers.mx/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Vende o Renta tu Propiedad en Guadalajara y Zapopan | UNO BROKERS">
 <meta property="og:description" content="Casas, departamentos, terrenos, bodegas, oficinas y desarrollos. Captamos y comercializamos tu propiedad. UNO BROKERS.">
 <meta property="og:locale" content="es_MX">
-<meta property="og:url" content="https://unobrokers.com.mx/">
+<meta property="og:url" content="https://propiedades.unobrokers.mx/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,7 +28,7 @@
   "description": "Comercializacion de casas, departamentos, terrenos, bodegas, oficinas y desarrollos inmobiliarios en venta y renta en Guadalajara y Zapopan, Jalisco.",
   "areaServed": ["Guadalajara", "Zapopan", "Jalisco"],
   "telephone": "+523339675255",
-  "url": "https://unobrokers.com.mx/",
+  "url": "https://propiedades.unobrokers.mx/",
   "address": {"@type": "PostalAddress","addressLocality": "Zapopan","addressRegion": "Jalisco","addressCountry": "MX"},
   "knowsLanguage": "es-MX"
 }
@@ -144,6 +144,114 @@ footer a{color:var(--gold-light);text-decoration:none}
     </div>
   </div>
 </section>
+<section class="section" style="padding-top:0;padding-bottom:70px;">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:34px;">
+      <h2>¿Qué necesitas hoy?</h2>
+      <p>Busca entre todos nuestros servicios y herramientas, o filtra por categoría.</p>
+    </div>
+
+    <div style="max-width:640px;margin:0 auto 28px;">
+      <input type="text" id="svcSearch" placeholder="Ej. investigar inquilino, vender casa, contrato de renta..."
+        style="width:100%;padding:18px 24px;border-radius:40px;border:1px solid var(--line);background:var(--navy-3);color:var(--cream);font-family:'Outfit',sans-serif;font-size:1rem;outline:none;">
+    </div>
+
+    <div class="modes" id="svcPills" style="margin-bottom:40px;">
+      <span class="mode-pill" data-cat="todos" style="cursor:pointer;">Todos</span>
+      <span class="mode-pill" data-cat="vender" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Vender</span>
+      <span class="mode-pill" data-cat="rentar" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Rentar</span>
+      <span class="mode-pill" data-cat="comprar" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Comprar / Buscar</span>
+      <span class="mode-pill" data-cat="zonas" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Zonas y desarrollos</span>
+      <span class="mode-pill" data-cat="blog" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Blog</span>
+    </div>
+
+    <div class="types" id="svcGrid"></div>
+    <p id="svcEmpty" style="display:none;text-align:center;color:var(--muted);margin-top:30px;">No encontramos nada con esa búsqueda — prueba con otra palabra, o escríbenos directo por WhatsApp.</p>
+  </div>
+</section>
+
+<script>
+const SERVICIOS = [
+  {t:"Vender mi departamento", d:"Zapopan y Guadalajara", cat:"vender", href:"captacion-departamentos-venta-zapopan-guadalajara.html", ico:"&#9638;"},
+  {t:"Vender mi casa", d:"Guadalajara", cat:"vender", href:"vender-casa-guadalajara.html", ico:"&#9638;"},
+  {t:"Vender mi terreno", d:"Guadalajara y Zapopan", cat:"vender", href:"https://rgarcia784-alt.github.io/vender-terreno/", ico:"&#9650;"},
+  {t:"¿Cuánto vale mi propiedad?", d:"Calculadora de opinión de valor", cat:"vender", href:"calculadora-opinion-valor.html", ico:"&#9636;"},
+  {t:"¿Cuánto vale?", d:"Opinión de valor rápida", cat:"vender", href:"cuanto-vale.html", ico:"&#9636;"},
+  {t:"Calculadora de ISR", d:"Al vender tu propiedad", cat:"vender", href:"calculadora-isr-venta-propiedad.html", ico:"&#9645;"},
+  {t:"Contrato de compraventa", d:"Generador gratis", cat:"vender", href:"generador-contrato-compraventa.html", ico:"&#9645;"},
+  {t:"Vender mi depa en Santa Fe", d:"CDMX", cat:"vender", href:"departamentos-venta-santa-fe-cdmx.html", ico:"&#9638;"},
+
+  {t:"Rentar mi propiedad", d:"Encontramos al inquilino correcto", cat:"rentar", href:"rentar-propiedad-guadalajara.html", ico:"&#8962;"},
+  {t:"Renta tu propiedad en Zapopan", d:"Con administración completa", cat:"rentar", href:"https://rgarcia784-alt.github.io/renta-propiedades-zapopan/", ico:"&#8962;"},
+  {t:"Administración de rentas", d:"Cobro mensual sin que tú lo hagas", cat:"rentar", href:"administracion-de-rentas.html", ico:"&#9783;"},
+  {t:"Investigación de inquilinos", d:"Verificación completa antes de firmar", cat:"rentar", href:"investigacion-inquilinos.html", ico:"&#9633;"},
+  {t:"Generador de contrato de renta", d:"Contrato gratis", cat:"rentar", href:"generador-contrato-renta.html", ico:"&#9645;"},
+  {t:"Solicitud de arrendamiento", d:"Formato para inquilinos", cat:"rentar", href:"solicitud-arrendamiento.html", ico:"&#9650;"},
+  {t:"Rentar mi depa en Santa Fe", d:"CDMX", cat:"rentar", href:"departamentos-renta-santa-fe-cdmx.html", ico:"&#8962;"},
+
+  {t:"Encuentra tu propiedad", d:"Cuestionario guiado", cat:"comprar", href:"encuentra-tu-propiedad.html", ico:"&#8962;"},
+  {t:"Todas las propiedades", d:"Catálogo completo", cat:"comprar", href:"propiedades.html", ico:"&#9636;"},
+  {t:"Departamentos en venta", d:"Zapopan y Guadalajara", cat:"comprar", href:"departamentos-venta-zapopan.html", ico:"&#9635;"},
+  {t:"Portafolio de propiedades", d:"Ve nuestro catálogo completo", cat:"comprar", href:"portafolio-brokers.html", ico:"&#8962;"},
+  {t:"Depas en venta Santa Fe", d:"Para quien busca comprar", cat:"comprar", href:"busco-departamento-santa-fe-cdmx.html", ico:"&#9645;"},
+  {t:"Depas en renta Santa Fe", d:"Para quien busca rentar", cat:"comprar", href:"renta-departamento-santa-fe-cdmx.html", ico:"&#9633;"},
+  {t:"Bosque Real CDMX", d:"Departamentos disponibles", cat:"comprar", href:"departamentos-bosque-real-cdmx.html", ico:"&#9636;"},
+
+  {t:"Valle Real", d:"Zapopan", cat:"zonas", href:"valle-real-zapopan.html", ico:"&#8962;"},
+  {t:"Puerta de Hierro", d:"Zapopan", cat:"zonas", href:"puerta-de-hierro.html", ico:"&#9638;"},
+  {t:"Altare", d:"Residencial, Zapopan", cat:"zonas", href:"altare.html", ico:"&#9633;"},
+  {t:"Parque Nubax", d:"Terrenos industriales, Zapopan", cat:"zonas", href:"parque-nubax.html", ico:"&#9645;"},
+  {t:"The Lighthouse", d:"Zapopan", cat:"zonas", href:"the-lighthouse-zapopan.html", ico:"&#9636;"},
+  {t:"Los Sueños Residencial", d:"Terrenos en venta, Zapopan", cat:"zonas", href:"los-suenos-residencial.html", ico:"&#9650;"},
+  {t:"Terrenos en venta", d:"Guadalajara", cat:"zonas", href:"terrenos-venta-guadalajara.html", ico:"&#9650;"},
+  {t:"Origina Santa Fe", d:"Torres residenciales, preventa", cat:"zonas", href:"origina-santa-fe-cdmx.html", ico:"&#9650;"},
+  {t:"Desarrollos", d:"Preventas y proyectos", cat:"zonas", href:"desarrollos.html", ico:"&#9638;"},
+  {t:"Inmobiliaria en Guadalajara y Zapopan", d:"Conócenos", cat:"zonas", href:"inmobiliaria-guadalajara-zapopan.html", ico:"&#9645;"},
+
+  {t:"¿Por qué investigar a tus inquilinos?", d:"Blog para propietarios", cat:"blog", href:"blog-investigar-inquilinos-zapopan.html", ico:"&#9633;"},
+  {t:"Errores al rentar", d:"Blog", cat:"blog", href:"blog-errores-renta-zapopan.html", ico:"&#9633;"},
+  {t:"Fraudes en compraventa", d:"Blog", cat:"blog", href:"blog-fraudes-compraventa.html", ico:"&#9645;"},
+];
+
+let svcCat = "todos";
+let svcQuery = "";
+
+function renderServicios(){
+  const grid = document.getElementById('svcGrid');
+  const empty = document.getElementById('svcEmpty');
+  const q = svcQuery.trim().toLowerCase();
+  const filtrados = SERVICIOS.filter(s => {
+    const catOk = svcCat === "todos" || s.cat === svcCat;
+    const qOk = !q || s.t.toLowerCase().includes(q) || s.d.toLowerCase().includes(q);
+    return catOk && qOk;
+  });
+  grid.innerHTML = filtrados.map(s => `
+    <a class="type" href="${s.href}" style="text-decoration:none;display:block">
+      <div class="ico">${s.ico}</div><h3>${s.t}</h3><p>${s.d}</p>
+    </a>
+  `).join('');
+  empty.style.display = filtrados.length === 0 ? 'block' : 'none';
+}
+
+document.getElementById('svcSearch').addEventListener('input', (e) => {
+  svcQuery = e.target.value;
+  renderServicios();
+});
+
+document.querySelectorAll('#svcPills .mode-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    svcCat = pill.dataset.cat;
+    document.querySelectorAll('#svcPills .mode-pill').forEach(p => {
+      p.style.background = 'var(--navy-3)'; p.style.color = 'var(--gold-light)'; p.style.border = '1px solid var(--line)';
+    });
+    pill.style.background = 'var(--gold)'; pill.style.color = 'var(--navy)'; pill.style.border = 'none';
+    renderServicios();
+  });
+});
+
+renderServicios();
+</script>
+
 <section class="section" id="servicios">
   <div class="wrap">
     <div class="section-head">
@@ -212,14 +320,14 @@ footer a{color:var(--gold-light);text-decoration:none}
 <section class="section">
   <div class="wrap">
     <div class="section-head">
-      <h2>Desarrollos y zonas en Guadalajara y Zapopan</h2>
-      <p>Terrenos y residencias en los desarrollos más buscados de la zona metropolitana.</p>
+      <h2>Desarrollos y zonas en Zapopan</h2>
+      <p>Terrenos y residencias en los desarrollos más buscados de Zapopan.</p>
     </div>
     <div class="types">
       <a class="type" href="/valle-real-zapopan.html" style="text-decoration:none;display:block"><div class="ico">&#8962;</div><h3>Valle Real</h3><p>Zapopan</p></a>
       <a class="type" href="/puerta-de-hierro.html" style="text-decoration:none;display:block"><div class="ico">&#9638;</div><h3>Puerta de Hierro</h3><p>Zapopan</p></a>
-      <a class="type" href="/altare.html" style="text-decoration:none;display:block"><div class="ico">&#9633;</div><h3>Altare</h3><p>Residencial, Guadalajara</p></a>
-      <a class="type" href="https://parquenubax.com.mx" style="text-decoration:none;display:block"><div class="ico">&#9645;</div><h3>Parque Nubax</h3><p>El Salto, Jalisco</p></a>
+      <a class="type" href="/altare.html" style="text-decoration:none;display:block"><div class="ico">&#9633;</div><h3>Altare</h3><p>Residencial, Zapopan</p></a>
+      <a class="type" href="/parque-nubax.html" style="text-decoration:none;display:block"><div class="ico">&#9645;</div><h3>Parque Nubax</h3><p>Zapopan</p></a>
       <a class="type" href="/the-lighthouse-zapopan.html" style="text-decoration:none;display:block"><div class="ico">&#9636;</div><h3>The Lighthouse</h3><p>Zapopan</p></a>
       <a class="type" href="/terrenos-venta-guadalajara.html" style="text-decoration:none;display:block"><div class="ico">&#9650;</div><h3>Terrenos en venta</h3><p>Guadalajara</p></a>
     </div>
