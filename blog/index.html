@@ -35,4 +35,131 @@
   "@type": "Blog",
   "name": "Blog UNO BROKERS",
   "description": "Guías sobre contratos, fiscal, compra, venta, renta e inversión inmobiliaria en Guadalajara, Zapopan y CDMX.",
-  "url":
+  "url": "https://unobrokers.com.mx/blog/",
+  "publisher": {"@type":"RealEstateAgent","name":"UNO BROKERS","telephone":"+523339675255"},
+  "inLanguage": "es-MX"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0E1525;--navy-2:#141D33;--navy-3:#1C273F;--gold:#D4AC52;--gold-light:#F2D88E;--gold-deep:#A8853A;--cream:#FFFFFF;--body:#EDF1F8;--muted:#EDF1F8;--line:rgba(201,162,75,.22);}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--navy)}
+body{font-family:'Outfit',sans-serif;background:var(--navy);color:var(--cream);line-height:1.65;overflow-x:hidden;font-weight:400;}
+p{font-weight:400}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--cream);line-height:1.12}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:100;background:rgba(14,21,37,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;max-width:1140px;margin:0 auto}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;color:var(--cream);letter-spacing:.5px;text-decoration:none;}
+.logo span{color:var(--gold-light)}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--navy);padding:10px 24px;border-radius:40px;text-decoration:none;font-weight:600;font-size:.95rem;transition:.3s;}
+.nav-cta:hover{box-shadow:0 6px 20px rgba(201,162,75,.35);transform:translateY(-1px)}
+.hero{position:relative;padding:90px 0 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 75% 15%,rgba(201,162,75,.16),transparent 50%),radial-gradient(ellipse at 15% 85%,rgba(28,39,63,.7),transparent 55%),var(--navy);}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;opacity:.25;mask-image:radial-gradient(ellipse at center,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000,transparent 75%);}
+.hero-content{position:relative;z-index:2;max-width:760px;margin:0 auto;animation:rise .9s ease both}
+.eyebrow{display:inline-block;background:var(--gold-light);color:var(--navy);padding:8px 20px;border-radius:30px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);margin-bottom:20px;letter-spacing:-.5px}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--gold-light)}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:600px;margin:0 auto}
+.section{padding:50px 0 90px;background:var(--navy)}
+.modes{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:50px}
+.mode-pill{background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);padding:10px 22px;border-radius:40px;font-weight:600;font-size:.9rem;letter-spacing:.3px;cursor:pointer;transition:.25s;}
+.mode-pill.active{background:var(--gold);color:var(--navy);border:none;}
+.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.type{background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:18px;padding:30px 26px;text-align:left;transition:.35s;position:relative;overflow:hidden;text-decoration:none;display:block;}
+.type::after{content:"";position:absolute;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:.4s}
+.type:hover{transform:translateY(-6px);border-color:rgba(201,162,75,.4);box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.type:hover::after{width:100%}
+.type .cat-tag{display:inline-block;background:rgba(201,162,75,.14);color:var(--gold-light);font-size:.72rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:5px 12px;border-radius:20px;margin-bottom:14px;}
+.type h3{font-size:1.2rem;margin-bottom:8px;line-height:1.3}
+.type p{color:var(--muted);font-size:.94rem;opacity:.85}
+#blogEmpty{display:none;text-align:center;color:var(--muted);margin-top:20px;opacity:.75}
+footer{padding:60px 24px 40px;text-align:center;border-top:1px solid var(--line);}
+footer .logo{justify-content:center;display:inline-flex;margin-bottom:14px}
+footer p{color:var(--muted);font-size:.92rem;margin-bottom:8px;opacity:.85}
+footer a{color:var(--gold-light);text-decoration:none}
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:200;width:62px;height:62px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.45);transition:.3s;animation:pulse 2.4s infinite;}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:34px;height:34px;fill:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="/" class="logo">UNO <span>BROKERS</span></a>
+    <a href="https://wa.me/523339675255" class="nav-cta">Cotiza gratis</a>
+  </nav>
+</header>
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">Blog &middot; Capacitación para Propietarios</span>
+    <h1>Todo lo que necesitas saber para <em>vender, rentar e invertir</em> bien</h1>
+    <p>Guías claras sobre contratos, ISR, trámites y mercado inmobiliario en Guadalajara, Zapopan y CDMX, escritas por el equipo de UNO BROKERS.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="modes" id="blogPills">
+      <span class="mode-pill active" data-cat="todos">Todos</span>
+      <span class="mode-pill" data-cat="contratos">Contratos y trámites</span>
+      <span class="mode-pill" data-cat="fiscal">Fiscal e ISR</span>
+      <span class="mode-pill" data-cat="vender">Guía para vender</span>
+      <span class="mode-pill" data-cat="rentar">Guía para rentar</span>
+      <span class="mode-pill" data-cat="zonas">Zonas y mercado</span>
+      <span class="mode-pill" data-cat="inversion">Inversión inmobiliaria</span>
+    </div>
+    <div class="types" id="blogGrid"></div>
+    <p id="blogEmpty">Muy pronto más artículos en esta categoría — mientras tanto, escríbenos por WhatsApp y con gusto te orientamos.</p>
+  </div>
+</section>
+<script>
+const POSTS = [
+  {t:"¿Por qué investigar a tus inquilinos?", d:"Qué revisar antes de firmar un contrato de renta.", cat:"rentar", catLabel:"Guía para rentar", href:"/blog-investigar-inquilinos-zapopan.html"},
+  {t:"Errores comunes al rentar tu propiedad", d:"Lo que la mayoría de propietarios pasa por alto en Zapopan.", cat:"rentar", catLabel:"Guía para rentar", href:"/blog-errores-renta-zapopan.html"},
+  {t:"Fraudes más comunes en compraventa", d:"Cómo protegerte al comprar o vender un inmueble.", cat:"contratos", catLabel:"Contratos y trámites", href:"/blog-fraudes-compraventa.html"},
+];
+
+let activeCat = "todos";
+
+function renderBlog(){
+  const grid = document.getElementById('blogGrid');
+  const empty = document.getElementById('blogEmpty');
+  const filtrados = activeCat === "todos" ? POSTS : POSTS.filter(p => p.cat === activeCat);
+  grid.innerHTML = filtrados.map(p => `
+    <a class="type" href="${p.href}">
+      <span class="cat-tag">${p.catLabel}</span>
+      <h3>${p.t}</h3>
+      <p>${p.d}</p>
+    </a>
+  `).join('');
+  empty.style.display = filtrados.length === 0 ? 'block' : 'none';
+}
+
+document.querySelectorAll('#blogPills .mode-pill').forEach(pill => {
+  pill.addEventListener('click', () => {
+    activeCat = pill.dataset.cat;
+    document.querySelectorAll('#blogPills .mode-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    renderBlog();
+  });
+});
+
+renderBlog();
+</script>
+<footer>
+  <a href="/" class="logo">UNO <span>BROKERS</span></a>
+  <p>Casas &middot; Departamentos &middot; Terrenos &middot; Bodegas &middot; Oficinas &middot; Desarrollos - Guadalajara y Zapopan</p>
+  <p><a href="/">Volver al inicio</a> &middot; <a href="/portafolio-brokers.html">Portafolio</a></p>
+  <p>WhatsApp: <a href="https://wa.me/523339675255">+52 33 3967 5255</a></p>
+  <p>&copy; 2026 UNO BROKERS. Todos los derechos reservados.</p>
+</footer>
+<a class="wa-float" href="https://wa.me/523339675255?text=Hola%20UNO%20BROKERS,%20tengo%20una%20duda%20sobre%20un%20art%C3%ADculo%20del%20blog." target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5L9.3 7.1c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.1.8.8-3-.2-.3C4 15.1 3.7 13.6 3.7 12 3.7 7.5 7.5 3.7 12 3.7s8.3 3.8 8.3 8.3-3.8 8.3-8.3 8.3z"/></svg>
+</a>
+</body>
+</html>
