@@ -460,6 +460,28 @@
     transition:transform .4s ease;
   }
   .proto-card:hover .frame img{transform:scale(1.02);}
+  .proto-card .frame{cursor:zoom-in;}
+  .proto-card .frame .zoom-hint{
+    position:absolute; bottom:14px; right:14px;
+    width:34px; height:34px; border-radius:50%; background:rgba(10,22,40,0.75);
+    color:var(--vivaria); display:flex; align-items:center; justify-content:center;
+    font-size:1rem; opacity:0; transition:opacity .2s ease;
+  }
+  .proto-card:hover .zoom-hint{opacity:1;}
+
+  .lightbox{
+    display:none; position:fixed; inset:0; z-index:200;
+    background:rgba(5,11,20,0.92); align-items:center; justify-content:center; padding:32px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:92vw; max-height:88vh; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+  .lightbox .lb-close{
+    position:absolute; top:20px; right:24px;
+    width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25); color:var(--cream); font-size:1.4rem;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .lightbox .lb-close:hover{background:rgba(255,255,255,0.2);}
   .proto-card .tag{
     position:absolute; top:16px; left:16px;
     font-family:var(--mono); font-size:.72rem; letter-spacing:.06em;
@@ -824,9 +846,10 @@
     </div>
     <div class="proto-grid">
       <div class="proto-card">
-        <div class="frame">
+        <div class="frame" onclick="openLightbox('https://vivaria-gdl.mx/wp-content/uploads/2025/03/vivaria-brochure-departamento-1-recamara.webp')">
           <span class="tag">1 recámara</span>
           <img src="https://vivaria-gdl.mx/wp-content/uploads/2025/03/vivaria-brochure-departamento-1-recamara.webp" alt="Plano de departamento de 1 recámara en Vivaria 2360" loading="lazy">
+          <span class="zoom-hint">⤢</span>
         </div>
         <div class="body">
           <h3>1 recámara</h3>
@@ -834,9 +857,10 @@
         </div>
       </div>
       <div class="proto-card">
-        <div class="frame">
+        <div class="frame" onclick="openLightbox('https://vivaria-gdl.mx/wp-content/uploads/2025/03/vivaria-brochure-departamento-2-recamaras.webp')">
           <span class="tag">2 recámaras</span>
           <img src="https://vivaria-gdl.mx/wp-content/uploads/2025/03/vivaria-brochure-departamento-2-recamaras.webp" alt="Plano de departamento de 2 recámaras en Vivaria 2360" loading="lazy">
+          <span class="zoom-hint">⤢</span>
         </div>
         <div class="body">
           <h3>2 recámaras</h3>
@@ -844,9 +868,10 @@
         </div>
       </div>
       <div class="proto-card">
-        <div class="frame">
+        <div class="frame" onclick="openLightbox('https://vivaria-gdl.mx/wp-content/uploads/2025/03/vivaria-brochure-departamento-3-recamaras.webp')">
           <span class="tag">3 recámaras</span>
           <img src="https://vivaria-gdl.mx/wp-content/uploads/2025/03/vivaria-brochure-departamento-3-recamaras.webp" alt="Plano de departamento de 3 recámaras en Vivaria 2360" loading="lazy">
+          <span class="zoom-hint">⤢</span>
         </div>
         <div class="body">
           <h3>3 recámaras</h3>
@@ -1061,6 +1086,26 @@
   </div>
 </footer>
 <p class="legal-note">Imágenes de referencia, precios, disponibilidad y condiciones pueden cambiar sin previo aviso y deben confirmarse directamente con un asesor de UNO Brokers o con CADU Inmobiliaria. UNO Brokers actúa como asesoría comercial independiente.</p>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-close" onclick="closeLightbox(event)">✕</div>
+  <img id="lightbox-img" src="" alt="Plano ampliado">
+</div>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e) {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox(e);
+  });
+</script>
 
 </body>
 </html>
