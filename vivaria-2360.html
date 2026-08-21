@@ -452,13 +452,14 @@
   }
   .proto-card:hover{transform:translateY(-6px); box-shadow:0 24px 48px rgba(10,22,40,0.14);}
   .proto-card .frame{
-    position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--cream);
+    position:relative; aspect-ratio:3/4.4; overflow:hidden; background:var(--cream);
+    display:flex; align-items:center; justify-content:center;
   }
   .proto-card .frame img{
-    width:100%; height:100%; object-fit:cover; object-position:top;
+    width:100%; height:100%; object-fit:contain; object-position:center;
     transition:transform .4s ease;
   }
-  .proto-card:hover .frame img{transform:scale(1.04);}
+  .proto-card:hover .frame img{transform:scale(1.02);}
   .proto-card .tag{
     position:absolute; top:16px; left:16px;
     font-family:var(--mono); font-size:.72rem; letter-spacing:.06em;
