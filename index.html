@@ -71,7 +71,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(14,21,37,.85);backdrop-
 .logo span{color:var(--gold-light)}
 .nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--navy);padding:10px 24px;border-radius:40px;text-decoration:none;font-weight:600;font-size:.95rem;transition:.3s;}
 .nav-cta:hover{box-shadow:0 6px 20px rgba(201,162,75,.35);transform:translateY(-1px)}
-.hero{position:relative;padding:110px 0 95px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 75% 15%,rgba(201,162,75,.16),transparent 50%),radial-gradient(ellipse at 15% 85%,rgba(28,39,63,.7),transparent 55%),var(--navy);}
+.hero{position:relative;padding:100px 0 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 75% 15%,rgba(201,162,75,.16),transparent 50%),radial-gradient(ellipse at 15% 85%,rgba(28,39,63,.7),transparent 55%),var(--navy);}
 .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;opacity:.25;mask-image:radial-gradient(ellipse at center,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000,transparent 75%);}
 .hero-content{position:relative;z-index:2;max-width:840px;margin:0 auto;animation:rise .9s ease both}
 .eyebrow{display:inline-block;background:var(--gold-light);color:var(--navy);padding:8px 20px;border-radius:30px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;}
@@ -84,11 +84,11 @@ header{position:sticky;top:0;z-index:100;background:rgba(14,21,37,.85);backdrop-
 .btn-primary:hover{box-shadow:0 10px 30px rgba(201,162,75,.4);transform:translateY(-2px)}
 .btn-ghost{background:transparent;color:var(--cream);border:1.5px solid var(--line)}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold-light)}
-.section{padding:90px 0;background:var(--navy)}
-.section-head{text-align:center;max-width:680px;margin:0 auto 56px}
+.section{padding:80px 0;background:var(--navy)}
+.section-head{text-align:center;max-width:680px;margin:0 auto 48px}
 .section-head h2{font-size:clamp(2rem,4.2vw,3rem);margin-bottom:16px}
 .section-head p{color:var(--muted);font-size:1.06rem}
-.modes{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:54px}
+.modes{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
 .mode-pill{background:var(--gold);color:var(--navy);padding:10px 26px;border-radius:40px;font-weight:700;font-size:.95rem;letter-spacing:.5px}
 .types{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
 .type{background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:18px;padding:30px 22px;text-align:center;transition:.35s;position:relative;overflow:hidden;}
@@ -98,6 +98,18 @@ header{position:sticky;top:0;z-index:100;background:rgba(14,21,37,.85);backdrop-
 .type .ico{width:54px;height:54px;margin:0 auto 16px;border-radius:14px;background:rgba(201,162,75,.12);border:1px solid var(--line);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-family:'Fraunces',serif}
 .type h3{font-size:1.15rem;margin-bottom:6px}
 .type p{color:var(--muted);font-size:.92rem}
+
+/* Featured developments — visual cards with images */
+.dev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.dev-card{background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;display:block;transition:.35s;position:relative;}
+.dev-card:hover{transform:translateY(-6px);border-color:rgba(201,162,75,.4);box-shadow:0 18px 44px rgba(0,0,0,.35)}
+.dev-card .dev-tag{position:absolute;top:16px;left:16px;background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:20px;z-index:2}
+.dev-card .dev-img{width:100%;height:150px;background:linear-gradient(135deg,var(--navy-2),var(--navy-3));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:2rem;color:var(--gold-light);opacity:.6;}
+.dev-card .dev-body{padding:22px 24px 26px}
+.dev-card h3{font-size:1.3rem;margin-bottom:6px}
+.dev-card .dev-loc{color:var(--gold-light);font-size:.85rem;margin-bottom:10px;font-weight:500}
+.dev-card p.dev-desc{color:var(--muted);font-size:.92rem}
+
 .featured-box{margin-top:30px;background:linear-gradient(135deg,rgba(201,162,75,.12),rgba(28,39,63,.4));border:1px solid rgba(201,162,75,.4);border-radius:22px;padding:34px 30px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between}
 .featured-box .txt h3{font-size:1.4rem;margin-bottom:6px}
 .featured-box .txt p{color:var(--muted);font-size:.95rem;max-width:520px}
@@ -153,15 +165,17 @@ footer a{color:var(--gold-light);text-decoration:none}
     </div>
   </div>
 </section>
-<section class="section" id="servicios" style="padding-top:0;padding-bottom:70px;">
+
+<!-- ===================== BUSCADOR PRINCIPAL (única forma de navegar todo el catálogo) ===================== -->
+<section class="section" id="servicios" style="padding-top:10px;padding-bottom:80px;">
   <div class="wrap">
     <div class="section-head" style="margin-bottom:34px;">
       <h2>¿Qué necesitas hoy?</h2>
-      <p>Busca entre todos nuestros servicios y herramientas, o filtra por categoría.</p>
+      <p>Escribe lo que buscas o filtra por categoría — aquí está todo nuestro catálogo de servicios, zonas y desarrollos.</p>
     </div>
 
     <div style="max-width:640px;margin:0 auto 28px;">
-      <input type="text" id="svcSearch" placeholder="Ej. investigar inquilino, vender casa, contrato de renta..."
+      <input type="text" id="svcSearch" placeholder="Ej. investigar inquilino, vender casa, Vivaria 2360, Parque Nubax..."
         style="width:100%;padding:18px 24px;border-radius:40px;border:1px solid var(--line);background:var(--navy-3);color:var(--cream);font-family:'Outfit',sans-serif;font-size:1rem;outline:none;">
     </div>
 
@@ -205,15 +219,15 @@ const SERVICIOS = [
   {t:"Depas en venta Santa Fe", d:"Para quien busca comprar", cat:"comprar", href:"busco-departamento-santa-fe-cdmx.html", ico:"&#9645;"},
   {t:"Depas en renta Santa Fe", d:"Para quien busca rentar", cat:"comprar", href:"renta-departamento-santa-fe-cdmx.html", ico:"&#9633;"},
 
-  {t:"Vivaria 2360", d:"Preventa, Guadalajara", cat:"zonas", href:"vivaria-2360.html", ico:"&#9638;"},
+  {t:"Vivaria 2360", d:"Preventa, Col. San Antonio, Guadalajara", cat:"zonas", href:"vivaria-2360.html", ico:"&#9638;"},
   {t:"NARA Américas", d:"Preventa, Zapopan", cat:"zonas", href:"https://rgarcia784-alt.github.io/nara-americas-tools/nara-americas.html", ico:"&#9650;"},
+  {t:"Parque Nubax", d:"Terrenos industriales, El Salto", cat:"zonas", href:"parque-nubax.html", ico:"&#9645;"},
+  {t:"Los Sueños Residencial", d:"Terrenos en venta, Zapopan", cat:"zonas", href:"los-suenos-residencial.html", ico:"&#9650;"},
   {t:"Valle Real", d:"Zapopan", cat:"zonas", href:"valle-real-zapopan.html", ico:"&#8962;"},
   {t:"Puerta de Hierro", d:"Zapopan", cat:"zonas", href:"puerta-de-hierro.html", ico:"&#9638;"},
   {t:"Bosque Real", d:"Departamentos disponibles, CDMX", cat:"zonas", href:"departamentos-bosque-real-cdmx.html", ico:"&#9636;"},
   {t:"Altare", d:"Residencial, Zapopan", cat:"zonas", href:"altare.html", ico:"&#9633;"},
-  {t:"Parque Nubax", d:"Terrenos industriales, El Salto", cat:"zonas", href:"parque-nubax.html", ico:"&#9645;"},
   {t:"The Lighthouse", d:"Zapopan", cat:"zonas", href:"the-lighthouse-zapopan.html", ico:"&#9636;"},
-  {t:"Los Sueños Residencial", d:"Terrenos en venta, Zapopan", cat:"zonas", href:"los-suenos-residencial.html", ico:"&#9650;"},
   {t:"Terrenos en venta", d:"Guadalajara", cat:"zonas", href:"terrenos-venta-guadalajara.html", ico:"&#9650;"},
   {t:"Origina Santa Fe", d:"Torres residenciales, preventa", cat:"zonas", href:"origina-santa-fe-cdmx.html", ico:"&#9650;"},
   {t:"Desarrollos", d:"Preventas y proyectos", cat:"zonas", href:"desarrollos.html", ico:"&#9638;"},
@@ -263,143 +277,62 @@ document.querySelectorAll('#svcPills .mode-pill').forEach(pill => {
 renderServicios();
 </script>
 
-<section class="section" id="tipos-propiedad">
+<!-- ===================== DESARROLLOS DESTACADOS (solo los 4 principales, con más contexto visual) ===================== -->
+<section class="section" style="padding-top:0;background:var(--navy-2);">
   <div class="wrap">
     <div class="section-head">
-      <h2>Comercializamos todo tipo de propiedades</h2>
-      <p>Captamos casas, residencias, departamentos, terrenos, bodegas, oficinas y desarrollos. En venta o en renta, le encontramos cliente.</p>
+      <h2>Desarrollos destacados</h2>
+      <p>Preventas y proyectos activos que comercializamos actualmente en Guadalajara y Zapopan.</p>
     </div>
-    <div class="modes">
-      <span class="mode-pill">En Venta</span>
-      <span class="mode-pill">En Renta</span>
-    </div>
-    <div class="types">
-      <div class="type"><div class="ico">&#8962;</div><h3>Casas</h3><p>Venta y renta</p></div>
-      <div class="type"><div class="ico">&#9638;</div><h3>Departamentos</h3><p>Venta y renta</p></div>
-      <div class="type"><div class="ico">&#9633;</div><h3>Terrenos</h3><p>Lotes y predios</p></div>
-      <div class="type"><div class="ico">&#9636;</div><h3>Bodegas</h3><p>Industriales y comerciales</p></div>
-      <div class="type"><div class="ico">&#9783;</div><h3>Oficinas</h3><p>Corporativas y comerciales</p></div>
-      <div class="type"><div class="ico">&#9645;</div><h3>Locales</h3><p>Comerciales</p></div>
+    <div class="dev-grid">
+      <a class="dev-card" href="/vivaria-2360.html">
+        <span class="dev-tag">Preventa</span>
+        <div class="dev-img">&#9638;</div>
+        <div class="dev-body">
+          <h3>Vivaria 2360</h3>
+          <div class="dev-loc">Col. San Antonio, Guadalajara</div>
+          <p class="dev-desc">220 departamentos de 1, 2 y 3 recámaras. Desarrolla CADU Inmobiliaria.</p>
+        </div>
+      </a>
+      <a class="dev-card" href="https://rgarcia784-alt.github.io/nara-americas-tools/nara-americas.html">
+        <span class="dev-tag">Preventa</span>
+        <div class="dev-img">&#9650;</div>
+        <div class="dev-body">
+          <h3>NARA Américas</h3>
+          <div class="dev-loc">Av. Américas, Zapopan</div>
+          <p class="dev-desc">63 departamentos y oficinas. 18 amenidades, uso mixto.</p>
+        </div>
+      </a>
+      <a class="dev-card" href="/los-suenos-residencial.html">
+        <span class="dev-tag">Venta de terrenos</span>
+        <div class="dev-img">&#9650;</div>
+        <div class="dev-body">
+          <h3>Los Sueños Residencial</h3>
+          <div class="dev-loc">San Juan de Ocotán, Zapopan</div>
+          <p class="dev-desc">Terrenos desde 448 m², junto al Bosque de la Primavera.</p>
+        </div>
+      </a>
+      <a class="dev-card" href="/parque-nubax.html">
+        <span class="dev-tag">Venta y renta BTS</span>
+        <div class="dev-img">&#9645;</div>
+        <div class="dev-body">
+          <h3>Parque Nubax</h3>
+          <div class="dev-loc">Corredor Industrial, El Salto</div>
+          <p class="dev-desc">Lotes industriales y comerciales desde 831 m².</p>
+        </div>
+      </a>
     </div>
     <div class="featured-box">
       <div class="txt">
-        <h3>&#9650; Desarrollos inmobiliarios</h3>
-        <p>También comercializamos desarrollos y preventas: estrategia de lanzamiento, captación de inversionistas y colocación de unidades en la zona metropolitana de Guadalajara.</p>
+        <h3>&#9650; ¿Tienes un desarrollo y buscas comercializarlo?</h3>
+        <p>Estrategia de lanzamiento, captación de inversionistas y colocación de unidades en la zona metropolitana de Guadalajara.</p>
       </div>
       <a href="#contacto" class="btn btn-primary">Hablemos de mi proyecto</a>
     </div>
   </div>
 </section>
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Recursos y herramientas</h2>
-      <p>Explora nuestros servicios y herramientas gratuitas para propietarios en Guadalajara y Zapopan.</p>
-    </div>
-    <div class="types">
-      <a class="type" href="/rentar-propiedad-guadalajara.html" style="text-decoration:none;display:block"><div class="ico">&#8962;</div><h3>Rentar mi propiedad</h3><p>Encontramos al inquilino correcto</p></a>
-      <a class="type" href="/captacion-departamentos-venta-zapopan-guadalajara.html" style="text-decoration:none;display:block"><div class="ico">&#9638;</div><h3>Vender mi departamento</h3><p>Zapopan y Guadalajara</p></a>
-      <a class="type" href="/departamentos-venta-zapopan.html" style="text-decoration:none;display:block"><div class="ico">&#9635;</div><h3>Departamentos en venta</h3><p>Ve el catálogo disponible</p></a>
-      <a class="type" href="/administracion-de-rentas.html" style="text-decoration:none;display:block"><div class="ico">&#9783;</div><h3>Administración de rentas</h3><p>Cobro mensual sin que tú lo hagas</p></a>
-      <a class="type" href="/investigacion-inquilinos.html" style="text-decoration:none;display:block"><div class="ico">&#9633;</div><h3>Investigación de inquilinos</h3><p>Verificación completa antes de firmar</p></a>
-      <a class="type" href="/generador-contrato-renta.html" style="text-decoration:none;display:block"><div class="ico">&#9645;</div><h3>Generador de contrato</h3><p>Contrato de renta gratis</p></a>
-      <a class="type" href="/calculadora-opinion-valor.html" style="text-decoration:none;display:block"><div class="ico">&#9636;</div><h3>¿Cuánto vale mi propiedad?</h3><p>Calculadora de opinión de valor</p></a>
-      <a class="type" href="/los-suenos-residencial.html" style="text-decoration:none;display:block"><div class="ico">&#9650;</div><h3>Los Sueños Residencial</h3><p>Terrenos en venta, Zapopan</p></a>
-      <a class="type" href="/los-suenos-residencial.html" style="text-decoration:none;display:block"><div class="ico">&#9633;</div><h3>Los Sueños, terrenos</h3><p>Lotes disponibles</p></a>
-      <a class="type" href="/inmobiliaria-guadalajara-zapopan.html" style="text-decoration:none;display:block"><div class="ico">&#9645;</div><h3>Inmobiliaria en Guadalajara y Zapopan</h3><p>Conócenos</p></a>
-      <a class="type" href="/propiedades.html" style="text-decoration:none;display:block"><div class="ico">&#9636;</div><h3>Todas las propiedades</h3><p>Catálogo completo</p></a>
-      <a class="type" href="/portafolio-brokers.html" style="text-decoration:none;display:block"><div class="ico">&#8962;</div><h3>Portafolio de propiedades</h3><p>Ve nuestro catálogo completo</p></a>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Departamentos en Santa Fe, CDMX</h2>
-      <p>Compra, venta y renta en Lomas de Santa Fe, Contadero y Santa Fe Cuajimalpa.</p>
-    </div>
-    <div class="types">
-      <a class="type" href="/departamentos-venta-santa-fe-cdmx.html" style="text-decoration:none;display:block"><div class="ico">&#9638;</div><h3>Vender mi depa en Santa Fe</h3><p>Valuación y compradores calificados</p></a>
-      <a class="type" href="/departamentos-renta-santa-fe-cdmx.html" style="text-decoration:none;display:block"><div class="ico">&#8962;</div><h3>Rentar mi depa en Santa Fe</h3><p>Para propietarios</p></a>
-      <a class="type" href="/renta-departamento-santa-fe-cdmx.html" style="text-decoration:none;display:block"><div class="ico">&#9633;</div><h3>Depas en renta Santa Fe</h3><p>Para quien busca rentar</p></a>
-      <a class="type" href="/busco-departamento-santa-fe-cdmx.html" style="text-decoration:none;display:block"><div class="ico">&#9645;</div><h3>Depas en venta Santa Fe</h3><p>Para quien busca comprar</p></a>
-      <a class="type" href="/origina-santa-fe-cdmx.html" style="text-decoration:none;display:block"><div class="ico">&#9650;</div><h3>Origina Santa Fe</h3><p>Torres residenciales, preventa</p></a>
-      <a class="type" href="/departamentos-bosque-real-cdmx.html" style="text-decoration:none;display:block"><div class="ico">&#9636;</div><h3>Bosque Real CDMX</h3><p>Departamentos disponibles</p></a>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Desarrollos y zonas en Guadalajara</h2>
-      <p>Preventas y terrenos en las zonas de mayor plusvalía de Guadalajara.</p>
-    </div>
-    <div class="types">
-      <a class="type" href="/vivaria-2360.html" style="text-decoration:none;display:block"><div class="ico">&#9638;</div><h3>Vivaria 2360</h3><p>Preventa, Col. San Antonio, Guadalajara</p></a>
-      <a class="type" href="/terrenos-venta-guadalajara.html" style="text-decoration:none;display:block"><div class="ico">&#9650;</div><h3>Terrenos en venta</h3><p>Guadalajara</p></a>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Desarrollos y zonas en Zapopan</h2>
-      <p>Terrenos y residencias en los desarrollos más buscados de Zapopan.</p>
-    </div>
-    <div class="types">
-      <a class="type" href="https://rgarcia784-alt.github.io/nara-americas-tools/nara-americas.html" style="text-decoration:none;display:block"><div class="ico">&#9650;</div><h3>NARA Américas</h3><p>Preventa, Zapopan</p></a>
-      <a class="type" href="/valle-real-zapopan.html" style="text-decoration:none;display:block"><div class="ico">&#8962;</div><h3>Valle Real</h3><p>Zapopan</p></a>
-      <a class="type" href="/puerta-de-hierro.html" style="text-decoration:none;display:block"><div class="ico">&#9638;</div><h3>Puerta de Hierro</h3><p>Zapopan</p></a>
-      <a class="type" href="/altare.html" style="text-decoration:none;display:block"><div class="ico">&#9633;</div><h3>Altare</h3><p>Residencial, Zapopan</p></a>
-      <a class="type" href="/the-lighthouse-zapopan.html" style="text-decoration:none;display:block"><div class="ico">&#9636;</div><h3>The Lighthouse</h3><p>Zapopan</p></a>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Desarrollos industriales en El Salto</h2>
-      <p>Lotes industriales y comerciales en el corredor de mayor crecimiento de Jalisco.</p>
-    </div>
-    <div class="types">
-      <a class="type" href="/parque-nubax.html" style="text-decoration:none;display:block"><div class="ico">&#9645;</div><h3>Parque Nubax</h3><p>El Salto, Jalisco</p></a>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Más herramientas y recursos</h2>
-      <p>Información y utilidades gratuitas para propietarios y compradores.</p>
-    </div>
-    <div class="types">
-      <a class="type" href="/rentar-propiedad-guadalajara.html" style="text-decoration:none;display:block"><div class="ico">&#8962;</div><h3>Rentar mi propiedad</h3><p>Guadalajara</p></a>
-      <a class="type" href="/vender-casa-guadalajara.html" style="text-decoration:none;display:block"><div class="ico">&#9638;</div><h3>Vender mi casa</h3><p>Guadalajara</p></a>
-      <a class="type" href="/cuanto-vale.html" style="text-decoration:none;display:block"><div class="ico">&#9633;</div><h3>¿Cuánto vale?</h3><p>Opinión de valor rápida</p></a>
-      <a class="type" href="/calculadora-isr-venta-propiedad.html" style="text-decoration:none;display:block"><div class="ico">&#9645;</div><h3>Calculadora ISR</h3><p>Al vender tu propiedad</p></a>
-      <a class="type" href="/generador-contrato-compraventa.html" style="text-decoration:none;display:block"><div class="ico">&#9636;</div><h3>Contrato de compraventa</h3><p>Generador gratis</p></a>
-      <a class="type" href="/solicitud-arrendamiento.html" style="text-decoration:none;display:block"><div class="ico">&#9650;</div><h3>Solicitud de arrendamiento</h3><p>Formato para inquilinos</p></a>
-      <a class="type" href="/encuentra-tu-propiedad.html" style="text-decoration:none;display:block"><div class="ico">&#8962;</div><h3>Encuentra tu propiedad</h3><p>Cuestionario guiado</p></a>
-      <a class="type" href="/desarrollos.html" style="text-decoration:none;display:block"><div class="ico">&#9638;</div><h3>Desarrollos</h3><p>Preventas y proyectos</p></a>
-      <a class="type" href="/blog-errores-renta-zapopan.html" style="text-decoration:none;display:block"><div class="ico">&#9633;</div><h3>Errores al rentar</h3><p>Blog</p></a>
-      <a class="type" href="/blog-fraudes-compraventa.html" style="text-decoration:none;display:block"><div class="ico">&#9645;</div><h3>Fraudes en compraventa</h3><p>Blog</p></a>
-    </div>
-  </div>
-</section>
 
-<section class="section" style="background:var(--navy2, #162339);">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 style="color:#fff;">Servicios especializados en Zapopan</h2>
-      <p style="color:#c8cedb;">Atención dedicada para dos de nuestros servicios más solicitados.</p>
-    </div>
-    <div class="types">
-      <a class="type" href="https://rgarcia784-alt.github.io/renta-propiedades-zapopan/" style="text-decoration:none;display:block"><div class="ico">&#8962;</div><h3>Renta tu propiedad en Zapopan</h3><p>Sin complicaciones, con administración completa</p></a>
-      <a class="type" href="https://rgarcia784-alt.github.io/investigacion-inquilinos-zapopan/" style="text-decoration:none;display:block"><div class="ico">&#9633;</div><h3>Investigación de inquilinos</h3><p>Buró de crédito y antecedentes</p></a>
-    </div>
-  </div>
-</section>
-
+<!-- ===================== POR QUÉ CONFIAR ===================== -->
 <section class="section">
   <div class="wrap">
     <div class="section-head">
@@ -415,7 +348,9 @@ renderServicios();
     </div>
   </div>
 </section>
-<section class="section">
+
+<!-- ===================== FAQ ===================== -->
+<section class="section" style="background:var(--navy-2);">
   <div class="wrap">
     <div class="section-head">
       <h2>Preguntas frecuentes</h2>
@@ -441,6 +376,8 @@ renderServicios();
     </div>
   </div>
 </section>
+
+<!-- ===================== CONTACTO ===================== -->
 <section class="section form-sec" id="contacto">
   <div class="wrap">
     <div class="form-box">
@@ -488,6 +425,7 @@ renderServicios();
     </div>
   </div>
 </section>
+
 <footer>
   <div class="logo">UNO <span>BROKERS</span></div>
   <p>Casas &middot; Departamentos &middot; Terrenos &middot; Bodegas &middot; Oficinas &middot; Desarrollos - Guadalajara y Zapopan</p>
