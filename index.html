@@ -56,186 +56,312 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,500;9..144,0,600;9..144,0,700;9..144,1,400&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0E1525;--navy-2:#141D33;--navy-3:#1C273F;--gold:#D4AC52;--gold-light:#F2D88E;--gold-deep:#A8853A;--cream:#FFFFFF;--body:#EDF1F8;--muted:#EDF1F8;--line:rgba(201,162,75,.22);}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--navy)}
-body{font-family:'Outfit',sans-serif;background:var(--navy);color:var(--cream);line-height:1.65;overflow-x:hidden;font-weight:400;}
-p{font-weight:400}
-h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;color:var(--cream);line-height:1.12}
-.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
-header{position:sticky;top:0;z-index:100;background:rgba(14,21,37,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;max-width:1140px;margin:0 auto}
-.logo{font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;color:var(--cream);letter-spacing:.5px}
-.logo span{color:var(--gold-light)}
-.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--navy);padding:10px 24px;border-radius:40px;text-decoration:none;font-weight:600;font-size:.95rem;transition:.3s;}
-.nav-cta:hover{box-shadow:0 6px 20px rgba(201,162,75,.35);transform:translateY(-1px)}
-.hero{position:relative;padding:100px 0 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 75% 15%,rgba(201,162,75,.16),transparent 50%),radial-gradient(ellipse at 15% 85%,rgba(28,39,63,.7),transparent 55%),var(--navy);}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:60px 60px;opacity:.25;mask-image:radial-gradient(ellipse at center,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000,transparent 75%);}
-.hero-content{position:relative;z-index:2;max-width:840px;margin:0 auto;animation:rise .9s ease both}
-.eyebrow{display:inline-block;background:var(--gold-light);color:var(--navy);padding:8px 20px;border-radius:30px;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:28px;}
-.hero h1{font-size:clamp(2.4rem,6.5vw,4.4rem);margin-bottom:24px;letter-spacing:-.5px}
-.hero h1 em{font-style:italic;font-weight:500;color:var(--gold-light)}
-.hero p{font-size:1.18rem;color:var(--muted);max-width:640px;margin:0 auto 40px}
-.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-.btn{padding:16px 36px;border-radius:46px;text-decoration:none;font-weight:600;font-size:1rem;transition:.3s;display:inline-flex;align-items:center;gap:9px;}
-.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:var(--navy)}
-.btn-primary:hover{box-shadow:0 10px 30px rgba(201,162,75,.4);transform:translateY(-2px)}
-.btn-ghost{background:transparent;color:var(--cream);border:1.5px solid var(--line)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold-light)}
-.section{padding:80px 0;background:var(--navy)}
-.section-head{text-align:center;max-width:680px;margin:0 auto 48px}
-.section-head h2{font-size:clamp(2rem,4.2vw,3rem);margin-bottom:16px}
-.section-head p{color:var(--muted);font-size:1.06rem}
-.modes{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
-.mode-pill{background:var(--gold);color:var(--navy);padding:10px 26px;border-radius:40px;font-weight:700;font-size:.95rem;letter-spacing:.5px}
-.types{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px}
-.type{background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:18px;padding:30px 22px;text-align:center;transition:.35s;position:relative;overflow:hidden;}
-.type::after{content:"";position:absolute;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:.4s}
-.type:hover{transform:translateY(-6px);border-color:rgba(201,162,75,.4);box-shadow:0 18px 44px rgba(0,0,0,.35)}
-.type:hover::after{width:100%}
-.type .ico{width:54px;height:54px;margin:0 auto 16px;border-radius:14px;background:rgba(201,162,75,.12);border:1px solid var(--line);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;font-family:'Fraunces',serif}
-.type h3{font-size:1.15rem;margin-bottom:6px}
-.type p{color:var(--muted);font-size:.92rem}
+:root{
+  --navy:#0A1628;
+  --navy-deep:#050B14;
+  --navy-2:#0f1c33;
+  --gold:#D4B06A;
+  --gold-soft:#e6cd97;
+  --cream:#F4EDE0;
+  --paper:#FBF8F2;
+  --ink:#14171F;
+  --line: rgba(10,22,40,0.10);
+  --serif:'Fraunces', serif;
+  --sans:'Outfit', sans-serif;
+  --mono:'Space Mono', monospace;
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans); color:var(--ink); background:var(--paper); line-height:1.6; -webkit-font-smoothing:antialiased;}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+h1,h2,h3,h4{font-family:var(--serif); font-weight:600; margin:0 0 .5em; line-height:1.12;}
+.eyebrow{font-family:var(--mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+.wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+section{padding:88px 0;}
+@media (max-width:640px){ section{padding:56px 0;} }
 
-/* Featured developments — visual cards with images */
-.dev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-.dev-card{background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;display:block;transition:.35s;position:relative;}
-.dev-card:hover{transform:translateY(-6px);border-color:rgba(201,162,75,.4);box-shadow:0 18px 44px rgba(0,0,0,.35)}
-.dev-card .dev-tag{position:absolute;top:16px;left:16px;background:var(--gold);color:var(--navy);font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:20px;z-index:2}
-.dev-card .dev-img{width:100%;height:150px;background:linear-gradient(135deg,var(--navy-2),var(--navy-3));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:2rem;color:var(--gold-light);opacity:.6;}
-.dev-card .dev-body{padding:22px 24px 26px}
-.dev-card h3{font-size:1.3rem;margin-bottom:6px}
-.dev-card .dev-loc{color:var(--gold-light);font-size:.85rem;margin-bottom:10px;font-weight:500}
-.dev-card p.dev-desc{color:var(--muted);font-size:.92rem}
+/* HEADER */
+header.site{
+  position:sticky; top:0; z-index:50;
+  background:rgba(10,22,40,0.96); backdrop-filter:blur(6px);
+  color:var(--cream);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.header-inner{
+  max-width:1180px; margin:0 auto; padding:14px 24px;
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.brand-lock{font-family:var(--serif); font-weight:700; font-size:1.15rem;}
+nav.primary{display:flex; gap:22px; align-items:center;}
+nav.primary a{font-size:.85rem; text-decoration:none; color:var(--cream); opacity:.85;}
+nav.primary a:hover{opacity:1; color:var(--gold-soft);}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--sans); font-weight:600; font-size:.92rem;
+  padding:11px 22px; border-radius:99px; text-decoration:none; white-space:nowrap;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn-gold{background:var(--gold); color:var(--navy-deep);}
+.btn-gold:hover{transform:translateY(-1px); box-shadow:0 8px 22px rgba(212,176,106,0.35);}
+.btn-outline{border:1px solid rgba(255,255,255,0.4); color:var(--cream); background:transparent;}
+.btn-outline:hover{border-color:var(--gold-soft); color:var(--gold-soft);}
+@media (max-width:900px){ nav.primary{display:none;} }
 
-.featured-box{margin-top:30px;background:linear-gradient(135deg,rgba(201,162,75,.12),rgba(28,39,63,.4));border:1px solid rgba(201,162,75,.4);border-radius:22px;padding:34px 30px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between}
-.featured-box .txt h3{font-size:1.4rem;margin-bottom:6px}
-.featured-box .txt p{color:var(--muted);font-size:.95rem;max-width:520px}
-.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:34px;text-align:center}
-.why-item .num{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:700;color:var(--gold-light)}
-.why-item h3{font-size:1.2rem;margin:12px 0 8px}
-.why-item p{color:var(--muted);font-size:.95rem}
-.faq{max-width:780px;margin:0 auto}
-.faq-item{background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-bottom:16px}
-.faq-item h3{font-size:1.15rem;margin-bottom:10px;color:var(--gold-light)}
-.faq-item p{color:var(--muted);font-size:.98rem}
-.form-sec{background:linear-gradient(180deg,var(--navy),var(--navy-2))}
-.form-box{max-width:640px;margin:0 auto;background:linear-gradient(160deg,var(--navy-3),var(--navy-2));border:1px solid var(--line);border-radius:26px;padding:50px 42px;box-shadow:0 20px 60px rgba(0,0,0,.4);}
-.form-box h2{text-align:center;font-size:2.1rem;margin-bottom:8px}
-.form-box .sub{text-align:center;color:var(--muted);margin-bottom:34px}
-.field{margin-bottom:20px}
-.field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:8px;color:var(--gold-light)}
-.field input,.field select,.field textarea{width:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;font-family:'Outfit',sans-serif;font-size:1rem;background:rgba(14,21,37,.6);color:var(--cream);transition:.25s;}
-.field input::placeholder,.field textarea::placeholder{color:#8b93a5}
-.field select option{background:var(--navy-2);color:var(--cream)}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:rgba(14,21,37,.9);}
-.field textarea{resize:vertical;min-height:90px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:520px){.row2{grid-template-columns:1fr}}
-.submit-wa{width:100%;background:#25D366;color:#fff;border:none;padding:17px;border-radius:46px;font-size:1.05rem;font-weight:600;font-family:'Outfit',sans-serif;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:10px;}
-.submit-wa:hover{background:#1da851;transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,.3)}
-footer{background:var(--navy);text-align:center;padding:50px 24px;border-top:1px solid var(--line)}
-footer .logo{display:block;margin-bottom:12px}
-footer p{font-size:.9rem;margin-top:8px;color:var(--muted)}
-footer a{color:var(--gold-light);text-decoration:none}
-.wa-float{position:fixed;bottom:24px;right:24px;z-index:200;width:62px;height:62px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.45);transition:.3s;animation:pulse 2.4s infinite;}
-.wa-float:hover{transform:scale(1.08)}
-.wa-float svg{width:34px;height:34px;fill:#fff}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
-@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+/* HERO */
+.hero{
+  background:radial-gradient(1200px 600px at 15% -10%, rgba(212,176,106,0.16), transparent 60%),
+             linear-gradient(180deg, var(--navy-deep), var(--navy) 65%, #0c1e34);
+  color:var(--cream); padding:64px 0 56px;
+}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center;}
+@media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+.badge{display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(212,176,106,0.4); padding:7px 16px; border-radius:99px; margin:16px 0 20px;}
+.hero h1{font-size:clamp(2.1rem,4.4vw,3.2rem); color:var(--cream); letter-spacing:-.5px;}
+.hero h1 em{font-style:italic; font-weight:500; color:var(--gold-soft);}
+.hero p.sub{color:rgba(244,237,224,0.75); font-size:1.05rem; max-width:520px; margin:16px 0 26px;}
+.hero-ctas{display:flex; gap:14px; margin-bottom:32px; flex-wrap:wrap;}
+.stat-row{display:flex; gap:12px; flex-wrap:wrap;}
+.stat-card{background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:14px 18px; min-width:104px;}
+.stat-card .n{font-family:var(--serif); font-size:1.4rem; color:var(--gold-soft); font-weight:700;}
+.stat-card .l{font-size:.74rem; color:rgba(244,237,224,0.7); margin-top:2px;}
+
+.photo-grid{display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:10px; height:400px; border-radius:16px; overflow:hidden;}
+@media (max-width:900px){ .photo-grid{height:300px; margin-top:24px;} }
+.photo-grid .pg-item{position:relative; overflow:hidden;}
+.photo-grid .pg-item img{width:100%; height:100%; object-fit:cover;}
+.photo-grid .pg-item .cap{position:absolute; bottom:0; left:0; right:0; padding:9px 11px; background:linear-gradient(0deg, rgba(5,11,20,0.85), transparent); font-family:var(--mono); font-size:.62rem; letter-spacing:.06em; text-transform:uppercase; color:var(--cream);}
+
+/* STATS STRIPE */
+.stripe{background:var(--cream); padding:40px 0; border-bottom:1px solid var(--line);}
+.stripe-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center;}
+@media (max-width:700px){ .stripe-grid{grid-template-columns:1fr 1fr;} }
+.stripe-grid .n{font-family:var(--serif); font-size:1.8rem; font-weight:700; color:var(--navy);}
+.stripe-grid .l{font-size:.8rem; color:#5a5142; margin-top:4px;}
+
+/* SERVICIOS SEARCH (kept from original, restyled) */
+.section-head{max-width:680px; margin:0 auto 40px; text-align:center;}
+.section-head h2{font-size:clamp(1.8rem,3.6vw,2.6rem);}
+.section-head p{color:#6b6455; font-size:1.02rem;}
+#svcSearch{width:100%; padding:16px 22px; border-radius:40px; border:1px solid var(--line); background:#fff; color:var(--ink); font-family:var(--sans); font-size:1rem; outline:none;}
+.modes{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:24px 0 36px;}
+.mode-pill{padding:9px 22px; border-radius:40px; font-weight:600; font-size:.88rem; cursor:pointer; background:#fff; color:var(--navy); border:1px solid var(--line);}
+.mode-pill.active{background:var(--navy); color:var(--gold-soft); border-color:var(--navy);}
+.types{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px;}
+.type{background:#fff; border:1px solid var(--line); border-radius:14px; padding:26px 20px; text-align:center; text-decoration:none; display:block; transition:.25s;}
+.type:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(10,22,40,0.08); border-color:rgba(212,176,106,0.5);}
+.type .ico{width:48px; height:48px; margin:0 auto 14px; border-radius:12px; background:var(--cream); color:var(--gold); display:flex; align-items:center; justify-content:center; font-size:1.15rem;}
+.type:hover .ico{background:var(--navy); color:var(--gold-soft); transition:.25s;}
+.type h3{font-size:1.02rem; margin-bottom:4px; color:var(--navy);}
+.type p{color:#7a7364; font-size:.84rem;}
+
+/* DESARROLLOS DESTACADOS */
+.devsec{background:var(--navy-2); padding:80px 0;}
+.devsec .section-head h2{color:var(--cream);}
+.devsec .section-head p{color:rgba(244,237,224,0.65);}
+.dev-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:22px;}
+.dev-card{position:relative; border-radius:18px; overflow:hidden; height:280px; text-decoration:none; display:block; box-shadow:0 16px 34px rgba(0,0,0,0.35); transition:.3s;}
+.dev-card:hover{transform:translateY(-6px);}
+.dev-card img{width:100%; height:100%; object-fit:cover;}
+.dev-card .overlay{position:absolute; inset:0; background:linear-gradient(0deg, rgba(5,11,20,0.92) 12%, rgba(5,11,20,0.2) 55%, transparent 78%);}
+.dev-card .tag{position:absolute; top:16px; left:16px; background:var(--gold); color:var(--navy-deep); font-family:var(--mono); font-size:.66rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:5px 12px; border-radius:99px;}
+.dev-card .info{position:absolute; bottom:0; left:0; right:0; padding:22px;}
+.dev-card .info .name{font-family:var(--serif); font-size:1.4rem; color:var(--cream); font-weight:600;}
+.dev-card .info .loc{font-size:.8rem; color:rgba(244,237,224,0.7); margin:3px 0 8px;}
+.dev-card .info .desc{font-size:.82rem; color:rgba(244,237,224,0.85);}
+
+.featured-box{margin-top:30px; background:linear-gradient(135deg,rgba(212,176,106,.12),rgba(255,255,255,.03)); border:1px solid rgba(212,176,106,0.35); border-radius:22px; padding:32px 28px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; justify-content:space-between;}
+.featured-box .txt h3{font-size:1.3rem; margin-bottom:6px; color:var(--cream);}
+.featured-box .txt p{color:rgba(244,237,224,0.7); font-size:.92rem; max-width:520px;}
+
+/* POR QUE */
+.why-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; text-align:center;}
+.why-item .num{font-family:var(--serif); font-size:2.4rem; font-weight:700; color:var(--gold);}
+.why-item h3{font-size:1.08rem; margin:10px 0 6px; color:var(--navy);}
+.why-item p{color:#6b6455; font-size:.9rem;}
+
+/* FAQ */
+.faqsec{background:var(--cream);}
+.faq{max-width:780px; margin:0 auto;}
+.faq-item{background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px 26px; margin-bottom:14px;}
+.faq-item h3{font-size:1.05rem; margin-bottom:8px; color:var(--navy);}
+.faq-item p{color:#6b6455; font-size:.94rem;}
+
+/* CONTACT */
+.form-sec{background:linear-gradient(180deg,var(--navy),var(--navy-2));}
+.form-box{max-width:640px; margin:0 auto; background:linear-gradient(160deg,#132542,var(--navy-2)); border:1px solid rgba(255,255,255,0.08); border-radius:26px; padding:48px 40px; box-shadow:0 20px 60px rgba(0,0,0,.4);}
+.form-box h2{text-align:center; font-size:2rem; color:var(--cream); margin-bottom:8px;}
+.form-box .sub{text-align:center; color:rgba(244,237,224,0.65); margin-bottom:32px;}
+.field{margin-bottom:18px;}
+.field label{display:block; font-weight:600; font-size:.86rem; margin-bottom:7px; color:var(--gold-soft);}
+.field input,.field select,.field textarea{width:100%; padding:13px 15px; border:1.5px solid rgba(255,255,255,0.12); border-radius:12px; font-family:var(--sans); font-size:1rem; background:rgba(5,11,20,0.5); color:var(--cream); transition:.25s;}
+.field input::placeholder,.field textarea::placeholder{color:#8b93a5;}
+.field select option{background:var(--navy-2); color:var(--cream);}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none; border-color:var(--gold);}
+.field textarea{resize:vertical; min-height:88px;}
+.row2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+@media(max-width:520px){ .row2{grid-template-columns:1fr;} }
+.submit-wa{width:100%; background:#25D366; color:#fff; border:none; padding:16px; border-radius:46px; font-size:1.02rem; font-weight:600; font-family:var(--sans); cursor:pointer; transition:.3s; display:flex; align-items:center; justify-content:center; gap:10px;}
+.submit-wa:hover{background:#1da851;}
+
+/* FOOTER */
+footer{background:var(--navy-deep); text-align:center; padding:50px 24px; border-top:1px solid rgba(255,255,255,0.08); color:rgba(244,237,224,0.7);}
+footer .logo{font-family:var(--serif); font-weight:700; font-size:1.3rem; color:var(--cream); margin-bottom:12px;}
+footer .logo span{color:var(--gold-soft);}
+footer p{font-size:.86rem; margin-top:8px;}
+footer a{color:var(--gold-soft); text-decoration:none;}
+.wa-float{position:fixed; bottom:24px; right:24px; z-index:200; width:60px; height:60px; border-radius:50%; background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 20px rgba(37,211,102,.45);}
+.wa-float svg{width:32px; height:32px; fill:#fff;}
 </style>
 </head>
 <body>
-<header>
-  <nav class="nav">
-    <div class="logo">UNO <span>BROKERS</span></div>
-    <a href="#contacto" class="nav-cta">Cotiza gratis</a>
-  </nav>
+
+<header class="site">
+  <div class="header-inner">
+    <div class="brand-lock">UNO Brokers</div>
+    <nav class="primary">
+      <a href="#servicios">01 Servicios</a>
+      <a href="#desarrollos">02 Desarrollos</a>
+      <a href="#por-que">03 Por qué UNO</a>
+      <a href="#faq">04 FAQ</a>
+      <a href="#contacto">05 Contacto</a>
+    </nav>
+    <a href="#contacto" class="btn btn-gold">Hablar con un asesor</a>
+  </div>
 </header>
+
 <section class="hero">
-  <div class="hero-content">
-    <span class="eyebrow">Guadalajara &middot; Zapopan &middot; Ciudad de México</span>
-    <h1>Vende o renta tu propiedad con <em>el cliente correcto</em></h1>
-    <p>Captamos casas, residencias, departamentos, terrenos, bodegas, oficinas y desarrollos en Guadalajara, Zapopan y Ciudad de México (Santa Fe, Bosque Real). En UNO BROKERS le encontramos el comprador, inquilino o inversionista ideal a tu propiedad, con estrategia y sin complicaciones.</p>
-    <div class="btn-group">
-      <a href="#contacto" class="btn btn-primary">Quiero vender o rentar ya</a>
-      <a href="#servicios" class="btn btn-ghost">Ver qué ofrecemos</a>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Guadalajara &middot; Zapopan &middot; Ciudad de México</div>
+      <div class="badge">★ 30 años en el mercado</div>
+      <h1>Vende o renta tu propiedad con <em>el cliente correcto</em></h1>
+      <p class="sub">Captamos casas, residencias, departamentos, terrenos, bodegas, oficinas y desarrollos en Guadalajara, Zapopan y Ciudad de México (Santa Fe, Bosque Real). En UNO BROKERS le encontramos el comprador, inquilino o inversionista ideal a tu propiedad, con estrategia y sin complicaciones.</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-gold">Quiero vender o rentar ya</a>
+        <a href="#servicios" class="btn btn-outline">Ver qué ofrecemos</a>
+      </div>
+      <div class="stat-row">
+        <div class="stat-card"><div class="n">100%</div><div class="l">Asesoría sin costo</div></div>
+        <div class="stat-card"><div class="n">30+</div><div class="l">Años de experiencia</div></div>
+        <div class="stat-card"><div class="n">24h</div><div class="l">Respuesta rápida</div></div>
+        <div class="stat-card"><div class="n">360°</div><div class="l">Servicio completo</div></div>
+      </div>
+    </div>
+    <div class="photo-grid">
+      <div class="pg-item"><img src="home-vivaria.jpg" alt="Vivaria 2360 — preventa de departamentos en Guadalajara"><div class="cap">Vivaria 2360</div></div>
+      <div class="pg-item"><img src="home-nara.jpg" alt="NARA Américas — preventa de departamentos en Zapopan"><div class="cap">NARA Américas</div></div>
+      <div class="pg-item"><img src="home-suenos.jpg" alt="Los Sueños Residencial — terrenos en venta en Zapopan"><div class="cap">Los Sueños Residencial</div></div>
+      <div class="pg-item"><img src="home-nubax.jpg" alt="Parque Nubax — lotes industriales en El Salto"><div class="cap">Parque Nubax</div></div>
     </div>
   </div>
 </section>
 
-<!-- ===================== BUSCADOR PRINCIPAL (única forma de navegar todo el catálogo) ===================== -->
-<section class="section" id="servicios" style="padding-top:10px;padding-bottom:80px;">
+<section class="stripe">
+  <div class="wrap stripe-grid">
+    <div><div class="n">1995</div><div class="l">Fundación de UNO Brokers</div></div>
+    <div><div class="n">30+</div><div class="l">Años de experiencia</div></div>
+    <div><div class="n">4</div><div class="l">Desarrollos activos</div></div>
+    <div><div class="n">GDL · ZMG</div><div class="l">Cobertura de asesoría</div></div>
+  </div>
+</section>
+
+<!-- ===================== BUSCADOR PRINCIPAL ===================== -->
+<section id="servicios" style="background:var(--paper); padding:80px 0;">
   <div class="wrap">
-    <div class="section-head" style="margin-bottom:34px;">
-      <h2>¿Qué necesitas hoy?</h2>
+    <div class="section-head">
+      <div class="eyebrow">Servicios</div>
+      <h2 style="margin-top:8px;">¿Qué necesitas hoy?</h2>
       <p>Escribe lo que buscas o filtra por categoría — aquí está todo nuestro catálogo de servicios, zonas y desarrollos.</p>
     </div>
 
-    <div style="max-width:640px;margin:0 auto 28px;">
-      <input type="text" id="svcSearch" placeholder="Ej. investigar inquilino, vender casa, Vivaria 2360, Parque Nubax..."
-        style="width:100%;padding:18px 24px;border-radius:40px;border:1px solid var(--line);background:var(--navy-3);color:var(--cream);font-family:'Outfit',sans-serif;font-size:1rem;outline:none;">
+    <div style="max-width:640px;margin:0 auto 8px;">
+      <input type="text" id="svcSearch" placeholder="Ej. investigar inquilino, vender casa, Vivaria 2360, Parque Nubax...">
     </div>
 
-    <div class="modes" id="svcPills" style="margin-bottom:40px;">
-      <span class="mode-pill" data-cat="todos" style="cursor:pointer;">Todos</span>
-      <span class="mode-pill" data-cat="vender" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Vender</span>
-      <span class="mode-pill" data-cat="rentar" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Rentar</span>
-      <span class="mode-pill" data-cat="comprar" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Comprar / Buscar</span>
-      <span class="mode-pill" data-cat="zonas" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Zonas y desarrollos</span>
-      <span class="mode-pill" data-cat="blog" style="cursor:pointer;background:var(--navy-3);color:var(--gold-light);border:1px solid var(--line);">Blog</span>
+    <div class="modes" id="svcPills">
+      <span class="mode-pill active" data-cat="todos">Todos</span>
+      <span class="mode-pill" data-cat="vender">Vender</span>
+      <span class="mode-pill" data-cat="rentar">Rentar</span>
+      <span class="mode-pill" data-cat="comprar">Comprar / Buscar</span>
+      <span class="mode-pill" data-cat="zonas">Zonas y desarrollos</span>
+      <span class="mode-pill" data-cat="blog">Blog</span>
     </div>
 
     <div class="types" id="svcGrid"></div>
-    <p id="svcEmpty" style="display:none;text-align:center;color:var(--muted);margin-top:30px;">No encontramos nada con esa búsqueda — prueba con otra palabra, o escríbenos directo por WhatsApp.</p>
+    <p id="svcEmpty" style="display:none;text-align:center;color:#6b6455;margin-top:30px;">No encontramos nada con esa búsqueda — prueba con otra palabra, o escríbenos directo por WhatsApp.</p>
   </div>
 </section>
 
 <script>
+const ICON_SVG = {
+  building: '<path d="M6 21V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v17"/><path d="M14 21V9a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v12"/><line x1="3" y1="21" x2="21" y2="21"/><line x1="9" y1="7" x2="11" y2="7"/><line x1="9" y1="11" x2="11" y2="11"/><line x1="9" y1="15" x2="11" y2="15"/>',
+  home: '<path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/>',
+  map: '<path d="M9 4 4 6v14l5-2 6 2 5-2V4l-5 2-6-2Z"/><line x1="9" y1="4" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="20"/>',
+  calculator: '<rect x="5" y="3" width="14" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="12" x2="8" y2="12.01"/><line x1="12" y1="12" x2="12" y2="12.01"/><line x1="16" y1="12" x2="16" y2="12.01"/><line x1="8" y1="16" x2="8" y2="16.01"/><line x1="12" y1="16" x2="12" y2="16.01"/><line x1="16" y1="16" x2="16" y2="16.01"/>',
+  invoice: '<path d="M7 3h10a1 1 0 0 1 1 1v16l-3-2-2 2-2-2-2 2-3-2V4a1 1 0 0 1 1-1Z"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/>',
+  contract: '<path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8Z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/><path d="m17.5 15.5 1.5 1.5-3.5 3.5-2-.5.5-2Z"/>',
+  key: '<circle cx="8" cy="14" r="4"/><path d="m11 11 8-8"/><path d="m17 5 2 2"/><path d="m14 8 2 2"/>',
+  wallet: '<path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v3"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-4"/><path d="M17 12h3a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-3a2 2 0 0 1 0-4Z"/>',
+  shield: '<path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6Z"/><path d="m9.5 12 2 2 3.5-3.5"/>',
+  clipboard: '<rect x="6" y="4" width="12" height="17" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/>',
+  search: '<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/>',
+  briefcase: '<rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/>',
+  city: '<path d="M4 21V9l6-4v16"/><path d="M14 21V4l6 3v14"/><line x1="2" y1="21" x2="22" y2="21"/><line x1="7" y1="11" x2="7" y2="11.01"/><line x1="7" y1="15" x2="7" y2="15.01"/><line x1="17" y1="9" x2="17" y2="9.01"/><line x1="17" y1="13" x2="17" y2="13.01"/><line x1="17" y1="17" x2="17" y2="17.01"/>',
+  industry: '<path d="M3 21V11l5 3v-3l5 3V8l6 4v9Z"/><line x1="3" y1="21" x2="21" y2="21"/>',
+  tree: '<path d="M12 3 6 11h3l-4 6h5v4h4v-4h5l-4-6h3Z"/>',
+  users: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14a4.5 4.5 0 0 1 5.5 4.4"/>',
+  newspaper: '<rect x="3" y="5" width="14" height="15" rx="1"/><line x1="6" y1="9" x2="14" y2="9"/><line x1="6" y1="12" x2="14" y2="12"/><line x1="6" y1="15" x2="11" y2="15"/><path d="M17 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8"/>',
+  skyline: '<path d="M3 21V13l4-2v10"/><path d="M9 21V7l4-3 4 3v14"/><path d="M17 21v-8l4 2v6"/><line x1="2" y1="21" x2="22" y2="21"/>',
+};
+function svcIcon(key){
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">${ICON_SVG[key]||ICON_SVG.building}</svg>`;
+}
+
 const SERVICIOS = [
-  {t:"Vender mi departamento", d:"Zapopan y Guadalajara", cat:"vender", href:"captacion-departamentos-venta-zapopan-guadalajara.html", ico:"&#9638;"},
-  {t:"Vender mi casa", d:"Guadalajara", cat:"vender", href:"vender-casa-guadalajara.html", ico:"&#9638;"},
-  {t:"Vender mi terreno", d:"Guadalajara y Zapopan", cat:"vender", href:"https://rgarcia784-alt.github.io/vender-terreno/", ico:"&#9650;"},
-  {t:"¿Cuánto vale mi propiedad?", d:"Calculadora de opinión de valor", cat:"vender", href:"calculadora-opinion-valor.html", ico:"&#9636;"},
-  {t:"¿Cuánto vale?", d:"Opinión de valor rápida", cat:"vender", href:"cuanto-vale.html", ico:"&#9636;"},
-  {t:"Calculadora de ISR", d:"Al vender tu propiedad", cat:"vender", href:"calculadora-isr-venta-propiedad.html", ico:"&#9645;"},
-  {t:"Contrato de compraventa", d:"Generador gratis", cat:"vender", href:"generador-contrato-compraventa.html", ico:"&#9645;"},
-  {t:"Vender mi depa en Santa Fe", d:"CDMX", cat:"vender", href:"departamentos-venta-santa-fe-cdmx.html", ico:"&#9638;"},
+  {t:"Vender mi departamento", d:"Zapopan y Guadalajara", cat:"vender", href:"captacion-departamentos-venta-zapopan-guadalajara.html", ico:"building"},
+  {t:"Vender mi casa", d:"Guadalajara", cat:"vender", href:"vender-casa-guadalajara.html", ico:"home"},
+  {t:"Vender mi terreno", d:"Guadalajara y Zapopan", cat:"vender", href:"https://rgarcia784-alt.github.io/vender-terreno/", ico:"map"},
+  {t:"¿Cuánto vale mi propiedad?", d:"Calculadora de opinión de valor", cat:"vender", href:"calculadora-opinion-valor.html", ico:"calculator"},
+  {t:"¿Cuánto vale?", d:"Opinión de valor rápida", cat:"vender", href:"cuanto-vale.html", ico:"calculator"},
+  {t:"Calculadora de ISR", d:"Al vender tu propiedad", cat:"vender", href:"calculadora-isr-venta-propiedad.html", ico:"invoice"},
+  {t:"Contrato de compraventa", d:"Generador gratis", cat:"vender", href:"generador-contrato-compraventa.html", ico:"contract"},
+  {t:"Vender mi depa en Santa Fe", d:"CDMX", cat:"vender", href:"departamentos-venta-santa-fe-cdmx.html", ico:"building"},
 
-  {t:"Rentar mi propiedad", d:"Encontramos al inquilino correcto", cat:"rentar", href:"rentar-propiedad-guadalajara.html", ico:"&#8962;"},
-  {t:"Renta tu propiedad en Zapopan", d:"Con administración completa", cat:"rentar", href:"https://rgarcia784-alt.github.io/renta-propiedades-zapopan/", ico:"&#8962;"},
-  {t:"Administración de rentas", d:"Cobro mensual sin que tú lo hagas", cat:"rentar", href:"administracion-de-rentas.html", ico:"&#9783;"},
-  {t:"Investigación de inquilinos", d:"Verificación completa antes de firmar", cat:"rentar", href:"investigacion-inquilinos.html", ico:"&#9633;"},
-  {t:"Generador de contrato de renta", d:"Contrato gratis", cat:"rentar", href:"generador-contrato-renta.html", ico:"&#9645;"},
-  {t:"Solicitud de arrendamiento", d:"Formato para inquilinos", cat:"rentar", href:"solicitud-arrendamiento.html", ico:"&#9650;"},
-  {t:"Rentar mi depa en Santa Fe", d:"CDMX", cat:"rentar", href:"departamentos-renta-santa-fe-cdmx.html", ico:"&#8962;"},
+  {t:"Rentar mi propiedad", d:"Encontramos al inquilino correcto", cat:"rentar", href:"rentar-propiedad-guadalajara.html", ico:"key"},
+  {t:"Renta tu propiedad en Zapopan", d:"Con administración completa", cat:"rentar", href:"https://rgarcia784-alt.github.io/renta-propiedades-zapopan/", ico:"key"},
+  {t:"Administración de rentas", d:"Cobro mensual sin que tú lo hagas", cat:"rentar", href:"administracion-de-rentas.html", ico:"wallet"},
+  {t:"Investigación de inquilinos", d:"Verificación completa antes de firmar", cat:"rentar", href:"investigacion-inquilinos.html", ico:"shield"},
+  {t:"Generador de contrato de renta", d:"Contrato gratis", cat:"rentar", href:"generador-contrato-renta.html", ico:"contract"},
+  {t:"Solicitud de arrendamiento", d:"Formato para inquilinos", cat:"rentar", href:"solicitud-arrendamiento.html", ico:"clipboard"},
+  {t:"Rentar mi depa en Santa Fe", d:"CDMX", cat:"rentar", href:"departamentos-renta-santa-fe-cdmx.html", ico:"key"},
 
-  {t:"Encuentra tu propiedad", d:"Cuestionario guiado", cat:"comprar", href:"encuentra-tu-propiedad.html", ico:"&#8962;"},
-  {t:"Todas las propiedades", d:"Catálogo completo", cat:"comprar", href:"propiedades.html", ico:"&#9636;"},
-  {t:"Departamentos en venta", d:"Zapopan y Guadalajara", cat:"comprar", href:"departamentos-venta-zapopan.html", ico:"&#9635;"},
-  {t:"Portafolio de propiedades", d:"Ve nuestro catálogo completo", cat:"comprar", href:"portafolio-brokers.html", ico:"&#8962;"},
-  {t:"Depas en venta Santa Fe", d:"Para quien busca comprar", cat:"comprar", href:"busco-departamento-santa-fe-cdmx.html", ico:"&#9645;"},
-  {t:"Depas en renta Santa Fe", d:"Para quien busca rentar", cat:"comprar", href:"renta-departamento-santa-fe-cdmx.html", ico:"&#9633;"},
+  {t:"Encuentra tu propiedad", d:"Cuestionario guiado", cat:"comprar", href:"encuentra-tu-propiedad.html", ico:"search"},
+  {t:"Todas las propiedades", d:"Catálogo completo", cat:"comprar", href:"propiedades.html", ico:"home"},
+  {t:"Departamentos en venta", d:"Zapopan y Guadalajara", cat:"comprar", href:"departamentos-venta-zapopan.html", ico:"building"},
+  {t:"Portafolio de propiedades", d:"Ve nuestro catálogo completo", cat:"comprar", href:"portafolio-brokers.html", ico:"briefcase"},
+  {t:"Depas en venta Santa Fe", d:"Para quien busca comprar", cat:"comprar", href:"busco-departamento-santa-fe-cdmx.html", ico:"building"},
+  {t:"Depas en renta Santa Fe", d:"Para quien busca rentar", cat:"comprar", href:"renta-departamento-santa-fe-cdmx.html", ico:"key"},
 
-  {t:"Vivaria 2360", d:"Preventa, Col. San Antonio, Guadalajara", cat:"zonas", href:"vivaria-2360.html", ico:"&#9638;"},
-  {t:"NARA Américas", d:"Preventa, Zapopan", cat:"zonas", href:"https://rgarcia784-alt.github.io/nara-americas-tools/nara-americas.html", ico:"&#9650;"},
-  {t:"Parque Nubax", d:"Terrenos industriales, El Salto", cat:"zonas", href:"parque-nubax.html", ico:"&#9645;"},
-  {t:"Los Sueños Residencial", d:"Terrenos en venta, Zapopan", cat:"zonas", href:"los-suenos-residencial.html", ico:"&#9650;"},
-  {t:"Valle Real", d:"Zapopan", cat:"zonas", href:"valle-real-zapopan.html", ico:"&#8962;"},
-  {t:"Puerta de Hierro", d:"Zapopan", cat:"zonas", href:"puerta-de-hierro.html", ico:"&#9638;"},
-  {t:"Bosque Real", d:"Departamentos disponibles, CDMX", cat:"zonas", href:"departamentos-bosque-real-cdmx.html", ico:"&#9636;"},
-  {t:"Altare", d:"Residencial, Zapopan", cat:"zonas", href:"altare.html", ico:"&#9633;"},
-  {t:"The Lighthouse", d:"Zapopan", cat:"zonas", href:"the-lighthouse-zapopan.html", ico:"&#9636;"},
-  {t:"Terrenos en venta", d:"Guadalajara", cat:"zonas", href:"terrenos-venta-guadalajara.html", ico:"&#9650;"},
-  {t:"Origina Santa Fe", d:"Torres residenciales, preventa", cat:"zonas", href:"origina-santa-fe-cdmx.html", ico:"&#9650;"},
-  {t:"Desarrollos", d:"Preventas y proyectos", cat:"zonas", href:"desarrollos.html", ico:"&#9638;"},
-  {t:"Inmobiliaria en Guadalajara y Zapopan", d:"Conócenos", cat:"zonas", href:"inmobiliaria-guadalajara-zapopan.html", ico:"&#9645;"},
+  {t:"Vivaria 2360", d:"Preventa, Col. San Antonio, Guadalajara", cat:"zonas", href:"vivaria-2360.html", ico:"skyline"},
+  {t:"NARA Américas", d:"Preventa, Zapopan", cat:"zonas", href:"https://rgarcia784-alt.github.io/nara-americas-tools/nara-americas.html", ico:"city"},
+  {t:"Parque Nubax", d:"Terrenos industriales, El Salto", cat:"zonas", href:"parque-nubax.html", ico:"industry"},
+  {t:"Los Sueños Residencial", d:"Terrenos en venta, Zapopan", cat:"zonas", href:"los-suenos-residencial.html", ico:"tree"},
+  {t:"Valle Real", d:"Zapopan", cat:"zonas", href:"valle-real-zapopan.html", ico:"home"},
+  {t:"Puerta de Hierro", d:"Zapopan", cat:"zonas", href:"puerta-de-hierro.html", ico:"home"},
+  {t:"Bosque Real", d:"Departamentos disponibles, CDMX", cat:"zonas", href:"departamentos-bosque-real-cdmx.html", ico:"building"},
+  {t:"Altare", d:"Residencial, Zapopan", cat:"zonas", href:"altare.html", ico:"home"},
+  {t:"The Lighthouse", d:"Zapopan", cat:"zonas", href:"the-lighthouse-zapopan.html", ico:"building"},
+  {t:"Terrenos en venta", d:"Guadalajara", cat:"zonas", href:"terrenos-venta-guadalajara.html", ico:"map"},
+  {t:"Origina Santa Fe", d:"Torres residenciales, preventa", cat:"zonas", href:"origina-santa-fe-cdmx.html", ico:"city"},
+  {t:"Desarrollos", d:"Preventas y proyectos", cat:"zonas", href:"desarrollos.html", ico:"city"},
+  {t:"Inmobiliaria en Guadalajara y Zapopan", d:"Conócenos", cat:"zonas", href:"inmobiliaria-guadalajara-zapopan.html", ico:"users"},
 
-  {t:"¿Por qué investigar a tus inquilinos?", d:"Blog para propietarios", cat:"blog", href:"blog-investigar-inquilinos-zapopan.html", ico:"&#9633;"},
-  {t:"Errores al rentar", d:"Blog", cat:"blog", href:"blog-errores-renta-zapopan.html", ico:"&#9633;"},
-  {t:"Fraudes en compraventa", d:"Blog", cat:"blog", href:"blog-fraudes-compraventa.html", ico:"&#9645;"},
+  {t:"¿Por qué investigar a tus inquilinos?", d:"Blog para propietarios", cat:"blog", href:"blog-investigar-inquilinos-zapopan.html", ico:"newspaper"},
+  {t:"Errores al rentar", d:"Blog", cat:"blog", href:"blog-errores-renta-zapopan.html", ico:"newspaper"},
+  {t:"Fraudes en compraventa", d:"Blog", cat:"blog", href:"blog-fraudes-compraventa.html", ico:"newspaper"},
 ];
 
 let svcCat = "todos";
@@ -251,8 +377,8 @@ function renderServicios(){
     return catOk && qOk;
   });
   grid.innerHTML = filtrados.map(s => `
-    <a class="type" href="${s.href}" style="text-decoration:none;display:block">
-      <div class="ico">${s.ico}</div><h3>${s.t}</h3><p>${s.d}</p>
+    <a class="type" href="${s.href}">
+      <div class="ico">${svcIcon(s.ico)}</div><h3>${s.t}</h3><p>${s.d}</p>
     </a>
   `).join('');
   empty.style.display = filtrados.length === 0 ? 'block' : 'none';
@@ -266,10 +392,8 @@ document.getElementById('svcSearch').addEventListener('input', (e) => {
 document.querySelectorAll('#svcPills .mode-pill').forEach(pill => {
   pill.addEventListener('click', () => {
     svcCat = pill.dataset.cat;
-    document.querySelectorAll('#svcPills .mode-pill').forEach(p => {
-      p.style.background = 'var(--navy-3)'; p.style.color = 'var(--gold-light)'; p.style.border = '1px solid var(--line)';
-    });
-    pill.style.background = 'var(--gold)'; pill.style.color = 'var(--navy)'; pill.style.border = 'none';
+    document.querySelectorAll('#svcPills .mode-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
     renderServicios();
   });
 });
@@ -277,84 +401,91 @@ document.querySelectorAll('#svcPills .mode-pill').forEach(pill => {
 renderServicios();
 </script>
 
-<!-- ===================== DESARROLLOS DESTACADOS (solo los 4 principales, con más contexto visual) ===================== -->
-<section class="section" style="padding-top:0;background:var(--navy-2);">
+<!-- ===================== DESARROLLOS DESTACADOS ===================== -->
+<section id="desarrollos" class="devsec">
   <div class="wrap">
     <div class="section-head">
-      <h2>Desarrollos destacados</h2>
-      <p>Preventas y proyectos activos que comercializamos actualmente en Guadalajara y Zapopan.</p>
+      <div class="eyebrow">Desarrollos destacados</div>
+      <h2 style="margin-top:8px;">Preventas y proyectos activos</h2>
+      <p>Que comercializamos actualmente en Guadalajara y Zapopan.</p>
     </div>
     <div class="dev-grid">
       <a class="dev-card" href="/vivaria-2360.html">
-        <span class="dev-tag">Preventa</span>
-        <div class="dev-img">&#9638;</div>
-        <div class="dev-body">
-          <h3>Vivaria 2360</h3>
-          <div class="dev-loc">Col. San Antonio, Guadalajara</div>
-          <p class="dev-desc">220 departamentos de 1, 2 y 3 recámaras. Desarrolla CADU Inmobiliaria.</p>
+        <img src="home-vivaria.jpg" alt="Vivaria 2360">
+        <div class="overlay"></div>
+        <div class="tag">Preventa</div>
+        <div class="info">
+          <div class="name">Vivaria 2360</div>
+          <div class="loc">Col. San Antonio, Guadalajara</div>
+          <div class="desc">220 departamentos de 1, 2 y 3 recámaras. Desarrolla CADU Inmobiliaria.</div>
         </div>
       </a>
       <a class="dev-card" href="https://rgarcia784-alt.github.io/nara-americas-tools/nara-americas.html">
-        <span class="dev-tag">Preventa</span>
-        <div class="dev-img">&#9650;</div>
-        <div class="dev-body">
-          <h3>NARA Américas</h3>
-          <div class="dev-loc">Av. Américas, Zapopan</div>
-          <p class="dev-desc">63 departamentos y oficinas. 18 amenidades, uso mixto.</p>
+        <img src="home-nara.jpg" alt="NARA Américas">
+        <div class="overlay"></div>
+        <div class="tag">Preventa</div>
+        <div class="info">
+          <div class="name">NARA Américas</div>
+          <div class="loc">Av. Américas, Zapopan</div>
+          <div class="desc">63 departamentos y oficinas. 18 amenidades, uso mixto.</div>
         </div>
       </a>
       <a class="dev-card" href="/los-suenos-residencial.html">
-        <span class="dev-tag">Venta de terrenos</span>
-        <div class="dev-img">&#9650;</div>
-        <div class="dev-body">
-          <h3>Los Sueños Residencial</h3>
-          <div class="dev-loc">San Juan de Ocotán, Zapopan</div>
-          <p class="dev-desc">Terrenos desde 448 m², junto al Bosque de la Primavera.</p>
+        <img src="home-suenos.jpg" alt="Los Sueños Residencial">
+        <div class="overlay"></div>
+        <div class="tag">Venta de terrenos</div>
+        <div class="info">
+          <div class="name">Los Sueños Residencial</div>
+          <div class="loc">San Juan de Ocotán, Zapopan</div>
+          <div class="desc">Terrenos desde 448 m², junto al Bosque de la Primavera.</div>
         </div>
       </a>
       <a class="dev-card" href="/parque-nubax.html">
-        <span class="dev-tag">Venta y renta BTS</span>
-        <div class="dev-img">&#9645;</div>
-        <div class="dev-body">
-          <h3>Parque Nubax</h3>
-          <div class="dev-loc">Corredor Industrial, El Salto</div>
-          <p class="dev-desc">Lotes industriales y comerciales desde 831 m².</p>
+        <img src="home-nubax.jpg" alt="Parque Nubax">
+        <div class="overlay"></div>
+        <div class="tag">Venta y renta BTS</div>
+        <div class="info">
+          <div class="name">Parque Nubax</div>
+          <div class="loc">Corredor Industrial, El Salto</div>
+          <div class="desc">Lotes industriales y comerciales desde 831 m².</div>
         </div>
       </a>
     </div>
     <div class="featured-box">
       <div class="txt">
-        <h3>&#9650; ¿Tienes un desarrollo y buscas comercializarlo?</h3>
+        <h3>▲ ¿Tienes un desarrollo y buscas comercializarlo?</h3>
         <p>Estrategia de lanzamiento, captación de inversionistas y colocación de unidades en la zona metropolitana de Guadalajara.</p>
       </div>
-      <a href="#contacto" class="btn btn-primary">Hablemos de mi proyecto</a>
+      <a href="#contacto" class="btn btn-gold">Hablemos de mi proyecto</a>
     </div>
   </div>
 </section>
 
 <!-- ===================== POR QUÉ CONFIAR ===================== -->
-<section class="section">
+<section id="por-que" style="background:var(--paper);">
   <div class="wrap">
     <div class="section-head">
-      <h2>Por qué confiar en UNO BROKERS</h2>
+      <div class="eyebrow">Por qué UNO Brokers</div>
+      <h2 style="margin-top:8px;">Por qué confiar en UNO BROKERS</h2>
       <p>Más de 30 años de experiencia en bienes raíces, con presencia en Guadalajara, Zapopan y Santa Fe CDMX, y alcance en los principales portales inmobiliarios de México.</p>
     </div>
     <div class="why-grid">
       <div class="why-item"><div class="num">100%</div><h3>Asesoría sin costo</h3><p>Te orientamos antes de cualquier compromiso.</p></div>
       <div class="why-item"><div class="num">30+</div><h3>Años de experiencia</h3><p>Trayectoria comprobada en bienes raíces en Guadalajara, Zapopan y CDMX.</p></div>
       <div class="why-item"><div class="num">24h</div><h3>Respuesta rápida</h3><p>Te contactamos por WhatsApp el mismo día.</p></div>
-      <div class="why-item"><div class="num">360&deg;</div><h3>Servicio completo</h3><p>De la valuación al cierre, nos encargamos de todo.</p></div>
+      <div class="why-item"><div class="num">360°</div><h3>Servicio completo</h3><p>De la valuación al cierre, nos encargamos de todo.</p></div>
       <div class="why-item"><div class="num">+2</div><h3>Portales inmobiliarios</h3><p>Presencia en Inmuebles24, Vivanuncios y red de colaboración con brokers.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ===================== FAQ ===================== -->
-<section class="section" style="background:var(--navy-2);">
+<section id="faq" class="faqsec">
   <div class="wrap">
     <div class="section-head">
-      <h2>Preguntas frecuentes</h2>
-      <p>Lo que más nos preguntan los propietarios en Guadalajara y Zapopan.</p>
+      <div class="eyebrow">Preguntas frecuentes</div>
+      <h2 style="margin-top:8px;">Lo que más nos preguntan</h2>
+      <p>Dudas frecuentes de los propietarios en Guadalajara y Zapopan.</p>
     </div>
     <div class="faq">
       <div class="faq-item">
@@ -378,7 +509,7 @@ renderServicios();
 </section>
 
 <!-- ===================== CONTACTO ===================== -->
-<section class="section form-sec" id="contacto">
+<section class="form-sec" id="contacto">
   <div class="wrap">
     <div class="form-box">
       <h2>Captemos tu propiedad</h2>
@@ -427,7 +558,7 @@ renderServicios();
 </section>
 
 <footer>
-  <div class="logo">UNO <span>BROKERS</span></div>
+  <div class="logo">UNO <span>Brokers</span></div>
   <p>Casas &middot; Departamentos &middot; Terrenos &middot; Bodegas &middot; Oficinas &middot; Desarrollos - Guadalajara y Zapopan</p>
   <p>
     <a href="/rentar-propiedad-guadalajara.html">Rentar mi propiedad</a> &middot;
