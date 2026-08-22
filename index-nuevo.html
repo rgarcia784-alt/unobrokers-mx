@@ -152,7 +152,8 @@ nav.primary a:hover{opacity:1; color:var(--gold-soft);}
 .types{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px;}
 .type{background:#fff; border:1px solid var(--line); border-radius:14px; padding:26px 20px; text-align:center; text-decoration:none; display:block; transition:.25s;}
 .type:hover{transform:translateY(-4px); box-shadow:0 14px 30px rgba(10,22,40,0.08); border-color:rgba(212,176,106,0.5);}
-.type .ico{width:48px; height:48px; margin:0 auto 14px; border-radius:12px; background:var(--cream); color:var(--gold); display:flex; align-items:center; justify-content:center; font-size:1.3rem; font-family:var(--serif);}
+.type .ico{width:48px; height:48px; margin:0 auto 14px; border-radius:12px; background:var(--cream); color:var(--gold); display:flex; align-items:center; justify-content:center; font-size:1.15rem;}
+.type:hover .ico{background:var(--navy); color:var(--gold-soft); transition:.25s;}
 .type h3{font-size:1.02rem; margin-bottom:4px; color:var(--navy);}
 .type p{color:#7a7364; font-size:.84rem;}
 
@@ -295,48 +296,72 @@ footer a{color:var(--gold-soft); text-decoration:none;}
 </section>
 
 <script>
+const ICON_SVG = {
+  building: '<path d="M6 21V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v17"/><path d="M14 21V9a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v12"/><line x1="3" y1="21" x2="21" y2="21"/><line x1="9" y1="7" x2="11" y2="7"/><line x1="9" y1="11" x2="11" y2="11"/><line x1="9" y1="15" x2="11" y2="15"/>',
+  home: '<path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v10h12V10"/><path d="M10 20v-6h4v6"/>',
+  map: '<path d="M9 4 4 6v14l5-2 6 2 5-2V4l-5 2-6-2Z"/><line x1="9" y1="4" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="20"/>',
+  calculator: '<rect x="5" y="3" width="14" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="12" x2="8" y2="12.01"/><line x1="12" y1="12" x2="12" y2="12.01"/><line x1="16" y1="12" x2="16" y2="12.01"/><line x1="8" y1="16" x2="8" y2="16.01"/><line x1="12" y1="16" x2="12" y2="16.01"/><line x1="16" y1="16" x2="16" y2="16.01"/>',
+  invoice: '<path d="M7 3h10a1 1 0 0 1 1 1v16l-3-2-2 2-2-2-2 2-3-2V4a1 1 0 0 1 1-1Z"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="9" y1="12" x2="15" y2="12"/>',
+  contract: '<path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8Z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/><path d="m17.5 15.5 1.5 1.5-3.5 3.5-2-.5.5-2Z"/>',
+  key: '<circle cx="8" cy="14" r="4"/><path d="m11 11 8-8"/><path d="m17 5 2 2"/><path d="m14 8 2 2"/>',
+  wallet: '<path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v3"/><path d="M3 7v11a2 2 0 0 0 2 2h14a1 1 0 0 0 1-1v-4"/><path d="M17 12h3a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-3a2 2 0 0 1 0-4Z"/>',
+  shield: '<path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6Z"/><path d="m9.5 12 2 2 3.5-3.5"/>',
+  clipboard: '<rect x="6" y="4" width="12" height="17" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/>',
+  search: '<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.6" y2="16.6"/>',
+  briefcase: '<rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="3" y1="13" x2="21" y2="13"/>',
+  city: '<path d="M4 21V9l6-4v16"/><path d="M14 21V4l6 3v14"/><line x1="2" y1="21" x2="22" y2="21"/><line x1="7" y1="11" x2="7" y2="11.01"/><line x1="7" y1="15" x2="7" y2="15.01"/><line x1="17" y1="9" x2="17" y2="9.01"/><line x1="17" y1="13" x2="17" y2="13.01"/><line x1="17" y1="17" x2="17" y2="17.01"/>',
+  industry: '<path d="M3 21V11l5 3v-3l5 3V8l6 4v9Z"/><line x1="3" y1="21" x2="21" y2="21"/>',
+  tree: '<path d="M12 3 6 11h3l-4 6h5v4h4v-4h5l-4-6h3Z"/>',
+  users: '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M15.5 14a4.5 4.5 0 0 1 5.5 4.4"/>',
+  newspaper: '<rect x="3" y="5" width="14" height="15" rx="1"/><line x1="6" y1="9" x2="14" y2="9"/><line x1="6" y1="12" x2="14" y2="12"/><line x1="6" y1="15" x2="11" y2="15"/><path d="M17 8h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8"/>',
+  skyline: '<path d="M3 21V13l4-2v10"/><path d="M9 21V7l4-3 4 3v14"/><path d="M17 21v-8l4 2v6"/><line x1="2" y1="21" x2="22" y2="21"/>',
+};
+function svcIcon(key){
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">${ICON_SVG[key]||ICON_SVG.building}</svg>`;
+}
+
 const SERVICIOS = [
-  {t:"Vender mi departamento", d:"Zapopan y Guadalajara", cat:"vender", href:"captacion-departamentos-venta-zapopan-guadalajara.html", ico:"&#9638;"},
-  {t:"Vender mi casa", d:"Guadalajara", cat:"vender", href:"vender-casa-guadalajara.html", ico:"&#9638;"},
-  {t:"Vender mi terreno", d:"Guadalajara y Zapopan", cat:"vender", href:"https://rgarcia784-alt.github.io/vender-terreno/", ico:"&#9650;"},
-  {t:"¿Cuánto vale mi propiedad?", d:"Calculadora de opinión de valor", cat:"vender", href:"calculadora-opinion-valor.html", ico:"&#9636;"},
-  {t:"¿Cuánto vale?", d:"Opinión de valor rápida", cat:"vender", href:"cuanto-vale.html", ico:"&#9636;"},
-  {t:"Calculadora de ISR", d:"Al vender tu propiedad", cat:"vender", href:"calculadora-isr-venta-propiedad.html", ico:"&#9645;"},
-  {t:"Contrato de compraventa", d:"Generador gratis", cat:"vender", href:"generador-contrato-compraventa.html", ico:"&#9645;"},
-  {t:"Vender mi depa en Santa Fe", d:"CDMX", cat:"vender", href:"departamentos-venta-santa-fe-cdmx.html", ico:"&#9638;"},
+  {t:"Vender mi departamento", d:"Zapopan y Guadalajara", cat:"vender", href:"captacion-departamentos-venta-zapopan-guadalajara.html", ico:"building"},
+  {t:"Vender mi casa", d:"Guadalajara", cat:"vender", href:"vender-casa-guadalajara.html", ico:"home"},
+  {t:"Vender mi terreno", d:"Guadalajara y Zapopan", cat:"vender", href:"https://rgarcia784-alt.github.io/vender-terreno/", ico:"map"},
+  {t:"¿Cuánto vale mi propiedad?", d:"Calculadora de opinión de valor", cat:"vender", href:"calculadora-opinion-valor.html", ico:"calculator"},
+  {t:"¿Cuánto vale?", d:"Opinión de valor rápida", cat:"vender", href:"cuanto-vale.html", ico:"calculator"},
+  {t:"Calculadora de ISR", d:"Al vender tu propiedad", cat:"vender", href:"calculadora-isr-venta-propiedad.html", ico:"invoice"},
+  {t:"Contrato de compraventa", d:"Generador gratis", cat:"vender", href:"generador-contrato-compraventa.html", ico:"contract"},
+  {t:"Vender mi depa en Santa Fe", d:"CDMX", cat:"vender", href:"departamentos-venta-santa-fe-cdmx.html", ico:"building"},
 
-  {t:"Rentar mi propiedad", d:"Encontramos al inquilino correcto", cat:"rentar", href:"rentar-propiedad-guadalajara.html", ico:"&#8962;"},
-  {t:"Renta tu propiedad en Zapopan", d:"Con administración completa", cat:"rentar", href:"https://rgarcia784-alt.github.io/renta-propiedades-zapopan/", ico:"&#8962;"},
-  {t:"Administración de rentas", d:"Cobro mensual sin que tú lo hagas", cat:"rentar", href:"administracion-de-rentas.html", ico:"&#9783;"},
-  {t:"Investigación de inquilinos", d:"Verificación completa antes de firmar", cat:"rentar", href:"investigacion-inquilinos.html", ico:"&#9633;"},
-  {t:"Generador de contrato de renta", d:"Contrato gratis", cat:"rentar", href:"generador-contrato-renta.html", ico:"&#9645;"},
-  {t:"Solicitud de arrendamiento", d:"Formato para inquilinos", cat:"rentar", href:"solicitud-arrendamiento.html", ico:"&#9650;"},
-  {t:"Rentar mi depa en Santa Fe", d:"CDMX", cat:"rentar", href:"departamentos-renta-santa-fe-cdmx.html", ico:"&#8962;"},
+  {t:"Rentar mi propiedad", d:"Encontramos al inquilino correcto", cat:"rentar", href:"rentar-propiedad-guadalajara.html", ico:"key"},
+  {t:"Renta tu propiedad en Zapopan", d:"Con administración completa", cat:"rentar", href:"https://rgarcia784-alt.github.io/renta-propiedades-zapopan/", ico:"key"},
+  {t:"Administración de rentas", d:"Cobro mensual sin que tú lo hagas", cat:"rentar", href:"administracion-de-rentas.html", ico:"wallet"},
+  {t:"Investigación de inquilinos", d:"Verificación completa antes de firmar", cat:"rentar", href:"investigacion-inquilinos.html", ico:"shield"},
+  {t:"Generador de contrato de renta", d:"Contrato gratis", cat:"rentar", href:"generador-contrato-renta.html", ico:"contract"},
+  {t:"Solicitud de arrendamiento", d:"Formato para inquilinos", cat:"rentar", href:"solicitud-arrendamiento.html", ico:"clipboard"},
+  {t:"Rentar mi depa en Santa Fe", d:"CDMX", cat:"rentar", href:"departamentos-renta-santa-fe-cdmx.html", ico:"key"},
 
-  {t:"Encuentra tu propiedad", d:"Cuestionario guiado", cat:"comprar", href:"encuentra-tu-propiedad.html", ico:"&#8962;"},
-  {t:"Todas las propiedades", d:"Catálogo completo", cat:"comprar", href:"propiedades.html", ico:"&#9636;"},
-  {t:"Departamentos en venta", d:"Zapopan y Guadalajara", cat:"comprar", href:"departamentos-venta-zapopan.html", ico:"&#9635;"},
-  {t:"Portafolio de propiedades", d:"Ve nuestro catálogo completo", cat:"comprar", href:"portafolio-brokers.html", ico:"&#8962;"},
-  {t:"Depas en venta Santa Fe", d:"Para quien busca comprar", cat:"comprar", href:"busco-departamento-santa-fe-cdmx.html", ico:"&#9645;"},
-  {t:"Depas en renta Santa Fe", d:"Para quien busca rentar", cat:"comprar", href:"renta-departamento-santa-fe-cdmx.html", ico:"&#9633;"},
+  {t:"Encuentra tu propiedad", d:"Cuestionario guiado", cat:"comprar", href:"encuentra-tu-propiedad.html", ico:"search"},
+  {t:"Todas las propiedades", d:"Catálogo completo", cat:"comprar", href:"propiedades.html", ico:"home"},
+  {t:"Departamentos en venta", d:"Zapopan y Guadalajara", cat:"comprar", href:"departamentos-venta-zapopan.html", ico:"building"},
+  {t:"Portafolio de propiedades", d:"Ve nuestro catálogo completo", cat:"comprar", href:"portafolio-brokers.html", ico:"briefcase"},
+  {t:"Depas en venta Santa Fe", d:"Para quien busca comprar", cat:"comprar", href:"busco-departamento-santa-fe-cdmx.html", ico:"building"},
+  {t:"Depas en renta Santa Fe", d:"Para quien busca rentar", cat:"comprar", href:"renta-departamento-santa-fe-cdmx.html", ico:"key"},
 
-  {t:"Vivaria 2360", d:"Preventa, Col. San Antonio, Guadalajara", cat:"zonas", href:"vivaria-2360.html", ico:"&#9638;"},
-  {t:"NARA Américas", d:"Preventa, Zapopan", cat:"zonas", href:"https://rgarcia784-alt.github.io/nara-americas-tools/nara-americas.html", ico:"&#9650;"},
-  {t:"Parque Nubax", d:"Terrenos industriales, El Salto", cat:"zonas", href:"parque-nubax.html", ico:"&#9645;"},
-  {t:"Los Sueños Residencial", d:"Terrenos en venta, Zapopan", cat:"zonas", href:"los-suenos-residencial.html", ico:"&#9650;"},
-  {t:"Valle Real", d:"Zapopan", cat:"zonas", href:"valle-real-zapopan.html", ico:"&#8962;"},
-  {t:"Puerta de Hierro", d:"Zapopan", cat:"zonas", href:"puerta-de-hierro.html", ico:"&#9638;"},
-  {t:"Bosque Real", d:"Departamentos disponibles, CDMX", cat:"zonas", href:"departamentos-bosque-real-cdmx.html", ico:"&#9636;"},
-  {t:"Altare", d:"Residencial, Zapopan", cat:"zonas", href:"altare.html", ico:"&#9633;"},
-  {t:"The Lighthouse", d:"Zapopan", cat:"zonas", href:"the-lighthouse-zapopan.html", ico:"&#9636;"},
-  {t:"Terrenos en venta", d:"Guadalajara", cat:"zonas", href:"terrenos-venta-guadalajara.html", ico:"&#9650;"},
-  {t:"Origina Santa Fe", d:"Torres residenciales, preventa", cat:"zonas", href:"origina-santa-fe-cdmx.html", ico:"&#9650;"},
-  {t:"Desarrollos", d:"Preventas y proyectos", cat:"zonas", href:"desarrollos.html", ico:"&#9638;"},
-  {t:"Inmobiliaria en Guadalajara y Zapopan", d:"Conócenos", cat:"zonas", href:"inmobiliaria-guadalajara-zapopan.html", ico:"&#9645;"},
+  {t:"Vivaria 2360", d:"Preventa, Col. San Antonio, Guadalajara", cat:"zonas", href:"vivaria-2360.html", ico:"skyline"},
+  {t:"NARA Américas", d:"Preventa, Zapopan", cat:"zonas", href:"https://rgarcia784-alt.github.io/nara-americas-tools/nara-americas.html", ico:"city"},
+  {t:"Parque Nubax", d:"Terrenos industriales, El Salto", cat:"zonas", href:"parque-nubax.html", ico:"industry"},
+  {t:"Los Sueños Residencial", d:"Terrenos en venta, Zapopan", cat:"zonas", href:"los-suenos-residencial.html", ico:"tree"},
+  {t:"Valle Real", d:"Zapopan", cat:"zonas", href:"valle-real-zapopan.html", ico:"home"},
+  {t:"Puerta de Hierro", d:"Zapopan", cat:"zonas", href:"puerta-de-hierro.html", ico:"home"},
+  {t:"Bosque Real", d:"Departamentos disponibles, CDMX", cat:"zonas", href:"departamentos-bosque-real-cdmx.html", ico:"building"},
+  {t:"Altare", d:"Residencial, Zapopan", cat:"zonas", href:"altare.html", ico:"home"},
+  {t:"The Lighthouse", d:"Zapopan", cat:"zonas", href:"the-lighthouse-zapopan.html", ico:"building"},
+  {t:"Terrenos en venta", d:"Guadalajara", cat:"zonas", href:"terrenos-venta-guadalajara.html", ico:"map"},
+  {t:"Origina Santa Fe", d:"Torres residenciales, preventa", cat:"zonas", href:"origina-santa-fe-cdmx.html", ico:"city"},
+  {t:"Desarrollos", d:"Preventas y proyectos", cat:"zonas", href:"desarrollos.html", ico:"city"},
+  {t:"Inmobiliaria en Guadalajara y Zapopan", d:"Conócenos", cat:"zonas", href:"inmobiliaria-guadalajara-zapopan.html", ico:"users"},
 
-  {t:"¿Por qué investigar a tus inquilinos?", d:"Blog para propietarios", cat:"blog", href:"blog-investigar-inquilinos-zapopan.html", ico:"&#9633;"},
-  {t:"Errores al rentar", d:"Blog", cat:"blog", href:"blog-errores-renta-zapopan.html", ico:"&#9633;"},
-  {t:"Fraudes en compraventa", d:"Blog", cat:"blog", href:"blog-fraudes-compraventa.html", ico:"&#9645;"},
+  {t:"¿Por qué investigar a tus inquilinos?", d:"Blog para propietarios", cat:"blog", href:"blog-investigar-inquilinos-zapopan.html", ico:"newspaper"},
+  {t:"Errores al rentar", d:"Blog", cat:"blog", href:"blog-errores-renta-zapopan.html", ico:"newspaper"},
+  {t:"Fraudes en compraventa", d:"Blog", cat:"blog", href:"blog-fraudes-compraventa.html", ico:"newspaper"},
 ];
 
 let svcCat = "todos";
@@ -353,7 +378,7 @@ function renderServicios(){
   });
   grid.innerHTML = filtrados.map(s => `
     <a class="type" href="${s.href}">
-      <div class="ico">${s.ico}</div><h3>${s.t}</h3><p>${s.d}</p>
+      <div class="ico">${svcIcon(s.ico)}</div><h3>${s.t}</h3><p>${s.d}</p>
     </a>
   `).join('');
   empty.style.display = filtrados.length === 0 ? 'block' : 'none';
