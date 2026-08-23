@@ -72,14 +72,19 @@
   .section-head h2{font-size:clamp(1.7rem,3.2vw,2.3rem);}
   .section-head p{margin-top:14px;color:#54606e;font-size:1rem;font-weight:300;}
 
-  .gallery-placeholder{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:50px;
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:50px;
   }
-  .ph-box{
-    aspect-ratio:4/3;background:linear-gradient(135deg,#e9e2d0,#f4efe4);
-    border:1px dashed #c9bc9d;border-radius:6px;
-    display:flex;align-items:center;justify-content:center;
-    color:#a89871;font-size:.82rem;text-align:center;padding:16px;
+  .gallery-grid img{
+    width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;
+    border-radius:8px;border:1px solid #e6ddc8;display:block;
+  }
+  .gallery-grid figure{margin:0;position:relative;}
+  .gallery-grid figcaption{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(transparent,rgba(7,15,30,.72));
+    color:#f4ede0;font-size:.85rem;letter-spacing:.03em;
+    padding:26px 16px 12px;border-radius:0 0 8px 8px;
   }
 
   .tipos-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
@@ -123,7 +128,7 @@
   footer strong{color:#d9c48f;}
 
   @media (max-width:760px){
-    .gallery-placeholder{grid-template-columns:1fr 1fr;}
+    .gallery-grid{grid-template-columns:1fr 1fr;}
     .tipos-grid{grid-template-columns:1fr;}
     .ops-grid{grid-template-columns:1fr;}
     .amenidades{grid-template-columns:1fr 1fr;}
@@ -163,12 +168,25 @@
     <div class="section-head">
       <span class="tag">Galería</span>
       <h2>Conoce The Lighthouse</h2>
-      <p>Fotografías del desarrollo próximamente.</p>
+      <p>Fotos reales de las amenidades y vistas del desarrollo.</p>
     </div>
-    <div class="gallery-placeholder">
-      <div class="ph-box">Fachada / exterior<br>(imagen próximamente)</div>
-      <div class="ph-box">Interior / sala<br>(imagen próximamente)</div>
-      <div class="ph-box">Amenidades<br>(imagen próximamente)</div>
+    <div class="gallery-grid">
+      <figure>
+        <img src="lighthouse-fachada.jpg" alt="Fachada The Lighthouse Zapopan de noche con alberca" loading="lazy">
+        <figcaption>Fachada y alberca</figcaption>
+      </figure>
+      <figure>
+        <img src="lighthouse-alberca.jpg" alt="Alberca The Lighthouse Zapopan" loading="lazy">
+        <figcaption>Alberca</figcaption>
+      </figure>
+      <figure>
+        <img src="lighthouse-gimnasio.jpg" alt="Gimnasio The Lighthouse Zapopan" loading="lazy">
+        <figcaption>Gimnasio</figcaption>
+      </figure>
+      <figure>
+        <img src="lighthouse-vistas.jpg" alt="Vista panorámica desde The Lighthouse Zapopan" loading="lazy">
+        <figcaption>Vistas</figcaption>
+      </figure>
     </div>
   </div>
 </section>
