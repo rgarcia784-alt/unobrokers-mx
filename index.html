@@ -171,6 +171,9 @@ nav.primary a:hover{opacity:1; color:var(--gold-soft);}
 .dev-card .info .name{font-family:var(--serif); font-size:1.4rem; color:var(--cream); font-weight:600;}
 .dev-card .info .loc{font-size:.8rem; color:rgba(244,237,224,0.7); margin:3px 0 8px;}
 .dev-card .info .desc{font-size:.82rem; color:rgba(244,237,224,0.85);}
+.dev-card.no-photo{background:linear-gradient(155deg, #16283f, var(--navy-deep));}
+.dev-card.no-photo .ph-icon{position:absolute; top:50%; left:50%; transform:translate(-50%,-60%); color:rgba(212,176,106,0.18); width:96px; height:96px;}
+.dev-card.no-photo .info{position:absolute; bottom:0; left:0; right:0; padding:22px;}
 
 .featured-box{margin-top:30px; background:linear-gradient(135deg,rgba(212,176,106,.12),rgba(255,255,255,.03)); border:1px solid rgba(212,176,106,0.35); border-radius:22px; padding:32px 28px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; justify-content:space-between;}
 .featured-box .txt h3{font-size:1.3rem; margin-bottom:6px; color:var(--cream);}
@@ -263,7 +266,7 @@ footer a{color:var(--gold-soft); text-decoration:none;}
   <div class="wrap stripe-grid">
     <div><div class="n">1995</div><div class="l">Fundación de UNO Brokers</div></div>
     <div><div class="n">30+</div><div class="l">Años de experiencia</div></div>
-    <div><div class="n">4</div><div class="l">Desarrollos activos</div></div>
+    <div><div class="n">6</div><div class="l">Desarrollos activos</div></div>
     <div><div class="n">GDL · ZMG</div><div class="l">Cobertura de asesoría</div></div>
   </div>
 </section>
@@ -407,7 +410,7 @@ renderServicios();
     <div class="section-head">
       <div class="eyebrow">Desarrollos destacados</div>
       <h2 style="margin-top:8px;">Preventas y proyectos activos</h2>
-      <p>Que comercializamos actualmente en Guadalajara y Zapopan.</p>
+      <p>Que comercializamos actualmente en Guadalajara, Zapopan y Ciudad de México.</p>
     </div>
     <div class="dev-grid">
       <a class="dev-card" href="/vivaria-2360.html">
@@ -448,6 +451,26 @@ renderServicios();
           <div class="name">Parque Nubax</div>
           <div class="loc">Corredor Industrial, El Salto</div>
           <div class="desc">Lotes industriales y comerciales desde 831 m².</div>
+        </div>
+      </a>
+      <a class="dev-card" href="/origina-santa-fe-cdmx.html">
+        <img src="https://img.youtube.com/vi/ZymSBR-oP5U/maxresdefault.jpg" alt="Origina Santa Fe">
+        <div class="overlay"></div>
+        <div class="tag">Preventa y entrega inmediata</div>
+        <div class="info">
+          <div class="name">Origina Santa Fe</div>
+          <div class="loc">Santa Fe, Ciudad de México</div>
+          <div class="desc">2 torres, departamentos desde 85 m² hasta 268 m².</div>
+        </div>
+      </a>
+      <a class="dev-card" href="/departamentos-bosque-real-cdmx.html">
+        <img src="https://img.youtube.com/vi/xnTy_6Cj0j8/maxresdefault.jpg" alt="Bosque Real">
+        <div class="overlay"></div>
+        <div class="tag">7 desarrollos</div>
+        <div class="info">
+          <div class="name">Bosque Real</div>
+          <div class="loc">Huixquilucan, Ciudad de México</div>
+          <div class="desc">7 desarrollos · 30+ amenidades · Poniente de CDMX.</div>
         </div>
       </a>
     </div>
