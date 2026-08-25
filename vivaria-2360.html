@@ -212,8 +212,8 @@
     color:var(--gold); font-weight:700;
   }
   .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
-  section{padding:88px 0;}
-  @media (max-width:640px){ section{padding:56px 0;} }
+  section{padding:88px 0; scroll-margin-top:90px;}
+  @media (max-width:640px){ section{padding:56px 0; scroll-margin-top:70px;} }
 
   /* HEADER */
   header.site{
@@ -612,9 +612,18 @@
   footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;}
   footer a{text-decoration:none; color:rgba(244,237,224,0.75);}
   .legal-note{max-width:1180px; margin:0 auto 0; padding:0 24px 24px; font-size:.76rem; color:rgba(244,237,224,0.4);}
-</style>
-</head>
+</style></head>
 <body>
+<script>
+  // Evita que el navegador recuerde/restaure una posición de scroll anterior
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+  window.addEventListener('load', function () {
+    // Si la página se abrió sin un link directo a una sección (#...), siempre inicia arriba
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  });
+</script>
 
 <header class="site">
   <div class="header-inner">
