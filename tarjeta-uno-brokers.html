@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNO Brokers | Rafael García Grado</title>
+<style>
+@font-face { font-family: 'Fraunces'; src: url('https://raw.githubusercontent.com/google/fonts/main/ofl/fraunces/Fraunces%5BSOFT%2CWONK%2Copsz%2Cwght%5D.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Outfit'; src: url('https://raw.githubusercontent.com/google/fonts/main/ofl/outfit/Outfit%5Bwght%5D.ttf') format('truetype'); font-display: swap; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  background: #070f1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Outfit', sans-serif;
+  padding: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 380px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.card-header {
+  background: #070f1e;
+  padding: 40px 32px 32px;
+  text-align: center;
+  position: relative;
+}
+
+.card-header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4B06A, transparent);
+}
+
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #D4B06A;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #070f1e;
+}
+
+.name {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #F4EDE0;
+  margin-bottom: 6px;
+}
+
+.role {
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #D4B06A;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 28px 32px 32px;
+}
+
+.tagline {
+  text-align: center;
+  color: #5B6472;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 26px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: #F4EDE0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #1a1a1a;
+  transition: transform 0.15s;
+}
+.contact-item:hover { transform: translateX(4px); }
+
+.contact-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: #070f1e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.contact-text { display: flex; flex-direction: column; }
+.contact-label { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #A5822F; font-weight: 700; }
+.contact-value { font-size: 14px; font-weight: 600; }
+
+.cta-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #25D366;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.footer-note {
+  text-align: center;
+  color: #b8b2a3;
+  font-size: 11px;
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-header">
+    <div class="avatar">RG</div>
+    <div class="name">Rafa García</div>
+    <div class="role">Director Comercial · UNO Brokers</div>
+  </div>
+  <div class="card-body">
+    <p class="tagline">Más de 30 años conectando personas con las mejores propiedades de Guadalajara y Zapopan.</p>
+
+    <div class="contact-list">
+      <a href="tel:+523339675255" class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">
+          <span class="contact-label">Teléfono</span>
+          <span class="contact-value">33 3967 5255</span>
+        </div>
+      </a>
+      <a href="https://unobrokers.com.mx" target="_blank" class="contact-item">
+        <div class="contact-icon">🌐</div>
+        <div class="contact-text">
+          <span class="contact-label">Sitio web</span>
+          <span class="contact-value">unobrokers.com.mx</span>
+        </div>
+      </a>
+    </div>
+
+    <a href="https://wa.me/523339675255?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n" class="cta-btn" target="_blank">
+      💬 Escríbeme por WhatsApp
+    </a>
+
+    <p class="footer-note">UNO Brokers · Guadalajara y Zapopan</p>
+  </div>
+</div>
+
+</body>
+</html>
