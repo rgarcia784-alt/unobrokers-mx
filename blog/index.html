@@ -17,7 +17,6 @@
 <meta name="twitter:title" content="Blog UNO BROKERS | Guías, Contratos y Fiscal para Propietarios">
 <meta name="twitter:description" content="Aprende sobre contratos, ISR, trámites y estrategia inmobiliaria en Guadalajara, Zapopan y CDMX.">
 <meta name="twitter:image" content="https://unobrokers.com.mx/default.jpg">
-
 <meta name="description" content="Blog de UNO BROKERS: contratos, ley del ISR, guías para vender o rentar, zonas y mercado, inversión inmobiliaria en Guadalajara, Zapopan y CDMX.">
 <meta name="keywords" content="blog inmobiliario Guadalajara, ISR venta propiedad, contrato de renta Zapopan, guía vender casa, guía rentar departamento, inversión inmobiliaria Jalisco, UNO BROKERS blog">
 <meta name="author" content="UNO BROKERS">
@@ -122,10 +121,9 @@ const POSTS = [
   {t:"¿Por qué investigar a tus inquilinos?", d:"Qué revisar antes de firmar un contrato de renta.", cat:"rentar", catLabel:"Guía para rentar", href:"/blog-investigar-inquilinos-zapopan.html"},
   {t:"Errores comunes al rentar tu propiedad", d:"Lo que la mayoría de propietarios pasa por alto en Zapopan.", cat:"rentar", catLabel:"Guía para rentar", href:"/blog-errores-renta-zapopan.html"},
   {t:"Fraudes más comunes en compraventa", d:"Cómo protegerte al comprar o vender un inmueble.", cat:"contratos", catLabel:"Contratos y trámites", href:"/blog-fraudes-compraventa.html"},
+  {t:"Cómo fijar el precio correcto al vender tu casa", d:"Por qué sobrevaluar tu propiedad te cuesta más caro que venderla bien desde el inicio.", cat:"vender", catLabel:"Guía para vender", href:"/blog/precio-correcto-vender-casa.html"},
 ];
-
 let activeCat = "todos";
-
 function renderBlog(){
   const grid = document.getElementById('blogGrid');
   const empty = document.getElementById('blogEmpty');
@@ -139,7 +137,6 @@ function renderBlog(){
   `).join('');
   empty.style.display = filtrados.length === 0 ? 'block' : 'none';
 }
-
 document.querySelectorAll('#blogPills .mode-pill').forEach(pill => {
   pill.addEventListener('click', () => {
     activeCat = pill.dataset.cat;
@@ -148,7 +145,6 @@ document.querySelectorAll('#blogPills .mode-pill').forEach(pill => {
     renderBlog();
   });
 });
-
 renderBlog();
 </script>
 <footer>
