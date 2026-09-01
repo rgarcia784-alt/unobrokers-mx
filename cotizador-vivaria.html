@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cotizador Vivaria 2360 | UNO Brokers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+:root{
+  --yellow:#F4C430;
+  --yellow-deep:#DDA914;
+  --yellow-pale:#FFF6DE;
+  --ink:#15181F;
+  --ink-soft:#3A3F4C;
+  --plum:#5B3E93;
+  --plum-light:#7C5BC0;
+  --paper:#FFFDF7;
+  --line:rgba(21,24,31,0.12);
+  --white:#FFFFFF;
+  --wa:#25D366;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Work Sans',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--ink);line-height:1.15;}
+.wrap{max-width:920px;margin:0 auto;padding:0 20px;}
+button{font-family:inherit;cursor:pointer;}
+input,select{font-family:inherit;}
+
+/* ===== GATE ===== */
+#gate{
+  position:fixed;inset:0;z-index:500;
+  background:var(--yellow);
+  background-image:radial-gradient(circle at 15% 20%, rgba(255,255,255,0.35) 0, transparent 45%),
+                    radial-gradient(circle at 85% 80%, rgba(255,255,255,0.25) 0, transparent 40%);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+}
+.gate-card{
+  background:var(--ink);color:var(--paper);
+  border-radius:24px;padding:44px 36px;max-width:380px;width:100%;
+  text-align:center;box-shadow:0 30px 70px rgba(0,0,0,.35);
+}
+.gate-logo{font-family:'Fredoka',sans-serif;font-size:2.4rem;font-weight:700;color:var(--yellow);margin-bottom:2px;}
+.gate-logo b{color:var(--white);}
+.gate-sub{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:#9a93b0;margin-bottom:30px;}
+.gate-card input{
+  width:100%;padding:14px 16px;border-radius:10px;border:2px solid #33374a;
+  background:#1f2230;color:var(--paper);font-size:1rem;text-align:center;letter-spacing:.04em;
+  margin-bottom:14px;
+}
+.gate-card input:focus{outline:none;border-color:var(--yellow);}
+.gate-card button{
+  width:100%;padding:14px;border:none;border-radius:10px;background:var(--yellow);
+  color:var(--ink);font-weight:700;font-size:.98rem;font-family:'Work Sans',sans-serif;
+}
+.gate-card button:hover{background:var(--yellow-deep);}
+.gate-error{color:#ff8a8a;font-size:.85rem;margin-top:12px;display:none;}
+
+/* ===== APP (hidden until unlocked) ===== */
+#app{display:none;}
+
+header.top{
+  position:sticky;top:0;z-index:50;
+  background:var(--ink);color:var(--paper);
+  border-bottom:3px solid var(--yellow);
+}
+.top-row{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:920px;margin:0 auto;}
+.top-brand{font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:600;color:var(--yellow);}
+.top-brand span{color:var(--white);font-weight:400;font-size:.78rem;letter-spacing:.08em;display:block;margin-top:-2px;}
+.top-reset{background:none;border:1px solid #3a3f52;color:#c7c3d6;font-size:.8rem;padding:7px 14px;border-radius:20px;}
+.top-reset:hover{border-color:var(--yellow);color:var(--yellow);}
+
+.hero{
+  background:var(--yellow);
+  padding:38px 0 30px;
+  background-image:radial-gradient(circle at 90% 0%, rgba(255,255,255,.3), transparent 50%);
+}
+.hero h1{font-size:clamp(1.6rem,4vw,2.3rem);max-width:14ch;}
+.hero p{color:var(--ink-soft);margin-top:8px;max-width:52ch;font-size:.98rem;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;}
+.hero-chips span{background:rgba(21,24,31,0.1);color:var(--ink);font-size:.78rem;font-weight:600;padding:6px 13px;border-radius:20px;}
+
+main{padding:32px 0 70px;}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;margin-bottom:20px;}
+.card h2{font-size:1.25rem;margin-bottom:4px;}
+.card .sub{color:#6b6f7d;font-size:.88rem;margin-bottom:18px;}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:560px){.grid2{grid-template-columns:1fr;}}
+.field label{display:block;font-size:.78rem;font-weight:600;color:var(--ink-soft);margin-bottom:6px;}
+.field input{
+  width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:9px;
+  font-size:.95rem;color:var(--ink);background:#FBFAF6;
+}
+.field input:focus{outline:none;border-color:var(--plum);background:var(--white);}
+.field{margin-bottom:14px;}
+
+/* filters */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.filter-group{display:flex;gap:6px;flex-wrap:wrap;}
+.chip-btn{
+  background:var(--yellow-pale);border:1.5px solid transparent;color:var(--ink);
+  font-size:.82rem;font-weight:600;padding:8px 14px;border-radius:20px;
+}
+.chip-btn.active{background:var(--plum);color:var(--white);}
+.filter-search{
+  flex:1;min-width:140px;padding:9px 13px;border:1.5px solid var(--line);border-radius:20px;
+  font-size:.85rem;
+}
+
+.unit-list-head{
+  display:grid;grid-template-columns:56px 1fr auto auto;gap:12px;align-items:center;
+  padding:9px 14px;background:var(--yellow-pale);border:1px solid var(--line);border-bottom:none;
+  border-radius:10px 10px 0 0;
+}
+.unit-list-head span{font-size:.72rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;}
+.sort-btn{
+  background:var(--yellow-pale);border:1.5px solid rgba(21,24,31,0.15);display:flex;align-items:center;gap:5px;
+  font-size:.72rem;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;
+  padding:5px 9px;border-radius:8px;justify-self:end;cursor:pointer;
+}
+.sort-btn .icon{font-size:.85rem;color:#D8332A;font-weight:900;}
+.sort-btn.active{background:var(--plum);border-color:var(--plum);color:var(--white);}
+.sort-btn.active .icon{color:#FF5A4E;}
+.sort-btn:hover{border-color:var(--plum);}
+.sort-hint{font-size:.68rem;color:#8b8f9c;grid-column:1/-1;margin-top:-4px;margin-bottom:2px;}
+.unit-list{max-height:420px;overflow-y:auto;border:1px solid var(--line);border-radius:0 0 10px 10px;}
+.unit-row{
+  display:grid;grid-template-columns:56px 1fr auto auto;gap:12px;align-items:center;
+  padding:12px 14px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .15s;
+}
+.unit-row:last-child{border-bottom:none;}
+.unit-row:hover{background:var(--yellow-pale);}
+.unit-row.selected{background:var(--plum);color:var(--white);}
+.unit-row .u-num{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.05rem;}
+.unit-row .u-detail{font-size:.82rem;color:#6b6f7d;}
+.unit-row.selected .u-detail{color:#d9d0f0;}
+.unit-row .u-m2{font-size:.82rem;font-weight:600;text-align:right;}
+.unit-row .u-price{font-size:.88rem;font-weight:700;text-align:right;color:var(--plum);}
+.unit-row.selected .u-price{color:var(--yellow);}
+.no-results{padding:30px;text-align:center;color:#8b8f9c;font-size:.9rem;}
+
+.selected-banner{
+  display:none;background:var(--plum);color:var(--white);border-radius:12px;
+  padding:16px 20px;margin-top:16px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.selected-banner.show{display:flex;}
+.selected-banner .sb-title{font-family:'Fredoka',sans-serif;font-size:1.05rem;}
+.selected-banner .sb-sub{font-size:.82rem;color:#d9d0f0;margin-top:2px;}
+
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--white);
+  border:none;padding:14px 28px;border-radius:11px;font-weight:600;font-size:.95rem;
+}
+.btn-primary:hover{background:#000;}
+.btn-primary:disabled{background:#c9c9c9;cursor:not-allowed;}
+.btn-block{width:100%;justify-content:center;}
+
+/* ===== QUOTE RESULT ===== */
+#resultado{display:none;}
+.result-hero{
+  background:var(--ink);color:var(--paper);border-radius:18px;padding:28px 26px;text-align:center;margin-bottom:20px;
+}
+.result-hero .rh-label{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--yellow);margin-bottom:6px;}
+.result-hero h2{color:var(--white);font-size:1.4rem;}
+.result-hero .rh-price{font-family:'Fredoka',sans-serif;font-size:clamp(1.8rem,5vw,2.6rem);color:var(--yellow);margin-top:10px;}
+.result-hero .rh-meta{color:#a9a5bc;font-size:.85rem;margin-top:6px;}
+
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media(max-width:640px){.plan-grid{grid-template-columns:1fr;}}
+.plan-card{
+  background:var(--white);border:2px solid var(--line);border-radius:14px;padding:20px;
+  transition:border-color .15s;
+}
+.plan-card.highlight{border-color:var(--yellow-deep);background:var(--yellow-pale);}
+.plan-card h3{font-size:1.02rem;margin-bottom:2px;}
+.plan-card .p-tag{font-size:.72rem;font-weight:700;color:var(--plum);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;display:block;}
+.plan-row{display:flex;justify-content:space-between;font-size:.86rem;padding:6px 0;border-bottom:1px dashed var(--line);}
+.plan-row:last-child{border-bottom:none;}
+.plan-row .pl-label{color:#6b6f7d;}
+.plan-row .pl-val{font-weight:700;color:var(--ink);}
+.plan-row.total .pl-val{color:var(--plum);font-size:.95rem;}
+
+.disclaimer{
+  background:var(--yellow-pale);border:1px solid rgba(221,169,20,.35);border-radius:10px;
+  padding:14px 16px;font-size:.82rem;color:#6b5a12;margin:20px 0;
+}
+
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;}
+.btn-secondary{
+  background:var(--white);border:1.5px solid var(--line);color:var(--ink);
+  padding:14px 24px;border-radius:11px;font-weight:600;font-size:.92rem;flex:1;min-width:180px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-secondary:hover{border-color:var(--ink);}
+.btn-wa{background:var(--wa);color:var(--white);border:none;}
+.btn-wa:hover{background:#1eb85a;}
+
+footer{padding:30px 0;text-align:center;color:#8b8f9c;font-size:.8rem;}
+
+/* barra flotante para generar cotización sin tener que bajar hasta el fondo */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:80;
+  background:var(--white);border-top:1px solid var(--line);
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  box-shadow:0 -6px 20px rgba(0,0,0,.08);
+  display:none;
+}
+.sticky-cta.show{display:block;}
+.sticky-cta .sc-inner{max-width:920px;margin:0 auto;display:flex;align-items:center;gap:12px;}
+.sticky-cta .sc-info{flex:1;min-width:0;}
+.sticky-cta .sc-title{font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sticky-cta .sc-sub{font-size:.78rem;color:#6b6f7d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sticky-cta button{
+  flex-shrink:0;background:var(--ink);color:var(--white);border:none;
+  padding:12px 20px;border-radius:11px;font-weight:600;font-size:.9rem;
+}
+/* deja espacio abajo para que la barra flotante no tape contenido */
+#formulario{padding-bottom:76px;}
+</style>
+</head>
+<body>
+
+<!-- ============ PASSWORD GATE ============ -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-logo">vivaria <b>2360</b></div>
+    <div class="gate-sub">Cotizador · Equipo UNO Brokers</div>
+    <input type="password" id="gateInput" placeholder="Clave de acceso" autocomplete="off">
+    <button id="gateBtn">Entrar</button>
+    <div class="gate-error" id="gateError">Clave incorrecta, intenta de nuevo.</div>
+  </div>
+</div>
+
+<!-- ============ APP ============ -->
+<div id="app">
+
+<header class="top">
+  <div class="top-row">
+    <div class="top-brand">vivaria 2360<span>COTIZADOR · UNO BROKERS</span></div>
+    <button class="top-reset" id="resetBtn">Nueva cotización</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Cotiza un departamento en Vivaria 2360</h1>
+    <p>Guadalajara · 220 departamentos · Selecciona una unidad real y genera la cotización con los 4 planes de pago al instante.</p>
+    <div class="hero-chips">
+      <span>Patio central</span>
+      <span>Gimnasio TRX</span>
+      <span>Coworking</span>
+      <span>Pet park</span>
+      <span>Ludoteca</span>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="wrap">
+
+    <div id="formulario">
+
+      <div class="card">
+        <h2>Paso 1 · Asesor y cliente</h2>
+        <div class="sub">Estos datos aparecen en la cotización descargable.</div>
+        <div class="grid2">
+          <div class="field">
+            <label>Nombre del asesor</label>
+            <input type="text" id="asesorNombre" placeholder="Tu nombre completo">
+          </div>
+          <div class="field">
+            <label>Celular del asesor</label>
+            <input type="tel" id="asesorTel" placeholder="33 XXXX XXXX">
+          </div>
+          <div class="field">
+            <label>Nombre del cliente</label>
+            <input type="text" id="clienteNombre" placeholder="Nombre del cliente">
+          </div>
+          <div class="field">
+            <label>Celular del cliente (opcional)</label>
+            <input type="tel" id="clienteTel" placeholder="33 XXXX XXXX">
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Paso 2 · Elige la unidad</h2>
+        <div class="sub">150 unidades disponibles. Filtra por recámaras o busca por número.</div>
+
+        <div class="filters">
+          <div class="filter-group" id="recFilters">
+            <button class="chip-btn active" data-rec="0">Todas</button>
+            <button class="chip-btn" data-rec="1">1 rec.</button>
+            <button class="chip-btn" data-rec="2">2 rec.</button>
+            <button class="chip-btn" data-rec="3">3 rec.</button>
+          </div>
+          <input type="text" class="filter-search" id="unitSearch" placeholder="Buscar # de depto...">
+        </div>
+
+        <div class="sort-hint">Toca m² o Precio para ordenar la lista de menor a mayor</div>
+        <div class="unit-list-head">
+          <span>Depto</span>
+          <span>Detalle</span>
+          <button class="sort-btn" id="sortM2" data-field="m2" title="Ordenar por metros cuadrados">m² <span class="icon">⇅</span></button>
+          <button class="sort-btn" id="sortPrecio" data-field="pl" title="Ordenar por precio">Precio <span class="icon">⇅</span></button>
+        </div>
+        <div class="unit-list" id="unitList"></div>
+
+        <div class="selected-banner" id="selectedBanner">
+          <div>
+            <div class="sb-title" id="sbTitle"></div>
+            <div class="sb-sub" id="sbSub"></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary btn-block" id="generarBtn" disabled>⚡ Generar cotización</button>
+    </div>
+
+    <!-- ============ RESULTADO ============ -->
+    <div id="resultado">
+
+      <div class="result-hero">
+        <div class="rh-label">Cotización · Vivaria 2360</div>
+        <h2 id="resUnitTitle">Depto —</h2>
+        <div class="rh-price" id="resPrecioLista">$0</div>
+        <div class="rh-meta">Precio de lista · <span id="resM2">— m²</span></div>
+      </div>
+
+      <div class="plan-grid">
+
+        <div class="plan-card">
+          <span class="p-tag">Sin descuento</span>
+          <h3>Cero mensualidad</h3>
+          <div class="plan-row"><span class="pl-label">Enganche (10%)</span><span class="pl-val" id="cm-enganche">$0</span></div>
+          <div class="plan-row"><span class="pl-label">A la entrega (90%)</span><span class="pl-val" id="cm-entrega">$0</span></div>
+          <div class="plan-row total"><span class="pl-label">Precio del plan</span><span class="pl-val" id="cm-total">$0</span></div>
+        </div>
+
+        <div class="plan-card highlight">
+          <span class="p-tag">25 mensualidades</span>
+          <h3>Hipotecario 5</h3>
+          <div class="plan-row"><span class="pl-label">Enganche (5%)</span><span class="pl-val" id="h5-enganche">$0</span></div>
+          <div class="plan-row"><span class="pl-label">Durante la obra (15%)</span><span class="pl-val" id="h5-obra">$0</span></div>
+          <div class="plan-row"><span class="pl-label">Mensualidad × 25</span><span class="pl-val" id="h5-mensual">$0</span></div>
+          <div class="plan-row"><span class="pl-label">A la entrega (80%)</span><span class="pl-val" id="h5-entrega">$0</span></div>
+          <div class="plan-row total"><span class="pl-label">Precio del plan</span><span class="pl-val" id="h5-total">$0</span></div>
+        </div>
+
+        <div class="plan-card">
+          <span class="p-tag">25 mensualidades</span>
+          <h3>Hipotecario 10</h3>
+          <div class="plan-row"><span class="pl-label">Enganche (10%)</span><span class="pl-val" id="h10-enganche">$0</span></div>
+          <div class="plan-row"><span class="pl-label">Durante la obra (10%)</span><span class="pl-val" id="h10-obra">$0</span></div>
+          <div class="plan-row"><span class="pl-label">Mensualidad × 25</span><span class="pl-val" id="h10-mensual">$0</span></div>
+          <div class="plan-row"><span class="pl-label">A la entrega (80%)</span><span class="pl-val" id="h10-entrega">$0</span></div>
+          <div class="plan-row total"><span class="pl-label">Precio del plan</span><span class="pl-val" id="h10-total">$0</span></div>
+        </div>
+
+        <div class="plan-card">
+          <span class="p-tag">Mejor precio</span>
+          <h3>Contado</h3>
+          <div class="plan-row"><span class="pl-label">Apartado</span><span class="pl-val" id="ct-apartado">$50,000</span></div>
+          <div class="plan-row"><span class="pl-label">Diferencia</span><span class="pl-val" id="ct-diferencia">$0</span></div>
+          <div class="plan-row total"><span class="pl-label">Precio del plan</span><span class="pl-val" id="ct-total">$0</span></div>
+        </div>
+
+      </div>
+
+      <div class="disclaimer">
+        ⚠️ Cotización estimada, sujeta a disponibilidad y cambios sin previo aviso por parte de CADU Inmobiliaria. Vigencia de 72 horas a partir de la fecha de generación. Los planes Hipotecario 5 e Hipotecario 10 se calculan con los porcentajes estándar de Vivaria 2360; confirma con tu asesor de CADU antes de firmar apartado.
+      </div>
+
+      <div class="actions">
+        <button class="btn-secondary" id="pdfBtn">📄 Descargar PDF</button>
+        <button class="btn-secondary btn-wa" id="waBtn">💬 Enviar por WhatsApp</button>
+      </div>
+
+      <div class="actions">
+        <button class="btn-secondary btn-block" id="nuevaBtn">← Cotizar otra unidad</button>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<div class="sticky-cta" id="stickyCta">
+  <div class="sc-inner">
+    <div class="sc-info">
+      <div class="sc-title" id="scTitle">Depto — seleccionado</div>
+      <div class="sc-sub" id="scSub"></div>
+    </div>
+    <button id="stickyGenerarBtn">⚡ Generar</button>
+  </div>
+</div>
+
+<footer>
+  Vivaria 2360 · Calle Valentín Gómez Farías 2360, Guadalajara · Otro desarrollo de CADU Inmobiliaria<br>
+  Cotizador interno · UNO Brokers
+</footer>
+
+</div>
+
+<script>
+/* ===================== GATE ===================== */
+const ACCESS_CODE = "Rgarcia784";
+function tryUnlock(){
+  const val = document.getElementById('gateInput').value.trim();
+  if(val === ACCESS_CODE){
+    sessionStorage.setItem('vivaria_unlocked','1');
+    document.getElementById('gate').style.display='none';
+    document.getElementById('app').style.display='block';
+  } else {
+    document.getElementById('gateError').style.display='block';
+  }
+}
+document.getElementById('gateBtn').addEventListener('click', tryUnlock);
+document.getElementById('gateInput').addEventListener('keydown', e=>{ if(e.key==='Enter') tryUnlock(); });
+if(sessionStorage.getItem('vivaria_unlocked')==='1'){
+  document.getElementById('gate').style.display='none';
+  document.getElementById('app').style.display='block';
+}
+
+/* ===================== DATA ===================== */
+const UNITS = [
+{n:'P.B.',o:'Patio 1: Izquierdo',u:10,p:'2R-A',ext:'Balcon',m2:65.36,r:2,pl:3490328.38,pc:3133868.2},
+{n:'P.B.',o:'Patio 1: Izquierdo',u:13,p:'2R-A',ext:'Balcon',m2:59.11,r:2,pl:3237254.43,pc:2895756.9},
+{n:'P.B.',o:'Patio 2: Derecho',u:15,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3166140.88,pc:2832868.2},
+{n:'P.B.',o:'Patio 2: Derecho',u:17,p:'2R-A',ext:'Balcon',m2:57.08,r:2,pl:3222276.97,pc:2881850.7},
+{n:'P.B.',o:'Patio 2: Posterior',u:18,p:'2R-C',ext:'Balcon',m2:58.29,r:2,pl:3198991.28,pc:2860238.9},
+{n:'P.B.',o:'Patio 2: Posterior',u:22,p:'2R-A',ext:'Balcon',m2:56.96,r:2,pl:3180557.96,pc:2846254.1},
+{n:'P.B.',o:'Patio 2: Posterior',u:23,p:'2R-B',ext:'Balcon',m2:58.78,r:2,pl:3221799.59,pc:2881407.8},
+{n:'P.B.',o:'Patio 2: Izquierdo',u:24,p:'2R-A',ext:'Balcon',m2:58.48,r:2,pl:3207864.52,pc:2868469.1},
+{n:'P.B.',o:'Patio 2: Izquierdo',u:25,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3166140.88,pc:2832868.2},
+{n:'P.B.',o:'Patio 2: Izquierdo',u:26,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3166140.88,pc:2832868.2},
+{n:'P.B.',o:'Patio 2: Izquierdo',u:27,p:'2R-A',ext:'Balcon',m2:56.94,r:2,pl:3216041.05,pc:2876062.9},
+{n:'01',o:'Patio 2: Derecho',u:100,p:'2R-A',ext:'Balcon',m2:58.5,r:2,pl:3239099.81,pc:2894854.9},
+{n:'01',o:'Patio 2: Derecho',u:101,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3196422.13,pc:2858368.2},
+{n:'01',o:'Patio 2: Derecho',u:102,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3196422.13,pc:2858368.2},
+{n:'01',o:'Patio 2: Derecho',u:103,p:'2R-A',ext:'Balcon',m2:57.08,r:2,pl:3252558.22,pc:2907350.7},
+{n:'01',o:'Patio 2: Posterior',u:104,p:'2R-C',ext:'Balcon',m2:58.29,r:2,pl:3229272.53,pc:2885738.9},
+{n:'01',o:'Patio 2: Posterior',u:106,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3403303.63,pc:3050358.9},
+{n:'01',o:'Patio 2: Posterior',u:107,p:'2R-E',ext:'Balcon',m2:62.8,r:2,pl:3406082.38,pc:3052938.9},
+{n:'01',o:'Patio 2: Posterior',u:108,p:'2R-A',ext:'Balcon',m2:56.96,r:2,pl:3210839.21,pc:2871754.1},
+{n:'01',o:'Patio 2: Posterior',u:109,p:'2R-B',ext:'Balcon',m2:58.9,r:2,pl:3257638.34,pc:2912067.8},
+{n:'01',o:'Patio 2: Izquierdo',u:110,p:'2R-A',ext:'Balcon',m2:58.48,r:2,pl:3238145.77,pc:2893969.1},
+{n:'01',o:'Patio 2: Izquierdo',u:111,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3196422.13,pc:2858368.2},
+{n:'01',o:'Patio 2: Izquierdo',u:112,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3196422.13,pc:2858368.2},
+{n:'01',o:'Patio 2: Izquierdo',u:113,p:'2R-A',ext:'Balcon',m2:56.94,r:2,pl:3246322.3,pc:2901562.9},
+{n:'01',o:'Patio 2: Intermedio',u:114,p:'2R-A',ext:'Balcon',m2:58.79,r:2,pl:3252558.22,pc:2907350.7},
+{n:'01',o:'Patio 2: Intermedio',u:115,p:'2R-A',ext:'Balcon',m2:65.36,r:2,pl:3520609.63,pc:3159368.2},
+{n:'01',o:'Patio 1: Izquierdo',u:117,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3196422.13,pc:2858368.2},
+{n:'01',o:'Patio 1: Izquierdo',u:118,p:'2R-A',ext:'Balcon',m2:58.79,r:2,pl:3252599.9,pc:2907389.4},
+{n:'01',o:'Patio 1: Frente',u:119,p:'3R-D',ext:'Balcon',m2:76.1,r:3,pl:4272061.15,pc:3836098.79},
+{n:'01',o:'Patio 1: Frente',u:121,p:'3R-B',ext:'Balcon',m2:79.63,r:3,pl:4358500.01,pc:3916301.44},
+{n:'01',o:'Patio 1: Frente',u:122,p:'3R-A',ext:'Balcon',m2:81.2,r:3,pl:4513506.26,pc:4060149.86},
+{n:'01',o:'Patio 1: Frente',u:123,p:'2R-A',ext:'Balcon',m2:59.5,r:2,pl:3274493.24,pc:2928738.5},
+{n:'01',o:'Patio 1: Frente',u:124,p:'2R-A',ext:'Balcon',m2:58.12,r:2,pl:3289609.64,pc:2942773.7},
+{n:'01',o:'Patio 1: Frente',u:125,p:'2R-E',ext:'Balcon',m2:67.91,r:2,pl:3671447.97,pc:3297129.56},
+{n:'01',o:'Patio 1: Derecho',u:126,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3232759.63,pc:2888968.2},
+{n:'01',o:'Patio 1: Derecho',u:127,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3196422.13,pc:2858368.2},
+{n:'01',o:'Patio 1: Intermedio',u:131,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3440816.75,pc:3085188.9},
+{n:'01',o:'Patio 1: Intermedio',u:132,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3403303.63,pc:3050358.9},
+{n:'01',o:'Patio 1: Intermedio',u:133,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3440816.75,pc:3085188.9},
+{n:'02',o:'Patio 2: Derecho',u:200,p:'2R-A',ext:'Balcon',m2:58.5,r:2,pl:3269381.06,pc:2920354.9},
+{n:'02',o:'Patio 2: Derecho',u:201,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3226703.38,pc:2883868.2},
+{n:'02',o:'Patio 2: Derecho',u:202,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3226703.38,pc:2883868.2},
+{n:'02',o:'Patio 2: Derecho',u:203,p:'2R-A',ext:'Balcon',m2:57.08,r:2,pl:3282839.47,pc:2932850.7},
+{n:'02',o:'Patio 2: Posterior',u:204,p:'2R-C',ext:'Balcon',m2:58.29,r:2,pl:3259553.78,pc:2911238.9},
+{n:'02',o:'Patio 2: Posterior',u:205,p:'2R-E',ext:'Balcon',m2:62.8,r:2,pl:3436363.63,pc:3078438.9},
+{n:'02',o:'Patio 2: Posterior',u:206,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3433584.88,pc:3075858.9},
+{n:'02',o:'Patio 2: Posterior',u:207,p:'2R-E',ext:'Balcon',m2:62.8,r:2,pl:3436363.63,pc:3078438.9},
+{n:'02',o:'Patio 2: Posterior',u:208,p:'2R-A',ext:'Balcon',m2:56.96,r:2,pl:3241120.46,pc:2897254.1},
+{n:'02',o:'Patio 2: Posterior',u:209,p:'2R-B',ext:'Balcon',m2:58.9,r:2,pl:3287803.81,pc:2937460.3},
+{n:'02',o:'Patio 2: Izquierdo',u:210,p:'2R-A',ext:'Balcon',m2:58.48,r:2,pl:3268427.02,pc:2919469.1},
+{n:'02',o:'Patio 2: Izquierdo',u:211,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3226703.38,pc:2883868.2},
+{n:'02',o:'Patio 2: Izquierdo',u:212,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3226703.38,pc:2883868.2},
+{n:'02',o:'Patio 2: Izquierdo',u:213,p:'2R-A',ext:'Balcon',m2:56.94,r:2,pl:3276603.55,pc:2927062.9},
+{n:'02',o:'Patio 2: Intermedio',u:214,p:'2R-A',ext:'Balcon',m2:58.79,r:2,pl:3282839.47,pc:2932850.7},
+{n:'02',o:'Patio 2: Intermedio',u:215,p:'2R-A',ext:'Balcon',m2:65.36,r:2,pl:3550890.88,pc:3184868.2},
+{n:'02',o:'Patio 1: Izquierdo',u:217,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3226703.38,pc:2883868.2},
+{n:'02',o:'Patio 1: Izquierdo',u:218,p:'2R-A',ext:'Balcon',m2:58.79,r:2,pl:3282881.15,pc:2932889.4},
+{n:'02',o:'Patio 1: Frente',u:219,p:'3R-D',ext:'Balcon',m2:76.1,r:3,pl:4302342.4,pc:3861598.79},
+{n:'02',o:'Patio 1: Frente',u:221,p:'3R-B',ext:'Balcon',m2:79.63,r:3,pl:4388781.26,pc:3941801.44},
+{n:'02',o:'Patio 1: Frente',u:222,p:'3R-A',ext:'Balcon',m2:81.2,r:3,pl:4543787.51,pc:4085649.86},
+{n:'02',o:'Patio 1: Frente',u:223,p:'2R-A',ext:'Balcon',m2:59.5,r:2,pl:3304774.49,pc:2954238.5},
+{n:'02',o:'Patio 1: Frente',u:224,p:'2R-A',ext:'Balcon',m2:58.12,r:2,pl:3319890.89,pc:2968273.7},
+{n:'02',o:'Patio 1: Derecho',u:226,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3263040.88,pc:2914468.2},
+{n:'02',o:'Patio 1: Derecho',u:227,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3226703.38,pc:2883868.2},
+{n:'02',o:'Patio 1: Intermedio',u:231,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3471098.0,pc:3110688.9},
+{n:'02',o:'Patio 1: Intermedio',u:232,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3433584.88,pc:3075858.9},
+{n:'02',o:'Patio 1: Intermedio',u:233,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3471098.0,pc:3110688.9},
+{n:'03',o:'Patio 2: Derecho',u:300,p:'2R-A',ext:'Balcon',m2:58.5,r:2,pl:3299662.31,pc:2945854.9},
+{n:'03',o:'Patio 2: Derecho',u:301,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3256984.63,pc:2909368.2},
+{n:'03',o:'Patio 2: Derecho',u:302,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3256984.63,pc:2909368.2},
+{n:'03',o:'Patio 2: Derecho',u:303,p:'2R-A',ext:'Balcon',m2:57.08,r:2,pl:3313120.72,pc:2958350.7},
+{n:'03',o:'Patio 2: Posterior',u:304,p:'2R-C',ext:'Balcon',m2:58.29,r:2,pl:3289835.03,pc:2936738.9},
+{n:'03',o:'Patio 2: Posterior',u:305,p:'2R-E',ext:'Balcon',m2:62.8,r:2,pl:3466644.88,pc:3103938.9},
+{n:'03',o:'Patio 2: Posterior',u:306,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3463866.13,pc:3101358.9},
+{n:'03',o:'Patio 2: Posterior',u:307,p:'2R-E',ext:'Balcon',m2:62.8,r:2,pl:3466644.88,pc:3103938.9},
+{n:'03',o:'Patio 2: Posterior',u:308,p:'2R-B',ext:'Balcon',m2:56.95,r:2,pl:3149478.71,pc:2809608.2},
+{n:'03',o:'Patio 2: Izquierdo',u:310,p:'2R-A',ext:'Balcon',m2:58.48,r:2,pl:3298708.27,pc:2944969.1},
+{n:'03',o:'Patio 2: Izquierdo',u:311,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3256984.63,pc:2909368.2},
+{n:'03',o:'Patio 2: Izquierdo',u:312,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3256984.63,pc:2909368.2},
+{n:'03',o:'Patio 2: Izquierdo',u:313,p:'2R-A',ext:'Balcon',m2:56.94,r:2,pl:3306884.8,pc:2952562.9},
+{n:'03',o:'Patio 2: Intermedio',u:314,p:'2R-A',ext:'Balcon',m2:58.79,r:2,pl:3313120.72,pc:2958350.7},
+{n:'03',o:'Patio 2: Intermedio',u:315,p:'2R-A',ext:'Balcon',m2:65.36,r:2,pl:3581172.13,pc:3210368.2},
+{n:'03',o:'Patio 1: Izquierdo',u:317,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3256984.63,pc:2909368.2},
+{n:'03',o:'Patio 1: Izquierdo',u:318,p:'2R-A',ext:'Balcon',m2:58.79,r:2,pl:3313162.4,pc:2958389.4},
+{n:'03',o:'Patio 1: Frente',u:319,p:'3R-D',ext:'Balcon',m2:76.1,r:3,pl:4332623.65,pc:3887098.79},
+{n:'03',o:'Patio 1: Frente',u:320,p:'3R-C',ext:'Balcon',m2:80.95,r:3,pl:4562583.61,pc:4100488.44},
+{n:'03',o:'Patio 1: Frente',u:321,p:'3R-B',ext:'Balcon',m2:79.63,r:3,pl:4419062.51,pc:3967301.44},
+{n:'03',o:'Patio 1: Frente',u:322,p:'3R-A',ext:'Balcon',m2:81.2,r:3,pl:4574068.76,pc:4111149.86},
+{n:'03',o:'Patio 1: Frente',u:324,p:'2R-A',ext:'Balcon',m2:58.12,r:2,pl:3350172.14,pc:2993773.7},
+{n:'03',o:'Patio 1: Frente',u:325,p:'2R-E',ext:'Balcon',m2:67.91,r:2,pl:3732015.1,pc:3348133.86},
+{n:'03',o:'Patio 1: Derecho',u:326,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3293322.13,pc:2939968.2},
+{n:'03',o:'Patio 1: Derecho',u:327,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3256984.63,pc:2909368.2},
+{n:'03',o:'Patio 1: Intermedio',u:329,p:'2R-E',ext:'Balcon',m2:63.48,r:2,pl:3534524.75,pc:3163826.2},
+{n:'03',o:'Patio 1: Intermedio',u:330,p:'2R-E',ext:'Balcon',m2:62.73,r:2,pl:3463606.78,pc:3101118.1},
+{n:'03',o:'Patio 1: Intermedio',u:331,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3501379.25,pc:3136188.9},
+{n:'03',o:'Patio 1: Intermedio',u:332,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3463866.13,pc:3101358.9},
+{n:'03',o:'Patio 1: Intermedio',u:333,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3501379.25,pc:3136188.9},
+{n:'04',o:'Patio 2: Derecho',u:400,p:'2R-A',ext:'Balcon',m2:58.5,r:2,pl:3329943.56,pc:2971354.9},
+{n:'04',o:'Patio 2: Derecho',u:401,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3287265.88,pc:2934868.2},
+{n:'04',o:'Patio 2: Derecho',u:403,p:'2R-A',ext:'Balcon',m2:57.08,r:2,pl:3343401.97,pc:2983850.7},
+{n:'04',o:'Patio 2: Posterior',u:404,p:'2R-C',ext:'Balcon',m2:58.29,r:2,pl:3320116.28,pc:2962238.9},
+{n:'04',o:'Patio 2: Posterior',u:405,p:'2R-E',ext:'Balcon',m2:62.8,r:2,pl:3496926.13,pc:3129438.9},
+{n:'04',o:'Patio 2: Posterior',u:406,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3494147.38,pc:3126858.9},
+{n:'04',o:'Patio 2: Posterior',u:407,p:'2R-E',ext:'Balcon',m2:62.97,r:2,pl:3504567.69,pc:3136533.9},
+{n:'04',o:'Patio 2: Izquierdo',u:410,p:'2R-A',ext:'Balcon',m2:58.48,r:2,pl:3292652.02,pc:2939869.1},
+{n:'04',o:'Patio 2: Izquierdo',u:411,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3287265.88,pc:2934868.2},
+{n:'04',o:'Patio 2: Izquierdo',u:412,p:'2R-A',ext:'Balcon',m2:56.94,r:2,pl:3337166.05,pc:2978062.9},
+{n:'04',o:'Patio 2: Intermedio',u:413,p:'2R-A',ext:'Balcon',m2:58.78,r:2,pl:3343054.63,pc:2983528.2},
+{n:'04',o:'Patio 2: Intermedio',u:414,p:'2R-A',ext:'Balcon',m2:65.36,r:2,pl:3611453.38,pc:3235868.2},
+{n:'04',o:'Patio 1: Izquierdo',u:415,p:'2R-F',ext:'Balcon',m2:58.36,r:2,pl:3293702.13,pc:2940694.7},
+{n:'04',o:'Patio 1: Izquierdo',u:416,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3287265.88,pc:2934868.2},
+{n:'04',o:'Patio 1: Izquierdo',u:417,p:'2R-A',ext:'Balcon',m2:58.79,r:2,pl:3343443.65,pc:2983889.4},
+{n:'04',o:'Patio 1: Frente',u:419,p:'3R-C',ext:'Balcon',m2:81.06,r:3,pl:4598172.28,pc:4130916.24},
+{n:'04',o:'Patio 1: Frente',u:420,p:'3R-B',ext:'Balcon',m2:79.63,r:3,pl:4449343.76,pc:3992801.44},
+{n:'04',o:'Patio 1: Frente',u:421,p:'3R-A',ext:'Balcon',m2:81.2,r:3,pl:4604350.01,pc:4136649.86},
+{n:'04',o:'Patio 1: Frente',u:422,p:'2R-A',ext:'Balcon',m2:59.73,r:2,pl:3375933.29,pc:3015076.9},
+{n:'04',o:'Patio 1: Derecho',u:425,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3323603.38,pc:2965468.2},
+{n:'04',o:'Patio 1: Derecho',u:426,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3287265.88,pc:2934868.2},
+{n:'04',o:'Patio 1: Intermedio',u:429,p:'2R-E',ext:'Balcon',m2:62.73,r:2,pl:3493888.03,pc:3126618.1},
+{n:'04',o:'Patio 1: Intermedio',u:430,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3531660.5,pc:3161688.9},
+{n:'04',o:'Patio 1: Intermedio',u:431,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3494147.38,pc:3126858.9},
+{n:'04',o:'Patio 1: Intermedio',u:432,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3531660.5,pc:3161688.9},
+{n:'05',o:'Patio 2: Derecho',u:500,p:'2R-A',ext:'Balcon',m2:58.5,r:2,pl:3360224.81,pc:2996854.9},
+{n:'05',o:'Patio 2: Derecho',u:501,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3317547.13,pc:2960368.2},
+{n:'05',o:'Patio 2: Derecho',u:502,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3317547.13,pc:2960368.2},
+{n:'05',o:'Patio 2: Derecho',u:503,p:'1R-G',ext:'Balcon',m2:57.21,r:1,pl:3202213.11,pc:2840023.55},
+{n:'05',o:'Patio 2: Posterior',u:505,p:'1R-E',ext:'Balcon',m2:48.27,r:1,pl:2960017.59,pc:2618360.45},
+{n:'05',o:'Patio 2: Posterior',u:506,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3524428.63,pc:3152358.9},
+{n:'05',o:'Patio 2: Posterior',u:507,p:'2R-E',ext:'Balcon',m2:62.97,r:2,pl:3534848.94,pc:3162033.9},
+{n:'05',o:'Patio 2: Posterior',u:508,p:'1R-C',ext:'Balcon',m2:46.29,r:1,pl:2902143.0,pc:2561547.9},
+{n:'05',o:'Patio 2: Izquierdo',u:510,p:'2R-A',ext:'Balcon',m2:58.48,r:2,pl:3322933.27,pc:2965369.1},
+{n:'05',o:'Patio 2: Izquierdo',u:512,p:'1R-G',ext:'Balcon',m2:56.86,r:1,pl:3192418.02,pc:2830929.05},
+{n:'05',o:'Patio 2: Intermedio',u:513,p:'2R-A',ext:'Balcon',m2:58.79,r:2,pl:3373683.22,pc:3009350.7},
+{n:'05',o:'Patio 2: Intermedio',u:514,p:'2R-A',ext:'Balcon',m2:65.36,r:2,pl:3641734.63,pc:3261368.2},
+{n:'05',o:'Patio 1: Izquierdo',u:515,p:'2R-F',ext:'Balcon',m2:58.36,r:2,pl:3323983.38,pc:2966194.7},
+{n:'05',o:'Patio 1: Izquierdo',u:516,p:'2R-A',ext:'Balcon',m2:58.44,r:2,pl:3321367.91,pc:2963915.7},
+{n:'05',o:'Patio 1: Izquierdo',u:517,p:'1R-G',ext:'Balcon',m2:57.21,r:1,pl:3202287.21,pc:2840092.35},
+{n:'05',o:'Patio 1: Frente',u:519,p:'3R-C',ext:'Balcon',m2:80.08,r:3,pl:4582835.71,pc:4114061.24},
+{n:'05',o:'Patio 1: Frente',u:521,p:'3R-A',ext:'Balcon',m2:81.2,r:3,pl:4634631.26,pc:4162149.86},
+{n:'05',o:'Patio 1: Frente',u:522,p:'2R-A',ext:'Balcon',m2:59.73,r:2,pl:3406214.54,pc:3040576.9},
+{n:'05',o:'Patio 1: Derecho',u:525,p:'2R-A',ext:'Balcon',m2:58.36,r:2,pl:3317547.13,pc:2960368.2},
+{n:'05',o:'Patio 1: Intermedio',u:528,p:'2R-E',ext:'Balcon',m2:62.73,r:2,pl:3524169.28,pc:3152118.1},
+{n:'05',o:'Patio 1: Intermedio',u:529,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3561941.75,pc:3187188.9},
+{n:'05',o:'Patio 1: Intermedio',u:530,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3524428.63,pc:3152358.9},
+{n:'05',o:'Patio 1: Intermedio',u:531,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3561941.75,pc:3187188.9},
+{n:'06',o:'Patio 2: Derecho',u:602,p:'1R-B',ext:'Terraza',m2:107.72,r:1,pl:3863549.77,pc:3425655.55},
+{n:'06',o:'Patio 1: Frente',u:617,p:'1R-B',ext:'Terraza',m2:98.65,r:1,pl:3613965.06,pc:3215481.35},
+{n:'06',o:'Patio 1: Intermedio',u:623,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3592223.0,pc:3212688.9},
+{n:'06',o:'Patio 1: Intermedio',u:624,p:'2R-E',ext:'Balcon',m2:62.74,r:2,pl:3554709.88,pc:3177858.9},
+{n:'06',o:'Patio 1: Intermedio',u:625,p:'2R-E',ext:'Balcon',m2:63.55,r:2,pl:3592223.0,pc:3212688.9}
+];
+
+/* ===================== HELPERS ===================== */
+function fmt(n){ return '$' + Math.round(n).toLocaleString('es-MX'); }
+function nivelLabel(n){ return n === 'P.B.' ? 'Planta Baja' : 'Nivel ' + parseInt(n,10); }
+
+// Descripción de espacios según prototipo (1, 2 o 3 recámaras), tomada de las
+// fichas de prototipo del brochure oficial de Vivaria 2360.
+const DESCRIPCIONES = {
+  1: ['1 recámara','Sala','Comedor','Cocina','1 baño','Área de lavado','Terraza'],
+  2: ['2 recámaras','Sala','Comedor','Cocina / desayunador','1 1/2 baños','Área de lavado','Terraza'],
+  3: ['3 recámaras','Sala','Comedor','Cocina / desayunador','2 baños','Área de lavado','Terraza']
+};
+function descripcionDepto(u){ return DESCRIPCIONES[u.r] || DESCRIPCIONES[2]; }
+
+/* ===================== UNIT LIST ===================== */
+let activeRec = 0;
+let searchTerm = '';
+let selectedUnit = null;
+let sortField = null;   // 'm2' | 'pl' | null
+let sortDir = 'asc';    // 'asc' | 'desc'
+
+function updateSortIcons(){
+  document.querySelectorAll('.sort-btn').forEach(btn=>{
+    const isActive = btn.dataset.field === sortField;
+    btn.classList.toggle('active', isActive);
+    const icon = btn.querySelector('.icon');
+    if(isActive){
+      icon.textContent = sortDir === 'asc' ? '↑' : '↓';
+      btn.title = (btn.dataset.field==='m2' ? 'Metros cuadrados' : 'Precio') + ': ' + (sortDir==='asc' ? 'menor a mayor' : 'mayor a menor');
+    } else {
+      icon.textContent = '⇅';
+      btn.title = 'Ordenar por ' + (btn.dataset.field==='m2' ? 'metros cuadrados' : 'precio');
+    }
+  });
+}
+
+function renderUnits(){
+  const list = document.getElementById('unitList');
+  let filtered = UNITS.filter(u=>{
+    if(activeRec !== 0 && u.r !== activeRec) return false;
+    if(searchTerm && !String(u.u).includes(searchTerm)) return false;
+    return true;
+  });
+  if(sortField){
+    filtered = filtered.slice().sort((a,b)=>{
+      const diff = a[sortField] - b[sortField];
+      return sortDir === 'asc' ? diff : -diff;
+    });
+  }
+  if(filtered.length === 0){
+    list.innerHTML = '<div class="no-results">No hay unidades con ese filtro.</div>';
+    return;
+  }
+  list.innerHTML = filtered.map(u => `
+    <div class="unit-row${selectedUnit && selectedUnit.u===u.u ? ' selected' : ''}" data-unit="${u.u}">
+      <div class="u-num">${u.u}</div>
+      <div class="u-detail">${nivelLabel(u.n)} · ${u.o} · ${u.p} · ${u.r} rec.</div>
+      <div class="u-m2">${u.m2} m²</div>
+      <div class="u-price">${fmt(u.pl)}</div>
+    </div>
+  `).join('');
+  list.querySelectorAll('.unit-row').forEach(row=>{
+    row.addEventListener('click', ()=>{
+      const num = parseInt(row.dataset.unit, 10);
+      selectedUnit = UNITS.find(u => u.u === num);
+      renderUnits();
+      showSelectedBanner();
+    });
+  });
+}
+
+function showSelectedBanner(){
+  const banner = document.getElementById('selectedBanner');
+  const genBtn = document.getElementById('generarBtn');
+  const sticky = document.getElementById('stickyCta');
+  if(!selectedUnit){
+    banner.classList.remove('show');
+    genBtn.disabled = true;
+    sticky.classList.remove('show');
+    return;
+  }
+  const sub = `${nivelLabel(selectedUnit.n)} · ${selectedUnit.o} · ${selectedUnit.m2} m² · ${fmt(selectedUnit.pl)}`;
+  document.getElementById('sbTitle').textContent = `Depto ${selectedUnit.u} seleccionado`;
+  document.getElementById('sbSub').textContent = sub;
+  document.getElementById('scTitle').textContent = `Depto ${selectedUnit.u} seleccionado`;
+  document.getElementById('scSub').textContent = sub;
+  banner.classList.add('show');
+  genBtn.disabled = false;
+  sticky.classList.add('show');
+}
+
+document.querySelectorAll('#recFilters .chip-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#recFilters .chip-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeRec = parseInt(btn.dataset.rec, 10);
+    renderUnits();
+  });
+});
+document.getElementById('unitSearch').addEventListener('input', e=>{
+  searchTerm = e.target.value.trim();
+  renderUnits();
+});
+
+document.querySelectorAll('.sort-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const field = btn.dataset.field;
+    if(sortField === field){
+      sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      sortField = field;
+      sortDir = 'asc';
+    }
+    updateSortIcons();
+    renderUnits();
+  });
+});
+
+renderUnits();
+updateSortIcons();
+
+/* ===================== QUOTE CALC ===================== */
+// Porcentajes fijos confirmados contra cotización de referencia (depto 10)
+const PLAN = {
+  cero:  { enganche: 0.10, entrega: 0.90 },
+  h5:    { descuento: 0.038069, enganche: 0.05, obra: 0.15, meses: 25, entrega: 0.80 },
+  h10:   { descuento: 0.059558, enganche: 0.10, obra: 0.10, meses: 25, entrega: 0.80 },
+  contadoApartado: 50000
+};
+
+let QUOTE = null;
+
+function calcularCotizacion(u){
+  const pl = u.pl;
+  const pc = u.pc;
+
+  const cero = { total: pl, enganche: pl * PLAN.cero.enganche, entrega: pl * PLAN.cero.entrega };
+
+  const h5precio = pl * (1 - PLAN.h5.descuento);
+  const h5 = {
+    total: h5precio,
+    enganche: h5precio * PLAN.h5.enganche,
+    obra: h5precio * PLAN.h5.obra,
+    mensual: (h5precio * PLAN.h5.obra) / PLAN.h5.meses,
+    entrega: h5precio * PLAN.h5.entrega
+  };
+
+  const h10precio = pl * (1 - PLAN.h10.descuento);
+  const h10 = {
+    total: h10precio,
+    enganche: h10precio * PLAN.h10.enganche,
+    obra: h10precio * PLAN.h10.obra,
+    mensual: (h10precio * PLAN.h10.obra) / PLAN.h10.meses,
+    entrega: h10precio * PLAN.h10.entrega
+  };
+
+  const contado = {
+    total: pc,
+    apartado: PLAN.contadoApartado,
+    diferencia: pc - PLAN.contadoApartado
+  };
+
+  return { unidad: u, cero, h5, h10, contado, fecha: new Date().toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric'}) };
+}
+
+function renderQuote(q){
+  document.getElementById('resUnitTitle').textContent = `Depto ${q.unidad.u} · ${nivelLabel(q.unidad.n)}`;
+  document.getElementById('resPrecioLista').textContent = fmt(q.unidad.pl);
+  document.getElementById('resM2').textContent = `${q.unidad.m2} m² · ${q.unidad.p} · ${q.unidad.o}`;
+
+  document.getElementById('cm-enganche').textContent = fmt(q.cero.enganche);
+  document.getElementById('cm-entrega').textContent = fmt(q.cero.entrega);
+  document.getElementById('cm-total').textContent = fmt(q.cero.total);
+
+  document.getElementById('h5-enganche').textContent = fmt(q.h5.enganche);
+  document.getElementById('h5-obra').textContent = fmt(q.h5.obra);
+  document.getElementById('h5-mensual').textContent = fmt(q.h5.mensual) + '/mes';
+  document.getElementById('h5-entrega').textContent = fmt(q.h5.entrega);
+  document.getElementById('h5-total').textContent = fmt(q.h5.total);
+
+  document.getElementById('h10-enganche').textContent = fmt(q.h10.enganche);
+  document.getElementById('h10-obra').textContent = fmt(q.h10.obra);
+  document.getElementById('h10-mensual').textContent = fmt(q.h10.mensual) + '/mes';
+  document.getElementById('h10-entrega').textContent = fmt(q.h10.entrega);
+  document.getElementById('h10-total').textContent = fmt(q.h10.total);
+
+  document.getElementById('ct-apartado').textContent = fmt(q.contado.apartado);
+  document.getElementById('ct-diferencia').textContent = fmt(q.contado.diferencia);
+  document.getElementById('ct-total').textContent = fmt(q.contado.total);
+}
+
+function generarCotizacion(){
+  if(!selectedUnit) return;
+  QUOTE = calcularCotizacion(selectedUnit);
+  renderQuote(QUOTE);
+  document.getElementById('formulario').style.display = 'none';
+  document.getElementById('resultado').style.display = 'block';
+  document.getElementById('stickyCta').classList.remove('show');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.getElementById('generarBtn').addEventListener('click', generarCotizacion);
+document.getElementById('stickyGenerarBtn').addEventListener('click', generarCotizacion);
+
+function nuevaConsulta(){
+  document.getElementById('resultado').style.display = 'none';
+  document.getElementById('formulario').style.display = 'block';
+  if(selectedUnit) document.getElementById('stickyCta').classList.add('show');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.getElementById('nuevaBtn').addEventListener('click', nuevaConsulta);
+document.getElementById('resetBtn').addEventListener('click', ()=>{
+  selectedUnit = null;
+  QUOTE = null;
+  document.getElementById('asesorNombre').value='';
+  document.getElementById('asesorTel').value='';
+  document.getElementById('clienteNombre').value='';
+  document.getElementById('clienteTel').value='';
+  renderUnits();
+  showSelectedBanner();
+  nuevaConsulta();
+});
+
+/* ===================== WHATSAPP ===================== */
+document.getElementById('waBtn').addEventListener('click', ()=>{
+  if(!QUOTE) return;
+  const asesor = document.getElementById('asesorNombre').value.trim() || 'Asesor UNO Brokers';
+  const cliente = document.getElementById('clienteNombre').value.trim() || 'Cliente';
+  const u = QUOTE.unidad;
+  const espacios = descripcionDepto(u).join(' · ');
+  const msg = `Cotización Vivaria 2360\n\n` +
+    `Depto ${u.u} · ${nivelLabel(u.n)} · ${u.o}\n` +
+    `${u.m2} m² totales · Prototipo ${u.p}\n` +
+    `${espacios}\n\n` +
+    `Precio de lista: ${fmt(u.pl)}\n\n` +
+    `Cero mensualidad: enganche ${fmt(QUOTE.cero.enganche)}, entrega ${fmt(QUOTE.cero.entrega)}\n` +
+    `Hipotecario 5: ${fmt(QUOTE.h5.total)} — enganche ${fmt(QUOTE.h5.enganche)}, ${fmt(QUOTE.h5.mensual)}/mes x25\n` +
+    `Hipotecario 10: ${fmt(QUOTE.h10.total)} — enganche ${fmt(QUOTE.h10.enganche)}, ${fmt(QUOTE.h10.mensual)}/mes x25\n` +
+    `Contado: ${fmt(QUOTE.contado.total)} (apartado ${fmt(QUOTE.contado.apartado)})\n\n` +
+    `Cotización generada por ${asesor} para ${cliente}. Vigencia 72 horas.`;
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
+});
+
+/* ===================== PDF ===================== */
+function san(s){
+  if(!s) return '';
+  return String(s).replace(/á/g,'a').replace(/é/g,'e').replace(/í/g,'i').replace(/ó/g,'o').replace(/ú/g,'u')
+    .replace(/ñ/g,'n').replace(/Á/g,'A').replace(/É/g,'E').replace(/Í/g,'I').replace(/Ó/g,'O')
+    .replace(/Ú/g,'U').replace(/Ñ/g,'N').replace(/°/g,' ');
+}
+
+document.getElementById('pdfBtn').addEventListener('click', ()=>{
+  if(!QUOTE) return;
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({unit:'mm', format:'a4'});
+  const W = 210, mar = 14;
+  const NAVY = [12,31,61], YELLOW=[244,196,48], WHITE=[255,255,255], GRAY=[90,95,105];
+  const BGL=[248,247,243], BGROW=[240,239,233], BGYELLOW=[255,246,222];
+  const q = QUOTE, u = q.unidad;
+  const asesor = san(document.getElementById('asesorNombre').value) || 'UNO Brokers';
+  const asesorTel = san(document.getElementById('asesorTel').value);
+  const cliente = san(document.getElementById('clienteNombre').value) || 'Cliente';
+  const espacios = descripcionDepto(u);
+
+  const gap = 10;
+  const leftX = mar, leftW = (W - mar*2 - gap)/2;
+  const rightX = leftX + leftW + gap, rightW = leftW;
+
+  // Titulo
+  doc.setFont('helvetica','bold'); doc.setFontSize(15); doc.setTextColor(...NAVY);
+  doc.text('Cotización', W/2, 16, {align:'center'});
+
+  let ly = 26; // cursor columna izquierda
+  let ry = 26; // cursor columna derecha
+
+  // ===== CLIENTE (lo mas importante, va primero) =====
+  doc.setFillColor(...NAVY); doc.roundedRect(leftX, ly, leftW, 12, 2, 2, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(7); doc.setTextColor(...YELLOW);
+  doc.text('CLIENTE', leftX+4, ly+5);
+  doc.setFont('helvetica','bold'); doc.setFontSize(9.5); doc.setTextColor(...WHITE);
+  doc.text(cliente, leftX+4, ly+9.5);
+  ly += 15;
+
+  // ===== DATOS DEL ASESOR (justo despues del cliente) =====
+  doc.setFillColor(...BGL); doc.roundedRect(leftX, ly, leftW, 16, 2, 2, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(7); doc.setTextColor(...NAVY);
+  doc.text('DATOS DEL ASESOR', leftX+4, ly+5.5);
+  doc.setFont('helvetica','normal'); doc.setFontSize(7.3); doc.setTextColor(...GRAY);
+  doc.text('Nombre:', leftX+4, ly+10.5);
+  doc.setFont('helvetica','bold'); doc.setTextColor(...NAVY);
+  doc.text(asesor, leftX+22, ly+10.5);
+  doc.setFont('helvetica','normal'); doc.setTextColor(...GRAY);
+  doc.text('Cel:', leftX+4, ly+14.5);
+  doc.setFont('helvetica','bold'); doc.setTextColor(...NAVY);
+  doc.text(asesorTel || '-', leftX+22, ly+14.5);
+  ly += 21;
+
+  // ===== LOGO =====
+  doc.setFillColor(...YELLOW); doc.roundedRect(leftX, ly, 50, 17, 2, 2, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(15); doc.setTextColor(...NAVY);
+  doc.text('vivaria', leftX+5, ly+9);
+  doc.setFont('helvetica','normal'); doc.setFontSize(6.5);
+  doc.text('veintitrés sesenta', leftX+5, ly+13.5);
+  ly += 23;
+
+  // ===== PRECIO DE LISTA =====
+  doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(...GRAY);
+  doc.text('Precio de Lista:', leftX, ly);
+  ly += 7;
+  doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(...NAVY);
+  doc.text('# DEPTO:', leftX, ly);
+  doc.setFontSize(15);
+  doc.text(String(u.u), leftX+20, ly);
+  doc.text(fmt(u.pl), leftX+34, ly);
+  ly += 9;
+
+  // ===== ORIENTACION / TIPO / NIVEL =====
+  doc.setFont('helvetica','normal'); doc.setFontSize(7.5); doc.setTextColor(...GRAY);
+  doc.text('Orientación:', leftX, ly); ly += 4.5;
+  doc.setFont('helvetica','bold'); doc.setFontSize(8.5); doc.setTextColor(...NAVY);
+  doc.text(san(u.o).toUpperCase(), leftX, ly); ly += 6;
+
+  const infoRow = (label, val) => {
+    doc.setFont('helvetica','bold'); doc.setFontSize(7.5); doc.setTextColor(...GRAY);
+    doc.text(label, leftX, ly);
+    doc.setFont('helvetica','bold'); doc.setFontSize(7.5); doc.setTextColor(...NAVY);
+    doc.text(String(val), leftX+22, ly);
+    ly += 5;
+  };
+  infoRow('TIPO:', u.p);
+  infoRow('NIVEL:', nivelLabel(u.n));
+  infoRow('SUP TOTAL:', u.m2 + ' m²');
+  ly += 3;
+
+  // ===== DETALLES DEL DEPTO =====
+  doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(...NAVY);
+  doc.text('DETALLES DEL DEPTO:', leftX, ly); ly += 5.5;
+  doc.setFont('helvetica','normal'); doc.setFontSize(7.8); doc.setTextColor(50,50,55);
+  espacios.forEach(item=>{
+    doc.text(san(item).toUpperCase(), leftX, ly);
+    ly += 4.3;
+  });
+  ly += 3;
+
+  // ===== CUENTA PARA DEPOSITAR =====
+  doc.setFont('helvetica','bold'); doc.setFontSize(7.5); doc.setTextColor(...NAVY);
+  doc.text('CUENTA PARA DEPOSITAR', leftX, ly); ly += 4.5;
+  doc.setFont('helvetica','normal'); doc.setFontSize(7.3); doc.setTextColor(50,50,55);
+  ['BBVA', '002451573', 'Cadu Inmobiliaria'].forEach(l=>{ doc.text(l, leftX, ly); ly += 3.8; });
+  doc.setFont('helvetica','bold');
+  doc.text('CUENTA: 0164815114', leftX, ly); ly += 3.8;
+  doc.text('CLABE: 012691001648151144', leftX, ly); ly += 4.5;
+  doc.setFont('helvetica','italic'); doc.setFontSize(6.8); doc.setTextColor(...GRAY);
+  doc.text('Pida su referencia con su Asesor.', leftX, ly);
+
+  // ===== COLUMNA DERECHA: OPCIONES DE PAGO =====
+  doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(...NAVY);
+  doc.text('OPCIONES DE PAGO', rightX, ry); ry += 5;
+
+  const planTable = (title, rows) => {
+    doc.setFillColor(...NAVY); doc.rect(rightX, ry, rightW, 5.5, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(7.3); doc.setTextColor(...WHITE);
+    doc.text(title, rightX + rightW/2, ry+3.9, {align:'center'});
+    ry += 5.5;
+    rows.forEach(([l,v], i)=>{
+      doc.setFillColor(...(i%2===0 ? BGL : BGROW)); doc.rect(rightX, ry, rightW, 4.6, 'F');
+      doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(...GRAY);
+      doc.text(l, rightX+2.5, ry+3.2);
+      doc.setFont('helvetica','bold'); doc.setTextColor(...NAVY);
+      doc.text(v, rightX+rightW-2.5, ry+3.2, {align:'right'});
+      ry += 4.6;
+    });
+    ry += 3.5;
+  };
+
+  const ahorro = (total) => fmt(u.pl - total);
+
+  planTable('CERO MENSUALIDAD', [
+    ['Precio descuento Plan:', fmt(q.cero.total)],
+    ['Total Ahorro:', ahorro(q.cero.total)],
+    ['Enganche (10%):', fmt(q.cero.enganche)],
+    ['A la entrega (90%):', fmt(q.cero.entrega)],
+  ]);
+
+  planTable('HIPOTECARIO 5', [
+    ['Precio descuento Plan:', fmt(q.h5.total)],
+    ['Total Ahorro:', ahorro(q.h5.total)],
+    ['Enganche (5%):', fmt(q.h5.enganche)],
+    ['Durante la obra (15%):', fmt(q.h5.obra)],
+    ['25 Mensualidades de:', fmt(q.h5.mensual)],
+    ['A la entrega (80%):', fmt(q.h5.entrega)],
+  ]);
+
+  planTable('HIPOTECARIO 10', [
+    ['Precio descuento Plan:', fmt(q.h10.total)],
+    ['Total Ahorro:', ahorro(q.h10.total)],
+    ['Enganche (10%):', fmt(q.h10.enganche)],
+    ['Durante la obra (10%):', fmt(q.h10.obra)],
+    ['25 Mensualidades de:', fmt(q.h10.mensual)],
+    ['A la entrega (80%):', fmt(q.h10.entrega)],
+  ]);
+
+  planTable('CONTADO', [
+    ['Precio descuento Plan:', fmt(q.contado.total)],
+    ['Total Ahorro:', ahorro(q.contado.total)],
+    ['Apartado:', fmt(q.contado.apartado)],
+    ['Diferencia:', fmt(q.contado.diferencia)],
+    ['Mensualidades de:', '$0'],
+  ]);
+
+  // y final: la mas larga de las dos columnas
+  let y = Math.max(ly, ry) + 6;
+
+  // ===== AVISO =====
+  doc.setFillColor(...BGYELLOW); doc.roundedRect(mar, y, W-(mar*2), 13, 2, 2, 'F');
+  doc.setFont('helvetica','italic'); doc.setFontSize(6.8); doc.setTextColor(120,95,15);
+  const av = 'Todos los precios mostrados en la presente cotización son estimados. Los valores de esta propuesta están sujetos a cambios sin previo aviso. Esta propuesta es válida por 72 horas después de su fecha de elaboración.';
+  doc.text(doc.splitTextToSize(av, W-(mar*2)-6), mar+3, y+5);
+  y += 19;
+
+  // ===== FRANJA AMARILLA =====
+  doc.setFillColor(...YELLOW); doc.rect(0, y, W, 14, 'F');
+  doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(...NAVY);
+  doc.text('Otro desarrollo de CADU Inmobiliaria', W/2, y+8.5, {align:'center'});
+
+  doc.save(`Cotizacion_Vivaria_Depto${u.u}.pdf`);
+});
+</script>
+
+</body>
+</html>
