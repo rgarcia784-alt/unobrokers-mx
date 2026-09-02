@@ -15,8 +15,8 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta name="description" content="Genera gratis tu contrato de arrendamiento en minutos. Renta con seguridad: verificación de inquilinos y asesoría legal profesional con UNO Brokers, Zapopan.">
-<meta name="keywords" content="generador contrato de arrendamiento, contrato de renta gratis, formato contrato arrendamiento Zapopan, contrato de renta Guadalajara, renta segura UNO Brokers, contrato de arrendamiento en línea">
+<meta name="description" content="Genera gratis tu contrato de arrendamiento en minutos, conforme al Código Civil Federal. Renta con seguridad: verificación de inquilinos y asesoría legal profesional con UNO Brokers, Zapopan.">
+<meta name="keywords" content="generador contrato de arrendamiento, contrato de renta gratis, formato contrato arrendamiento Zapopan, contrato de renta Guadalajara, renta segura UNO Brokers, contrato de arrendamiento en línea, contrato de arrendamiento código civil">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,6 +27,21 @@
   "description": "Generador gratuito de contrato de arrendamiento en minutos, con verificación de inquilinos y asesoría legal profesional en Guadalajara y Zapopan.",
   "address": {"@type": "PostalAddress","addressLocality": "Zapopan","addressRegion": "Jalisco","addressCountry": "MX"},
   "areaServed": ["Guadalajara", "Zapopan", "Jalisco"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"¿Es válido un contrato de arrendamiento generado en línea sin notario?","acceptedAnswer":{"@type":"Answer","text":"Sí. Un contrato de arrendamiento privado tiene plena validez jurídica en México sin necesidad de ratificación notarial, de acuerdo con el Código Civil Federal (Art. 2448-F para casa habitación). La firma ante notario o ante el Instituto de Justicia Alternativa es opcional, pero puede facilitar los procesos legales en caso de incumplimiento."}},
+    {"@type":"Question","name":"¿Qué debe incluir un contrato de arrendamiento para ser válido?","acceptedAnswer":{"@type":"Answer","text":"Como mínimo debe contener: nombres completos y datos de identificación del arrendador y arrendatario, descripción del inmueble, monto de la renta y forma de pago, duración del contrato, depósito en garantía, y las obligaciones de mantenimiento de ambas partes. Nuestro generador incluye automáticamente todos los elementos mínimos que establece el Código Civil Federal."}},
+    {"@type":"Question","name":"¿El contrato generado aquí cumple con PROFECO?","acceptedAnswer":{"@type":"Answer","text":"El contrato se elabora conforme a los criterios del Código Civil Federal y a los lineamientos de protección al consumidor que promueve PROFECO para operaciones entre particulares. Para arrendadores que operan como empresa (rentan múltiples unidades de forma habitual), recomendamos además registrar un Contrato de Adhesión ante PROFECO, trámite en el que UNO Brokers también puede orientarte."}},
+    {"@type":"Question","name":"¿Qué pasa si el inquilino no paga la renta?","acceptedAnswer":{"@type":"Answer","text":"El incumplimiento de pago es causa de rescisión del contrato conforme a la cláusula de incumplimiento. Para una protección más sólida, se recomienda agregar cláusulas de cobro ejecutivo y pagaré, así como investigar previamente al inquilino (buró de crédito, antecedentes legales e ingresos comprobables) antes de firmar."}},
+    {"@type":"Question","name":"¿Cuánto debe ser el depósito en garantía?","acceptedAnswer":{"@type":"Answer","text":"No existe un monto fijo por ley; la práctica común en Guadalajara y Zapopan es solicitar el equivalente a un mes de renta como depósito en garantía, aunque algunos propietarios piden hasta dos meses según el perfil del inquilino o si el inmueble se entrega amueblado."}},
+    {"@type":"Question","name":"¿Cómo genero mi contrato de arrendamiento gratis?","acceptedAnswer":{"@type":"Answer","text":"Llena el formulario de esta página con los datos del arrendador, arrendatario, el inmueble y las condiciones económicas. En segundos se genera un contrato base listo para descargar en Word, sin costo y sin necesidad de registro."}},
+    {"@type":"Question","name":"¿Mis datos están seguros al usar este generador de contratos?","acceptedAnswer":{"@type":"Answer","text":"Sí. El contrato se genera completamente en tu navegador mediante JavaScript; la información que capturas (nombres, dirección, renta, etc.) nunca se envía a ningún servidor ni se almacena en ninguna base de datos. Solo tú tienes acceso a los datos que ingresas."}}
+  ]
 }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,6 +75,7 @@
   .hero h1{color:#fff;font-size:clamp(32px,5vw,48px);line-height:1.1;max-width:680px;margin:0 auto 18px;}
   .hero p{max-width:560px;margin:0 auto;color:#d8dee9;font-size:17px;}
   .hero .divider{width:56px;height:1px;background:var(--gold);margin:26px auto;}
+  .legal-note{max-width:560px;margin:16px auto 0;color:#a9b4c8;font-size:13px;font-style:italic;}
 
   /* TRUST BAR */
   .trustbar{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,0.12);}
@@ -121,8 +137,24 @@
 
   .disclaimer{font-size:12.5px;color:#8b8f98;border-top:1px dashed var(--line);padding-top:16px;margin-top:26px;}
 
+  /* FAQ */
+  .faq-section h2{font-size:26px;margin-bottom:6px;}
+  .faq-section .faq-sub{color:#5b6577;font-size:15px;margin-bottom:28px;}
+  .faq-item{background:#fff;border:1px solid var(--line);border-radius:2px;margin-bottom:12px;overflow:hidden;}
+  .faq-q{width:100%;text-align:left;padding:18px 22px;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:'Jost',sans-serif;font-size:15.5px;font-weight:500;color:var(--navy);line-height:1.4;}
+  .faq-q:hover{background:#faf8f3;}
+  .faq-q .faq-icon{font-size:20px;color:var(--gold);flex-shrink:0;margin-left:12px;transition:transform .25s;}
+  .faq-q.open .faq-icon{transform:rotate(45deg);}
+  .faq-a{display:none;padding:0 22px 20px;font-size:14.5px;color:#4a5568;line-height:1.75;border-top:1px solid var(--line);}
+  .faq-a.open{display:block;}
+  .faq-a p{margin-top:12px;}
+
   footer{background:var(--navy-deep);color:#9aa4b8;text-align:center;padding:30px 0;font-size:13px;}
   footer a{color:var(--gold-light);text-decoration:none;}
+
+  /* FLOATING WA */
+  .wa-float{position:fixed;bottom:24px;right:20px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.5);z-index:999;transition:all .2s;}
+  .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 22px rgba(37,211,102,.7);}
 </style>
 </head>
 <body>
@@ -140,6 +172,12 @@
     <h1>Genera tu contrato de arrendamiento y renta con seguridad</h1>
     <div class="divider"></div>
     <p>Llena los datos de tu operación y obtén un contrato base listo para descargar. Sin costo, sin registro complicado — y con la opción de blindarlo con asesoría legal profesional.</p>
+    <p class="legal-note">Contrato elaborado conforme al Código Civil Federal (Art. 2448-F) y alineado con los criterios de protección al consumidor de PROFECO.</p>
+
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;">
+      <a class="btn btn-gold" href="https://wa.me/523339675255?text=Hola%2C%20necesito%20ayuda%20con%20un%20contrato%20de%20arrendamiento" target="_blank">💬 Hablar con un asesor</a>
+      <a class="btn" style="background:transparent;border:1px solid rgba(255,255,255,.4);" href="tel:+523339675255">📞 33 3967 5255</a>
+    </div>
 
     <div class="trustbar">
       <div class="item"><b>30+ años</b> de experiencia inmobiliaria</div>
@@ -154,6 +192,9 @@
     <div class="card">
       <div class="section-title">Datos del contrato</div>
       <div class="section-sub">Toda la información se usa únicamente para generar tu documento.</div>
+      <div class="note" style="background:#f7f4ee;border:1px solid var(--line);padding:12px 16px;border-radius:2px;margin-bottom:24px;display:flex;align-items:center;gap:10px;">
+        🔒 <span><strong>Tus datos son confidenciales.</strong> El contrato se genera directamente en tu navegador — la información nunca se envía a ningún servidor ni se guarda en ninguna base de datos.</span>
+      </div>
 
       <form id="contractForm">
 
@@ -331,6 +372,48 @@
   </div>
 </section>
 
+<section class="faq-section">
+  <div class="wrap">
+    <h2>Preguntas Frecuentes sobre Contratos de Arrendamiento</h2>
+    <p class="faq-sub">Todo lo que necesitas saber antes de rentar tu propiedad en Guadalajara y Zapopan.</p>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Es válido un contrato de arrendamiento generado en línea sin notario? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Sí. Un contrato de arrendamiento privado tiene plena validez jurídica en México sin necesidad de ratificación notarial, de acuerdo con el Código Civil Federal (Art. 2448-F para casa habitación). La firma ante notario o ante el Instituto de Justicia Alternativa es opcional, pero puede facilitar los procesos legales en caso de incumplimiento.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Qué debe incluir un contrato de arrendamiento para ser válido? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Como mínimo debe contener: nombres completos y datos de identificación del arrendador y arrendatario, descripción del inmueble, monto de la renta y forma de pago, duración del contrato, depósito en garantía, y las obligaciones de mantenimiento de ambas partes. Nuestro generador incluye automáticamente todos los elementos mínimos que establece el Código Civil Federal.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿El contrato generado aquí cumple con PROFECO? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>El contrato se elabora conforme a los criterios del Código Civil Federal y a los lineamientos de protección al consumidor que promueve PROFECO para operaciones entre particulares. Para arrendadores que operan como empresa (rentan múltiples unidades de forma habitual), recomendamos además registrar un Contrato de Adhesión ante PROFECO, trámite en el que UNO Brokers también puede orientarte.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si el inquilino no paga la renta? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>El incumplimiento de pago es causa de rescisión del contrato conforme a la cláusula de incumplimiento. Para una protección más sólida, se recomienda agregar cláusulas de cobro ejecutivo y pagaré, así como investigar previamente al inquilino (buró de crédito, antecedentes legales e ingresos comprobables) antes de firmar.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto debe ser el depósito en garantía? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>No existe un monto fijo por ley; la práctica común en Guadalajara y Zapopan es solicitar el equivalente a un mes de renta como depósito en garantía, aunque algunos propietarios piden hasta dos meses según el perfil del inquilino o si el inmueble se entrega amueblado.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Cómo genero mi contrato de arrendamiento gratis? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Llena el formulario de esta página con los datos del arrendador, arrendatario, el inmueble y las condiciones económicas. En segundos se genera un contrato base listo para descargar en Word, sin costo y sin necesidad de registro.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Mis datos están seguros al usar este generador de contratos? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Sí. El contrato se genera completamente en tu navegador mediante JavaScript; la información que capturas (nombres, dirección, renta, etc.) nunca se envía a ningún servidor ni se almacena en ninguna base de datos. Solo tú tienes acceso a los datos que ingresas.</p></div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     UNO Brokers · Los Sueños Residencial · Zapopan, Jalisco<br>
@@ -468,7 +551,16 @@ Documento generado automáticamente. No sustituye asesoría legal profesional.`;
     });
   };
 });
+
+function toggleFaq(btn){
+  const ans = btn.nextElementSibling;
+  const isOpen = ans.classList.contains('open');
+  document.querySelectorAll('.faq-a.open').forEach(a=>{a.classList.remove('open');a.previousElementSibling.classList.remove('open');});
+  if(!isOpen){ans.classList.add('open');btn.classList.add('open');}
+}
 </script>
+
+<a class="wa-float" href="https://wa.me/523339675255?text=Hola%2C%20necesito%20ayuda%20con%20un%20contrato%20de%20arrendamiento" target="_blank" title="Contactar por WhatsApp">💬</a>
 
 </body>
 </html>
