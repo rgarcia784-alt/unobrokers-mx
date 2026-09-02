@@ -518,6 +518,36 @@ document.getElementById("submitBtn").addEventListener("click", function(){
     fecha: new Date().toISOString()
   };
 
+  // Construye el registro en el mismo formato que usa el CRM (pestaña Prospectos)
+  // para que aparezca ahí automáticamente, sin pasos extra.
+  var uid = function(){ return Date.now().toString(36) + Math.random().toString(36).slice(2); };
+  var tipoProspecto = state.operacion === "Renta" ? "🔍 Busca rentar" : "🔍 Busca comprar";
+  var notasPartes = [
+    "Lead del cuestionario web (encuentra-tu-propiedad.html)",
+    "Tipo de propiedad: " + (state.tipo || "-"),
+    "Recámaras: " + (state.recamaras || "-"),
+    "Baños: " + (state.banos || "-"),
+    "Presupuesto: " + (state.presupuesto || "-"),
+    "Forma de pago: " + (state.formaPago || "-"),
+    "Para cuándo: " + (state.timeline || "-")
+  ];
+  if(state.operacion === "Venta" && state.compraTipo){ notasPartes.push("Compra o preventa: " + state.compraTipo); }
+
+  var crmProspecto = {
+    id: uid(),
+    tipoProspecto: tipoProspecto,
+    servicio: "",
+    nombre: state.nombre,
+    tel: state.telefono,
+    interes: tipoProspecto,
+    etapa: "Primer contacto",
+    prop: state.zona || "",
+    ultimo: new Date().toISOString().slice(0,10),
+    siguiente: "Contactar y calificar lead del cuestionario web",
+    notas: notasPartes.join(" · "),
+    alertaApagada: false
+  };
+
   function goToWhatsApp(){
     var msg = "Hola UNO BROKERS, busco:\n" +
       "• Operación: " + (state.operacion === "Renta" ? "Rentar" : "Comprar") + "\n" +
@@ -541,7 +571,7 @@ document.getElementById("submitBtn").addEventListener("click", function(){
 
   try{
     if(firebase.apps && firebase.apps.length){
-      firebase.firestore().collection("leads-calificacion").add(lead)
+      firebase.firestore().collection("pro").doc(crmProspecto.id).set(crmProspecto)
         .then(goToWhatsApp)
         .catch(function(err){ console.warn("Error guardando en Firestore:", err); goToWhatsApp(); });
     } else {
