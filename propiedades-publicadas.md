@@ -14,6 +14,7 @@ Antes de crear una página nueva, revisar esta lista por REF o dirección para e
 | 7 | UAP8424914 | Estudio tipo loft, The Lighthouse, Puerta del Valle | Renta | $16,800 MXN | `estudio-renta-the-lighthouse-puerta-del-valle.html` | 2026-09-05 |
 | 8 | EB-TN7192 | Casa 4 rec., Condominio Murcia, Puerta de Hierro | Venta | $24,875,000 MXN | `casa-venta-condominio-murcia-puerta-de-hierro.html` | 2026-09-05 |
 | 9 | (PDF ficha comercial, no Tokko) | Lote 01, comercial, Carretera El Salto | Venta o Renta | A consultar | `lote-comercial-carretera-el-salto.html` | 2026-09-05 |
+| 10 | UAP7465937 | Depto. lujo, LandMark, Puerta de Hierro, Piso 31 | Venta | $18,425,000 MXN | `departamento-lujo-venta-landmark-puerta-de-hierro.html` | 2026-09-05 |
 
 ## Cómo usar este archivo
 - Antes de pedirle a Claude una página nueva, busca la REF de Tokko (aparece como "REF. XXXXXXX" en la ficha) en la columna correspondiente.
