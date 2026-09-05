@@ -17,6 +17,7 @@ Antes de crear una página nueva, revisar esta lista por REF o dirección para e
 | 10 | UAP7465937 | Depto. lujo, LandMark, Puerta de Hierro, Piso 31 | Venta | $18,425,000 MXN | `departamento-lujo-venta-landmark-puerta-de-hierro.html` | 2026-09-05 |
 | 11 | UAP9481810 | Depto. 1 rec., Modelo 5, Torre Sant Uriel, Chapalita | Venta | $3,900,000 MXN | `departamento-venta-sant-uriel-chapalita.html` | 2026-09-05 |
 | 12 | UAP7764270 | Depto. lujo 3 rec., Landmark Reserve, Andares, Piso 25 | Venta | $26,280,280 MXN | `departamento-lujo-venta-landmark-reserve-andares.html` | 2026-09-05 |
+| 13 | UAP9480344 | Depto. 2 rec., planta baja, Jardín de San Ignacio | Venta | $4,100,000 MXN | `departamento-venta-jardin-san-ignacio-zapopan.html` | 2026-09-05 |
 
 ## Cómo usar este archivo
 - Antes de pedirle a Claude una página nueva, busca la REF de Tokko (aparece como "REF. XXXXXXX" en la ficha) en la columna correspondiente.
