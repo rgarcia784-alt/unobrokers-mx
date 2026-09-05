@@ -15,6 +15,7 @@ Antes de crear una página nueva, revisar esta lista por REF o dirección para e
 | 8 | EB-TN7192 | Casa 4 rec., Condominio Murcia, Puerta de Hierro | Venta | $24,875,000 MXN | `casa-venta-condominio-murcia-puerta-de-hierro.html` | 2026-09-05 |
 | 9 | (PDF ficha comercial, no Tokko) | Lote 01, comercial, Carretera El Salto | Venta o Renta | A consultar | `lote-comercial-carretera-el-salto.html` | 2026-09-05 |
 | 10 | UAP7465937 | Depto. lujo, LandMark, Puerta de Hierro, Piso 31 | Venta | $18,425,000 MXN | `departamento-lujo-venta-landmark-puerta-de-hierro.html` | 2026-09-05 |
+| 11 | UAP9481810 | Depto. 1 rec., Modelo 5, Torre Sant Uriel, Chapalita | Venta | $3,900,000 MXN | `departamento-venta-sant-uriel-chapalita.html` | 2026-09-05 |
 
 ## Cómo usar este archivo
 - Antes de pedirle a Claude una página nueva, busca la REF de Tokko (aparece como "REF. XXXXXXX" en la ficha) en la columna correspondiente.
