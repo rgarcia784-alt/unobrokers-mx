@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Ajuste de Renta por INPC 2026 | UNO Brokers Guadalajara</title>
+<meta name="description" content="Calcula el aumento de renta anual correcto según el INPC oficial de INEGI. Herramienta gratuita para arrendadores en Guadalajara y Zapopan, Jalisco.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Calculadora de Ajuste de Renta por INPC | UNO Brokers">
+<meta property="og:description" content="Calcula en segundos cuánto debes aumentar la renta a tu inquilino este año, con base en el INPC oficial de INEGI.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Ajuste de Renta por INPC",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "description": "Herramienta para calcular el incremento anual de renta con base en el Índice Nacional de Precios al Consumidor (INPC) de México.",
+  "provider": {
+    "@type": "RealEstateAgent",
+    "name": "UNO Brokers",
+    "areaServed": ["Guadalajara", "Zapopan", "Jalisco"]
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cómo se calcula el aumento de renta con el INPC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Se multiplica la renta actual por la variación anual del INPC publicada por el INEGI, y en muchos contratos se suma un porcentaje adicional pactado (generalmente entre 1 y 3 puntos porcentuales)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cada cuándo se actualiza el INPC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El INEGI publica el INPC de forma quincenal y mensual, los días 10 y 25 de cada mes, o el día hábil anterior si coincide con fin de semana o día festivo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es obligatorio usar el INPC para ajustar la renta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No es obligatorio por ley, pero es la referencia más usada y aceptada en México porque refleja de forma objetiva la inflación del último año, evitando aumentos arbitrarios."
+      }
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --navy: #0B1F3A;
+    --navy-deep: #070f1e;
+    --gold: #C9A24B;
+    --gold-light: #D4B06A;
+    --cream: #F7F3EA;
+    --cream-warm: #F4EDE0;
+    --ink: #1C2430;
+    --line: rgba(11,31,58,0.12);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Outfit:wght@400;500;600;700&display=swap');
+
+  h1, h2, h3 { font-family: 'Fraunces', serif; font-weight: 600; color: var(--navy-deep); }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  /* HEADER */
+  header {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding: 18px 0;
+  }
+  header .wrap { display: flex; justify-content: space-between; align-items: center; }
+  .brand { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.02em; color: var(--cream); text-decoration: none; }
+  .brand span { color: var(--gold-light); }
+  .header-phone { font-size: 0.9rem; color: var(--cream); opacity: 0.85; text-decoration: none; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy-deep);
+    color: var(--cream);
+    padding: 56px 0 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 320px; height: 320px;
+    border: 1px solid rgba(201,162,75,0.18);
+    border-radius: 50%;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    border: 1px solid rgba(201,162,75,0.35);
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    line-height: 1.15;
+    color: var(--cream);
+    max-width: 15ch;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 1.05rem;
+    color: rgba(247,243,234,0.78);
+    max-width: 46ch;
+  }
+
+  /* INPC BANNER */
+  .inpc-banner {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: var(--navy-deep);
+    margin-top: -40px;
+    position: relative;
+    z-index: 2;
+  }
+  .inpc-banner .wrap {
+    padding: 26px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .inpc-figure { font-family: 'Fraunces', serif; font-size: 2.6rem; font-weight: 600; line-height: 1; }
+  .inpc-label { font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.75; margin-top: 4px; }
+  .inpc-source { font-size: 0.82rem; opacity: 0.8; max-width: 32ch; }
+
+  /* CALCULATOR */
+  .calc-section { padding: 64px 0 48px; }
+  .calc-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 36px 32px;
+  }
+  .field { margin-bottom: 28px; }
+  .field label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy-deep);
+    margin-bottom: 10px;
+  }
+  .money-input {
+    position: relative;
+  }
+  .money-input span {
+    position: absolute;
+    left: 16px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .money-input input {
+    width: 100%;
+    padding: 14px 16px 14px 34px;
+    font-size: 1.3rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    border: 1.5px solid var(--line);
+    border-radius: 4px;
+    color: var(--navy-deep);
+    background: var(--cream-warm);
+  }
+  .money-input input:focus { outline: none; border-color: var(--gold); }
+
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .slider-row input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 4px;
+    background: var(--line);
+    border-radius: 4px;
+    outline: none;
+  }
+  .slider-row input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1px var(--gold);
+    cursor: pointer;
+  }
+  .slider-row input[type="range"]::-moz-range-thumb {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 1px var(--gold);
+    cursor: pointer;
+  }
+  .slider-value {
+    min-width: 58px;
+    text-align: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--navy-deep);
+    background: var(--cream-warm);
+    border-radius: 4px;
+    padding: 8px 0;
+  }
+  .field-hint { font-size: 0.82rem; color: #6b7280; margin-top: 8px; }
+
+  .chip-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 12px 18px;
+    border-radius: 4px;
+    border: 1.5px solid var(--line);
+    background: var(--cream-warm);
+    color: var(--navy-deep);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .chip:hover { border-color: var(--gold); }
+  .chip.active {
+    background: var(--navy-deep);
+    border-color: var(--navy-deep);
+    color: var(--cream);
+  }
+
+  /* RESULT */
+  .result {
+    margin-top: 8px;
+    background: var(--navy-deep);
+    border-radius: 4px;
+    padding: 30px 28px;
+    color: var(--cream);
+  }
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(247,243,234,0.12);
+    font-size: 0.95rem;
+  }
+  .result-row:last-of-type { border-bottom: none; }
+  .result-row .label { color: rgba(247,243,234,0.65); }
+  .result-row .value { font-weight: 600; }
+  .result-final {
+    margin-top: 18px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(201,162,75,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .result-final .label { font-size: 0.95rem; color: var(--gold-light); }
+  .result-final .amount { font-family: 'Fraunces', serif; font-size: 2rem; color: var(--cream); }
+  .result-final .increase { font-size: 0.85rem; color: rgba(247,243,234,0.6); }
+
+  /* SERVICES SECTION */
+  .services { padding: 24px 0 64px; }
+  .services-card {
+    background: var(--cream-warm);
+    border-radius: 4px;
+    padding: 36px 32px;
+    text-align: left;
+  }
+  .services-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .services-card p {
+    color: #4b5563;
+    max-width: 52ch;
+    margin-bottom: 24px;
+  }
+  .services-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .services-list li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--navy-deep);
+  }
+  .services-list li::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy-deep);
+    color: var(--cream);
+    text-decoration: none;
+    padding: 15px 28px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.15s ease;
+  }
+  .btn-whatsapp:hover { background: var(--navy); }
+  .btn-whatsapp svg { width: 20px; height: 20px; fill: var(--gold-light); }
+
+  /* FAQ */
+  .faq { padding: 0 0 72px; }
+  .faq h2 { font-size: 1.4rem; margin-bottom: 24px; }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 18px 0; }
+  .faq-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; color: var(--navy-deep); }
+  .faq-item p { color: #4b5563; font-size: 0.95rem; }
+
+  footer {
+    background: var(--navy-deep);
+    color: rgba(247,243,234,0.55);
+    text-align: center;
+    padding: 28px 0;
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--gold-light); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .calc-card, .services-card { padding: 26px 20px; }
+    .inpc-figure { font-size: 2.1rem; }
+    .result-final .amount { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="https://unobrokers.com.mx" class="brand">UNO <span>Brokers</span></a>
+    <a href="tel:+523339675255" class="header-phone">33 3967 5255</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="hero-tag">Herramienta gratuita para arrendadores</span>
+    <h1>Calcula el aumento de renta correcto para tu inquilino</h1>
+    <p>Con base en el Índice Nacional de Precios al Consumidor (INPC) oficial de INEGI, más los puntos porcentuales que hayas pactado en tu contrato.</p>
+  </div>
+</section>
+
+<div class="inpc-banner">
+  <div class="wrap">
+    <div>
+      <div class="inpc-figure" id="inpcFigure">3.12%</div>
+      <div class="inpc-label">Variación anual INPC — julio 2026</div>
+    </div>
+    <div class="inpc-source">Fuente: INEGI, Boletín 481/26, publicado el 7 de agosto de 2026.</div>
+  </div>
+</div>
+
+<section class="calc-section">
+  <div class="wrap">
+    <div class="calc-card">
+
+      <div class="field">
+        <label for="rentaActual">¿Cuánto paga actualmente tu inquilino de renta?</label>
+        <div class="money-input">
+          <span>$</span>
+          <input type="text" inputmode="numeric" id="rentaActual" placeholder="15,000" value="15,000">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>¿Tu contrato dice "INPC más algo extra"?</label>
+        <div class="field-hint" style="margin-top:-4px; margin-bottom:14px;">Algunos contratos dicen, por ejemplo, "INPC + 2%". Si el tuyo no lo dice, elige "Solo INPC".</div>
+        <div class="chip-row" id="puntosChips">
+          <button type="button" class="chip active" data-value="0">Solo INPC</button>
+          <button type="button" class="chip" data-value="1">+1%</button>
+          <button type="button" class="chip" data-value="2">+2%</button>
+          <button type="button" class="chip" data-value="3">+3%</button>
+        </div>
+        <input type="hidden" id="puntosExtra" value="0">
+      </div>
+
+      <div class="result">
+        <div class="result-row">
+          <span class="label">Renta actual</span>
+          <span class="value" id="outRentaActual">$15,000</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Ajuste por INPC (3.12%)</span>
+          <span class="value" id="outInpcMonto">+$468</span>
+        </div>
+        <div class="result-row">
+          <span class="label">Puntos adicionales pactados</span>
+          <span class="value" id="outExtraMonto">+$0</span>
+        </div>
+        <div class="result-final">
+          <div>
+            <div class="label">Nueva renta mensual</div>
+            <div class="increase" id="outIncrementoTotal">Incremento total: 3.12%</div>
+          </div>
+          <div class="amount" id="outRentaNueva">$15,468</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <div class="services-card">
+      <h2 id="serviciosTitulo">¿Necesitas ayuda para notificar el aumento o gestionar tu propiedad en renta?</h2>
+      <p id="serviciosTexto">En UNO Brokers llevamos más de 30 años administrando y comercializando propiedades en Guadalajara y Zapopan. Te ayudamos a que este proceso sea claro para ti y tu inquilino.</p>
+      <ul class="services-list">
+        <li>Redacción del aviso formal de incremento de renta</li>
+        <li>Renovación y actualización de contratos de arrendamiento</li>
+        <li>Investigación y dictamen de nuevos arrendatarios</li>
+        <li>Administración integral de tu propiedad en renta</li>
+      </ul>
+      <a class="btn-whatsapp" id="btnWhatsapp" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.85 1h.01a7.94 7.94 0 0 0 5.54-13.58zM12.06 18.4a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.66.67-2.43-.16-.25a6.6 6.6 0 1 1 5.6 3.08zm3.6-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.31-.1-.44.1-.13.2-.5.64-.62.77-.11.13-.23.15-.42.05a5.4 5.4 0 0 1-1.6-.99 6 6 0 0 1-1.1-1.37c-.12-.2 0-.3.09-.4.09-.1.2-.23.3-.35.1-.11.13-.2.2-.33.06-.13.03-.25-.02-.35-.05-.1-.44-1.06-.6-1.45-.16-.38-.32-.33-.44-.33h-.38c-.13 0-.34.05-.52.25-.18.2-.68.66-.68 1.6s.7 1.86.8 1.99c.1.13 1.38 2.1 3.34 2.95.47.2.83.32 1.12.41.47.15.9.13 1.24.08.38-.06 1.17-.48 1.33-.94.16-.46.16-.86.11-.94-.05-.09-.18-.14-.38-.24z"/></svg>
+        <span id="btnWhatsappTexto">Escribir por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faq-item">
+      <h3>¿Cómo se calcula el aumento de renta con el INPC?</h3>
+      <p>Se multiplica la renta actual por la variación anual del INPC publicada por el INEGI. Si el contrato lo especifica, se suman puntos porcentuales adicionales al resultado.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Cada cuándo se actualiza el INPC?</h3>
+      <p>El INEGI publica el INPC de forma quincenal y mensual, los días 10 y 25 de cada mes (o el día hábil anterior si cae en fin de semana o festivo).</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Es obligatorio usar el INPC para ajustar la renta?</h3>
+      <p>No es obligatorio por ley, pero es la referencia más usada y aceptada en México porque refleja de forma objetiva la inflación del último año, evitando aumentos arbitrarios.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Dato INPC actualizado manualmente por UNO Brokers con fuente oficial <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">INEGI</a>. Última actualización: agosto 2026.
+  </div>
+</footer>
+
+<script>
+  // ── Personalización por asesor vía URL: ?asesor=Nombre&tel=523312345678 ──
+  const params = new URLSearchParams(window.location.search);
+  const asesorNombre = params.get('asesor');
+  const asesorTel = params.get('tel') || '523339675255'; // default: UNO Brokers
+
+  if (asesorNombre) {
+    document.getElementById('serviciosTitulo').textContent =
+      `¿Necesitas ayuda con el aumento de renta? Escríbeme, soy ${asesorNombre}`;
+    document.getElementById('serviciosTexto').textContent =
+      `Trabajo con UNO Brokers, con más de 30 años de experiencia en Guadalajara y Zapopan. Te ayudo a que este proceso sea claro para ti y tu inquilino.`;
+    document.getElementById('btnWhatsappTexto').textContent = `Escribir a ${asesorNombre}`;
+  }
+
+  const mensajeWA = encodeURIComponent('Hola, usé la calculadora de ajuste de renta por INPC y me gustaría asesoría');
+  document.getElementById('btnWhatsapp').href = `https://wa.me/${asesorTel}?text=${mensajeWA}`;
+  // ───────────────────────────────────────────────────────────────────────
+
+  // ── DATO INPC — actualizar aquí cada vez que INEGI publique un nuevo dato ──
+  const INPC_ANUAL = 3.12; // % variación anual, julio 2026, INEGI Boletín 481/26
+  // ─────────────────────────────────────────────────────────────────────────
+
+  const rentaInput = document.getElementById('rentaActual');
+  const puntosHidden = document.getElementById('puntosExtra');
+  const chips = document.querySelectorAll('#puntosChips .chip');
+
+  const outRentaActual = document.getElementById('outRentaActual');
+  const outInpcMonto = document.getElementById('outInpcMonto');
+  const outExtraMonto = document.getElementById('outExtraMonto');
+  const outRentaNueva = document.getElementById('outRentaNueva');
+  const outIncrementoTotal = document.getElementById('outIncrementoTotal');
+
+  function parseRenta(val) {
+    const n = parseFloat(val.replace(/[^0-9.]/g, ''));
+    return isNaN(n) ? 0 : n;
+  }
+
+  function formatMoney(n) {
+    return '$' + n.toLocaleString('es-MX', { maximumFractionDigits: 0 });
+  }
+
+  function calcular() {
+    const renta = parseRenta(rentaInput.value);
+    const puntos = parseFloat(puntosHidden.value);
+    const incrementoTotalPct = INPC_ANUAL + puntos;
+
+    const inpcMonto = renta * (INPC_ANUAL / 100);
+    const extraMonto = renta * (puntos / 100);
+    const rentaNueva = renta + inpcMonto + extraMonto;
+
+    outRentaActual.textContent = formatMoney(renta);
+    outInpcMonto.textContent = '+' + formatMoney(inpcMonto);
+    outExtraMonto.textContent = '+' + formatMoney(extraMonto);
+    outRentaNueva.textContent = formatMoney(rentaNueva);
+    outIncrementoTotal.textContent = 'Incremento total: ' + incrementoTotalPct.toFixed(2) + '%';
+  }
+
+  rentaInput.addEventListener('input', (e) => {
+    let raw = e.target.value.replace(/[^0-9]/g, '');
+    if (raw) {
+      e.target.value = parseInt(raw, 10).toLocaleString('es-MX');
+    }
+    calcular();
+  });
+  rentaInput.addEventListener('blur', calcular);
+
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      puntosHidden.value = chip.dataset.value;
+      calcular();
+    });
+  });
+
+  calcular();
+</script>
+
+</body>
+</html>
