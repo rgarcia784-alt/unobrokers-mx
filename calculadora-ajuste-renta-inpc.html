@@ -17,6 +17,36 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Calculadora de Ajuste de Renta por INPC - UNO Brokers">
 
+<link rel="canonical" href="https://unobrokers.com.mx/calculadora-ajuste-renta-inpc.html">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://unobrokers.com.mx/"},
+    {"@type": "ListItem", "position": 2, "name": "Administración de Rentas", "item": "https://unobrokers.com.mx/administracion-de-rentas.html"},
+    {"@type": "ListItem", "position": 3, "name": "Calculadora de Ajuste de Renta por INPC"}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Cómo calcular el aumento de renta con el INPC en México",
+  "description": "Pasos para calcular el incremento anual correcto de una renta usando el INPC oficial de INEGI.",
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "Consulta el INPC anual vigente", "text": "Revisa la variación anual del INPC publicada por el INEGI, correspondiente al mes más reciente disponible."},
+    {"@type": "HowToStep", "position": 2, "name": "Revisa tu contrato de arrendamiento", "text": "Verifica si tu contrato especifica un porcentaje adicional pactado, comúnmente expresado como 'INPC + 1, 2 o 3 puntos'."},
+    {"@type": "HowToStep", "position": 3, "name": "Verifica si tu propiedad está en la Ciudad de México", "text": "En la CDMX, el aumento en renovaciones no puede superar el INPC del año anterior por disposición del artículo 2448-D del Código Civil, validado por la SCJN en 2026. En el resto del país no existe este tope legal."},
+    {"@type": "HowToStep", "position": 4, "name": "Aplica la fórmula", "text": "Multiplica la renta actual por el INPC (y por los puntos adicionales, si aplican y son legalmente válidos en tu ubicación) para obtener el monto del incremento."},
+    {"@type": "HowToStep", "position": 5, "name": "Suma el resultado a la renta actual", "text": "El monto del incremento se suma a la renta actual para obtener la nueva renta mensual."}
+  ]
+}
+</script>
+
 <!-- Twitter / X card (algunas apps lo usan también como respaldo) -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Calculadora de Ajuste de Renta por INPC | UNO Brokers">
@@ -34,8 +64,13 @@
   "provider": {
     "@type": "RealEstateAgent",
     "name": "UNO Brokers",
-    "areaServed": ["Guadalajara", "Zapopan", "Jalisco"]
-  }
+    "telephone": "+523339675255",
+    "foundingDate": "1995",
+    "address": {"@type": "PostalAddress", "addressLocality": "Zapopan", "addressRegion": "Jalisco", "addressCountry": "MX"},
+    "areaServed": ["Guadalajara", "Zapopan", "Jalisco", "Santa Fe", "Ciudad de México"]
+  },
+  "datePublished": "2026-09-06",
+  "dateModified": "2026-09-06"
 }
 </script>
 
@@ -66,6 +101,22 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "En la Ciudad de México sí es obligatorio: desde agosto de 2024 el artículo 2448-D del Código Civil capitalino fija que el aumento en renovaciones de contrato no puede superar el INPC del año anterior, regla validada por la Suprema Corte en febrero de 2026. En el resto del país, incluyendo Jalisco, no hay tope legal y el INPC es solo la referencia más usada para negociar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si mi contrato no menciona el INPC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si el contrato no especifica cómo se ajusta la renta, propietario e inquilino deben acordarlo al momento de renovar. En la práctica, el INPC es el punto de partida más común porque es un dato público, objetivo y verificable en el sitio del INEGI."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puede el inquilino negarse al aumento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si el contrato ya especifica la fórmula de ajuste, el inquilino está obligado a respetarla. Si no la especifica, el aumento debe negociarse por ambas partes antes de renovar; ninguna puede imponerlo unilateralmente sin acuerdo."
       }
     }
   ]
@@ -110,6 +161,21 @@
   .brand { font-family: 'Fraunces', serif; font-size: 1.15rem; font-weight: 600; letter-spacing: 0.02em; color: var(--cream); text-decoration: none; }
   .brand span { color: var(--gold-light); }
   .header-phone { font-size: 0.9rem; color: var(--cream); opacity: 0.85; text-decoration: none; }
+
+  .breadcrumb {
+    background: var(--navy-deep);
+    border-top: 1px solid rgba(247,243,234,0.08);
+    padding: 10px 0;
+  }
+  .breadcrumb .wrap { display: flex; gap: 8px; align-items: center; }
+  .breadcrumb a {
+    font-size: 0.8rem;
+    color: rgba(247,243,234,0.55);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover { color: var(--gold-light); }
+  .breadcrumb span { font-size: 0.8rem; color: rgba(247,243,234,0.35); }
+  .breadcrumb .current { color: var(--gold-light); }
 
   /* HERO */
   .hero {
@@ -326,6 +392,43 @@
   .result-final .amount { font-family: 'Fraunces', serif; font-size: 2rem; color: var(--cream); }
   .result-final .increase { font-size: 0.85rem; color: rgba(247,243,234,0.6); }
 
+  /* HOW-TO SECTION */
+  .how-section { padding: 8px 0 8px; }
+  .how-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+  .how-list {
+    list-style: none;
+    counter-reset: how-counter;
+    display: grid;
+    gap: 16px;
+  }
+  .how-list li {
+    counter-increment: how-counter;
+    position: relative;
+    padding-left: 42px;
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .how-list li::before {
+    content: counter(how-counter);
+    position: absolute;
+    left: 0; top: 0;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--navy-deep);
+    color: var(--gold-light);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .how-list strong { color: var(--navy-deep); }
+
   /* SERVICES SECTION */
   .services { padding: 24px 0 64px; }
   .services-card {
@@ -394,6 +497,27 @@
     font-size: 0.85rem;
   }
   footer a { color: var(--gold-light); text-decoration: none; }
+  footer .authority { color: rgba(247,243,234,0.4); font-size: 0.78rem; margin-bottom: 10px; }
+
+  .related { padding: 8px 0 56px; }
+  .related h2 { font-size: 1.15rem; margin-bottom: 16px; color: var(--navy-deep); }
+  .related-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+  .related-list a {
+    display: block;
+    padding: 12px 16px;
+    background: var(--cream-warm);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--navy);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.15s ease;
+  }
+  .related-list a:hover { background: rgba(201,162,75,0.18); }
 
   @media (max-width: 600px) {
     .calc-card, .services-card { padding: 26px 20px; }
@@ -410,6 +534,16 @@
     <a href="tel:+523339675255" class="header-phone">33 3967 5255</a>
   </div>
 </header>
+
+<nav class="breadcrumb" aria-label="Ruta de navegación">
+  <div class="wrap">
+    <a href="https://unobrokers.com.mx">Inicio</a>
+    <span>/</span>
+    <a href="https://unobrokers.com.mx/administracion-de-rentas.html">Administración de rentas</a>
+    <span>/</span>
+    <span class="current">Calculadora INPC</span>
+  </div>
+</nav>
 
 <section class="hero">
   <div class="wrap">
@@ -496,6 +630,29 @@
   </div>
 </section>
 
+<section class="how-section">
+  <div class="wrap">
+    <h2>Cómo se calcula el aumento de renta con el INPC</h2>
+    <ol class="how-list">
+      <li>
+        <strong>Consulta el INPC anual vigente.</strong> Es la variación que publica el INEGI comparando el mismo mes contra el año anterior — el número que ves arriba en esta página.
+      </li>
+      <li>
+        <strong>Revisa tu contrato de arrendamiento.</strong> Muchos contratos en México especifican el ajuste como "INPC + 1, 2 o 3 puntos"; si el tuyo no lo dice, se usa solo el INPC.
+      </li>
+      <li>
+        <strong>Verifica si tu propiedad está en la Ciudad de México.</strong> Ahí, el aumento en renovaciones no puede superar el INPC por ley (artículo 2448-D del Código Civil, validado por la SCJN en 2026). En el resto del país no hay este tope legal.
+      </li>
+      <li>
+        <strong>Aplica la fórmula:</strong> renta actual × (INPC + puntos pactados, si aplican) = monto del incremento.
+      </li>
+      <li>
+        <strong>Suma el incremento a la renta actual</strong> para obtener la nueva renta mensual — el resultado que te da la calculadora de arriba.
+      </li>
+    </ol>
+  </div>
+</section>
+
 <section class="services">
   <div class="wrap">
     <div class="services-card">
@@ -530,12 +687,33 @@
       <h3>¿Es obligatorio usar el INPC para ajustar la renta?</h3>
       <p>En la Ciudad de México sí: desde agosto de 2024 el artículo 2448-D del Código Civil fija que el aumento en renovaciones no puede superar el INPC del año anterior, regla validada por la Suprema Corte en febrero de 2026. En el resto del país, incluyendo Jalisco, no hay tope legal — el INPC es la referencia más usada para negociar, pero no es obligatorio por ley.</p>
     </div>
+    <div class="faq-item">
+      <h3>¿Qué pasa si mi contrato no menciona el INPC?</h3>
+      <p>Si el contrato no especifica cómo se ajusta la renta, propietario e inquilino deben acordarlo al momento de renovar. En la práctica, el INPC es el punto de partida más común porque es un dato público, objetivo y verificable en el sitio del INEGI.</p>
+    </div>
+    <div class="faq-item">
+      <h3>¿Puede el inquilino negarse al aumento?</h3>
+      <p>Si el contrato ya especifica la fórmula de ajuste (por ejemplo, "INPC + 2 puntos"), el inquilino está obligado a respetarla. Si no la especifica, el aumento debe negociarse por ambas partes antes de renovar; ninguna puede imponerlo unilateralmente sin acuerdo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="related">
+  <div class="wrap">
+    <h2>Más herramientas y recursos de UNO Brokers</h2>
+    <ul class="related-list">
+      <li><a href="https://unobrokers.com.mx/generador-contrato-renta.html">Generador de contrato de arrendamiento</a></li>
+      <li><a href="https://unobrokers.com.mx/investigacion-inquilinos.html">Investigación de inquilinos y buró de crédito</a></li>
+      <li><a href="https://unobrokers.com.mx/administracion-de-rentas.html">Administración de rentas en Guadalajara y Zapopan</a></li>
+      <li><a href="https://unobrokers.com.mx/calculadora-opinion-valor.html">Calculadora de opinión de valor de tu propiedad</a></li>
+    </ul>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    Dato INPC actualizado manualmente por UNO Brokers con fuente oficial <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">INEGI</a>. Última actualización: agosto 2026.
+    <p class="authority">UNO Brokers — inmobiliaria en Guadalajara y Zapopan, Jalisco, con más de 30 años de operación (desde 1995).</p>
+    Dato INPC actualizado manualmente por UNO Brokers con fuente oficial <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">INEGI</a>. Última actualización: 6 de septiembre de 2026.
   </div>
 </footer>
 
