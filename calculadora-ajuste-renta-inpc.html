@@ -65,7 +65,7 @@
       "name": "¿Es obligatorio usar el INPC para ajustar la renta?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No es obligatorio por ley, pero es la referencia más usada y aceptada en México porque refleja de forma objetiva la inflación del último año, evitando aumentos arbitrarios."
+        "text": "En la Ciudad de México sí es obligatorio: desde agosto de 2024 el artículo 2448-D del Código Civil capitalino fija que el aumento en renovaciones de contrato no puede superar el INPC del año anterior, regla validada por la Suprema Corte en febrero de 2026. En el resto del país, incluyendo Jalisco, no hay tope legal y el INPC es solo la referencia más usada para negociar."
       }
     }
   ]
@@ -277,6 +277,22 @@
     color: var(--cream);
   }
 
+  .chip[disabled] {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .legal-note {
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: var(--navy-deep);
+    background: var(--cream-warm);
+    border-left: 3px solid var(--gold);
+    padding: 14px 16px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+
   /* RESULT */
   .result {
     margin-top: 8px;
@@ -419,6 +435,14 @@
     <div class="calc-card">
 
       <div class="field">
+        <label>¿Dónde está tu propiedad?</label>
+        <div class="chip-row" id="ubicacionChips">
+          <button type="button" class="chip active" data-value="otro">Jalisco / otro estado</button>
+          <button type="button" class="chip" data-value="cdmx">Ciudad de México</button>
+        </div>
+      </div>
+
+      <div class="field">
         <label for="rentaActual">¿Cuánto paga actualmente tu inquilino de renta?</label>
         <div class="money-input">
           <span>$</span>
@@ -426,7 +450,7 @@
         </div>
       </div>
 
-      <div class="field">
+      <div class="field" id="puntosField">
         <label>¿Tu contrato dice "INPC más algo extra"?</label>
         <div class="field-hint" style="margin-top:-4px; margin-bottom:14px;">Algunos contratos dicen, por ejemplo, "INPC + 2%". Si el tuyo no lo dice, elige "Solo INPC".</div>
         <div class="chip-row" id="puntosChips">
@@ -436,6 +460,14 @@
           <button type="button" class="chip" data-value="3">+3%</button>
         </div>
         <input type="hidden" id="puntosExtra" value="0">
+      </div>
+
+      <div class="legal-note" id="legalNoteCdmx" style="display:none;">
+        ⚖️ En la <strong>Ciudad de México</strong>, desde agosto de 2024 el artículo 2448-D del Código Civil establece que, al <strong>renovar</strong> un contrato de vivienda, el aumento de renta <strong>no puede superar el INPC</strong> del año anterior. La Suprema Corte (SCJN) validó esta regla en febrero de 2026. Por eso aquí no se permiten puntos extra: la ley solo permite el ajuste puro por INPC en renovaciones. (Un contrato nuevo, con otro inquilino, sí se pacta a precio libre.)
+      </div>
+
+      <div class="legal-note" id="legalNoteOtro">
+        ℹ️ En Jalisco y el resto del país (fuera de CDMX) <strong>no existe un tope legal</strong> para el aumento de renta. El INPC + puntos extra es una referencia de mercado que se pacta libremente entre propietario e inquilino, normalmente según lo que ya diga el contrato.
       </div>
 
       <div class="result">
@@ -496,7 +528,7 @@
     </div>
     <div class="faq-item">
       <h3>¿Es obligatorio usar el INPC para ajustar la renta?</h3>
-      <p>No es obligatorio por ley, pero es la referencia más usada y aceptada en México porque refleja de forma objetiva la inflación del último año, evitando aumentos arbitrarios.</p>
+      <p>En la Ciudad de México sí: desde agosto de 2024 el artículo 2448-D del Código Civil fija que el aumento en renovaciones no puede superar el INPC del año anterior, regla validada por la Suprema Corte en febrero de 2026. En el resto del país, incluyendo Jalisco, no hay tope legal — el INPC es la referencia más usada para negociar, pero no es obligatorio por ley.</p>
     </div>
   </div>
 </section>
@@ -532,6 +564,36 @@
   const rentaInput = document.getElementById('rentaActual');
   const puntosHidden = document.getElementById('puntosExtra');
   const chips = document.querySelectorAll('#puntosChips .chip');
+  const ubicacionChips = document.querySelectorAll('#ubicacionChips .chip');
+  const legalNoteCdmx = document.getElementById('legalNoteCdmx');
+  const legalNoteOtro = document.getElementById('legalNoteOtro');
+  let ubicacion = 'otro';
+
+  function actualizarUbicacion(valor) {
+    ubicacion = valor;
+    ubicacionChips.forEach(c => c.classList.toggle('active', c.dataset.value === valor));
+
+    if (valor === 'cdmx') {
+      legalNoteCdmx.style.display = 'block';
+      legalNoteOtro.style.display = 'none';
+      // En CDMX, la ley solo permite el ajuste puro por INPC en renovaciones: forzamos "Solo INPC"
+      chips.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('disabled', 'true');
+      });
+      document.querySelector('#puntosChips .chip[data-value="0"]').classList.add('active');
+      puntosHidden.value = '0';
+    } else {
+      legalNoteCdmx.style.display = 'none';
+      legalNoteOtro.style.display = 'block';
+      chips.forEach(c => c.removeAttribute('disabled'));
+    }
+    calcular();
+  }
+
+  ubicacionChips.forEach(chip => {
+    chip.addEventListener('click', () => actualizarUbicacion(chip.dataset.value));
+  });
 
   const outRentaActual = document.getElementById('outRentaActual');
   const outInpcMonto = document.getElementById('outInpcMonto');
@@ -575,6 +637,7 @@
 
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
+      if (chip.hasAttribute('disabled')) return;
       chips.forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       puntosHidden.value = chip.dataset.value;
@@ -582,7 +645,7 @@
     });
   });
 
-  calcular();
+  actualizarUbicacion('otro');
 </script>
 
 </body>
