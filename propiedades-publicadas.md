@@ -20,6 +20,7 @@ Antes de crear una página nueva, revisar esta lista por REF o dirección para e
 | 13 | UAP9480344 | Depto. 2 rec., planta baja, Jardín de San Ignacio | Venta | $4,100,000 MXN | `departamento-venta-jardin-san-ignacio-zapopan.html` | 2026-09-05 |
 | 14 | ULA7767297 | Terreno 190 m², Bosques Vallarta, Zona Real | Venta | $3,420,000 MXN | `terreno-venta-bosques-vallarta-zapopan.html` | 2026-09-06 |
 | 15 | ULA8586909 | Terreno 531.76 m², Los Sueños, categoría Diamante (32% desc.) | Venta | $9,172,860 MXN | `terreno-promocion-los-suenos-diamante-zapopan.html` | 2026-09-06 |
+| 16 | UAP7765710 | Penthouse de lujo 2 niveles, The Landmark, Puerta de Hierro | Venta | $40,050,500 MXN | `penthouse-the-landmark-puerta-de-hierro.html` | 2026-09-06 |
 
 ## Cómo usar este archivo
 - Antes de pedirle a Claude una página nueva, busca la REF de Tokko (aparece como "REF. XXXXXXX" en la ficha) en la columna correspondiente.
