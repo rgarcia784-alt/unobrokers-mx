@@ -23,6 +23,29 @@
 <meta name="twitter:title" content="Vivaria 2360 | Deptos en Preventa cerca del Tren Ligero, GDL">
 <meta name="twitter:description" content="Departamentos de 1, 2 y 3 recámaras en el corazón de Guadalajara. Asesoría UNO Brokers, 30 años en el mercado.">
 
+<meta name="geo.region" content="MX-JAL">
+<meta name="geo.placename" content="Col. San Antonio, Guadalajara, Jalisco">
+<meta name="geo.position" content="20.6615;-103.3066">
+<meta name="ICBM" content="20.6615, -103.3066">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '937698856909856');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=937698856909856&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <!-- JSON-LD: Organización comercializadora -->
 <script type="application/ld+json">
 {
@@ -1083,6 +1106,14 @@
     <p class="eyebrow" style="color:var(--vivaria);">Siguiente paso</p>
     <h2>Agenda tu visita a Vivaria 2360</h2>
     <p>Recibe cotización actualizada, disponibilidad de prototipos y acompañamiento durante todo el proceso de compra.</p>
+
+    <form id="form-cotiza" style="max-width:420px;margin:28px 0;display:flex;flex-direction:column;gap:12px;" onsubmit="return enviarCotizacionWhatsApp(event)">
+      <input type="text" id="cot-nombre" placeholder="Nombre" required style="padding:14px 16px;border-radius:4px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:var(--cream);font-family:var(--sans);font-size:0.95rem;">
+      <input type="tel" id="cot-telefono" placeholder="Teléfono" required style="padding:14px 16px;border-radius:4px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:var(--cream);font-family:var(--sans);font-size:0.95rem;">
+      <input type="email" id="cot-correo" placeholder="Correo" required style="padding:14px 16px;border-radius:4px;border:1px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.06);color:var(--cream);font-family:var(--sans);font-size:0.95rem;">
+      <button type="submit" class="btn btn-gold" style="border:none;cursor:pointer;">Cotiza tu departamento</button>
+    </form>
+
     <div class="contact-ctas">
       <a class="btn btn-gold" href="https://wa.me/523339675255?text=Hola%2C%20quiero%20agendar%20una%20visita%20a%20Vivaria%202360" target="_blank" rel="noopener">Agendar por WhatsApp</a>
       <a class="btn btn-outline" href="tel:+523339675255">Llamar ahora</a>
@@ -1092,6 +1123,21 @@
     </div>
   </div>
 </section>
+
+<script>
+function enviarCotizacionWhatsApp(e){
+  e.preventDefault();
+  var nombre = document.getElementById('cot-nombre').value.trim();
+  var telefono = document.getElementById('cot-telefono').value.trim();
+  var correo = document.getElementById('cot-correo').value.trim();
+  if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+  var texto = 'Hola, quiero cotización de Vivaria 2360.%0A%0ANombre: ' + encodeURIComponent(nombre) +
+    '%0ATeléfono: ' + encodeURIComponent(telefono) +
+    '%0ACorreo: ' + encodeURIComponent(correo);
+  window.open('https://wa.me/523339675255?text=' + texto, '_blank');
+  return false;
+}
+</script>
 
 <footer>
   <div class="wrap">
