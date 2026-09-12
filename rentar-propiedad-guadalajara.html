@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="geo.region" content="MX-JAL">
+<meta name="geo.placename" content="Zapopan, Jalisco">
+<meta name="geo.position" content="20.6910;-103.4470">
+<meta name="ICBM" content="20.6910, -103.4470">
 <title>Rentar mi Propiedad en Guadalajara y Zapopan | UNO Brokers</title>
 <meta property="og:title" content="Rentar mi Propiedad en Guadalajara y Zapopan | UNO Brokers">
 <meta property="og:description" content="¿Quieres rentar tu casa o departamento en Guadalajara o Zapopan? UNO Brokers se encarga de todo: inquilinos, cobro de renta, mantenimiento y respaldo legal. Providencia, Ladrón de Guevara, Puerta de Hierro, Colonia Americana y más. Llama: 33 3967 5255.">
@@ -460,9 +464,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, box-shadow 0.2s;
   }
 
+  a.zona-pill { text-decoration: none; cursor: pointer; }
+  a.zona-pill:hover { border-color: var(--gold); box-shadow: 0 4px 14px rgba(0,0,0,.06); }
   .zona-pill:hover { border-color: var(--gold); }
   .zona-pill .zp-icon { font-size: 18px; }
   .zona-pill .zp-name { font-size: 14px; font-weight: 500; color: var(--dark); }
@@ -625,6 +631,7 @@
     .section { padding: 3.5rem 1.25rem; }
     .proceso-section, .garantias-section, .cta-section { padding: 3.5rem 1.25rem; }
     .hero-stats { gap: 1.5rem; }
+    .galeria-grid { grid-template-columns: repeat(2,1fr) !important; }
   }
 </style>
 </head>
@@ -808,6 +815,19 @@
   </div>
 </section>
 
+<!-- GALERIA -->
+<section class="section" style="background:#F8F7F4;">
+  <p class="section-tag">Así son las propiedades</p>
+  <h2 class="section-title">Un ejemplo real que administramos</h2>
+  <p style="text-align:center;color:var(--muted);font-size:14px;margin:-1rem auto 1.5rem;max-width:520px;">Depa de 2 recámaras en Sant Uriel, Chapalita — uno de los edificios que administramos en Guadalajara.</p>
+  <div class="galeria-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:1100px;margin:0 auto;padding:0 24px;">
+    <img src="gdl-santuriel-lobby.jpg" alt="Lobby del edificio Sant Uriel, departamento en renta en Chapalita Guadalajara" style="width:100%;height:180px;object-fit:cover;border-radius:10px;">
+    <img src="gdl-santuriel-sala-vista.jpg" alt="Sala con vista panorámica nocturna, departamento en renta en Chapalita Guadalajara" style="width:100%;height:180px;object-fit:cover;border-radius:10px;">
+    <img src="gdl-santuriel-cocina.jpg" alt="Cocina equipada, departamento en renta administrado en Chapalita Guadalajara" style="width:100%;height:180px;object-fit:cover;border-radius:10px;">
+    <img src="gdl-santuriel-pasillo-cocina.jpg" alt="Sala y cocina integral, departamento en renta en Chapalita Guadalajara" style="width:100%;height:180px;object-fit:cover;border-radius:10px;">
+  </div>
+</section>
+
 <!-- ZONAS -->
 <section class="section">
   <p class="section-tag">Cobertura</p>
@@ -815,13 +835,13 @@
   <p class="section-sub">Alta demanda de inquilinos en todas estas colonias de Guadalajara y Zapopan.</p>
 
   <div class="zonas-grid">
-    <div class="zona-pill"><span class="zp-icon">🏛</span><div><p class="zp-name">Providencia</p><p class="zp-sub">Alta demanda</p></div></div>
-    <div class="zona-pill"><span class="zp-icon">⚖️</span><div><p class="zp-name">Ladrón de Guevara</p><p class="zp-sub">Corporativa</p></div></div>
-    <div class="zona-pill"><span class="zp-icon">🌆</span><div><p class="zp-name">Colonia Americana</p><p class="zp-sub">Muy buscada</p></div></div>
-    <div class="zona-pill"><span class="zp-icon">🏰</span><div><p class="zp-name">Puerta de Hierro</p><p class="zp-sub">Lujo</p></div></div>
+    <a class="zona-pill" href="/providencia-guadalajara.html"><span class="zp-icon">🏛</span><div><p class="zp-name">Providencia</p><p class="zp-sub">Alta demanda</p></div></a>
+    <a class="zona-pill" href="/ladron-de-guevara-guadalajara.html"><span class="zp-icon">⚖️</span><div><p class="zp-name">Ladrón de Guevara</p><p class="zp-sub">Corporativa</p></div></a>
+    <a class="zona-pill" href="/colonia-americana-guadalajara.html"><span class="zp-icon">🌆</span><div><p class="zp-name">Colonia Americana</p><p class="zp-sub">Muy buscada</p></div></a>
+    <a class="zona-pill" href="/puerta-de-hierro.html"><span class="zp-icon">🏰</span><div><p class="zp-name">Puerta de Hierro</p><p class="zp-sub">Lujo</p></div></a>
     <div class="zona-pill"><span class="zp-icon">🌳</span><div><p class="zp-name">Monraz</p><p class="zp-sub">Residencial</p></div></div>
-    <div class="zona-pill"><span class="zp-icon">🏙</span><div><p class="zp-name">Ciudad Granja</p><p class="zp-sub">En crecimiento</p></div></div>
-    <div class="zona-pill"><span class="zp-icon">✨</span><div><p class="zp-name">Valle Real</p><p class="zp-sub">Premium</p></div></div>
+    <a class="zona-pill" href="/ciudad-granja-zapopan.html"><span class="zp-icon">🏙</span><div><p class="zp-name">Ciudad Granja</p><p class="zp-sub">En crecimiento</p></div></a>
+    <a class="zona-pill" href="/valle-real-zapopan.html"><span class="zp-icon">✨</span><div><p class="zp-name">Valle Real</p><p class="zp-sub">Premium</p></div></a>
     <div class="zona-pill"><span class="zp-icon">🌿</span><div><p class="zp-name">Chapalita</p><p class="zp-sub">Clásica</p></div></div>
     <div class="zona-pill"><span class="zp-icon">📈</span><div><p class="zp-name">Santa Anita</p><p class="zp-sub">Mayor crecimiento</p></div></div>
     <div class="zona-pill"><span class="zp-icon">🌲</span><div><p class="zp-name">Jardines del Bosque</p><p class="zp-sub">Residencial</p></div></div>
@@ -898,12 +918,12 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">¿Cómo elegir al inquilino correcto para mi propiedad? <span class="faq-arrow">▾</span></button>
-      <div class="faq-a">El perfil ideal combina estabilidad económica, historial de pago limpio y referencias verificables. Nosotros hacemos ese filtro por ti: solo te presentamos candidatos que ya pasaron nuestra investigación, para que tú tomes la decisión final con tranquilidad.</div>
+      <div class="faq-a">El perfil ideal combina estabilidad económica, historial de pago limpio y referencias verificables. Nosotros hacemos ese filtro por ti: solo te presentamos candidatos que ya pasaron nuestra investigación, para que tú tomes la decisión final con tranquilidad. <a href="/blog-investigar-inquilinos-zapopan.html" style="color:#9a6a10;font-weight:600;">Más sobre cómo investigamos inquilinos →</a></div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si el inquilino no paga o daña mi propiedad? <span class="faq-arrow">▾</span></button>
-      <div class="faq-a">El contrato que elaboramos incluye protecciones legales para estos casos: depósito en garantía, aval solidario y cláusulas de rescisión. En caso de incumplimiento te asesoramos en el proceso legal de desahucio y recuperación del inmueble.</div>
+      <div class="faq-a">El contrato que elaboramos incluye protecciones legales para estos casos: depósito en garantía, aval solidario y cláusulas de rescisión. En caso de incumplimiento te asesoramos en el proceso legal de desahucio y recuperación del inmueble. <a href="/blog-errores-renta-zapopan.html" style="color:#9a6a10;font-weight:600;">Errores comunes que llevan a esto →</a></div>
     </div>
 
     <div class="faq-item">
@@ -947,6 +967,17 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.23h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       Llamar: 33 3967 5255
     </a>
+  </div>
+</section>
+
+<!-- CROSSLINKS -->
+<section style="background:#F8F7F4;padding:32px 24px;text-align:center;border-top:1px solid #eee;">
+  <p style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#9a6a10;margin-bottom:14px;">¿Buscas otra cosa en Guadalajara o Zapopan?</p>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+    <a href="/vender-casa-guadalajara.html" style="background:#fff;border:1px solid #e5e2dc;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;">Quiero vender mi propiedad</a>
+    <a href="/captacion-departamentos-venta-zapopan-guadalajara.html" style="background:#fff;border:1px solid #e5e2dc;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;">Vender mi depa en Zapopan</a>
+    <a href="/blog-errores-renta-zapopan.html" style="background:#fff;border:1px solid #e5e2dc;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;">Errores comunes al rentar</a>
+    <a href="/blog-investigar-inquilinos-zapopan.html" style="background:#fff;border:1px solid #e5e2dc;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;color:#1a1a1a;text-decoration:none;">Cómo investigar a un inquilino</a>
   </div>
 </section>
 
