@@ -43,6 +43,23 @@
   "knowsLanguage": "es-MX"
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Administración de propiedades en renta",
+  "provider": {
+    "@type": "RealEstateAgent",
+    "name": "UNO Brokers",
+    "url": "https://unobrokers.com.mx/"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Guadalajara" },
+    { "@type": "City", "name": "Zapopan" }
+  ],
+  "description": "Administramos tu propiedad en renta: investigamos al inquilino, elaboramos el contrato con respaldo notarial, cobramos la renta mes a mes y la facturamos. Tú solo recibes el depósito."
+}
+</script>
 <link rel="canonical" href="https://unobrokers.com.mx/rentar-propiedad-guadalajara.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -767,8 +784,8 @@
     </div>
     <div class="servicio-card">
       <div class="serv-icon">📋</div>
-      <p class="serv-title">Contrato y respaldo legal</p>
-      <p class="serv-desc">Elaboramos contratos sólidos que protegen tus intereses como propietario ante cualquier eventualidad.</p>
+      <p class="serv-title">Contrato con respaldo notarial</p>
+      <p class="serv-desc">Formalizamos un contrato de transacción con pagaré sin protesta. Si el inquilino incumple, no se necesita demanda: se solicita directamente la ejecución forzosa ante el juez.</p>
     </div>
     <div class="servicio-card">
       <div class="serv-icon">📣</div>
@@ -779,6 +796,11 @@
       <div class="serv-icon">📊</div>
       <p class="serv-title">Valuación de renta</p>
       <p class="serv-desc">Te decimos cuánto vale tu propiedad en el mercado actual para que no dejes dinero sobre la mesa.</p>
+    </div>
+    <div class="servicio-card">
+      <div class="serv-icon">🧾</div>
+      <p class="serv-title">Facturación de la renta</p>
+      <p class="serv-desc">Emitimos el CFDI correspondiente cada mes, para que tanto tú como tu inquilino tengan el comprobante fiscal en orden, sin que tengas que dar de alta nada por tu cuenta.</p>
     </div>
   </div>
 </section>
@@ -908,7 +930,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto cobra UNO Brokers por administrar mi propiedad en renta? <span class="faq-arrow">▾</span></button>
-      <div class="faq-a">Nuestros honorarios son un porcentaje mensual sobre la renta cobrada, lo que significa que solo ganamos cuando tú ganas. Contáctanos para una propuesta personalizada según el tipo y zona de tu propiedad.</div>
+      <div class="faq-a">Lo habitual en la zona es una comisión equivalente a una mensualidad por colocar al inquilino, más una cuota por la administración mensual si decides que también nos encarguemos del cobro y la facturación recurrente. Contáctanos para una propuesta personalizada según el tipo y zona de tu propiedad.</div>
     </div>
 
     <div class="faq-item">
@@ -923,7 +945,7 @@
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si el inquilino no paga o daña mi propiedad? <span class="faq-arrow">▾</span></button>
-      <div class="faq-a">El contrato que elaboramos incluye protecciones legales para estos casos: depósito en garantía, aval solidario y cláusulas de rescisión. En caso de incumplimiento te asesoramos en el proceso legal de desahucio y recuperación del inmueble. <a href="/blog-errores-renta-zapopan.html" style="color:#9a6a10;font-weight:600;">Errores comunes que llevan a esto →</a></div>
+      <div class="faq-a">El contrato que elaboramos incluye protecciones legales para estos casos: depósito en garantía, aval solidario y cláusulas de rescisión. Al formalizarlo con transacción notarial y pagaré sin protesta, no es necesario iniciar una demanda para exigir el pago: se puede solicitar directamente la ejecución forzosa ante el juez correspondiente, lo que acorta el proceso de manera importante. <a href="/blog-errores-renta-zapopan.html" style="color:#9a6a10;font-weight:600;">Errores comunes que llevan a esto →</a></div>
     </div>
 
     <div class="faq-item">
@@ -939,6 +961,16 @@
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">¿Tengo que pagar impuestos por rentar mi propiedad en México? <span class="faq-arrow">▾</span></button>
       <div class="faq-a">Sí, los ingresos por arrendamiento deben declararse ante el SAT. Puedes deducir gastos de mantenimiento, predial e intereses hipotecarios. Te orientamos para que cumplas correctamente y pagues solo lo que corresponde.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Necesito facturar la renta de mi casa? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Si rentas de forma regular, lo recomendable es declarar ese ingreso ante el SAT bajo el régimen de arrendamiento. Nosotros emitimos el comprobante fiscal (CFDI) cada mes como parte del servicio de administración, sin que tengas que dar de alta nada por tu cuenta.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Puedo contratar solo la investigación del inquilino, sin la administración completa? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Sí. Muchos propietarios prefieren administrar ellos mismos el cobro mensual, pero quieren la tranquilidad de saber a quién le están rentando. Puedes contratar únicamente la investigación y el contrato, y encargarte tú del resto.</div>
     </div>
 
     <div class="faq-item">
@@ -1023,15 +1055,17 @@ function enviarWA() {
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"¿Cómo pongo mi casa en renta en Guadalajara?","acceptedAnswer":{"@type":"Answer","text":"El proceso es sencillo: contáctanos, visitamos tu propiedad, hacemos una valuación de renta gratuita, publicamos con fotografía profesional y encontramos al inquilino ideal. Todo el proceso tarda entre 2 y 4 semanas."}},
-    {"@type":"Question","name":"¿Cuánto cobra UNO Brokers por administrar mi propiedad en renta?","acceptedAnswer":{"@type":"Answer","text":"Nuestros honorarios son un porcentaje mensual sobre la renta cobrada. Contáctanos para una propuesta personalizada."}},
+    {"@type":"Question","name":"¿Cuánto cobra UNO Brokers por administrar mi propiedad en renta?","acceptedAnswer":{"@type":"Answer","text":"Lo habitual en la zona es una comisión equivalente a una mensualidad por colocar al inquilino, más una cuota por la administración mensual si también se encarga del cobro y la facturación recurrente."}},
     {"@type":"Question","name":"¿Cómo asegurarme de que el inquilino me pague la renta puntualmente?","acceptedAnswer":{"@type":"Answer","text":"Investigamos buró de crédito, comprobantes de ingresos, referencias laborales y personales. El contrato incluye penalización por mora y depósito en garantía."}},
-    {"@type":"Question","name":"¿Qué pasa si el inquilino no paga o daña mi propiedad?","acceptedAnswer":{"@type":"Answer","text":"El contrato incluye depósito en garantía, aval solidario y cláusulas de rescisión. Te asesoramos en el proceso legal de desahucio y recuperación del inmueble."}},
+    {"@type":"Question","name":"¿Qué pasa si el inquilino no paga o daña mi propiedad?","acceptedAnswer":{"@type":"Answer","text":"El contrato incluye depósito en garantía, aval solidario y cláusulas de rescisión. Al formalizarlo con transacción notarial y pagaré sin protesta, no es necesario iniciar una demanda: se puede solicitar directamente la ejecución forzosa ante el juez."}},
     {"@type":"Question","name":"¿Cuánto tiempo tarda en rentarse una propiedad en Zapopan o Guadalajara?","acceptedAnswer":{"@type":"Answer","text":"En zonas de alta demanda como Providencia o Ladrón de Guevara, entre 2 y 6 semanas. En colonias de menor demanda entre 4 y 10 semanas."}},
     {"@type":"Question","name":"¿Tengo que pagar impuestos por rentar mi propiedad en México?","acceptedAnswer":{"@type":"Answer","text":"Sí, los ingresos por arrendamiento deben declararse ante el SAT. Puedes deducir gastos de mantenimiento, predial e intereses hipotecarios."}},
     {"@type":"Question","name":"¿Cuánto vale la renta de mi propiedad en Guadalajara?","acceptedAnswer":{"@type":"Answer","text":"Depende de zona, tipo de inmueble, metros cuadrados y condiciones del mercado. Te hacemos una valuación de renta gratuita con datos reales."}},
     {"@type":"Question","name":"¿Cómo elegir al inquilino correcto para mi propiedad?","acceptedAnswer":{"@type":"Answer","text":"El perfil ideal combina estabilidad económica, historial de pago limpio y referencias verificables. Nosotros hacemos ese filtro por ti: solo te presentamos candidatos que ya pasaron nuestra investigación, para que tú tomes la decisión final con tranquilidad."}},
     {"@type":"Question","name":"¿Necesito un contrato de renta notariado en Jalisco?","acceptedAnswer":{"@type":"Answer","text":"No es obligatorio notarizarlo, pero sí debe estar firmado por ambas partes y contar con un aval. Nosotros elaboramos el contrato con todas las cláusulas que exige la ley en Jalisco para que tenga validez legal y te proteja como propietario."}},
-    {"@type":"Question","name":"¿Puedo rentar mi propiedad si aún tiene hipoteca?","acceptedAnswer":{"@type":"Answer","text":"En la mayoría de los casos sí. Debes revisar las condiciones de tu crédito hipotecario, ya que algunos bancos requieren notificación previa. Te ayudamos a revisar este punto antes de publicar tu propiedad."}}
+    {"@type":"Question","name":"¿Puedo rentar mi propiedad si aún tiene hipoteca?","acceptedAnswer":{"@type":"Answer","text":"En la mayoría de los casos sí. Debes revisar las condiciones de tu crédito hipotecario, ya que algunos bancos requieren notificación previa. Te ayudamos a revisar este punto antes de publicar tu propiedad."}},
+    {"@type":"Question","name":"¿Necesito facturar la renta de mi casa?","acceptedAnswer":{"@type":"Answer","text":"Si rentas de forma regular, lo recomendable es declarar ese ingreso ante el SAT bajo el régimen de arrendamiento. Emitimos el comprobante fiscal (CFDI) cada mes como parte del servicio de administración."}},
+    {"@type":"Question","name":"¿Puedo contratar solo la investigación del inquilino, sin la administración completa?","acceptedAnswer":{"@type":"Answer","text":"Sí. Muchos propietarios prefieren administrar ellos mismos el cobro mensual, pero quieren la tranquilidad de saber a quién le están rentando. Se puede contratar únicamente la investigación y el contrato."}}
   ]
 }
 </script>
