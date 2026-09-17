@@ -42,7 +42,10 @@ body{font-family:'Inter',Arial,sans-serif;background:#fff;color:#222}
 .plan-pct{font-family:'EB Garamond',Georgia,serif;font-size:2.2rem;font-weight:700;color:#C5992A;line-height:1}
 .plan-label{font-size:10px;color:#8FA8C8;text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
 
-.amenities{list-style:none;margin-top:16px}
+.amenity-gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.amenity-gallery img{width:100%;height:150px;object-fit:cover;display:block;border-radius:8px}
+
+.amenities{list-style:none;margin-top:22px}
 .amenities li{padding:9px 0;border-bottom:1px solid #eee;font-size:14px;color:#444;display:flex;align-items:center;gap:10px}
 .amenities li::before{content:"✓";color:#C5992A;font-weight:700}
 
@@ -56,6 +59,7 @@ footer{padding:24px;text-align:center;font-size:12px;color:#999}
   .hero-title{font-size:27px}
   .gallery img{height:160px}
   .plan-pct{font-size:1.7rem}
+  .amenity-gallery img{height:120px}
 }
 </style>
 </head>
@@ -104,12 +108,24 @@ footer{padding:24px;text-align:center;font-size:12px;color:#999}
 <div class="section">
   <p class="section-label">Amenidades</p>
   <h2 class="section-title">Todo dentro del edificio</h2>
+  <div class="amenity-gallery">
+    <img src="vivaria-amenidad-smart-lockers.jpg" alt="Smart Lockers Vivaria 2360">
+    <img src="vivaria-amenidad-coworking.jpg" alt="Coworking Vivaria 2360">
+    <img src="vivaria-amenidad-gimnasio-trx.jpg" alt="Gimnasio TRX Vivaria 2360">
+    <img src="vivaria-amenidad-area-juegos.jpg" alt="Área de juegos Vivaria 2360">
+    <img src="vivaria-amenidad-pet-park.jpg" alt="Pet Park Vivaria 2360">
+    <img src="vivaria-amenidad-pista-trotar.jpg" alt="Pista de trotar Vivaria 2360">
+  </div>
   <ul class="amenities">
-    <li>Gimnasio TRX</li>
-    <li>Área de coworking</li>
-    <li>Pet park</li>
-    <li>Patios centrales</li>
     <li>Control de acceso</li>
+    <li>Ciclopuerto</li>
+    <li>Smart lockers</li>
+    <li>Gimnasio TRX</li>
+    <li>Salón de usos múltiples</li>
+    <li>Pet park</li>
+    <li>Área de coworking</li>
+    <li>Pista de trotar</li>
+    <li>Patios centrales</li>
     <li>Ludoteca</li>
   </ul>
 </div>
