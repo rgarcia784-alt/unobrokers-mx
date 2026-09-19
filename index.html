@@ -19,9 +19,11 @@
 <meta name="twitter:image" content="https://unobrokers.com.mx/default.jpg">
 
 <meta name="description" content="Vende o renta tu propiedad con UNO BROKERS en Guadalajara, Zapopan y CDMX. Casas, departamentos, terrenos y oficinas. Asesoría sin costo por WhatsApp.">
-<meta name="keywords" content="vender casa Guadalajara, rentar departamento Zapopan, vender terreno Jalisco, renta de bodegas Guadalajara, oficinas en renta Zapopan, departamentos en venta GDL, desarrollos inmobiliarios Guadalajara, inmobiliaria Zapopan, broker inmobiliario GDL, UNO BROKERS">
 <meta name="author" content="UNO BROKERS">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0A1628">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; base-uri 'self'; form-action 'self' https://wa.me;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -43,6 +45,10 @@
   "foundingDate": "1995",
   "memberOf": [
     {"@type": "Organization", "name": "AMPI (Asociación Mexicana de Profesionales Inmobiliarios)"}
+  ],
+  "sameAs": [
+    "https://www.instagram.com/unobrokersmx/",
+    "https://www.facebook.com/facebook.comUnoBrokersZapopanGuadalajara"
   ],
   "dateModified": "2026-09-14"
 }
@@ -238,7 +244,7 @@ footer a{color:var(--gold-soft); text-decoration:none;}
 <header class="site">
   <div class="header-inner">
     <div class="brand-lock">UNO Brokers</div>
-    <nav class="primary">
+    <nav class="primary" aria-label="Navegación principal">
       <a href="#servicios">01 Servicios</a>
       <a href="#desarrollos">02 Desarrollos</a>
       <a href="#por-que">03 Por qué UNO</a>
@@ -249,6 +255,7 @@ footer a{color:var(--gold-soft); text-decoration:none;}
   </div>
 </header>
 
+<main id="main">
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
@@ -268,10 +275,10 @@ footer a{color:var(--gold-soft); text-decoration:none;}
       </div>
     </div>
     <div class="photo-grid">
-      <div class="pg-item"><img src="home-vivaria.jpg" alt="Vivaria 2360 — preventa de departamentos en Guadalajara"><div class="cap">Vivaria 2360</div></div>
-      <div class="pg-item"><img src="home-nara.jpg" alt="NARA Américas — preventa de departamentos en Zapopan"><div class="cap">NARA Américas</div></div>
-      <div class="pg-item"><img src="home-origina.jpg" alt="Origina Santa Fe — torres residenciales en preventa, CDMX"><div class="cap">Origina Santa Fe</div></div>
-      <div class="pg-item"><img src="home-bosquereal.jpg" alt="Bosque Real — departamentos disponibles en CDMX"><div class="cap">Bosque Real</div></div>
+      <div class="pg-item"><img src="home-vivaria.jpg" alt="Vivaria 2360 — preventa de departamentos en Guadalajara" width="600" height="400"><div class="cap">Vivaria 2360</div></div>
+      <div class="pg-item"><img src="home-nara.jpg" alt="NARA Américas — preventa de departamentos en Zapopan" width="600" height="400" loading="lazy"><div class="cap">NARA Américas</div></div>
+      <div class="pg-item"><img src="home-origina.jpg" alt="Origina Santa Fe — torres residenciales en preventa, CDMX" width="600" height="400" loading="lazy"><div class="cap">Origina Santa Fe</div></div>
+      <div class="pg-item"><img src="home-bosquereal.jpg" alt="Bosque Real — departamentos disponibles en CDMX" width="600" height="400" loading="lazy"><div class="cap">Bosque Real</div></div>
     </div>
   </div>
 </section>
@@ -450,7 +457,7 @@ renderServicios();
     </div>
     <div class="dev-grid">
       <a class="dev-card" href="/vivaria-2360.html">
-        <img src="home-vivaria.jpg" alt="Vivaria 2360">
+        <img src="home-vivaria.jpg" alt="Vivaria 2360" width="800" height="600" loading="lazy">
         <div class="overlay"></div>
         <div class="tag">Preventa</div>
         <div class="info">
@@ -460,7 +467,7 @@ renderServicios();
         </div>
       </a>
       <a class="dev-card" href="https://unobrokers.com.mx/nara-americas.html">
-        <img src="home-nara.jpg" alt="NARA Américas">
+        <img src="home-nara.jpg" alt="NARA Américas" width="800" height="600" loading="lazy">
         <div class="overlay"></div>
         <div class="tag">Preventa</div>
         <div class="info">
@@ -470,7 +477,7 @@ renderServicios();
         </div>
       </a>
       <a class="dev-card" href="/los-suenos-residencial.html">
-        <img src="home-suenos.jpg" alt="Los Sueños Residencial">
+        <img src="home-suenos.jpg" alt="Los Sueños Residencial" width="800" height="600" loading="lazy">
         <div class="overlay"></div>
         <div class="tag">Venta de terrenos</div>
         <div class="info">
@@ -480,7 +487,7 @@ renderServicios();
         </div>
       </a>
       <a class="dev-card" href="/parque-nubax.html">
-        <img src="home-nubax.jpg" alt="Parque Nubax">
+        <img src="home-nubax.jpg" alt="Parque Nubax" width="800" height="600" loading="lazy">
         <div class="overlay"></div>
         <div class="tag">Venta y renta BTS</div>
         <div class="info">
@@ -490,7 +497,7 @@ renderServicios();
         </div>
       </a>
       <a class="dev-card" href="/origina-santa-fe-cdmx.html">
-        <img src="home-origina.jpg" alt="Origina Santa Fe">
+        <img src="home-origina.jpg" alt="Origina Santa Fe" width="800" height="600" loading="lazy">
         <div class="overlay"></div>
         <div class="tag">Preventa y entrega inmediata</div>
         <div class="info">
@@ -500,7 +507,7 @@ renderServicios();
         </div>
       </a>
       <a class="dev-card" href="/departamentos-bosque-real-cdmx.html">
-        <img src="home-bosquereal.jpg" alt="Bosque Real">
+        <img src="home-bosquereal.jpg" alt="Bosque Real" width="800" height="600" loading="lazy">
         <div class="overlay"></div>
         <div class="tag">7 desarrollos</div>
         <div class="info">
@@ -632,6 +639,8 @@ renderServicios();
     </div>
   </div>
 </section>
+
+</main>
 
 <footer>
   <div class="logo">UNO <span>Brokers</span></div>
