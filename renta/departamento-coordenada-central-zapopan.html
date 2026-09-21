@@ -540,7 +540,7 @@ footer{background:var(--navy-deep);color:rgba(247,243,234,.82);font-size:.95rem}
       Escribir por WhatsApp
     </a>
     <button type="button" class="btn btn-line" data-open-share>Compartir como asesor</button>
-    <a class="tel" href="tel:+523339675255">Llamar a UNO Brokers: 33 3967 5255</a>
+    <a class="tel" id="telLink" href="tel:+523339675255">Llamar a UNO Brokers: 33 3967 5255</a>
     <p class="ref">Referencia UAP10339090</p>
   </aside>
 </main>
@@ -553,7 +553,7 @@ footer{background:var(--navy-deep);color:rgba(247,243,234,.82);font-size:.95rem}
 <footer>
   <div class="foot">
     <a class="brand" href="https://unobrokers.com.mx/">UNO Brokers</a>
-    <p>Bienes raíces en Guadalajara y Zapopan desde 1995. Miembros de AMPI, PAIS AC y la Cámara de Comercio.</p>
+    <p>Bienes raíces en Guadalajara y Zapopan desde 1995.</p>
     <p>Tel. <a href="tel:+523339675255">33 3967 5255</a> · <a href="https://unobrokers.com.mx/">unobrokers.com.mx</a> · <a href="https://www.unobrokers.mx/Privacidad">Aviso de privacidad</a></p>
     <small>Las medidas son orientativas; las exactas son las que se expresan en el título de propiedad. Las fotos e imágenes son ilustrativas y no contractuales. El precio es orientativo, no contractual y puede cambiar sin previo aviso.</small>
   </div>
@@ -631,6 +631,12 @@ footer{background:var(--navy-deep);color:rgba(247,243,234,.82);font-size:.95rem}
     a.addEventListener('click', track);
   });
   document.querySelectorAll('[data-adv-name]').forEach(function(el){ el.textContent = adv.name; });
+  var telEl = document.getElementById('telLink');
+  if(adv.personal && telEl){
+    var loc = adv.wa.slice(2);
+    telEl.href = 'tel:+' + adv.wa;
+    telEl.textContent = 'Llamar a ' + adv.name + ': ' + loc.slice(0,2) + ' ' + loc.slice(2,6) + ' ' + loc.slice(6);
+  }
 
   /* Visor de fotos */
   var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCount = document.getElementById('lbCount');
