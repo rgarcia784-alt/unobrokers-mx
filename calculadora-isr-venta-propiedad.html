@@ -46,7 +46,7 @@
     {"@type": "Question", "name": "¿El ISR se calcula diferente si vendo un terreno o un local comercial?", "acceptedAnswer": {"@type": "Answer", "text": "El procedimiento de cálculo es el mismo para cualquier tipo de inmueble. La diferencia es que terrenos, locales comerciales, oficinas y bodegas no califican para la exención de casa habitación, por lo que toda la ganancia es gravable desde el primer peso."}},
     {"@type": "Question", "name": "¿Cómo afecta la antigüedad de mi propiedad al ISR que pagaré?", "acceptedAnswer": {"@type": "Answer", "text": "A mayor número de años entre la compra y la venta, la ganancia se divide entre más años antes de aplicar la tarifa progresiva, resultando generalmente en una tasa promedio más baja. El divisor máximo que permite la ley es de 20 años."}},
     {"@type": "Question", "name": "¿Cómo sé cuánto vale realmente mi propiedad antes de venderla?", "acceptedAnswer": {"@type": "Answer", "text": "Te recomendamos usar la Calculadora de Opinión de Valor de UNO Brokers, que incluye comparables de mercado actualizados de la zona metropolitana de Guadalajara."}},
-    {"@type": "Question", "name": "¿Cómo contacto a UNO Brokers para vender mi propiedad?", "acceptedAnswer": {"@type": "Answer", "text": "Puedes contactarnos por WhatsApp o teléfono al 33 3967 5255, o a través de unobrokers.mx. Atendemos propiedades en Guadalajara, Zapopan, Tlajomulco, Tlaquepaque y toda la zona metropolitana."}}
+    {"@type": "Question", "name": "¿Cómo contacto a UNO Brokers para vender mi propiedad?", "acceptedAnswer": {"@type": "Answer", "text": "Puedes contactarnos por WhatsApp o teléfono al 33 3967 5255, o a través de unobrokers.com.mx. Atendemos propiedades en Guadalajara, Zapopan, Tlajomulco, Tlaquepaque y toda la zona metropolitana."}}
   ]
 }
 </script>
@@ -453,7 +453,7 @@ footer strong{color:var(--amber)}
       <ul>
         <li>💬 <strong>WhatsApp</strong>: <a id="faqWa" href="https://wa.me/523339675255" target="_blank" rel="noopener">33 3967 5255</a></li>
         <li>📞 <strong>Teléfono</strong>: <span id="faqTelTxt">33 3967 5255</span></li>
-        <li>🌐 <strong>Sitio web</strong>: unobrokers.mx</li>
+        <li>🌐 <strong>Sitio web</strong>: unobrokers.com.mx</li>
       </ul>
       <p>Atendemos propiedades en Guadalajara, Zapopan, Tlajomulco, Tlaquepaque y toda la zona metropolitana, ayudándote a vender al mejor precio con asesoría fiscal clara desde el inicio.</p>
     </div>
@@ -484,9 +484,9 @@ footer strong{color:var(--amber)}
 
 <footer>
   <strong id="footerName">UNO BROKERS</strong> · Inmobiliaria Guadalajara y Zapopan, Jalisco<br/>
-  📞 <strong id="footerTel">33 3967 5255</strong> · unobrokers.mx
+  📞 <strong id="footerTel">33 3967 5255</strong> · unobrokers.com.mx
 
-  <div style="margin-top:10px;font-size:12px;"><a href="https://www.unobrokers.mx/Privacidad" style="color:inherit;">Aviso de Privacidad</a></div>
+  <div style="margin-top:10px;font-size:12px;"><a href="https://unobrokers.com.mx/Privacidad" style="color:inherit;">Aviso de Privacidad</a></div>
 </footer>
 
 <a class="wa-float" id="floatWa" href="https://wa.me/523339675255" target="_blank" title="Contactar por WhatsApp" rel="noopener">💬</a>
@@ -736,7 +736,7 @@ function generarPDF(){
   doc.text(san(AGENT.name.toUpperCase()),mar,16);
   doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(150,175,200);
   doc.text('INMOBILIARIA  |  GUADALAJARA & ZAPOPAN, JALISCO',mar,23);
-  doc.text('Tel: '+AGENT.telDisplay+(AGENT.isDefault?'   |   unobrokers.mx':''),mar,29);
+  doc.text('Tel: '+AGENT.telDisplay+(AGENT.isDefault?'   |   unobrokers.com.mx':''),mar,29);
   doc.setFontSize(7.5);doc.setTextColor(100,140,170);
   doc.text('wa.me/'+AGENT.tel,mar,35);
 
@@ -822,7 +822,7 @@ function generarPDF(){
   doc.setFillColor(...AMBER);doc.roundedRect(mar+60,y+4,60,14,3,3,'F');
   doc.setTextColor(...NAVY);doc.text('Tel: '+AGENT.telDisplay,mar+64,y+12);
   doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(150,175,200);
-  doc.text((AGENT.isDefault?'unobrokers.mx  |  ':'')+'Te ayudamos a vender al mejor precio',mar+125,y+12);
+  doc.text((AGENT.isDefault?'unobrokers.com.mx  |  ':'')+'Te ayudamos a vender al mejor precio',mar+125,y+12);
   y+=26;
 
   doc.setFillColor(...AMBER);doc.rect(0,279,W,2,'F');
@@ -830,7 +830,7 @@ function generarPDF(){
   doc.setFont('helvetica','bold');doc.setFontSize(9.5);doc.setTextColor(...WHITE);
   doc.text(san(AGENT.name.toUpperCase()),mar,289);
   doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(150,175,200);
-  doc.text('Tel: '+AGENT.telDisplay+(AGENT.isDefault?'   |   unobrokers.mx':'')+'   |   Guadalajara & Zapopan, Jalisco',mar+38,289);
+  doc.text('Tel: '+AGENT.telDisplay+(AGENT.isDefault?'   |   unobrokers.com.mx':'')+'   |   Guadalajara & Zapopan, Jalisco',mar+38,289);
   doc.setFontSize(6.5);doc.setTextColor(80,110,130);
   doc.text('Generado el '+d.fecha+' por '+san(AGENT.name)+' — Estimacion referencial, no sustituye calculo notarial oficial.',mar,294);
 
