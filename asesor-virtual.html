@@ -10,6 +10,7 @@
 <meta property="og:description" content="Pregunta lo que necesites sobre comprar, vender, rentar o invertir en bienes raíces en Guadalajara y Zapopan.">
 <meta property="og:url" content="https://unobrokers.com.mx/asesor-virtual.html">
 <meta name="theme-color" content="#0B1F3A">
+<meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,12 +25,12 @@
 </script>
 <style>
 :root{
-  --navy:#0B1F3A;--navy-deep:#070f1e;--gold:#C9A24B;--gold-soft:#d4b06a;--cream:#F7F3EA;--paper:#fffdf8;--ink:#1d2a3d;--muted:#5d6878;--line:#e4dccb;
+  --navy:#0B1F3A;--navy-deep:#070f1e;--gold:#C9A24B;--gold-soft:#d4b06a;--cream:#F7F3EA;--paper:#fffdf8;--ink:#0B1F3A;--muted:#3f4a5a;--line:#e4dccb;
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
 *,*::before,*::after{box-sizing:inherit}
 html,body{height:100%;margin:0}
-body{background:var(--cream);color:var(--ink);font-family:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:17px;line-height:1.5;display:flex;flex-direction:column}
+body{background:var(--cream);color:var(--ink);font-family:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:18px;line-height:1.55;font-weight:500;display:flex;flex-direction:column}
 a{color:var(--navy);text-decoration-color:var(--gold);text-underline-offset:3px}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
@@ -47,9 +48,9 @@ header{background:var(--navy);color:var(--cream);padding:16px 20px}
 main{flex:1;overflow-y:auto;padding:24px 16px 8px}
 .log{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
 .msg{max-width:86%;padding:14px 18px;border-radius:18px;white-space:pre-line}
-.bot{align-self:flex-start;background:var(--paper);border:1px solid var(--line);border-bottom-left-radius:4px}
+.bot{align-self:flex-start;background:#fff;color:var(--ink);border:1px solid #d6cbb3;border-bottom-left-radius:4px}
 .me{align-self:flex-end;background:var(--navy);color:var(--cream);border-bottom-right-radius:4px}
-.bot strong{color:var(--navy)}
+.bot strong{color:var(--navy);font-weight:700}
 .bot .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;white-space:normal}
 .bot .links a{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--gold);text-decoration:none;font-weight:500;font-size:15px;background:#fbf6ea}
 .bot .links a.wa{background:var(--navy);color:var(--cream);border-color:var(--navy)}
@@ -67,10 +68,10 @@ form{max-width:760px;margin:0 auto;display:flex;gap:8px;align-items:center}
 .qbtn{background:var(--paper);border:1px solid var(--gold);color:var(--navy)}
 .qbtn[aria-expanded="true"]{background:var(--gold)}
 .send{background:var(--navy);color:var(--gold)}.send:disabled{opacity:.5;cursor:wait}
-input{flex:1;min-width:0;height:50px;border-radius:999px;border:1px solid var(--line);background:var(--paper);padding:0 20px;font:16px 'Outfit',sans-serif;color:var(--ink)}
-.fine{max-width:760px;margin:8px auto 0;text-align:center;font-size:12.5px;color:var(--muted)}
+input{flex:1;min-width:0;height:52px;border-radius:999px;border:1.5px solid var(--gold);background:#fff;padding:0 20px;font:500 17px 'Outfit',sans-serif;color:var(--ink)}input::placeholder{color:#5d6878;opacity:1}
+.fine{max-width:760px;margin:8px auto 0;text-align:center;font-size:13.5px;color:var(--muted)}
 @media (prefers-reduced-motion:no-preference){.msg{animation:in .22s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}}
-@media (max-width:520px){.who h1{font-size:19px}.msg{max-width:92%}}
+@media (max-width:520px){body{font-size:19px}.who h1{font-size:20px}.msg{max-width:94%}}
 </style>
 </head>
 <body>
