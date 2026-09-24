@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Reportes de clientes | UNO Brokers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1F3A;--navy-deep:#070f1e;--gold:#C9A24B;--gold-soft:#d4b06a;--cream:#F7F3EA;--ink:#1d2433;--muted:#5d6678;--line:#e3dccb;--warn:#a33a2a}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--cream)}
+header{background:var(--navy);color:var(--cream);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:'Fraunces',Georgia,serif;font-size:1.35rem;font-weight:600}
+.brand span{color:var(--gold)}
+header a{color:var(--gold-soft);font-size:.92rem}
+main{max-width:980px;margin:0 auto;padding:36px 20px 60px}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:2rem;margin:0 0 8px;color:var(--navy)}
+h2{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.3rem;margin:0 0 14px;color:var(--navy)}
+.lead{color:var(--muted);margin:0 0 26px;line-height:1.5}
+.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:24px;margin-bottom:22px}
+label{display:block;font-size:.9rem;font-weight:500;margin:14px 0 6px;color:var(--navy)}
+input,select{padding:11px 13px;border:1px solid #cfc6b1;border-radius:8px;font:inherit;background:#fffdf8;width:100%}
+.btn{padding:13px 22px;border:none;border-radius:8px;background:var(--navy);color:var(--cream);font:inherit;font-weight:600;cursor:pointer}
+.btn:hover{background:var(--navy-deep)}
+.btn.gold{background:var(--gold);color:var(--navy-deep)}
+.btn:disabled{opacity:.6;cursor:wait}
+.row{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end}
+.row>div{flex:1;min-width:160px}
+.total{font-family:'Fraunces',Georgia,serif;font-size:3rem;line-height:1;color:var(--navy);margin:0}
+.total small{display:block;font-family:'Outfit',sans-serif;font-size:.95rem;color:var(--muted);margin-top:6px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:500;font-size:.85rem}
+td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.bar{height:6px;background:var(--gold-soft);border-radius:3px;margin-top:5px}
+.alert{padding:13px 15px;border-radius:8px;background:#fbecea;color:var(--warn);border-left:4px solid var(--warn);display:none;margin-top:14px}
+.empty{color:var(--muted)}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">UNO <span>Brokers</span></div>
+  <a href="./">Ir al registro de clientes</a>
+</header>
+<main>
+  <h1>Reportes de clientes</h1>
+  <p class="lead" id="lead">Cargando...</p>
+
+  <section id="loginBox" class="panel" style="display:none;max-width:460px">
+    <label for="email">Correo</label><input type="email" id="email" autocomplete="username">
+    <label for="pass">Contraseña</label><input type="password" id="pass" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+    <div style="margin-top:18px"><button class="btn" onclick="doLogin()">Entrar</button></div>
+    <div class="alert" id="loginError"></div>
+  </section>
+
+  <section id="app" style="display:none">
+    <div class="panel">
+      <div class="row">
+        <div><label for="desde">Desde</label><input type="date" id="desde" onchange="render()"></div>
+        <div><label for="hasta">Hasta</label><input type="date" id="hasta" onchange="render()"></div>
+        <div><label for="fAsesor">Asesor</label><select id="fAsesor" onchange="render()"></select></div>
+        <div><label for="fProyecto">Proyecto</label><select id="fProyecto" onchange="render()"></select></div>
+      </div>
+      <div class="row" style="margin-top:20px;justify-content:space-between">
+        <p class="total" id="total">0<small>clientes con estos filtros</small></p>
+        <button class="btn gold" onclick="descargarExcel()">Descargar Excel</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="panel"><h2>Por asesor</h2><div class="tbl-wrap"><table id="tAsesor"></table></div></div>
+      <div class="panel"><h2>Por proyecto</h2><div class="tbl-wrap"><table id="tProyecto"></table></div></div>
+    </div>
+
+    <div class="panel">
+      <h2>Clientes sin ningún seguimiento</h2>
+      <div class="tbl-wrap"><table id="tSinSeg"></table></div>
+    </div>
+  </section>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="firebase-config.js"></script>
+<script>
+const ADMIN = ['info.unobrokers@gmail.com'];
+let todos = [];
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function fechaDe(c){return c.creado && c.creado.toDate ? c.creado.toDate() : null;}
+function fmt(d){return d ? d.toLocaleDateString('es-MX',{day:'2-digit',month:'short',year:'numeric'}) : '';}
+
+auth.onAuthStateChanged(user => {
+  if (!user) { $('lead').textContent = 'Entra con tu cuenta de administrador.'; $('loginBox').style.display='block'; $('app').style.display='none'; return; }
+  if (!ADMIN.includes((user.email||'').toLowerCase())) {
+    $('lead').textContent = 'Esta sección es solo para administración de UNO Brokers.';
+    $('loginBox').style.display='none'; $('app').style.display='none'; return;
+  }
+  $('loginBox').style.display='none';
+  $('lead').textContent = 'Cargando clientes...';
+  db.collection('clientes').get().then(snap => {
+    todos = []; snap.forEach(d => todos.push(d.data()));
+    todos.sort((a,b)=>(fechaDe(b)||0)-(fechaDe(a)||0));
+    llenarFiltros();
+    $('lead').textContent = 'Todos los clientes registrados por tu equipo. Filtra y descarga lo que necesites.';
+    $('app').style.display='block';
+    render();
+  }).catch(err => { $('lead').textContent = 'No se pudieron cargar los clientes: ' + err.message; });
+});
+
+function doLogin(){
+  $('loginError').style.display='none';
+  auth.signInWithEmailAndPassword($('email').value.trim(), $('pass').value)
+    .catch(err => { $('loginError').textContent = 'No se pudo entrar (' + (err.code||'') + ').'; $('loginError').style.display='block'; });
+}
+
+function llenarFiltros(){
+  const opt = (arr,label) => '<option value="">'+label+'</option>' + [...new Set(arr)].filter(Boolean).sort().map(v=>'<option>'+esc(v)+'</option>').join('');
+  $('fAsesor').innerHTML = opt(todos.map(c=>c.asesorNombre),'Todos');
+  $('fProyecto').innerHTML = opt(todos.map(c=>c.proyecto),'Todos');
+}
+
+function filtrados(){
+  const desde = $('desde').value ? new Date($('desde').value+'T00:00:00') : null;
+  const hasta = $('hasta').value ? new Date($('hasta').value+'T23:59:59') : null;
+  const a = $('fAsesor').value, p = $('fProyecto').value;
+  return todos.filter(c => {
+    const f = fechaDe(c);
+    if (desde && (!f || f < desde)) return false;
+    if (hasta && (!f || f > hasta)) return false;
+    if (a && c.asesorNombre !== a) return false;
+    if (p && c.proyecto !== p) return false;
+    return true;
+  });
+}
+
+function tablaConteo(id, lista, campo, titulo){
+  const cnt = {}; lista.forEach(c => { const k = c[campo] || 'Sin dato'; cnt[k]=(cnt[k]||0)+1; });
+  const filas = Object.entries(cnt).sort((x,y)=>y[1]-x[1]);
+  const max = filas.length ? filas[0][1] : 1;
+  $(id).innerHTML = filas.length
+    ? '<tr><th>'+titulo+'</th><th style="text-align:right">Clientes</th></tr>' + filas.map(([k,v]) =>
+        '<tr><td>'+esc(k)+'<div class="bar" style="width:'+Math.round(v/max*100)+'%"></div></td><td class="n">'+v+'</td></tr>').join('')
+    : '<tr><td class="empty">Sin clientes con estos filtros.</td></tr>';
+}
+
+function render(){
+  const lista = filtrados();
+  $('total').innerHTML = lista.length + '<small>clientes con estos filtros</small>';
+  tablaConteo('tAsesor', lista, 'asesorNombre', 'Asesor');
+  tablaConteo('tProyecto', lista, 'proyecto', 'Proyecto');
+  const sin = lista.filter(c => !(c.seguimientos||[]).length);
+  $('tSinSeg').innerHTML = sin.length
+    ? '<tr><th>Registrado</th><th>Cliente</th><th>Teléfono</th><th>Proyecto</th><th>Asesor</th></tr>' + sin.map(c =>
+        '<tr><td>'+fmt(fechaDe(c))+'</td><td>'+esc(c.nombre)+'</td><td>'+esc(c.telefonoOriginal||c.telefono)+'</td><td>'+esc(c.proyecto)+'</td><td>'+esc(c.asesorNombre)+'</td></tr>').join('')
+    : '<tr><td class="empty">Todos los clientes de este filtro tienen al menos un seguimiento.</td></tr>';
+}
+
+function descargarExcel(){
+  const filas = filtrados().map(c => {
+    const segs = c.seguimientos || [];
+    const ult = segs.length ? segs[segs.length-1] : null;
+    return {
+      'Fecha de registro': fmt(fechaDe(c)),
+      'Cliente': c.nombre || '',
+      'Teléfono': c.telefonoOriginal || c.telefono || '',
+      'Proyecto': c.proyecto || '',
+      'Asesor': c.asesorNombre || '',
+      'Notas': c.notas || '',
+      'Núm. de seguimientos': segs.length,
+      'Último seguimiento': ult ? (ult.fecha + ' - ' + ult.texto) : '',
+      'Todos los seguimientos': segs.map(s => s.fecha + ': ' + s.texto).join(' | ')
+    };
+  });
+  const ws = XLSX.utils.json_to_sheet(filas);
+  ws['!cols'] = [{wch:14},{wch:28},{wch:16},{wch:22},{wch:24},{wch:40},{wch:10},{wch:45},{wch:80}];
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'Clientes');
+  const hoy = new Date().toISOString().slice(0,10);
+  XLSX.writeFile(wb, 'clientes-uno-brokers-' + hoy + '.xlsx');
+}
+</script>
+</body>
+</html>
