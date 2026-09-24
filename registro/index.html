@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Registro de clientes | UNO Brokers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1F3A; --navy-deep:#070f1e; --gold:#C9A24B; --gold-soft:#d4b06a;
+  --cream:#F7F3EA; --ink:#1d2433; --muted:#5d6678; --line:#e3dccb;
+  --ok:#2e7d4f; --warn:#a33a2a;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--cream);min-height:100vh}
+header{background:var(--navy);color:var(--cream);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:'Fraunces',Georgia,serif;font-size:1.35rem;font-weight:600;letter-spacing:.01em}
+.brand span{color:var(--gold)}
+#topUser{display:none;align-items:center;gap:14px;font-size:.92rem}
+#topUser button{background:none;border:1px solid var(--gold);color:var(--gold-soft);padding:6px 14px;border-radius:6px;cursor:pointer;font:inherit}
+main{max-width:640px;margin:0 auto;padding:36px 20px 60px}
+h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:2rem;line-height:1.15;margin:0 0 8px;color:var(--navy)}
+.lead{color:var(--muted);margin:0 0 28px;line-height:1.5}
+.panel{background:#fff;border:1px solid var(--line);border-radius:12px;padding:26px}
+label{display:block;font-size:.9rem;font-weight:500;margin:16px 0 6px;color:var(--navy)}
+input,select,textarea{width:100%;padding:12px 14px;border:1px solid #cfc6b1;border-radius:8px;font:inherit;background:#fffdf8;color:var(--ink)}
+textarea{min-height:80px;resize:vertical}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.btn{display:inline-block;margin-top:22px;width:100%;padding:14px;border:none;border-radius:8px;background:var(--navy);color:var(--cream);font:inherit;font-weight:600;font-size:1rem;cursor:pointer}
+.btn:hover{background:var(--navy-deep)}
+.btn:disabled{opacity:.6;cursor:wait}
+.alert{display:none;margin-top:18px;padding:13px 15px;border-radius:8px;font-size:.93rem;line-height:1.45}
+.alert.warn{background:#fbecea;color:var(--warn);border-left:4px solid var(--warn)}
+.alert.ok{background:#e9f4ee;color:var(--ok);border-left:4px solid var(--ok)}
+.tabs{display:flex;gap:4px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.tabs button{background:none;border:none;padding:12px 16px;font:inherit;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs button.active{color:var(--navy);border-bottom-color:var(--gold)}
+.client{border-top:1px solid var(--line);padding:18px 0}
+.client:first-child{border-top:none;padding-top:0}
+.client h3{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:1.2rem;margin:0 0 4px;color:var(--navy)}
+.meta{color:var(--muted);font-size:.9rem}
+.tag{display:inline-block;margin-top:8px;padding:3px 10px;border-radius:20px;background:#f3ead3;color:#7a5c17;font-size:.8rem}
+.notes{font-size:.9rem;margin:10px 0 0;color:var(--ink)}
+.segs{list-style:none;padding:0;margin:12px 0 0}
+.segs li{font-size:.9rem;padding:8px 0 8px 14px;border-left:2px solid var(--gold-soft);margin-bottom:6px}
+.segs .date{display:block;font-size:.78rem;color:var(--muted)}
+.seg-form{display:flex;gap:8px;margin-top:10px}
+.seg-form input{flex:1}
+.seg-form button{padding:0 16px;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:8px;font:inherit;font-weight:500;cursor:pointer}
+.empty{color:var(--muted);text-align:center;padding:20px 0}
+.hint{font-size:.8rem;color:var(--muted);margin-top:5px}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">UNO <span>Brokers</span></div>
+  <div id="topUser"><span id="asesorNombreTop"></span><button onclick="doLogout()">Cerrar sesión</button></div>
+</header>
+
+<main>
+  <section id="loginBox">
+    <h1>Registro de clientes</h1>
+    <p class="lead">Entra con tu usuario de asesor para registrar prospectos y darles seguimiento.</p>
+    <div class="panel">
+      <label for="loginEmail">Correo</label>
+      <input type="email" id="loginEmail" autocomplete="username">
+      <label for="loginPass">Contraseña</label>
+      <input type="password" id="loginPass" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+      <button class="btn" id="loginBtn" onclick="doLogin()">Entrar</button>
+      <div class="alert warn" id="loginError">Correo o contraseña incorrectos. Revísalos e inténtalo de nuevo.</div>
+    </div>
+  </section>
+
+  <section id="appPanel" style="display:none">
+    <div class="tabs">
+      <button id="tabRegistrarBtn" class="active" onclick="showTab('registrar')">Registrar cliente</button>
+      <button id="tabMisClientesBtn" onclick="showTab('misClientes')">Mis clientes</button>
+    </div>
+
+    <div id="tabRegistrar" class="panel">
+      <label for="fNombre">Nombre del cliente</label>
+      <input type="text" id="fNombre">
+      <label for="fTelefono">Teléfono (10 dígitos)</label>
+      <input type="tel" id="fTelefono" inputmode="tel" placeholder="33 1234 5678">
+      <div class="hint">Si el teléfono ya lo tiene otro asesor, el registro se bloquea.</div>
+      <label for="fProyecto">Proyecto de interés</label>
+      <select id="fProyecto">
+        <option>VIVARIA 2360</option>
+        <option>NARA Américas</option>
+        <option>Parque Nubax</option>
+        <option>Los Sueños Residencial</option>
+        <option>Plaza Alva (locales)</option>
+        <option>Propiedad individual</option>
+        <option>Otro</option>
+      </select>
+      <label for="fNotas">Notas (opcional)</label>
+      <textarea id="fNotas" placeholder="Qué busca, presupuesto, cómo llegó..."></textarea>
+      <button class="btn" id="registrarBtn" onclick="registrarCliente()">Registrar cliente</button>
+      <div class="alert warn" id="dupAlert"></div>
+      <div class="alert ok" id="okAlert"></div>
+    </div>
+
+    <div id="tabMisClientes" class="panel" style="display:none">
+      <div id="misClientesList"></div>
+    </div>
+  </section>
+</main>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script>
+let asesorActual = null;
+let misClientes = [];
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function $(id){return document.getElementById(id);}
+
+auth.onAuthStateChanged(user => {
+  if (user) {
+    db.collection('asesores').doc(user.uid).get()
+      .then(d => (d.exists && d.data().nombre) ? d.data().nombre : user.email)
+      .catch(() => user.email)
+      .then(nombre => {
+        asesorActual = { uid: user.uid, email: user.email, nombre: nombre };
+        $('loginBox').style.display = 'none';
+        $('appPanel').style.display = 'block';
+        $('topUser').style.display = 'flex';
+        $('asesorNombreTop').textContent = nombre;
+      });
+  } else {
+    asesorActual = null;
+    $('loginBox').style.display = 'block';
+    $('appPanel').style.display = 'none';
+    $('topUser').style.display = 'none';
+  }
+});
+
+function doLogin() {
+  $('loginError').style.display = 'none';
+  const btn = $('loginBtn'); btn.disabled = true; btn.textContent = 'Entrando...';
+  auth.signInWithEmailAndPassword($('loginEmail').value.trim(), $('loginPass').value)
+    .catch(() => { $('loginError').style.display = 'block'; })
+    .finally(() => { btn.disabled = false; btn.textContent = 'Entrar'; });
+}
+function doLogout(){ auth.signOut(); }
+
+function showTab(tab) {
+  $('tabRegistrar').style.display = tab === 'registrar' ? 'block' : 'none';
+  $('tabMisClientes').style.display = tab === 'misClientes' ? 'block' : 'none';
+  $('tabRegistrarBtn').classList.toggle('active', tab === 'registrar');
+  $('tabMisClientesBtn').classList.toggle('active', tab === 'misClientes');
+  if (tab === 'misClientes') cargarMisClientes();
+}
+
+// Se guardan los últimos 10 dígitos, así "+52 33..." y "33..." cuentan como el mismo cliente
+function normalizarTelefono(t){ const d = (t||'').replace(/\D/g,''); return d.slice(-10); }
+
+function registrarCliente() {
+  const nombre = $('fNombre').value.trim();
+  const telRaw = $('fTelefono').value.trim();
+  const telefono = normalizarTelefono(telRaw);
+  $('dupAlert').style.display = 'none';
+  $('okAlert').style.display = 'none';
+  if (!nombre || telefono.length < 10) {
+    $('dupAlert').textContent = 'Escribe el nombre del cliente y un teléfono de 10 dígitos.';
+    $('dupAlert').style.display = 'block';
+    return;
+  }
+  const btn = $('registrarBtn'); btn.disabled = true; btn.textContent = 'Verificando...';
+
+  db.collection('clientes').where('telefono', '==', telefono).limit(1).get()
+    .then(snap => {
+      if (!snap.empty) {
+        const ex = snap.docs[0].data();
+        $('dupAlert').textContent = ex.asesorUid === asesorActual.uid
+          ? 'Ya registraste a este cliente (' + ex.nombre + '). Búscalo en "Mis clientes" para agregarle seguimiento.'
+          : 'Este teléfono ya lo registró ' + (ex.asesorNombre || 'otro asesor') + '. No se puede volver a registrar.';
+        $('dupAlert').style.display = 'block';
+        return;
+      }
+      return db.collection('clientes').add({
+        nombre: nombre, telefono: telefono, telefonoOriginal: telRaw,
+        proyecto: $('fProyecto').value, notas: $('fNotas').value.trim(),
+        asesorUid: asesorActual.uid, asesorNombre: asesorActual.nombre,
+        seguimientos: [], creado: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        $('okAlert').textContent = 'Cliente registrado a tu nombre: ' + nombre + '.';
+        $('okAlert').style.display = 'block';
+        $('fNombre').value = ''; $('fTelefono').value = ''; $('fNotas').value = '';
+      });
+    })
+    .catch(err => {
+      $('dupAlert').textContent = 'No se pudo registrar: ' + err.message;
+      $('dupAlert').style.display = 'block';
+    })
+    .finally(() => { btn.disabled = false; btn.textContent = 'Registrar cliente'; });
+}
+
+function cargarMisClientes() {
+  $('misClientesList').innerHTML = '<p class="empty">Cargando...</p>';
+  db.collection('clientes').where('asesorUid', '==', asesorActual.uid).get()
+    .then(snap => {
+      misClientes = [];
+      snap.forEach(d => misClientes.push({ id: d.id, data: d.data() }));
+      misClientes.sort((a,b) => (b.data.creado?.toMillis?.() || 0) - (a.data.creado?.toMillis?.() || 0));
+      render();
+    })
+    .catch(err => { $('misClientesList').innerHTML = '<p class="empty">No se pudieron cargar tus clientes: ' + esc(err.message) + '</p>'; });
+}
+
+function render() {
+  const list = $('misClientesList');
+  if (!misClientes.length) { list.innerHTML = '<p class="empty">Aún no tienes clientes registrados. Registra el primero en la otra pestaña.</p>'; return; }
+  list.innerHTML = misClientes.map(({id, data:d}) => `
+    <div class="client">
+      <h3>${esc(d.nombre)}</h3>
+      <div class="meta">📞 ${esc(d.telefonoOriginal || d.telefono)}</div>
+      <span class="tag">${esc(d.proyecto)}</span>
+      ${d.notas ? `<p class="notes">${esc(d.notas)}</p>` : ''}
+      <ul class="segs">${(d.seguimientos||[]).map(s => `<li><span class="date">${esc(s.fecha)}</span>${esc(s.texto)}</li>`).join('')}</ul>
+      <div class="seg-form">
+        <input type="text" id="seg-${id}" placeholder="Agregar seguimiento...">
+        <button onclick="agregarSeguimiento('${id}')">Agregar</button>
+      </div>
+    </div>`).join('');
+}
+
+function agregarSeguimiento(id) {
+  const input = $('seg-' + id);
+  const texto = input.value.trim();
+  if (!texto) return;
+  const fecha = new Date().toLocaleString('es-MX', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+  db.collection('clientes').doc(id).update({
+    seguimientos: firebase.firestore.FieldValue.arrayUnion({ texto: texto, fecha: fecha })
+  }).then(cargarMisClientes)
+    .catch(err => alert('No se pudo guardar el seguimiento: ' + err.message));
+}
+</script>
+</body>
+</html>
