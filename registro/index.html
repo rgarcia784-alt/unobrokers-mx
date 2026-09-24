@@ -143,7 +143,17 @@ function doLogin() {
   $('loginError').style.display = 'none';
   const btn = $('loginBtn'); btn.disabled = true; btn.textContent = 'Entrando...';
   auth.signInWithEmailAndPassword($('loginEmail').value.trim(), $('loginPass').value)
-    .catch(() => { $('loginError').style.display = 'block'; })
+    .catch(err => {
+      const c = (err && err.code) || '';
+      let msg = 'No se pudo entrar (' + c + ').';
+      if (c === 'auth/invalid-credential' || c === 'auth/wrong-password' || c === 'auth/user-not-found' || c === 'auth/invalid-login-credentials')
+        msg = 'Correo o contraseña incorrectos. Revísalos e inténtalo de nuevo.';
+      else if (c === 'auth/invalid-email') msg = 'El correo no tiene un formato válido.';
+      else if (c === 'auth/too-many-requests') msg = 'Demasiados intentos. Espera unos minutos y vuelve a intentar.';
+      else if (c === 'auth/network-request-failed') msg = 'Sin conexión. Revisa tu internet e inténtalo de nuevo.';
+      $('loginError').textContent = msg;
+      $('loginError').style.display = 'block';
+    })
     .finally(() => { btn.disabled = false; btn.textContent = 'Entrar'; });
 }
 function doLogout(){ auth.signOut(); }
