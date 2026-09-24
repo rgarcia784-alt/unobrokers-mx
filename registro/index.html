@@ -92,6 +92,17 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
     </div>
   </section>
 
+  <section id="nombreBox" style="display:none">
+    <h1>¿Cómo te llamas?</h1>
+    <p class="lead">Tu nombre aparecerá en los clientes que registres. Solo te lo pedimos una vez.</p>
+    <div class="panel">
+      <label for="nbNombre">Tu nombre completo</label>
+      <input type="text" id="nbNombre" autocomplete="name" onkeydown="if(event.key==='Enter')guardarNombre()">
+      <button class="btn" id="nbBtn" onclick="guardarNombre()">Guardar y continuar</button>
+      <div class="alert warn" id="nbError"></div>
+    </div>
+  </section>
+
   <section id="appPanel" style="display:none">
     <div class="tabs">
       <button id="tabRegistrarBtn" class="active" onclick="showTab('registrar')">Registrar cliente</button>
@@ -143,10 +154,18 @@ auth.onAuthStateChanged(user => {
   if (user) {
     (pendienteNombre ? Promise.resolve(pendienteNombre) :
       db.collection('asesores').doc(user.uid).get()
-        .then(d => (d.exists && d.data().nombre) ? d.data().nombre : (user.displayName || user.email))
-        .catch(() => user.displayName || user.email))
+        .then(d => (d.exists && d.data().nombre) ? d.data().nombre : (user.displayName || null))
+        .catch(() => user.displayName || null))
       .then(nombre => {
         pendienteNombre = null;
+        if (!nombre) {
+          $('loginBox').style.display = 'none';
+          $('signupBox').style.display = 'none';
+          $('appPanel').style.display = 'none';
+          $('nombreBox').style.display = 'block';
+          return;
+        }
+        $('nombreBox').style.display = 'none';
         asesorActual = { uid: user.uid, email: user.email, nombre: nombre };
         $('loginBox').style.display = 'none';
         $('signupBox').style.display = 'none';
@@ -156,6 +175,7 @@ auth.onAuthStateChanged(user => {
       });
   } else {
     asesorActual = null;
+    $('nombreBox').style.display = 'none';
     $('signupBox').style.display = 'none';
     $('loginBox').style.display = 'block';
     $('appPanel').style.display = 'none';
@@ -181,6 +201,23 @@ function doLogin() {
     .finally(() => { btn.disabled = false; btn.textContent = 'Entrar'; });
 }
 function doLogout(){ auth.signOut(); }
+
+function guardarNombre() {
+  const user = auth.currentUser; if (!user) return;
+  const nombre = $('nbNombre').value.trim();
+  if (nombre.length < 3) { $('nbError').textContent = 'Escribe tu nombre completo.'; $('nbError').style.display = 'block'; return; }
+  const btn = $('nbBtn'); btn.disabled = true; btn.textContent = 'Guardando...';
+  Promise.all([
+    user.updateProfile({ displayName: nombre }).catch(() => {}),
+    db.collection('asesores').doc(user.uid).set({ nombre: nombre, email: user.email, creado: firebase.firestore.FieldValue.serverTimestamp() }).catch(() => {})
+  ]).then(() => {
+    asesorActual = { uid: user.uid, email: user.email, nombre: nombre };
+    $('nombreBox').style.display = 'none';
+    $('appPanel').style.display = 'block';
+    $('topUser').style.display = 'flex';
+    $('asesorNombreTop').textContent = nombre;
+  }).finally(() => { btn.disabled = false; btn.textContent = 'Guardar y continuar'; });
+}
 
 function verRegistro(mostrar) {
   $('loginBox').style.display = mostrar ? 'none' : 'block';
