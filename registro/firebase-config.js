@@ -1,5 +1,5 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDOjPtqzQ8b7ZeMror015dpcuQCMrYWa1U",
+  apiKey: "AIzaSyDOjPtqzQ8b7ZeMrorO15dpcuQCMrYWa1U",
   authDomain: "uno-brokers-registro.firebaseapp.com",
   projectId: "uno-brokers-registro",
   storageBucket: "uno-brokers-registro.firebasestorage.app",
