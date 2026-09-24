@@ -50,6 +50,8 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
 .seg-form input{flex:1}
 .seg-form button{padding:0 16px;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:8px;font:inherit;font-weight:500;cursor:pointer}
 .empty{color:var(--muted);text-align:center;padding:20px 0}
+.switch{margin:20px 0 0;text-align:center;font-size:.92rem;color:var(--muted)}
+.switch a{color:var(--navy);font-weight:600}
 .hint{font-size:.8rem;color:var(--muted);margin-top:5px}
 </style>
 </head>
@@ -70,6 +72,23 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
       <input type="password" id="loginPass" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
       <button class="btn" id="loginBtn" onclick="doLogin()">Entrar</button>
       <div class="alert warn" id="loginError">Correo o contraseña incorrectos. Revísalos e inténtalo de nuevo.</div>
+      <p class="switch">¿Eres asesor nuevo? <a href="#" onclick="verRegistro(true);return false;">Crea tu cuenta</a></p>
+    </div>
+  </section>
+
+  <section id="signupBox" style="display:none">
+    <h1>Crea tu cuenta</h1>
+    <p class="lead">Regístrate como asesor para empezar a registrar a tus clientes.</p>
+    <div class="panel">
+      <label for="suNombre">Tu nombre completo</label>
+      <input type="text" id="suNombre" autocomplete="name">
+      <label for="suEmail">Correo</label>
+      <input type="email" id="suEmail" autocomplete="username">
+      <label for="suPass">Contraseña (mínimo 6 caracteres)</label>
+      <input type="password" id="suPass" autocomplete="new-password" onkeydown="if(event.key==='Enter')doSignup()">
+      <button class="btn" id="signupBtn" onclick="doSignup()">Crear mi cuenta</button>
+      <div class="alert warn" id="signupError"></div>
+      <p class="switch">¿Ya tienes cuenta? <a href="#" onclick="verRegistro(false);return false;">Entra aquí</a></p>
     </div>
   </section>
 
@@ -115,24 +134,29 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
 <script>
 let asesorActual = null;
 let misClientes = [];
+let pendienteNombre = null;
 
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function $(id){return document.getElementById(id);}
 
 auth.onAuthStateChanged(user => {
   if (user) {
-    db.collection('asesores').doc(user.uid).get()
-      .then(d => (d.exists && d.data().nombre) ? d.data().nombre : user.email)
-      .catch(() => user.email)
+    (pendienteNombre ? Promise.resolve(pendienteNombre) :
+      db.collection('asesores').doc(user.uid).get()
+        .then(d => (d.exists && d.data().nombre) ? d.data().nombre : (user.displayName || user.email))
+        .catch(() => user.displayName || user.email))
       .then(nombre => {
+        pendienteNombre = null;
         asesorActual = { uid: user.uid, email: user.email, nombre: nombre };
         $('loginBox').style.display = 'none';
+        $('signupBox').style.display = 'none';
         $('appPanel').style.display = 'block';
         $('topUser').style.display = 'flex';
         $('asesorNombreTop').textContent = nombre;
       });
   } else {
     asesorActual = null;
+    $('signupBox').style.display = 'none';
     $('loginBox').style.display = 'block';
     $('appPanel').style.display = 'none';
     $('topUser').style.display = 'none';
@@ -157,6 +181,42 @@ function doLogin() {
     .finally(() => { btn.disabled = false; btn.textContent = 'Entrar'; });
 }
 function doLogout(){ auth.signOut(); }
+
+function verRegistro(mostrar) {
+  $('loginBox').style.display = mostrar ? 'none' : 'block';
+  $('signupBox').style.display = mostrar ? 'block' : 'none';
+  $('signupError').style.display = 'none';
+  $('loginError').style.display = 'none';
+}
+
+function doSignup() {
+  const nombre = $('suNombre').value.trim();
+  const email = $('suEmail').value.trim();
+  const pass = $('suPass').value;
+  const errBox = $('signupError');
+  errBox.style.display = 'none';
+  if (nombre.length < 3) { errBox.textContent = 'Escribe tu nombre completo.'; errBox.style.display = 'block'; return; }
+  if (pass.length < 6) { errBox.textContent = 'La contraseña debe tener al menos 6 caracteres.'; errBox.style.display = 'block'; return; }
+  const btn = $('signupBtn'); btn.disabled = true; btn.textContent = 'Creando cuenta...';
+  pendienteNombre = nombre;
+  auth.createUserWithEmailAndPassword(email, pass)
+    .then(cred => Promise.all([
+      cred.user.updateProfile({ displayName: nombre }).catch(() => {}),
+      db.collection('asesores').doc(cred.user.uid).set({
+        nombre: nombre, email: email, creado: firebase.firestore.FieldValue.serverTimestamp()
+      }).catch(() => {})
+    ]))
+    .catch(err => {
+      pendienteNombre = null;
+      const c = (err && err.code) || '';
+      let msg = 'No se pudo crear la cuenta (' + c + ').';
+      if (c === 'auth/email-already-in-use') msg = 'Ese correo ya tiene cuenta. Entra con él desde "Entra aquí".';
+      else if (c === 'auth/invalid-email') msg = 'El correo no tiene un formato válido.';
+      else if (c === 'auth/weak-password') msg = 'La contraseña es muy débil. Usa al menos 6 caracteres.';
+      errBox.textContent = msg; errBox.style.display = 'block';
+    })
+    .finally(() => { btn.disabled = false; btn.textContent = 'Crear mi cuenta'; });
+}
 
 function showTab(tab) {
   $('tabRegistrar').style.display = tab === 'registrar' ? 'block' : 'none';
