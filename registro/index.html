@@ -49,6 +49,9 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
 .seg-form{display:flex;gap:8px;margin-top:10px}
 .seg-form input{flex:1}
 .seg-form button{padding:0 16px;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:8px;font:inherit;font-weight:500;cursor:pointer}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.quick button,.quick select{padding:7px 12px;border:1px solid #d9cfb6;background:#fbf6ea;color:var(--navy);border-radius:20px;font:inherit;font-size:.84rem;cursor:pointer;width:auto}
+.quick button:hover,.quick select:hover{border-color:var(--gold)}
 .empty{color:var(--muted);text-align:center;padding:20px 0}
 .switch{margin:20px 0 0;text-align:center;font-size:.92rem;color:var(--muted)}
 .switch a{color:var(--navy);font-weight:600}
@@ -329,17 +332,35 @@ function render() {
       <span class="tag">${esc(d.proyecto)}</span>
       ${d.notas ? `<p class="notes">${esc(d.notas)}</p>` : ''}
       <ul class="segs">${(d.seguimientos||[]).map(s => `<li><span class="date">${esc(s.fecha)}</span>${esc(s.texto)}</li>`).join('')}</ul>
+      <div class="quick">
+        <select onchange="if(this.value){accionRapida('${id}','Le ofrecí '+this.value);this.value='';}">
+          <option value="">Le ofrecí...</option>
+          ${PROYECTOS.map(p => `<option>${esc(p)}</option>`).join('')}
+        </select>
+        <button onclick="accionRapida('${id}','Le llamé')">Le llamé</button>
+        <button onclick="accionRapida('${id}','Le mandé información por WhatsApp')">Le mandé WhatsApp</button>
+        <button onclick="accionRapida('${id}','Agendó visita')">Agendó visita</button>
+        <button onclick="accionRapida('${id}','No contestó')">No contestó</button>
+      </div>
       <div class="seg-form">
-        <input type="text" id="seg-${id}" placeholder="Agregar seguimiento...">
+        <input type="text" id="seg-${id}" placeholder="O escribe otro seguimiento...">
         <button onclick="agregarSeguimiento('${id}')">Agregar</button>
       </div>
     </div>`).join('');
 }
 
+const PROYECTOS = ['VIVARIA 2360','NARA Américas','Parque Nubax','Los Sueños Residencial','Plaza Alva (locales)','Propiedad individual','Otro desarrollo'];
+
+function accionRapida(id, texto) { guardarSeguimiento(id, texto); }
+
 function agregarSeguimiento(id) {
   const input = $('seg-' + id);
   const texto = input.value.trim();
   if (!texto) return;
+  guardarSeguimiento(id, texto);
+}
+
+function guardarSeguimiento(id, texto) {
   const fecha = new Date().toLocaleString('es-MX', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
   db.collection('clientes').doc(id).update({
     seguimientos: firebase.firestore.FieldValue.arrayUnion({ texto: texto, fecha: fecha })
