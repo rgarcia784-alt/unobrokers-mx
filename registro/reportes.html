@@ -93,6 +93,7 @@ const ADMIN = ['info.unobrokers@gmail.com'];
 let todos = [];
 function $(id){return document.getElementById(id);}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function etiquetaAsesor(c){ return c.asesorEmail && c.asesorEmail !== c.asesorNombre ? (c.asesorNombre||'') + ' (' + c.asesorEmail + ')' : (c.asesorNombre || c.asesorEmail || ''); }
 function fechaDe(c){return c.creado && c.creado.toDate ? c.creado.toDate() : null;}
 function fmt(d){return d ? d.toLocaleDateString('es-MX',{day:'2-digit',month:'short',year:'numeric'}) : '';}
 
@@ -122,7 +123,7 @@ function doLogin(){
 
 function llenarFiltros(){
   const opt = (arr,label) => '<option value="">'+label+'</option>' + [...new Set(arr)].filter(Boolean).sort().map(v=>'<option>'+esc(v)+'</option>').join('');
-  $('fAsesor').innerHTML = opt(todos.map(c=>c.asesorNombre),'Todos');
+  $('fAsesor').innerHTML = opt(todos.map(etiquetaAsesor),'Todos');
   $('fProyecto').innerHTML = opt(todos.map(c=>c.proyecto),'Todos');
 }
 
@@ -134,14 +135,14 @@ function filtrados(){
     const f = fechaDe(c);
     if (desde && (!f || f < desde)) return false;
     if (hasta && (!f || f > hasta)) return false;
-    if (a && c.asesorNombre !== a) return false;
+    if (a && etiquetaAsesor(c) !== a) return false;
     if (p && c.proyecto !== p) return false;
     return true;
   });
 }
 
 function tablaConteo(id, lista, campo, titulo){
-  const cnt = {}; lista.forEach(c => { const k = c[campo] || 'Sin dato'; cnt[k]=(cnt[k]||0)+1; });
+  const cnt = {}; lista.forEach(c => { const k = (typeof campo === 'function' ? campo(c) : c[campo]) || 'Sin dato'; cnt[k]=(cnt[k]||0)+1; });
   const filas = Object.entries(cnt).sort((x,y)=>y[1]-x[1]);
   const max = filas.length ? filas[0][1] : 1;
   $(id).innerHTML = filas.length
@@ -153,12 +154,12 @@ function tablaConteo(id, lista, campo, titulo){
 function render(){
   const lista = filtrados();
   $('total').innerHTML = lista.length + '<small>clientes con estos filtros</small>';
-  tablaConteo('tAsesor', lista, 'asesorNombre', 'Asesor');
+  tablaConteo('tAsesor', lista, etiquetaAsesor, 'Asesor');
   tablaConteo('tProyecto', lista, 'proyecto', 'Proyecto');
   const sin = lista.filter(c => !(c.seguimientos||[]).length);
   $('tSinSeg').innerHTML = sin.length
     ? '<tr><th>Registrado</th><th>Cliente</th><th>Teléfono</th><th>Proyecto</th><th>Asesor</th></tr>' + sin.map(c =>
-        '<tr><td>'+fmt(fechaDe(c))+'</td><td>'+esc(c.nombre)+'</td><td>'+esc(c.telefonoOriginal||c.telefono)+'</td><td>'+esc(c.proyecto)+'</td><td>'+esc(c.asesorNombre)+'</td></tr>').join('')
+        '<tr><td>'+fmt(fechaDe(c))+'</td><td>'+esc(c.nombre)+'</td><td>'+esc(c.telefonoOriginal||c.telefono)+'</td><td>'+esc(c.proyecto)+'</td><td>'+esc(etiquetaAsesor(c))+'</td></tr>').join('')
     : '<tr><td class="empty">Todos los clientes de este filtro tienen al menos un seguimiento.</td></tr>';
 }
 
@@ -172,6 +173,7 @@ function descargarExcel(){
       'Teléfono': c.telefonoOriginal || c.telefono || '',
       'Proyecto': c.proyecto || '',
       'Asesor': c.asesorNombre || '',
+      'Correo del asesor': c.asesorEmail || '',
       'Notas': c.notas || '',
       'Núm. de seguimientos': segs.length,
       'Último seguimiento': ult ? (ult.fecha + ' - ' + ult.texto) : '',
@@ -179,7 +181,7 @@ function descargarExcel(){
     };
   });
   const ws = XLSX.utils.json_to_sheet(filas);
-  ws['!cols'] = [{wch:14},{wch:28},{wch:16},{wch:22},{wch:24},{wch:40},{wch:10},{wch:45},{wch:80}];
+  ws['!cols'] = [{wch:14},{wch:28},{wch:16},{wch:22},{wch:24},{wch:30},{wch:40},{wch:10},{wch:45},{wch:80}];
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Clientes');
   const hoy = new Date().toISOString().slice(0,10);

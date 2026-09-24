@@ -295,7 +295,7 @@ function registrarCliente() {
       return db.collection('clientes').add({
         nombre: nombre, telefono: telefono, telefonoOriginal: telRaw,
         proyecto: $('fProyecto').value, notas: $('fNotas').value.trim(),
-        asesorUid: asesorActual.uid, asesorNombre: asesorActual.nombre,
+        asesorUid: asesorActual.uid, asesorNombre: asesorActual.nombre, asesorEmail: asesorActual.email || '',
         seguimientos: [], creado: firebase.firestore.FieldValue.serverTimestamp()
       }).then(() => {
         $('okAlert').textContent = 'Cliente registrado a tu nombre: ' + nombre + '.';
