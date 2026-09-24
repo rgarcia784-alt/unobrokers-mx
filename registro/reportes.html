@@ -158,8 +158,8 @@ function render(){
   tablaConteo('tProyecto', lista, 'proyecto', 'Proyecto');
   const sin = lista.filter(c => !(c.seguimientos||[]).length);
   $('tSinSeg').innerHTML = sin.length
-    ? '<tr><th>Registrado</th><th>Cliente</th><th>Teléfono</th><th>Proyecto</th><th>Asesor</th></tr>' + sin.map(c =>
-        '<tr><td>'+fmt(fechaDe(c))+'</td><td>'+esc(c.nombre)+'</td><td>'+esc(c.telefonoOriginal||c.telefono)+'</td><td>'+esc(c.proyecto)+'</td><td>'+esc(etiquetaAsesor(c))+'</td></tr>').join('')
+    ? '<tr><th>Registrado</th><th>Cliente</th><th>Termina en</th><th>Proyecto</th><th>Asesor</th></tr>' + sin.map(c =>
+        '<tr><td>'+fmt(fechaDe(c))+'</td><td>'+esc(c.nombre)+'</td><td>'+esc(c.telefono)+'</td><td>'+esc(c.proyecto)+'</td><td>'+esc(etiquetaAsesor(c))+'</td></tr>').join('')
     : '<tr><td class="empty">Todos los clientes de este filtro tienen al menos un seguimiento.</td></tr>';
 }
 
@@ -170,7 +170,7 @@ function descargarExcel(){
     return {
       'Fecha de registro': fmt(fechaDe(c)),
       'Cliente': c.nombre || '',
-      'Teléfono': c.telefonoOriginal || c.telefono || '',
+      'Teléfono (últimos 4)': c.telefono || '',
       'Proyecto': c.proyecto || '',
       'Asesor': c.asesorNombre || '',
       'Correo del asesor': c.asesorEmail || '',

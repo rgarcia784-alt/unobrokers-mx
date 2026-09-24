@@ -115,9 +115,9 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
     <div id="tabRegistrar" class="panel">
       <label for="fNombre">Nombre del cliente</label>
       <input type="text" id="fNombre">
-      <label for="fTelefono">Teléfono (10 dígitos)</label>
-      <input type="tel" id="fTelefono" inputmode="tel" placeholder="33 1234 5678">
-      <div class="hint">Si el teléfono ya lo tiene otro asesor, el registro se bloquea.</div>
+      <label for="fTelefono">Últimos 4 dígitos del teléfono</label>
+      <input type="text" id="fTelefono" inputmode="numeric" maxlength="4" placeholder="5678">
+      <div class="hint">Si otro asesor ya tiene un cliente con el mismo nombre y la misma terminación, el registro se bloquea.</div>
       <label for="fProyecto">Proyecto de interés</label>
       <select id="fProyecto">
         <option>VIVARIA 2360</option>
@@ -266,8 +266,9 @@ function showTab(tab) {
   if (tab === 'misClientes') cargarMisClientes();
 }
 
-// Se guardan los últimos 10 dígitos, así "+52 33..." y "33..." cuentan como el mismo cliente
-function normalizarTelefono(t){ const d = (t||'').replace(/\D/g,''); return d.slice(-10); }
+function normalizarTelefono(t){ return (t||'').replace(/\D/g,'').slice(-4); }
+// Primer nombre sin acentos ni mayúsculas: "Juán Pérez" y "juan perez" cuentan igual
+function primerNombre(n){ return (n||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim().split(/\s+/)[0] || ''; }
 
 function registrarCliente() {
   const nombre = $('fNombre').value.trim();
@@ -275,25 +276,26 @@ function registrarCliente() {
   const telefono = normalizarTelefono(telRaw);
   $('dupAlert').style.display = 'none';
   $('okAlert').style.display = 'none';
-  if (!nombre || telefono.length < 10) {
-    $('dupAlert').textContent = 'Escribe el nombre del cliente y un teléfono de 10 dígitos.';
+  if (!nombre || telefono.length !== 4) {
+    $('dupAlert').textContent = 'Escribe el nombre del cliente y los últimos 4 dígitos de su teléfono.';
     $('dupAlert').style.display = 'block';
     return;
   }
   const btn = $('registrarBtn'); btn.disabled = true; btn.textContent = 'Verificando...';
 
-  db.collection('clientes').where('telefono', '==', telefono).limit(1).get()
+  const clave = telefono + '|' + primerNombre(nombre);
+  db.collection('clientes').where('clave', '==', clave).limit(1).get()
     .then(snap => {
       if (!snap.empty) {
         const ex = snap.docs[0].data();
         $('dupAlert').textContent = ex.asesorUid === asesorActual.uid
           ? 'Ya registraste a este cliente (' + ex.nombre + '). Búscalo en "Mis clientes" para agregarle seguimiento.'
-          : 'Este teléfono ya lo registró ' + (ex.asesorNombre || 'otro asesor') + '. No se puede volver a registrar.';
+          : 'Este cliente (' + ex.nombre + ', terminación ' + ex.telefono + ') ya lo registró ' + (ex.asesorNombre || 'otro asesor') + '. No se puede volver a registrar.';
         $('dupAlert').style.display = 'block';
         return;
       }
       return db.collection('clientes').add({
-        nombre: nombre, telefono: telefono, telefonoOriginal: telRaw,
+        nombre: nombre, telefono: telefono, telefonoOriginal: telefono, clave: clave,
         proyecto: $('fProyecto').value, notas: $('fNotas').value.trim(),
         asesorUid: asesorActual.uid, asesorNombre: asesorActual.nombre, asesorEmail: asesorActual.email || '',
         seguimientos: [], creado: firebase.firestore.FieldValue.serverTimestamp()
@@ -328,7 +330,7 @@ function render() {
   list.innerHTML = misClientes.map(({id, data:d}) => `
     <div class="client">
       <h3>${esc(d.nombre)}</h3>
-      <div class="meta">📞 ${esc(d.telefonoOriginal || d.telefono)}</div>
+      <div class="meta">📞 Termina en ${esc(d.telefono)}</div>
       <span class="tag">${esc(d.proyecto)}</span>
       ${d.notas ? `<p class="notes">${esc(d.notas)}</p>` : ''}
       <ul class="segs">${(d.seguimientos||[]).map(s => `<li><span class="date">${esc(s.fecha)}</span>${esc(s.texto)}</li>`).join('')}</ul>
