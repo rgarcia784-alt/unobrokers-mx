@@ -110,7 +110,7 @@
     "addressRegion": "Jalisco",
     "addressCountry": "MX"
   },
-  "dateModified": "2026-09-14"
+  "dateModified": "2026-09-24"
 }
 </script>
 <script type="application/ld+json">
@@ -150,9 +150,9 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--forest:#1a2e1a;--forest2:#243624;--sage:#4a6741;--gold:#c9a84c;--gold2:#e8c97a;--cream:#f7f4ed;--white:#ffffff;--text:#1a201a;--muted:#6b7a65;--border:rgba(26,46,26,0.1)}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);font-size:15px;line-height:1.7}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,46,26,0.96);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:62px}
+.top-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,46,26,0.96);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:62px}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--cream);text-decoration:none;letter-spacing:1px}
 .nav-logo span{color:var(--gold)}
 .nav-right{display:flex;align-items:center;gap:12px}
@@ -160,14 +160,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,46,26,0.9
 .nav-wa svg{width:15px;height:15px;fill:#fff}
 .admin-btn{font-size:11px;color:rgba(247,244,237,0.3);background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;letter-spacing:1px}
 .admin-btn:hover{color:var(--gold)}
-.hero{position:relative;height:100vh;overflow:hidden;background:linear-gradient(160deg,#243624,#1a2e1a 55%,#0d170d)}
+.hero{position:relative;min-height:100vh;overflow:hidden;background:linear-gradient(160deg,#243624,#1a2e1a 55%,#0d170d)}
 .hero-slides{position:absolute;inset:0}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease;background-size:cover;background-position:center;background-color:var(--forest)}
 .hero-slide.active{opacity:1}
 .hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(13,23,13,.4) 100%),linear-gradient(to bottom,rgba(20,33,20,.5) 0%,rgba(13,23,13,.8) 100%)}
-.hero-content{position:relative;z-index:10;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+.hero-content{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:92px 2rem 4.5rem}
 .hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fadeUp 1s ease forwards .3s}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,9vw,96px);font-weight:300;color:var(--cream);line-height:1;margin-bottom:.25rem;opacity:0;animation:fadeUp 1s ease forwards .5s}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,88px);font-weight:300;color:var(--cream);line-height:1.05;margin-bottom:.25rem;opacity:0;animation:fadeUp 1s ease forwards .5s}
+.hero h1 .h1-kicker{display:block;font-size:.5em;letter-spacing:1px;margin-bottom:.15em}
 .hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,3vw,28px);font-style:italic;color:var(--gold);letter-spacing:3px;margin-bottom:2rem;opacity:0;animation:fadeUp 1s ease forwards .7s}
 .hero-desc{font-size:15px;color:rgba(247,244,237,.75);max-width:520px;margin-bottom:2.5rem;opacity:0;animation:fadeUp 1s ease forwards .9s}
 .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 1s ease forwards 1.1s}
@@ -175,9 +176,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,46,26,0.9
 .btn-gold:hover{background:var(--gold2)}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(247,244,237,.4);color:var(--cream);font-size:14px;padding:13px 28px;border-radius:32px;text-decoration:none;transition:border-color .2s}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-.hero-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.hero-dots{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
 .dot{width:6px;height:6px;border-radius:50%;background:rgba(247,244,237,.4);cursor:pointer;transition:background .3s}
 .dot.active{background:var(--gold)}
+.hero-badge{display:inline-block;background:var(--gold);color:var(--forest);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:9px 20px;border-radius:24px;margin-bottom:1.8rem}
+.toc-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.85rem}
+.toc-links a{color:var(--forest);text-decoration:underline}
 .stats-bar{background:var(--forest);padding:2rem;display:flex;justify-content:center;flex-wrap:wrap}
 .stat{text-align:center;padding:1rem 2.5rem;border-right:1px solid rgba(247,244,237,.1)}
 .stat:last-child{border-right:none}
@@ -243,28 +247,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(26,46,26,0.9
 .btn-call svg{width:16px;height:16px;fill:currentColor}
 footer{background:#0d170d;padding:2rem;text-align:center;font-size:12px;color:rgba(247,244,237,.2)}
 footer a{color:var(--gold);text-decoration:none}
-.admin-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;align-items:center;justify-content:center}
-.admin-overlay.open{display:flex}
-.admin-panel{background:var(--white);border-radius:20px;padding:2rem;width:90%;max-width:600px;max-height:85vh;overflow-y:auto}
-.admin-panel h3{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--forest);margin-bottom:1.5rem}
-.admin-login{display:flex;gap:10px;margin-bottom:1.5rem}
-.admin-login input{flex:1;padding:10px 14px;border:1px solid var(--border);border-radius:10px;font-family:'Jost',sans-serif;font-size:14px;outline:none}
-.admin-login input:focus{border-color:var(--gold)}
-.btn-admin-login{padding:10px 20px;background:var(--forest);color:var(--cream);border:none;border-radius:10px;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px}
-.admin-content{display:none}
-.admin-content.open{display:block}
-.admin-lote-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px}
-.admin-lote-row:last-child{border-bottom:none}
-.admin-lote-info{flex:1}
-.admin-lote-num{font-weight:500;color:var(--forest)}
-.admin-lote-det{color:var(--muted);font-size:12px}
-.toggle-vendido{padding:5px 12px;border-radius:16px;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-size:12px;font-weight:500}
-.toggle-vendido.disponible{background:rgba(74,103,65,.15);color:var(--sage)}
-.toggle-vendido.vendido{background:rgba(229,62,62,.15);color:#e53e3e}
-.admin-close{float:right;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);margin-bottom:1rem}
-.admin-save{width:100%;padding:12px;background:var(--gold);color:var(--forest);border:none;border-radius:10px;cursor:pointer;font-family:'Jost',sans-serif;font-size:14px;font-weight:500;margin-top:1rem}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:600px){.stat{padding:1rem 1.25rem;border-right:none;border-bottom:1px solid rgba(247,244,237,.1)}.section{padding:3.5rem 1.25rem}.lotes-section,.video-section,.cta-section,.seg-section{padding:3.5rem 1.25rem}}
+@media(prefers-reduced-motion:reduce){.hero-tag,.hero h1,.hero-sub,.hero-desc,.hero-btns{animation:none;opacity:1}}
+@media(max-width:600px){.top-nav{padding:0 1rem}.hero-content{padding:84px 1.25rem 4rem}.hero-tag{font-size:10px;letter-spacing:2.5px;margin-bottom:1rem}.hero h1{font-size:40px}.hero-sub{margin-bottom:1.25rem}.hero-desc{font-size:14px;margin-bottom:1.5rem}.hero-badge{font-size:11px;letter-spacing:1px;padding:8px 16px;margin-bottom:1.25rem}.stat{padding:1rem 1.25rem;border-right:none;border-bottom:1px solid rgba(247,244,237,.1)}.section{padding:3.5rem 1.25rem}.lotes-section,.video-section,.cta-section,.seg-section{padding:3.5rem 1.25rem}}
 .logo-strip{text-align:center;padding:3rem 1.5rem 0;max-width:1000px;margin:0 auto}
 .logo-strip img{width:220px;max-width:62%;height:auto}
 .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:.5rem}
@@ -285,21 +270,20 @@ footer a{color:var(--gold);text-decoration:none}
 .seg-item .feat-ic{margin-bottom:.4rem}
 .seg-item h3{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--cream);font-weight:500;margin-bottom:.2rem}
 .seg-item p{font-size:12.5px;color:rgba(247,244,237,.6);line-height:1.5}
-@media(max-width:820px){.feat-grid,.seg-grid,.galeria-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:700px){.ubicacion-grid{grid-template-columns:1fr!important}}
+@media(max-width:820px){.feat-grid,.seg-grid,.galeria-grid{grid-template-columns:repeat(2,1fr)}.amenidades-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.ubicacion-grid{grid-template-columns:1fr!important}.resumen-list{grid-template-columns:1fr!important}}
 @media(max-width:520px){.feat-grid,.seg-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<nav>
+<nav class="top-nav">
   <a class="nav-logo" href="https://unobrokers.com.mx/"><span>UNO</span> BROKERS</a>
   <div class="nav-right">
     <a class="nav-wa" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20un%20lote%20en%20Los%20Sue%C3%B1os%20Residencial" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.526 5.855L.057 23.882a.5.5 0 0 0 .611.611l6.084-1.496A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.806 9.806 0 0 1-5.032-1.385l-.36-.214-3.733.918.952-3.645-.235-.374A9.786 9.786 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
       Informes
     </a>
-    <button class="admin-btn" onclick="openAdmin()">· admin ·</button>
   </div>
 </nav>
 
@@ -307,11 +291,11 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="hero-slides" id="slides"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <p class="hero-tag">Terrenos en venta · Zapopan · Prolongación Av. Vallarta · El Bajío</p>
-    <h1>Terrenos en Venta — Los Sueños Residencial</h1>
+    <p class="hero-tag">Zapopan · Prolongación Av. Vallarta · El Bajío</p>
+    <h1><span class="h1-kicker">Terrenos en venta</span>Los Sueños Residencial</h1>
     <p class="hero-sub">Zapopan</p>
     <p class="hero-desc">Terrenos en venta en Los Sueños Residencial, Zapopan: el residencial de mayor proyección en el Bajío de Zapopan, con más de 50,000 m² de áreas verdes, lago panorámico, casa club, simulador de golf y amenidades deportivas, con acceso controlado y escrituración inmediata.</p>
-    <div style="display:inline-block;background:var(--gold);color:var(--forest);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:9px 20px;border-radius:24px;margin-bottom:1.8rem;">Precios de contado y precios especiales</div>
+    <div class="hero-badge">Precios de contado y precios especiales</div>
     <div class="hero-btns">
       <a class="btn-gold" href="#lotes">Ver lotes disponibles</a>
       <a class="btn-ghost" href="#video">Ver video del desarrollo</a>
@@ -332,12 +316,12 @@ footer a{color:var(--gold);text-decoration:none}
 <div class="section" style="padding-bottom:0;">
   <div style="padding:18px 22px; background:rgba(0,0,0,0.03); border-radius:14px; margin-bottom:20px;">
     <p class="section-tag" style="margin-bottom:10px;">En esta página</p>
-    <nav aria-label="Tabla de contenidos" style="display:flex; flex-wrap:wrap; gap:8px 18px; font-size:.85rem;">
-      <a href="#lotes" style="text-decoration:underline;">Lotes disponibles</a>
-      <a href="#ubicacion" style="text-decoration:underline;">Ubicación</a>
-      <a href="#video" style="text-decoration:underline;">Video del desarrollo</a>
-      <a href="#como-comprar" style="text-decoration:underline;">Cómo comprar</a>
-    </nav>
+    <div class="toc-links" role="navigation" aria-label="Tabla de contenidos">
+      <a href="#lotes">Lotes disponibles</a>
+      <a href="#ubicacion">Ubicación</a>
+      <a href="#video">Video del desarrollo</a>
+      <a href="#como-comprar">Cómo comprar</a>
+    </div>
   </div>
   <div style="padding:20px 22px; background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:14px; margin-bottom:8px;">
     <p class="section-tag" style="margin-bottom:12px;">Ficha del desarrollo</p>
@@ -395,7 +379,7 @@ footer a{color:var(--gold);text-decoration:none}
 
   <blockquote cite="https://unobrokers.com.mx/los-suenos-residencial.html" style="margin:20px 0 0; padding:16px 20px; background:#fff; border-left:3px solid var(--gold); border-radius:0 14px 14px 0; font-style:italic; color:#333; font-size:.92rem;">
     "En El Bajío, los terrenos con lago y amenidades deportivas como las de Los Sueños se han vuelto de las opciones más buscadas por familias que quieren construir su propia casa sin sacrificar áreas verdes. La escrituración inmediata también pesa mucho para quien ya tiene el proyecto listo y no quiere esperar."
-    <footer style="margin-top:8px; font-style:normal; font-size:.82rem; color:var(--forest); font-weight:600;">— UNO Brokers</footer>
+    <footer style="margin-top:8px; font-style:normal; font-size:.82rem; color:var(--forest); font-weight:600; background:none; padding:0; text-align:left;">— UNO Brokers</footer>
   </blockquote>
 </div>
 
@@ -439,7 +423,7 @@ footer a{color:var(--gold);text-decoration:none}
     <p class="section-tag" style="color:var(--gold);justify-content:center;">El proyecto</p>
     <h2 class="section-title" style="color:var(--cream);text-align:center;">Conoce Los Sueños<br>Residencial</h2>
     <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/d3Wn5AydvCY" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      <iframe src="https://www.youtube.com/embed/d3Wn5AydvCY" title="Video de Los Sueños Residencial" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
     </div>
   </div>
 </section>
@@ -857,8 +841,8 @@ footer a{color:var(--gold);text-decoration:none}
   </div>
 
   <div style="margin-top:3rem;padding:2rem;background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);">
-    <h3 style="font-family:'EB Garamond',Georgia,serif;font-size:22px;margin-bottom:1rem;color:var(--dark,#1B2A4A);">Los Sueños Residencial en resumen</h3>
-    <ul style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;font-size:14px;color:var(--text);line-height:1.6;">
+    <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:400;margin-bottom:1rem;color:var(--forest);">Los Sueños Residencial en resumen</h3>
+    <ul class="resumen-list" style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;font-size:14px;color:var(--text);line-height:1.6;">
       <li><strong>Ubicación:</strong> El Bajío, Zapopan, Jalisco</li>
       <li><strong>Tipo:</strong> Terrenos residenciales</li>
       <li><strong>Superficie desde:</strong> 448 m²</li>
@@ -954,7 +938,7 @@ footer a{color:var(--gold);text-decoration:none}
   <p class="section-tag">En conclusión</p>
   <h2 class="section-title">¿Te conviene invertir en Los Sueños Residencial?</h2>
   <p class="section-sub">Si buscas construir tu casa a tu medida, con escrituración inmediata y un entorno con lago y amenidades deportivas poco comunes en otros residenciales de Zapopan, es una opción sólida. Considera tu presupuesto y el tiempo que tienes disponible para construir antes de decidir, y compara el costo por metro cuadrado del predio contra el de una vivienda terminada en zonas cercanas como Valle Real o Ciudad Granja.</p>
-  <p style="margin-top:14px; font-size:.8rem; color:#6b7280;">Contenido revisado por UNO Brokers · Última actualización: <time datetime="2026-09-14">14 de septiembre de 2026</time></p>
+  <p style="margin-top:14px; font-size:.8rem; color:#6b7280;">Contenido revisado por UNO Brokers · Última actualización: <time datetime="2026-09-24">24 de septiembre de 2026</time></p>
 </section>
 
 <section class="cta-section">
@@ -989,22 +973,16 @@ footer a{color:var(--gold);text-decoration:none}
 <script>
 var LS_IMG={lago:'los-suenos-lago.jpg',alberca2:'los-suenos-alberca2.jpg',entrada:'los-suenos-entrada.jpg',areasverdes:'los-suenos-areasverdes.jpg',arbol:'los-suenos-arbol.jpg',cancha:'los-suenos-cancha.jpg',gimnasio:'los-suenos-gimnasio.jpg',lago2:'los-suenos-lago2.jpg'};
 // Los 34 lotes ya están en el HTML (visibles para buscadores e IA sin depender de JS).
-// El filtro por categoría solo muestra/oculta las tarjetas que ya existen en el DOM.
-// El estatus "vendido" vive directamente en cada tarjeta (data-vendido) — para actualizarlo,
-// se edita el archivo HTML y se vuelve a subir, así se ve igual para todos los visitantes.
+// El estatus "vendido" vive en cada tarjeta (data-vendido): se edita el HTML y se vuelve a subir.
 
 function filterCat(cat,el){
   document.querySelectorAll('.cat-tab').forEach(function(t){t.classList.remove('active')});
   el.classList.add('active');
-  var cards=document.querySelectorAll('.lote-card');
-  var visibles=0, disponibles=0;
-  cards.forEach(function(c){
+  var disponibles=0;
+  document.querySelectorAll('.lote-card').forEach(function(c){
     var match = cat==='todos' || c.getAttribute('data-cat')===cat;
     c.style.display = match ? '' : 'none';
-    if(match){
-      visibles++;
-      if(c.getAttribute('data-vendido')==='0') disponibles++;
-    }
+    if(match && c.getAttribute('data-vendido')==='0') disponibles++;
   });
   document.getElementById('count').textContent=disponibles;
 }
@@ -1037,20 +1015,10 @@ function goSlide(n){
 setInterval(function(){goSlide((currentSlide+1)%total)},5000);
 
 function toggleFaq(btn){
-  var a=btn.nextElementSibling,open=btn.classList.contains('open');
-  document.querySelectorAll('.faq-q').forEach(function(b){b.classList.remove('open')});
-  document.querySelectorAll('.faq-a').forEach(function(x){x.classList.remove('open')});
-  if(!open){btn.classList.add('open');a.classList.add('open')}
-}
-
-// Galería ya está en el HTML como <figure>/<figcaption> (visible para buscadores e IA)
-</script>
-</body>
-<script>
-function toggleFaq(btn){
   var isOpen=btn.classList.contains('open');
   document.querySelectorAll('.faq-q.open').forEach(function(b){b.classList.remove('open');b.nextElementSibling.classList.remove('open');});
   if(!isOpen){btn.classList.add('open');btn.nextElementSibling.classList.add('open');}
 }
 </script>
+</body>
 </html>
