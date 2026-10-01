@@ -39,6 +39,9 @@ td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 .bar{height:6px;background:var(--gold-soft);border-radius:3px;margin-top:5px}
 .alert{padding:13px 15px;border-radius:8px;background:#fbecea;color:var(--warn);border-left:4px solid var(--warn);display:none;margin-top:14px}
 .empty{color:var(--muted)}
+.ok{padding:13px 15px;border-radius:8px;background:#eaf4ea;color:#2d6a33;border-left:4px solid #2d6a33;display:none;margin-top:14px}
+.chk{width:auto;margin:0}
+.reasig-list{max-height:320px;overflow-y:auto;border:1px solid var(--line);border-radius:8px;margin-top:14px}
 </style>
 </head>
 <body>
@@ -80,6 +83,22 @@ td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
       <h2>Clientes sin ningún seguimiento</h2>
       <div class="tbl-wrap"><table id="tSinSeg"></table></div>
     </div>
+
+    <div class="panel" id="panelReasig">
+      <h2>Reasignar clientes</h2>
+      <p class="lead" style="margin-bottom:6px">Pasa los clientes de un asesor a otro. El asesor nuevo debe haberse dado de alta antes en el registro.</p>
+      <div class="row">
+        <div><label for="rOrigen">Quitar clientes de</label><select id="rOrigen" onchange="listarReasig()"></select></div>
+        <div><label for="rDestino">Asignarlos a</label><select id="rDestino"></select></div>
+      </div>
+      <div class="reasig-list"><table id="tReasig"></table></div>
+      <div class="row" style="margin-top:16px;justify-content:space-between">
+        <span id="rCuenta" class="empty"></span>
+        <button class="btn" id="btnReasig" onclick="reasignar()">Reasignar seleccionados</button>
+      </div>
+      <div class="alert" id="rError"></div>
+      <div class="ok" id="rOk"></div>
+    </div>
   </section>
 </main>
 
@@ -91,6 +110,7 @@ td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
 <script>
 const ADMIN = ['info.unobrokers@gmail.com'];
 let todos = [];
+let asesores = [];
 function $(id){return document.getElementById(id);}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function etiquetaAsesor(c){ return c.asesorEmail && c.asesorEmail !== c.asesorNombre ? (c.asesorNombre||'') + ' (' + c.asesorEmail + ')' : (c.asesorNombre || c.asesorEmail || ''); }
@@ -106,12 +126,13 @@ auth.onAuthStateChanged(user => {
   $('loginBox').style.display='none';
   $('lead').textContent = 'Cargando clientes...';
   db.collection('clientes').get().then(snap => {
-    todos = []; snap.forEach(d => todos.push(d.data()));
+    todos = []; snap.forEach(d => todos.push(Object.assign({_id: d.id}, d.data())));
     todos.sort((a,b)=>(fechaDe(b)||0)-(fechaDe(a)||0));
     llenarFiltros();
     $('lead').textContent = 'Todos los clientes registrados por tu equipo. Filtra y descarga lo que necesites.';
     $('app').style.display='block';
     render();
+    cargarAsesores();
   }).catch(err => { $('lead').textContent = 'No se pudieron cargar los clientes: ' + err.message; });
 });
 
@@ -161,6 +182,77 @@ function render(){
     ? '<tr><th>Registrado</th><th>Cliente</th><th>Termina en</th><th>Proyecto</th><th>Asesor</th></tr>' + sin.map(c =>
         '<tr><td>'+fmt(fechaDe(c))+'</td><td>'+esc(c.nombre)+'</td><td>'+esc(c.telefono)+'</td><td>'+esc(c.proyecto)+'</td><td>'+esc(etiquetaAsesor(c))+'</td></tr>').join('')
     : '<tr><td class="empty">Todos los clientes de este filtro tienen al menos un seguimiento.</td></tr>';
+}
+
+function cargarAsesores(){
+  db.collection('asesores').get().then(snap => {
+    asesores = []; snap.forEach(d => { const a = d.data(); asesores.push({uid: d.id, nombre: a.nombre || '', email: a.email || ''}); });
+    llenarReasig();
+  }).catch(err => {
+    asesores = []; llenarReasig();
+    $('rError').textContent = 'No se pudo leer la lista de asesores (' + (err.code||err.message) + '). Revisa las reglas de Firestore.';
+    $('rError').style.display = 'block';
+  });
+}
+
+function llenarReasig(){
+  const origen = {};
+  todos.forEach(c => { if (c.asesorUid) { origen[c.asesorUid] = origen[c.asesorUid] || {uid:c.asesorUid, etiqueta: etiquetaAsesor(c), n:0}; origen[c.asesorUid].n++; } });
+  const lo = Object.values(origen).sort((a,b)=>a.etiqueta.localeCompare(b.etiqueta));
+  $('rOrigen').innerHTML = '<option value="">Elige un asesor</option>' + lo.map(o => '<option value="'+esc(o.uid)+'">'+esc(o.etiqueta)+' — '+o.n+' clientes</option>').join('');
+  const ld = asesores.slice().sort((a,b)=>(a.nombre||a.email).localeCompare(b.nombre||b.email));
+  $('rDestino').innerHTML = '<option value="">Elige un asesor</option>' + ld.map(a => '<option value="'+esc(a.uid)+'">'+esc(a.nombre ? a.nombre + (a.email ? ' ('+a.email+')' : '') : a.email)+'</option>').join('');
+  listarReasig();
+}
+
+function listarReasig(){
+  const uid = $('rOrigen').value;
+  const lista = todos.filter(c => uid && c.asesorUid === uid);
+  $('tReasig').innerHTML = lista.length
+    ? '<tr><th><input type="checkbox" class="chk" checked onchange="document.querySelectorAll(\'.rsel\').forEach(x=>x.checked=this.checked);contarReasig()"></th><th>Registrado</th><th>Cliente</th><th>Termina en</th><th>Proyecto</th></tr>' + lista.map(c =>
+        '<tr><td><input type="checkbox" class="chk rsel" value="'+esc(c._id)+'" checked onchange="contarReasig()"></td><td>'+fmt(fechaDe(c))+'</td><td>'+esc(c.nombre)+'</td><td>'+esc(c.telefono)+'</td><td>'+esc(c.proyecto)+'</td></tr>').join('')
+    : '<tr><td class="empty">Elige el asesor del que quieres quitar clientes.</td></tr>';
+  contarReasig();
+}
+
+function contarReasig(){
+  const n = document.querySelectorAll('.rsel:checked').length;
+  $('rCuenta').textContent = n ? n + ' clientes seleccionados' : '';
+}
+
+function reasignar(){
+  $('rError').style.display='none'; $('rOk').style.display='none';
+  const ids = [...document.querySelectorAll('.rsel:checked')].map(x => x.value);
+  const destUid = $('rDestino').value, origUid = $('rOrigen').value;
+  const dest = asesores.find(a => a.uid === destUid);
+  const err = m => { $('rError').textContent = m; $('rError').style.display='block'; };
+  if (!origUid) return err('Elige de qué asesor quitar los clientes.');
+  if (!dest) return err('Elige a qué asesor asignarlos.');
+  if (destUid === origUid) return err('El asesor de origen y el de destino son el mismo.');
+  if (!ids.length) return err('No hay clientes seleccionados.');
+  if (!confirm('¿Pasar ' + ids.length + ' clientes a ' + (dest.nombre || dest.email) + '?')) return;
+  const btn = $('btnReasig'); btn.disabled = true; btn.textContent = 'Reasignando...';
+  const ahora = firebase.firestore.FieldValue.serverTimestamp();
+  const lotes = [];
+  for (let i = 0; i < ids.length; i += 400) {
+    const b = db.batch();
+    ids.slice(i, i+400).forEach(id => {
+      const c = todos.find(x => x._id === id);
+      b.update(db.collection('clientes').doc(id), {
+        asesorUid: dest.uid, asesorNombre: dest.nombre || dest.email, asesorEmail: dest.email || '',
+        reasignadoDeUid: c.asesorUid || '', reasignadoDeNombre: c.asesorNombre || '', reasignadoDeEmail: c.asesorEmail || '',
+        reasignadoFecha: ahora
+      });
+    });
+    lotes.push(b.commit());
+  }
+  Promise.all(lotes).then(() => {
+    ids.forEach(id => { const c = todos.find(x => x._id === id); c.asesorUid = dest.uid; c.asesorNombre = dest.nombre || dest.email; c.asesorEmail = dest.email || ''; });
+    $('rOk').textContent = 'Listo: ' + ids.length + ' clientes ahora son de ' + (dest.nombre || dest.email) + '.';
+    $('rOk').style.display = 'block';
+    llenarFiltros(); render(); llenarReasig();
+  }).catch(e => err('No se pudo reasignar (' + (e.code||e.message) + '). Revisa las reglas de Firestore.'))
+    .finally(() => { btn.disabled = false; btn.textContent = 'Reasignar seleccionados'; });
 }
 
 function descargarExcel(){
