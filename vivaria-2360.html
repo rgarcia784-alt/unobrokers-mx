@@ -400,7 +400,7 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
   /* SECTION HEADERS */
   .sec-head{max-width:640px; margin-bottom:44px;}
   .sec-head h2{font-size:clamp(1.6rem, 3vw, 2.3rem); color:var(--navy);}
-  .sec-head p{color:#4a5060; font-size:1.02rem;}
+  .sec-head p{color:#2B3140; font-size:1.02rem;}
 
   /* SOBRE VIVARIA */
   .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;}
@@ -420,7 +420,7 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
     aspect-ratio:9/16; max-width:280px; margin:22px auto 0;
   }
   .video-caption{
-    font-family:var(--mono); font-size:.75rem; color:#6b7280; margin-top:10px; text-align:center;
+    font-family:var(--mono); font-size:.75rem; color:#4A505E; margin-top:10px; text-align:center;
   }
   .about-list{list-style:none; margin:20px 0 0; padding:0; display:grid; gap:12px;}
   .about-list li{
@@ -440,7 +440,7 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
   }
   .gallery-grid .tall{grid-row:span 2; aspect-ratio:auto;}
   .gallery-credit{
-    font-family:var(--mono); font-size:.76rem; color:#8a8f9a; margin-top:14px; text-align:center;
+    font-family:var(--mono); font-size:.76rem; color:#555B68; margin-top:14px; text-align:center;
   }
 
   /* TOUR 3D */
@@ -482,9 +482,9 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
   }
   .invest-card .num{font-family:var(--mono); color:var(--gold); font-size:.78rem; letter-spacing:.1em;}
   .invest-card h3{font-size:1.15rem; margin-top:6px; color:var(--navy);}
-  .invest-card p{font-size:.94rem; color:#4a5060; margin:0;}
+  .invest-card p{font-size:.94rem; color:#2B3140; margin:0;}
   .disclaimer{
-    margin-top:28px; font-size:.85rem; color:#6b7280; border-top:1px solid var(--line); padding-top:18px;
+    margin-top:28px; font-size:.85rem; color:#4A505E; border-top:1px solid var(--line); padding-top:18px;
   }
 
   /* PROTOTIPOS */
@@ -535,7 +535,7 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
   }
   .proto-card .body{padding:22px 24px 26px; border-top:3px solid var(--gold);}
   .proto-card h3{font-size:1.15rem; margin-bottom:8px; color:var(--navy);}
-  .proto-card p{font-size:.92rem; color:#4a5060; margin:0;}
+  .proto-card p{font-size:.92rem; color:#2B3140; margin:0;}
 
   /* PLAN COMERCIAL */
   .plan-sec{background:var(--navy); color:var(--cream);}
@@ -618,7 +618,7 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
   }
   .advisors-head .copy{max-width:600px;}
   .advisors-head h2{font-size:clamp(1.6rem,3vw,2.3rem); color:var(--navy);}
-  .advisors-head p{color:#4a5060; font-size:1.02rem;}
+  .advisors-head p{color:#2B3140; font-size:1.02rem;}
   .advisors-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-bottom:32px;}
   @media (max-width:860px){ .advisors-grid{grid-template-columns:1fr;} }
   .advisor-card{
@@ -626,7 +626,7 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
     border-radius:12px; padding:24px 22px;
   }
   .advisor-card h3{font-size:1.05rem; color:var(--navy); margin-bottom:8px;}
-  .advisor-card p{font-size:.92rem; color:#4a5060; margin:0;}
+  .advisor-card p{font-size:.92rem; color:#2B3140; margin:0;}
   .advisors-cta{
     display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
     background:var(--navy); border-radius:16px; padding:26px 28px; color:var(--cream);
@@ -643,7 +643,7 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
   summary::-webkit-details-marker{display:none;}
   summary::after{content:"+"; font-family:var(--mono); color:var(--gold); font-size:1.3rem;}
   details[open] summary::after{content:"–";}
-  details p{color:#4a5060; margin:12px 0 0; font-size:.96rem; max-width:70ch;}
+  details p{color:#2B3140; margin:12px 0 0; font-size:.96rem; max-width:70ch;}
 
   /* CONTACTO */
   .contact-sec{
@@ -660,6 +660,18 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
   footer .wrap{display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;}
   footer a{text-decoration:none; color:rgba(244,237,224,0.75);}
   .legal-note{max-width:1180px; margin:0 auto 0; padding:0 24px 24px; font-size:.76rem; color:rgba(244,237,224,0.4);}
+
+  /* Contraste reforzado en secciones claras */
+  body{color:#14171F; -webkit-font-smoothing:antialiased;}
+  p, li, dd, summary{font-weight:400;}
+  .faq-list p{color:#2B3140;}
+  .proto-card .body p{color:#2B3140;}
+  .trust .t-item{opacity:1;}
+  .eyebrow{color:#7A5C14;}
+  .hero .eyebrow, .tour-sec .eyebrow, .location-sec .eyebrow, .plan-sec .eyebrow,
+  .why-sec .eyebrow, .contact-sec .eyebrow{color:var(--gold);}
+  blockquote footer, .about-grid footer{background:none !important; padding:0 !important; color:#7A5C14 !important;}
+  .legal-note{background:var(--navy-deep); max-width:none; margin:0; padding:0 max(24px, calc((100% - 1132px) / 2)) 28px; color:rgba(244,237,224,0.65);}
 </style></head>
 <body>
 <script>
@@ -778,16 +790,16 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
   <div style="margin:0 0 28px; padding:24px; background:#fff; border:1px solid var(--line); border-radius:14px;">
     <p class="eyebrow" style="margin-bottom:14px;">Ficha técnica</p>
     <dl style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:12px 24px; margin:0; font-size:.92rem;">
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Desarrollador:</dt> <dd style="display:inline; margin:0; color:#4a5060;">CADU Inmobiliaria</dd></div>
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Comercializadora:</dt> <dd style="display:inline; margin:0; color:#4a5060;">UNO Brokers (Master Broker)</dd></div>
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Ubicación:</dt> <dd style="display:inline; margin:0; color:#4a5060;">San Antonio, Guadalajara, Jalisco</dd></div>
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Total de unidades:</dt> <dd style="display:inline; margin:0; color:#4a5060;">220 departamentos</dd></div>
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Prototipos:</dt> <dd style="display:inline; margin:0; color:#4a5060;">19, de 1 a 3 recámaras</dd></div>
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Metraje:</dt> <dd style="display:inline; margin:0; color:#4a5060;">42.83 m² a 77.65 m²</dd></div>
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Transporte más cercano:</dt> <dd style="display:inline; margin:0; color:#4a5060;">Estación Cristóbal de Oñate, Tren Ligero L2 (470 m)</dd></div>
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Anticipo:</dt> <dd style="display:inline; margin:0; color:#4a5060;">5%</dd></div>
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Durante la obra:</dt> <dd style="display:inline; margin:0; color:#4a5060;">5%</dd></div>
-      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Contra entrega:</dt> <dd style="display:inline; margin:0; color:#4a5060;">90%</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Desarrollador:</dt> <dd style="display:inline; margin:0; color:#2B3140;">CADU Inmobiliaria</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Comercializadora:</dt> <dd style="display:inline; margin:0; color:#2B3140;">UNO Brokers (Master Broker)</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Ubicación:</dt> <dd style="display:inline; margin:0; color:#2B3140;">San Antonio, Guadalajara, Jalisco</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Total de unidades:</dt> <dd style="display:inline; margin:0; color:#2B3140;">220 departamentos</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Prototipos:</dt> <dd style="display:inline; margin:0; color:#2B3140;">19, de 1 a 3 recámaras</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Metraje:</dt> <dd style="display:inline; margin:0; color:#2B3140;">42.83 m² a 77.65 m²</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Transporte más cercano:</dt> <dd style="display:inline; margin:0; color:#2B3140;">Estación Cristóbal de Oñate, Tren Ligero L2 (470 m)</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Anticipo:</dt> <dd style="display:inline; margin:0; color:#2B3140;">5%</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Durante la obra:</dt> <dd style="display:inline; margin:0; color:#2B3140;">5%</dd></div>
+      <div><dt style="font-weight:700; color:var(--navy); display:inline;">Contra entrega:</dt> <dd style="display:inline; margin:0; color:#2B3140;">90%</dd></div>
     </dl>
   </div>
 </div>
@@ -798,8 +810,8 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
       <div>
         <p class="eyebrow">Sobre el desarrollo</p>
         <h2 style="font-size:clamp(1.6rem,3vw,2.3rem); color:var(--navy);">Un espacio donde la vida prospera</h2>
-        <p style="color:#4a5060; font-size:1.02rem;">El nombre Vivaria viene del latín <em>vivarium</em>: un espacio donde la vida prospera. El desarrollo se organiza alrededor de patios centrales que conectan a las familias entre sí, en un entorno que combina el pulso de la ciudad con espacios pensados para el bienestar diario.</p>
-        <p style="color:#4a5060; font-size:1.02rem;">Vivaria 2360 es un desarrollo residencial vertical construido por <strong>CADU Inmobiliaria</strong> y comercializado en exclusiva, como master broker, por <strong>UNO Brokers</strong>.</p>
+        <p style="color:#2B3140; font-size:1.02rem;">El nombre Vivaria viene del latín <em>vivarium</em>: un espacio donde la vida prospera. El desarrollo se organiza alrededor de patios centrales que conectan a las familias entre sí, en un entorno que combina el pulso de la ciudad con espacios pensados para el bienestar diario.</p>
+        <p style="color:#2B3140; font-size:1.02rem;">Vivaria 2360 es un desarrollo residencial vertical construido por <strong>CADU Inmobiliaria</strong> y comercializado en exclusiva, como master broker, por <strong>UNO Brokers</strong>.</p>
         <blockquote cite="https://unobrokers.com.mx/" style="border-left:3px solid var(--gold); margin:20px 0; padding:4px 0 4px 18px; color:#2b303c; font-style:italic;">
           "Vivaria 2360 destaca por algo que pocos desarrollos en Guadalajara logran: estar a 470 metros del Tren Ligero y, al mismo tiempo, ofrecer patios centrales pensados para la vida familiar. Es de las ubicaciones más completas que comercializamos hoy."
           <footer style="margin-top:8px; font-style:normal; font-size:.85rem; color:var(--gold); font-weight:600;">— UNO Brokers</footer>
@@ -936,8 +948,8 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
 
     <div style="margin-top:32px; padding:22px 24px; background:var(--cream); border-radius:14px; border:1px solid var(--line);">
       <p class="eyebrow" style="margin-bottom:10px;">Vivaria 2360 frente a otras opciones de CADU en la ZMG</p>
-      <p style="color:#4a5060; font-size:.96rem; margin-bottom:8px;">CADU Inmobiliaria también desarrolla Entrebosques, Elysian High Country y Principia Living en la zona metropolitana de Guadalajara. La diferencia principal está en la ubicación: esos desarrollos se ubican en zonas más periféricas de la ciudad, mientras que Vivaria 2360 está en pleno corazón de Guadalajara, a 470 metros del Tren Ligero Línea 2.</p>
-      <p style="color:#4a5060; font-size:.96rem; margin:0;">Por un lado, una ubicación periférica suele ofrecer más metros cuadrados por el mismo precio; por otro, una ubicación central como la de Vivaria 2360 reduce tiempos de traslado y suele sostener mejor su plusvalía y demanda de renta a largo plazo. La opción correcta depende de si priorizas espacio o cercanía — coméntalo con tu asesor de UNO Brokers para ver cuál conviene más a tu caso.</p>
+      <p style="color:#2B3140; font-size:.96rem; margin-bottom:8px;">CADU Inmobiliaria también desarrolla Entrebosques, Elysian High Country y Principia Living en la zona metropolitana de Guadalajara. La diferencia principal está en la ubicación: esos desarrollos se ubican en zonas más periféricas de la ciudad, mientras que Vivaria 2360 está en pleno corazón de Guadalajara, a 470 metros del Tren Ligero Línea 2.</p>
+      <p style="color:#2B3140; font-size:.96rem; margin:0;">Por un lado, una ubicación periférica suele ofrecer más metros cuadrados por el mismo precio; por otro, una ubicación central como la de Vivaria 2360 reduce tiempos de traslado y suele sostener mejor su plusvalía y demanda de renta a largo plazo. La opción correcta depende de si priorizas espacio o cercanía — coméntalo con tu asesor de UNO Brokers para ver cuál conviene más a tu caso.</p>
     </div>
   </div>
 </section>
@@ -1173,8 +1185,8 @@ src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1"
   <div class="wrap" style="max-width:760px;">
     <p class="eyebrow" style="margin-bottom:10px;">En conclusión</p>
     <h2 style="font-size:1.5rem; color:var(--navy); margin-bottom:12px;">¿Te conviene Vivaria 2360?</h2>
-    <p style="color:#4a5060; font-size:1rem;">Si buscas vivir o invertir en el corazón de Guadalajara, con transporte público a un paso y el respaldo de una desarrolladora con más de 25 años de trayectoria, Vivaria 2360 es una opción sólida a considerar. Si en cambio priorizas más metros cuadrados por el mismo presupuesto y no te importa alejarte del centro, vale la pena que también revises otras opciones de CADU en la zona metropolitana. En cualquier caso, un asesor de UNO Brokers puede ayudarte a comparar precio, plusvalía y disponibilidad antes de decidir.</p>
-    <p style="margin-top:18px; font-size:.82rem; color:#6b7280;">Contenido revisado por UNO Brokers · Última actualización: <time datetime="2026-09-14">14 de septiembre de 2026</time></p>
+    <p style="color:#2B3140; font-size:1rem;">Si buscas vivir o invertir en el corazón de Guadalajara, con transporte público a un paso y el respaldo de una desarrolladora con más de 25 años de trayectoria, Vivaria 2360 es una opción sólida a considerar. Si en cambio priorizas más metros cuadrados por el mismo presupuesto y no te importa alejarte del centro, vale la pena que también revises otras opciones de CADU en la zona metropolitana. En cualquier caso, un asesor de UNO Brokers puede ayudarte a comparar precio, plusvalía y disponibilidad antes de decidir.</p>
+    <p style="margin-top:18px; font-size:.82rem; color:#4A505E;">Contenido revisado por UNO Brokers · Última actualización: <time datetime="2026-09-14">14 de septiembre de 2026</time></p>
   </div>
 </section>
 
