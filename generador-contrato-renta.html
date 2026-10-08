@@ -160,6 +160,25 @@
   /* FLOATING WA */
   .wa-float{position:fixed;bottom:24px;right:20px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.5);z-index:999;transition:all .2s;}
   .wa-float:hover{transform:scale(1.1);box-shadow:0 6px 22px rgba(37,211,102,.7);}
+  .paq{margin-top:22px;background:#fff;border:2px solid var(--gold);border-radius:14px;padding:26px;position:relative}
+  .paq .tag{font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:6px}
+  .paq-top{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start;justify-content:space-between}
+  .paq h3{font-size:22px;margin:0 0 6px}
+  .paq p{margin:0;color:#5b6577;font-size:14.5px}
+  .paq-price{text-align:right;white-space:nowrap}
+  .paq-price b{display:block;font-size:34px;line-height:1;color:var(--navy)}
+  .paq-price small{color:#5b6577;font-size:12.5px}
+  .paq ul{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px 18px}
+  .paq li{position:relative;padding-left:24px;font-size:14.5px}
+  .paq ul li::before{content:"\2713";position:absolute;left:0;color:var(--gold);font-weight:700}
+  .paq-pay{margin-top:20px;background:#f7f3ea;border-radius:10px;padding:18px}
+  .paq-pay ol{margin:0;padding-left:20px;font-size:14.5px}
+  .paq-pay ol li{margin:4px 0;padding-left:0}
+  .clabe{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:12px 0}
+  .clabe code{font-size:19px;letter-spacing:1px;background:#fff;border:1px solid #e2dac8;border-radius:8px;padding:8px 12px;color:var(--navy);font-weight:600;word-break:break-all}
+  .paq-pay .meta{font-size:13.5px;color:#5b6577;margin:0 0 12px}
+  .paq-ok{color:#1f7a4a;font-size:13.5px;margin-top:8px;display:none}
+  @media (max-width:600px){.paq{padding:20px}.paq-price{text-align:left;width:100%}}
 </style>
 </head>
 <body>
@@ -343,6 +362,40 @@
         </div>
         <div class="disclaimer">
           Este documento es una plantilla base generada automáticamente con la información que proporcionaste. No sustituye la asesoría de un profesional ni cubre cláusulas de protección legal avanzada (cobro ejecutivo, deslinde por actividades ilícitas, pagaré, etc.). Para una versión blindada, revisa la asesoría completa abajo.
+        </div>
+      </div>
+
+      <div class="paq" id="paquete">
+        <div class="paq-top">
+          <div style="flex:1;min-width:240px">
+            <div class="tag">Paquete profesional</div>
+            <h3>Completa tu contrato con los 6 anexos que todo arrendador necesita</h3>
+            <p>Documentos en Word con diseño profesional, listos para llenar, imprimir y firmar junto con tu contrato.</p>
+          </div>
+          <div class="paq-price"><b>$99</b><small>MXN · pago único</small></div>
+        </div>
+        <ul>
+          <li>Convenio de ajuste anual de renta por INPC</li>
+          <li>Inventario y acta de entrega-recepción</li>
+          <li>Reglamento de uso y convivencia</li>
+          <li>Carta responsiva por mascotas</li>
+          <li>Recibos de pago de renta</li>
+          <li>Acta de terminación y devolución del depósito</li>
+        </ul>
+        <div class="paq-pay">
+          <ol>
+            <li>Transfiere <b>$99</b> a esta cuenta:</li>
+          </ol>
+          <div class="clabe"><code>002320702133352847</code><button class="btn" type="button" id="copyClabe" style="padding:9px 16px">Copiar CLABE</button></div>
+          <p class="meta">CLABE Banamex · a nombre de Rafael García · concepto: Paquete arrendamiento</p>
+          <ol start="2">
+            <li>Envíanos tu comprobante por WhatsApp.</li>
+            <li>Te mandamos tu paquete en Word por el mismo medio.</li>
+          </ol>
+          <div style="margin-top:14px">
+            <a class="btn btn-gold" id="waPaquete" href="https://wa.me/523339675255?text=Hola%2C%20ya%20transfer%C3%AD%20%2499%20para%20el%20Paquete%20Profesional%20de%20Arrendamiento.%20Te%20env%C3%ADo%20mi%20comprobante." target="_blank" rel="noopener">Enviar comprobante por WhatsApp</a>
+          </div>
+          <div class="paq-ok" id="clabeOk">CLABE copiada.</div>
         </div>
       </div>
 
@@ -569,5 +622,20 @@ function toggleFaq(btn){
 
 <a class="wa-float" href="https://wa.me/523339675255?text=Hola%2C%20necesito%20ayuda%20con%20un%20contrato%20de%20arrendamiento" target="_blank" title="Contactar por WhatsApp" rel="noopener">💬</a>
 
+<script>
+(function(){
+  var b=document.getElementById('copyClabe'),ok=document.getElementById('clabeOk'),c='002320702133352847';
+  if(b){b.addEventListener('click',function(){
+    function done(){ok.style.display='block';}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(c).then(done,done);}else{done();}
+    try{if(window.gtag)gtag('event','copy_clabe',{item_id:'paquete_arrendamiento'});}catch(e){}
+  });}
+  var w=document.getElementById('waPaquete');
+  if(w){w.addEventListener('click',function(){
+    try{if(window.gtag)gtag('event','begin_checkout',{currency:'MXN',value:99,items:[{item_id:'paquete_arrendamiento'}]});}catch(e){}
+    try{if(window.fbq)fbq('track','InitiateCheckout',{value:99,currency:'MXN',content_ids:['paquete_arrendamiento']});}catch(e){}
+  });}
+})();
+</script>
 </body>
 </html>
