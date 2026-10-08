@@ -382,20 +382,9 @@
           <li>Recibos de pago de renta</li>
           <li>Acta de terminación y devolución del depósito</li>
         </ul>
-        <div class="paq-pay">
-          <ol>
-            <li>Transfiere <b>$99</b> a esta cuenta:</li>
-          </ol>
-          <div class="clabe"><code>002320702133352847</code><button class="btn" type="button" id="copyClabe" style="padding:9px 16px">Copiar CLABE</button></div>
-          <p class="meta">CLABE Banamex · a nombre de Rafael García · concepto: Paquete arrendamiento</p>
-          <ol start="2">
-            <li>Envíanos tu comprobante por WhatsApp.</li>
-            <li>Te mandamos tu paquete en Word por el mismo medio.</li>
-          </ol>
-          <div style="margin-top:14px">
-            <a class="btn btn-gold" id="waPaquete" href="https://wa.me/523339675255?text=Hola%2C%20ya%20transfer%C3%AD%20%2499%20para%20el%20Paquete%20Profesional%20de%20Arrendamiento.%20Te%20env%C3%ADo%20mi%20comprobante." target="_blank" rel="noopener">Enviar comprobante por WhatsApp</a>
-          </div>
-          <div class="paq-ok" id="clabeOk">CLABE copiada.</div>
+        <div class="paq-pay" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px">
+          <div style="font-size:14.5px;color:#3a4252">Pagas con tarjeta de crédito o débito y <b>lo descargas al instante</b>.<br><span style="font-size:13px;color:#5b6577">Pago seguro procesado por Stripe.</span></div>
+          <a class="btn btn-gold" id="buyPaquete" href="https://buy.stripe.com/14A3coaAZeGO4AC3Cp0RG00" target="_blank" rel="noopener">Comprar paquete por $99</a>
         </div>
       </div>
 
@@ -624,13 +613,7 @@ function toggleFaq(btn){
 
 <script>
 (function(){
-  var b=document.getElementById('copyClabe'),ok=document.getElementById('clabeOk'),c='002320702133352847';
-  if(b){b.addEventListener('click',function(){
-    function done(){ok.style.display='block';}
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(c).then(done,done);}else{done();}
-    try{if(window.gtag)gtag('event','copy_clabe',{item_id:'paquete_arrendamiento'});}catch(e){}
-  });}
-  var w=document.getElementById('waPaquete');
+  var w=document.getElementById('buyPaquete');
   if(w){w.addEventListener('click',function(){
     try{if(window.gtag)gtag('event','begin_checkout',{currency:'MXN',value:99,items:[{item_id:'paquete_arrendamiento'}]});}catch(e){}
     try{if(window.fbq)fbq('track','InitiateCheckout',{value:99,currency:'MXN',content_ids:['paquete_arrendamiento']});}catch(e){}
