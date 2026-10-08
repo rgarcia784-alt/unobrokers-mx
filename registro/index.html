@@ -75,6 +75,8 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
       <input type="password" id="loginPass" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
       <button class="btn" id="loginBtn" onclick="doLogin()">Entrar</button>
       <div class="alert warn" id="loginError">Correo o contraseña incorrectos. Revísalos e inténtalo de nuevo.</div>
+      <div class="alert ok" id="resetOk"></div>
+      <p class="switch" style="margin-top:14px"><a href="#" id="resetLink" onclick="doReset();return false;">¿Olvidaste tu contraseña?</a></p>
       <p class="switch">¿Eres asesor nuevo? <a href="#" onclick="verRegistro(true);return false;">Crea tu cuenta</a></p>
     </div>
   </section>
@@ -205,6 +207,36 @@ function doLogin() {
 }
 function doLogout(){ auth.signOut(); }
 
+function doReset() {
+  $('loginError').style.display = 'none';
+  $('resetOk').style.display = 'none';
+  const email = $('loginEmail').value.trim();
+  if (!email) {
+    $('loginError').textContent = 'Escribe tu correo arriba y vuelve a dar clic en "¿Olvidaste tu contraseña?".';
+    $('loginError').style.display = 'block';
+    $('loginEmail').focus();
+    return;
+  }
+  const link = $('resetLink'); link.style.pointerEvents = 'none'; link.textContent = 'Enviando...';
+  auth.languageCode = 'es';
+  auth.sendPasswordResetEmail(email)
+    .then(() => {
+      $('resetOk').textContent = 'Si ' + email + ' tiene cuenta, te enviamos un correo para crear una contraseña nueva. Revisa también tu carpeta de spam.';
+      $('resetOk').style.display = 'block';
+    })
+    .catch(err => {
+      const c = (err && err.code) || '';
+      let msg = 'No se pudo enviar el correo (' + c + ').';
+      if (c === 'auth/invalid-email') msg = 'El correo no tiene un formato válido.';
+      else if (c === 'auth/user-not-found') msg = 'No encontramos una cuenta con ese correo. Revisa que esté bien escrito.';
+      else if (c === 'auth/too-many-requests') msg = 'Demasiados intentos. Espera unos minutos y vuelve a intentar.';
+      else if (c === 'auth/network-request-failed') msg = 'Sin conexión. Revisa tu internet e inténtalo de nuevo.';
+      $('loginError').textContent = msg;
+      $('loginError').style.display = 'block';
+    })
+    .finally(() => { link.style.pointerEvents = ''; link.textContent = '¿Olvidaste tu contraseña?'; });
+}
+
 function guardarNombre() {
   const user = auth.currentUser; if (!user) return;
   const nombre = $('nbNombre').value.trim();
@@ -227,6 +259,7 @@ function verRegistro(mostrar) {
   $('signupBox').style.display = mostrar ? 'block' : 'none';
   $('signupError').style.display = 'none';
   $('loginError').style.display = 'none';
+  if ($('resetOk')) $('resetOk').style.display = 'none';
 }
 
 function doSignup() {
