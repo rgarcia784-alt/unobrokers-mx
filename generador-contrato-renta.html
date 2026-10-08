@@ -41,6 +41,7 @@
   "mainEntity": [
     {"@type":"Question","name":"¿Es válido un contrato de arrendamiento generado en línea sin notario?","acceptedAnswer":{"@type":"Answer","text":"Sí. Un contrato de arrendamiento privado tiene plena validez jurídica en México sin necesidad de ratificación notarial, de acuerdo con el Código Civil del estado donde se ubica el inmueble (cualquiera de los 32 estados, según el caso). La firma ante notario o ante el Instituto de Justicia Alternativa es opcional, pero puede facilitar los procesos legales en caso de incumplimiento."}},
     {"@type":"Question","name":"¿En qué estados sirve el contrato?","acceptedAnswer":{"@type":"Answer","text":"En los 32 estados de México. Al llenar el formulario eliges el estado donde está el inmueble y el contrato se sujeta al Código Civil de ese estado y a los tribunales de la ciudad que indiques. Para la Ciudad de México, además, se sujeta al Código Civil para el Distrito Federal y agrega sus reglas para vivienda: plazo mínimo de un año forzoso para el arrendador y aumento de renta en renovaciones que no exceda la inflación (INPC) del año anterior."}},
+    {"@type":"Question","name":"¿La renta de un local u oficina lleva IVA?","acceptedAnswer":{"@type":"Answer","text":"Sí. La renta de casa habitación está exenta de IVA, pero la de locales, oficinas y bodegas causa IVA del 16%. Si eliges uso comercial, el generador agrega automáticamente el IVA y el total mensual al contrato. Confirma tu caso con tu contador."}},
     {"@type":"Question","name":"¿Qué debe incluir un contrato de arrendamiento para ser válido?","acceptedAnswer":{"@type":"Answer","text":"Como mínimo debe contener: nombres completos y datos de identificación del arrendador y arrendatario, descripción del inmueble, monto de la renta y forma de pago, duración del contrato, depósito en garantía, y las obligaciones de mantenimiento de ambas partes. Nuestro generador incluye automáticamente estos elementos y ajusta las cláusulas al Código Civil del estado que elijas."}},
     {"@type":"Question","name":"¿El contrato generado aquí cumple con PROFECO?","acceptedAnswer":{"@type":"Answer","text":"El contrato se elabora conforme al Código Civil del estado donde está el inmueble y a los lineamientos de protección al consumidor que promueve PROFECO para operaciones entre particulares. Para arrendadores que operan como empresa (rentan múltiples unidades de forma habitual), recomendamos además registrar un Contrato de Adhesión ante PROFECO, trámite en el que UNO Brokers también puede orientarte."}},
     {"@type":"Question","name":"¿Qué pasa si el inquilino no paga la renta?","acceptedAnswer":{"@type":"Answer","text":"El incumplimiento de pago es causa de rescisión del contrato conforme a la cláusula de incumplimiento. Para una protección más sólida, se recomienda agregar cláusulas de cobro ejecutivo y pagaré, así como investigar previamente al inquilino (buró de crédito, antecedentes legales e ingresos comprobables) antes de firmar."}},
@@ -306,10 +307,11 @@
         <div class="grid2">
           <div class="field">
             <label for="uso">Uso del inmueble</label>
-            <select id="uso">
+            <select id="uso" onchange="document.getElementById('ivaNota').style.display=this.value==='comercial'?'block':'none'">
               <option value="habitacional">Habitacional</option>
-              <option value="comercial">Comercial</option>
+              <option value="comercial">Comercial (local, oficina, bodega)</option>
             </select>
+            <div class="note" id="ivaNota" style="display:none;margin-top:6px;">La renta comercial causa IVA (16%). Escribe la renta <b>sin IVA</b>: el contrato agrega el IVA y el total automáticamente.</div>
           </div>
           <div class="field">
             <label for="amueblado">Condición</label>
@@ -477,6 +479,11 @@
     </div>
 
     <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿La renta de un local u oficina lleva IVA? <span class="faq-icon">+</span></button>
+      <div class="faq-a"><p>Sí. La renta de casa habitación está exenta de IVA, pero la de locales, oficinas y bodegas causa IVA del 16%. Si eliges uso comercial, el generador agrega automáticamente el IVA y el total mensual al contrato. Confirma tu caso con tu contador.</p></div>
+    </div>
+
+    <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">¿Qué debe incluir un contrato de arrendamiento para ser válido? <span class="faq-icon">+</span></button>
       <div class="faq-a"><p>Como mínimo debe contener: nombres completos y datos de identificación del arrendador y arrendatario, descripción del inmueble, monto de la renta y forma de pago, duración del contrato, depósito en garantía, y las obligaciones de mantenimiento de ambas partes. Nuestro generador incluye automáticamente estos elementos y ajusta las cláusulas al Código Civil del estado que elijas.</p></div>
     </div>
@@ -597,7 +604,7 @@ CLÁUSULAS
 
 PRIMERA. OBJETO. "EL ARRENDADOR" da en arrendamiento a "EL ARRENDATARIO" el inmueble descrito en la declaración I, para destinarse exclusivamente a uso ${data.uso}.
 
-SEGUNDA. RENTA. Las partes convienen que la renta mensual será por la cantidad de $${fnum(data.renta)} (M.N.), pagadera por mensualidades adelantadas dentro de los primeros cinco días de cada mes.
+SEGUNDA. RENTA. Las partes convienen que la renta mensual será por la cantidad de $${fnum(data.renta)} (M.N.)${esVivienda ? '' : `, más el Impuesto al Valor Agregado (IVA) correspondiente a la tasa vigente, que a la fecha es del 16% ($${fnum(Math.round(parseFloat(data.renta)*0.16*100)/100)} M.N.), para un total mensual de $${fnum(Math.round(parseFloat(data.renta)*1.16*100)/100)} (M.N.)`}, pagadera por mensualidades adelantadas dentro de los primeros cinco días de cada mes.
 
 TERCERA. DEPÓSITO EN GARANTÍA. "EL ARRENDATARIO" entrega en este acto a "EL ARRENDADOR" la cantidad de $${fnum(data.deposito)} (M.N.) por concepto de depósito en garantía, mismo que será devuelto al término del contrato, previa verificación de que el inmueble se entrega en las mismas condiciones en que fue recibido y de que no existan adeudos pendientes.
 
