@@ -546,14 +546,14 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
   var WA='523339675255';
   /* Tasas octubre 2026 — actualizar cada mes. tipos: adq, pre, ter, inf, cam. maxPlazo en años, maxLtv en % */
   var BANKS=[
-    {b:'Santander',p:'Hipoteca Plus Plan Platino',r:8.50,t:['adq','pre'],maxPlazo:25,maxLtv:95,n:'Financia hasta 95%, sin comisión por apertura'},
-    {b:'Santander',p:'Hipoteca Plus Plan Asalariados',r:9.10,t:['adq','pre'],maxPlazo:25,maxLtv:95,n:'Para asalariados'},
-    {b:'Banorte',p:'Portabilidad de nómina / Segmento preferente',r:8.80,t:['adq','pre','cam'],maxPlazo:20,n:'Sin comisión; avalúo sin costo hasta $10 MDP'},
+    {b:'Santander',p:'Hipoteca Plus Plan Platino',r:8.50,t:['adq'],maxPlazo:25,maxLtv:95,n:'Financia hasta 95%, sin comisión por apertura'},
+    {b:'Santander',p:'Hipoteca Plus Plan Asalariados',r:9.10,t:['adq'],maxPlazo:25,maxLtv:95,n:'Para asalariados'},
+    {b:'Banorte',p:'Portabilidad de nómina / Segmento preferente',r:8.80,t:['adq','cam'],maxPlazo:20,n:'Sin comisión; avalúo sin costo hasta $10 MDP'},
     {b:'Bx+',p:'Adquisición',r:8.99,t:['adq'],maxPlazo:20,n:''},
     {b:'Bx+',p:'Preventa',r:9.65,t:['pre'],maxPlazo:20,n:'Sin comprobación de ingresos'},
     {b:'Mifel',p:'Cofinavit / Apoyo Infonavit / Fovissste para todos',r:9.60,t:['inf'],maxPlazo:20,n:'0% comisión por apertura · vigente al 31 oct 2026'},
-    {b:'Scotiabank',p:'Clientes Singular',r:9.75,t:['adq','pre'],maxPlazo:20,n:'0% comisión y sin costo de avalúo'},
-    {b:'Scotiabank',p:'Con vinculación',r:10.75,t:['adq','pre'],maxPlazo:20,n:'Sin comisión por apertura'},
+    {b:'Scotiabank',p:'Clientes Singular',r:9.75,t:['adq'],maxPlazo:20,n:'0% comisión y sin costo de avalúo'},
+    {b:'Scotiabank',p:'Con vinculación',r:10.75,t:['adq'],maxPlazo:20,n:'Sin comisión por apertura'},
     {b:'Banorte',p:'Adquisición de terreno (5-10 años)',r:10.18,t:['ter'],maxPlazo:10,n:'Sin comisión ni IVA sobre intereses'},
     {b:'Banorte',p:'Adquisición de terreno (11-15 años)',r:10.60,t:['ter'],minPlazo:11,maxPlazo:15,n:'Sin comisión ni IVA sobre intereses'},
     {b:'Afirme',p:'Compra de terreno',r:10.30,t:['ter'],maxPlazo:15,maxLtv:90,n:'Hasta 90%, uso de suelo habitacional'},
@@ -619,6 +619,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,s
         html+='<tr><td><b>'+k.b+'</b><small>'+k.p+(k.n?' · '+k.n:'')+'</small></td><td class="num">—</td><td class="num" colspan="2" style="color:var(--muted)">Tasa según perfil · pide tu corrida</td><td class="no-print"></td></tr>';
       }
     });
+    if(t==='pre')html+='<tr><td colspan="5" style="color:var(--muted);white-space:normal">Otros bancos pueden financiar preventa según el desarrollo y su avance de obra. Pide tu corrida y te confirmamos cuáles aplican.</td></tr>';
     $('banks').innerHTML=html||'<tr><td colspan="5">No hay promociones para este plazo; prueba otro plazo.</td></tr>';
 
     // breakdown
