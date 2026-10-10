@@ -72,7 +72,7 @@
     "areaServed": ["Guadalajara", "Zapopan", "Jalisco", "Santa Fe", "Ciudad de México"]
   },
   "datePublished": "2026-09-06",
-  "dateModified": "2026-10-08"
+  "dateModified": "2026-10-10"
 }
 </script>
 
@@ -526,6 +526,32 @@
     .inpc-figure { font-size: 2.1rem; }
     .result-final .amount { font-size: 1.6rem; }
   }
+  /* DESCARGA */
+  .dl-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+  .btn-dl { display:inline-flex; align-items:center; gap:8px; font-family:'Outfit',sans-serif; font-size:0.95rem; font-weight:600; padding:13px 22px; border-radius:4px; border:1.5px solid var(--navy-deep); background:var(--gold); color:var(--navy-deep); cursor:pointer; }
+  .btn-dl:hover { background:var(--gold-light); }
+  .btn-dl.alt { background:#fff; }
+  .dl-field { margin-top:22px; }
+  .dl-field input { width:100%; padding:12px 14px; font-family:'Outfit',sans-serif; font-size:1rem; border:1.5px solid var(--line); border-radius:4px; background:var(--cream-warm); color:var(--navy-deep); }
+  #printDoc { display:none; }
+  @media print {
+    @page { size: letter; margin: 18mm; }
+    body { background:#fff; }
+    body > *:not(#printDoc) { display:none !important; }
+    #printDoc { display:block !important; color:#111; font-family:'Outfit',Arial,sans-serif; font-size:12pt; }
+    #printDoc h1 { font-family:'Fraunces',Georgia,serif; font-size:20pt; color:#0B1F3A; margin:6px 0 4px; }
+    #printDoc .pd-brand { font-family:'Fraunces',Georgia,serif; font-size:14pt; color:#0B1F3A; letter-spacing:.04em; }
+    #printDoc .pd-brand span { color:#C9A24B; }
+    #printDoc .pd-sub { color:#555; font-size:10pt; margin-bottom:18px; }
+    #printDoc table { width:100%; border-collapse:collapse; margin:14px 0 18px; }
+    #printDoc td { padding:9px 4px; border-bottom:1px solid #ddd; }
+    #printDoc td:last-child { text-align:right; font-weight:600; }
+    #printDoc tr.total td { border-top:2px solid #0B1F3A; border-bottom:none; font-size:14pt; color:#0B1F3A; }
+    #printDoc .pd-note { font-size:9.5pt; color:#444; line-height:1.5; margin-top:10px; }
+    #printDoc .pd-firmas { display:flex; gap:40px; margin-top:60px; }
+    #printDoc .pd-firmas div { flex:1; border-top:1px solid #333; padding-top:6px; font-size:10pt; text-align:center; }
+    #printDoc .pd-foot { margin-top:40px; font-size:9pt; color:#777; border-top:1px solid #ddd; padding-top:8px; }
+  }
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WBZQNYLQYF"></script>
@@ -639,6 +665,16 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
         </div>
       </div>
 
+      <div class="dl-field">
+        <label for="dlDireccion" style="display:block;font-size:0.9rem;font-weight:600;color:var(--navy-deep);margin-bottom:8px;">Domicilio del inmueble (opcional, aparece en el PDF)</label>
+        <input type="text" id="dlDireccion" placeholder="Ej. Av. Patria 1234, Int. 5, Zapopan">
+      </div>
+      <div class="dl-row">
+        <button type="button" class="btn-dl" id="btnDescargar">⬇ Descargar cálculo en PDF</button>
+        <a class="btn-dl alt" id="btnCompartir" href="#" target="_blank" rel="noopener">Enviar resultado por WhatsApp</a>
+      </div>
+      <div class="field-hint">Al descargar, elige "Guardar como PDF". Ideal para mandarlo a tu inquilino junto con el aviso de renovación.</div>
+
     </div>
   </div>
 </section>
@@ -732,10 +768,26 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
   </div>
 </section>
 
+<div id="printDoc" aria-hidden="true">
+  <div class="pd-brand"><span>UNO</span> BROKERS</div>
+  <h1>Cálculo de ajuste de renta por INPC</h1>
+  <div class="pd-sub">Fecha del cálculo: <span id="pdFecha"></span> · Ubicación: <span id="pdUbic"></span><span id="pdDirWrap"> · Inmueble: <span id="pdDir"></span></span></div>
+  <table>
+    <tr><td>Renta mensual actual</td><td id="pdActual"></td></tr>
+    <tr><td>Variación anual del INPC (<span id="pdMes"></span>, INEGI)</td><td id="pdInpc"></td></tr>
+    <tr><td>Puntos adicionales pactados en contrato</td><td id="pdExtra"></td></tr>
+    <tr><td>Incremento total</td><td id="pdPct"></td></tr>
+    <tr class="total"><td>Nueva renta mensual</td><td id="pdNueva"></td></tr>
+  </table>
+  <p class="pd-note">Fórmula: renta actual × (variación anual del INPC + puntos pactados) = incremento; el incremento se suma a la renta actual. Dato del INPC publicado por el INEGI (www.inegi.org.mx). <span id="pdLegal"></span></p>
+  <div class="pd-firmas"><div>Arrendador</div><div>Arrendatario</div></div>
+  <div class="pd-foot">Calculado con la calculadora gratuita de UNO Brokers · unobrokers.com.mx/calculadora-ajuste-renta-inpc.html · Este documento es informativo; el ajuste aplicable es el que establece el contrato de arrendamiento y la ley local.</div>
+</div>
+
 <footer>
   <div class="wrap">
     <p class="authority">UNO Brokers — inmobiliaria en Guadalajara y Zapopan, Jalisco, con más de 30 años de operación (desde 1995).</p>
-    Dato INPC actualizado manualmente por UNO Brokers con fuente oficial <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">INEGI</a>. Última actualización: 8 de octubre de 2026.
+    Dato INPC actualizado manualmente por UNO Brokers con fuente oficial <a href="https://www.inegi.org.mx" target="_blank" rel="noopener">INEGI</a>. Última actualización: 10 de octubre de 2026.
   </div>
 
   <div style="margin-top:10px;font-size:12px;"><a href="https://www.unobrokers.mx/Privacidad" style="color:inherit;">Aviso de Privacidad</a></div>
@@ -847,7 +899,46 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
     });
   });
 
+  // ── Descargar / compartir cálculo ──
+  const INPC_MES = 'septiembre 2026';
+  function datosCalculo() {
+    const renta = parseRenta(rentaInput.value), puntos = parseFloat(puntosHidden.value);
+    const inpcM = renta * INPC_ANUAL / 100, extraM = renta * puntos / 100;
+    return { renta, puntos, inpcM, extraM, nueva: renta + inpcM + extraM, pct: INPC_ANUAL + puntos };
+  }
+  document.getElementById('btnDescargar').addEventListener('click', () => {
+    const d = datosCalculo(), dir = document.getElementById('dlDireccion').value.trim();
+    const set = (id, v) => document.getElementById(id).textContent = v;
+    set('pdFecha', new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' }));
+    set('pdUbic', ubicacion === 'cdmx' ? 'Ciudad de México' : 'Jalisco / otro estado');
+    set('pdDir', dir); document.getElementById('pdDirWrap').style.display = dir ? 'inline' : 'none';
+    set('pdMes', INPC_MES);
+    set('pdActual', formatMoney(d.renta));
+    set('pdInpc', INPC_ANUAL.toFixed(2) + '%  (+' + formatMoney(d.inpcM) + ')');
+    set('pdExtra', d.puntos.toFixed(0) + '%  (+' + formatMoney(d.extraM) + ')');
+    set('pdPct', d.pct.toFixed(2) + '%  (+' + formatMoney(d.inpcM + d.extraM) + ')');
+    set('pdNueva', formatMoney(d.nueva));
+    set('pdLegal', ubicacion === 'cdmx' ? 'En la Ciudad de México, el artículo 2448-D del Código Civil limita el aumento en renovaciones de vivienda al INPC del año anterior.' : '');
+    const t0 = document.title; document.title = 'Ajuste de renta INPC - ' + formatMoney(d.nueva);
+    try { fbq('track', 'Lead', { content_name: 'descarga_calculo_inpc' }); } catch (x) {}
+    try { gtag('event', 'descarga_calculo', { page: 'calculadora-inpc' }); } catch (x) {}
+    window.print();
+    setTimeout(() => { document.title = t0; }, 1000);
+  });
+  function actualizarCompartir() {
+    const d = datosCalculo();
+    const txt = 'Cálculo de ajuste de renta por INPC (' + INPC_MES + ', INEGI ' + INPC_ANUAL.toFixed(2) + '%):\n' +
+      '• Renta actual: ' + formatMoney(d.renta) + '\n' +
+      '• Incremento total: ' + d.pct.toFixed(2) + '% (+' + formatMoney(d.inpcM + d.extraM) + ')\n' +
+      '• Nueva renta: ' + formatMoney(d.nueva) + '\n' +
+      'Calculado en unobrokers.com.mx/calculadora-ajuste-renta-inpc.html';
+    document.getElementById('btnCompartir').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
+  }
+  rentaInput.addEventListener('input', actualizarCompartir);
+  document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => setTimeout(actualizarCompartir, 0)));
+
   actualizarUbicacion('otro');
+  actualizarCompartir();
 </script>
 
 </body>
