@@ -534,6 +534,11 @@
   .dl-field { margin-top:22px; }
   .dl-field input { width:100%; padding:12px 14px; font-family:'Outfit',sans-serif; font-size:1rem; border:1.5px solid var(--line); border-radius:4px; background:var(--cream-warm); color:var(--navy-deep); }
   #printDoc { display:none; }
+  .btn-calc { width:100%; font-family:'Outfit',sans-serif; font-size:1.1rem; font-weight:700; padding:16px 22px; border:0; border-radius:4px; background:var(--gold); color:var(--navy-deep); cursor:pointer; margin-bottom:22px; letter-spacing:.02em; }
+  .btn-calc:hover { background:var(--gold-light); }
+  #resultadoBox[hidden] { display:none; }
+  #resultadoBox.flash .result { animation: flash .9s ease; }
+  @keyframes flash { 0%{ box-shadow:0 0 0 0 rgba(201,162,75,.9);} 100%{ box-shadow:0 0 0 14px rgba(201,162,75,0);} }
   @media print {
     @page { size: letter; margin: 18mm; }
     body { background:#fff; }
@@ -643,6 +648,9 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
         ✓ Este cálculo usa el <strong>INPC oficial de INEGI</strong> — el índice que usan la mayoría de los contratos de arrendamiento en México para ajustar la renta de forma justa y objetiva cada año. En Jalisco y el resto del país (fuera de CDMX) no hay una ley que lo obligue, pero es el estándar de mercado: revisa tu contrato, seguramente ya lo especifica.
       </div>
 
+      <button type="button" class="btn-calc" id="btnCalcular">Calcular aumento de renta</button>
+
+      <div id="resultadoBox" hidden>
       <div class="result">
         <div class="result-row">
           <span class="label">Renta actual</span>
@@ -674,6 +682,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
         <a class="btn-dl alt" id="btnCompartir" href="#" target="_blank" rel="noopener">Enviar resultado por WhatsApp</a>
       </div>
       <div class="field-hint">Al descargar, elige "Guardar como PDF". Ideal para mandarlo a tu inquilino junto con el aviso de renovación.</div>
+      </div>
 
     </div>
   </div>
@@ -936,6 +945,16 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
   }
   rentaInput.addEventListener('input', actualizarCompartir);
   document.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => setTimeout(actualizarCompartir, 0)));
+
+  document.getElementById('btnCalcular').addEventListener('click', () => {
+    calcular(); actualizarCompartir();
+    const box = document.getElementById('resultadoBox');
+    box.hidden = false;
+    box.classList.remove('flash'); void box.offsetWidth; box.classList.add('flash');
+    box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    try { gtag('event', 'calcular_inpc', { page: 'calculadora-inpc' }); } catch (x) {}
+  });
+  rentaInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') document.getElementById('btnCalcular').click(); });
 
   actualizarUbicacion('otro');
   actualizarCompartir();
