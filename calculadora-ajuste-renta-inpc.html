@@ -68,8 +68,23 @@
     "name": "UNO Brokers",
     "telephone": "+523339675255",
     "foundingDate": "1995",
-    "address": {"@type": "PostalAddress", "addressLocality": "Zapopan", "addressRegion": "Jalisco", "addressCountry": "MX"},
-    "areaServed": ["Guadalajara", "Zapopan", "Jalisco", "Santa Fe", "Ciudad de México"]
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Zapopan",
+      "addressRegion": "Jalisco",
+      "addressCountry": "MX"
+    },
+    "areaServed": [
+      "Guadalajara",
+      "Zapopan",
+      "Jalisco",
+      "Santa Fe",
+      "Ciudad de México"
+    ],
+    "sameAs": [
+      "https://www.instagram.com/unobrokersmx/",
+      "https://www.linkedin.com/company/143083518/"
+    ]
   },
   "datePublished": "2026-09-06",
   "dateModified": "2026-10-10"
@@ -544,7 +559,7 @@
     body { background:#fff; }
     body > *:not(#printDoc) { display:none !important; }
     #printDoc { display:block !important; color:#111; font-family:'Outfit',Arial,sans-serif; font-size:12pt; }
-    #printDoc h1 { font-family:'Fraunces',Georgia,serif; font-size:20pt; color:#0B1F3A; margin:6px 0 4px; }
+    #printDoc h1, #printDoc .pd-title { font-family:'Fraunces',Georgia,serif; font-size:20pt; color:#0B1F3A; margin:6px 0 4px; }
     #printDoc .pd-brand { font-family:'Fraunces',Georgia,serif; font-size:14pt; color:#0B1F3A; letter-spacing:.04em; }
     #printDoc .pd-brand span { color:#C9A24B; }
     #printDoc .pd-sub { color:#555; font-size:10pt; margin-bottom:18px; }
@@ -779,7 +794,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
 
 <div id="printDoc" aria-hidden="true">
   <div class="pd-brand"><span>UNO</span> BROKERS</div>
-  <h1>Cálculo de ajuste de renta por INPC</h1>
+  <h2 class="pd-title">Cálculo de ajuste de renta por INPC</h2>
   <div class="pd-sub">Fecha del cálculo: <span id="pdFecha"></span> · Ubicación: <span id="pdUbic"></span><span id="pdDirWrap"> · Inmueble: <span id="pdDir"></span></span></div>
   <table>
     <tr><td>Renta mensual actual</td><td id="pdActual"></td></tr>
