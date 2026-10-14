@@ -487,6 +487,8 @@
   .modelo-item .m-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
 
   /* RENDERS DESTACADOS */
+  .render-video { margin-top: 28px; }
+  .render-video video { width: 100%; height: auto; display: block; border-radius: 6px; background: #000; aspect-ratio: 16/9; }
   .renders-section {
     background: var(--dark);
     padding: 5rem 2rem;
@@ -747,6 +749,9 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2207762516622595&ev=PageView&noscript=1" alt=""></noscript>
 <!-- End Meta Pixel Code -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoObject","name":"NARA Américas — video del proyecto en Av. Américas, Zapopan","description":"Recorrido en video de NARA Américas, desarrollo de uso mixto de NARA Capital sobre Av. Américas en Zapopan, Jalisco.","thumbnailUrl":"https://unobrokers.com.mx/nara-americas-video.jpg","contentUrl":"https://unobrokers.com.mx/nara-americas-video.mp4","uploadDate":"2026-10-14","duration":"PT2M33S"}
+</script>
 </head>
 <body>
 
@@ -889,6 +894,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
       <figure class="render-item"><img src="https://rgarcia784-alt.github.io/nara-americas-tools/nara-render-sala.jpg" alt="Render sala y comedor NARA Américas" loading="lazy"><figcaption class="render-caption">Sala y comedor · doble altura</figcaption></figure>
       <figure class="render-item"><img src="https://rgarcia784-alt.github.io/nara-americas-tools/nara-render-recamara.jpg" alt="Render recámara principal NARA Américas" loading="lazy"><figcaption class="render-caption">Recámara principal · vista panorámica</figcaption></figure>
     </div>
+    <figure class="render-item render-video"><video controls playsinline preload="none" poster="nara-americas-video.jpg" aria-label="Video del proyecto NARA Américas"><source src="nara-americas-video.mp4" type="video/mp4"></video><figcaption class="render-caption">Video del proyecto · recorrido NARA Américas</figcaption></figure>
   </div>
 </section>
 
