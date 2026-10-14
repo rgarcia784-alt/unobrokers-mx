@@ -54,7 +54,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "¿Cuánto ISR se paga al vender una casa en México?", "acceptedAnswer": {"@type": "Answer", "text": "El ISR por venta de inmuebles se calcula sobre la ganancia, no sobre el precio total de venta. La ganancia se obtiene restando al precio de venta el costo de adquisición actualizado por inflación, las mejoras comprobables, los gastos notariales y la comisión del agente inmobiliario. Esa ganancia se divide entre los años que tuviste la propiedad (máximo 20) y se le aplica la tarifa progresiva del Art. 152 de la LISR para obtener una tasa promedio."}},
-    {"@type": "Question", "name": "¿Cuándo estoy exento de pagar ISR al vender mi casa?", "acceptedAnswer": {"@type": "Answer", "text": "Estás exento si la propiedad es tu casa habitación principal, no has aplicado esta exención en los últimos 3 años, y la ganancia no excede el equivalente a 700,000 UDIS (aproximadamente $6,180,000 MXN en 2026). Esta exención no aplica para terrenos baldíos, locales comerciales ni propiedades de inversión."}},
+    {"@type": "Question", "name": "¿Cuándo estoy exento de pagar ISR al vender mi casa?", "acceptedAnswer": {"@type": "Answer", "text": "Estás exento si la propiedad es tu casa habitación principal, no has aplicado esta exención en los últimos 3 años, la venta se formaliza ante notario, y el precio de venta no excede el equivalente a 700,000 UDIS (aproximadamente $6,180,000 MXN en 2026). Si el precio es mayor, solo pagas ISR por la parte proporcional del excedente (artículo 93, fracción XIX, inciso a) de la Ley del ISR). Esta exención no aplica para terrenos baldíos, locales comerciales ni propiedades de inversión."}},
     {"@type": "Question", "name": "¿Qué gastos puedo deducir al calcular el ISR de mi venta?", "acceptedAnswer": {"@type": "Answer", "text": "La Ley del ISR permite deducir el costo comprobado de adquisición actualizado por inflación, inversiones en construcciones y mejoras comprobables, gastos notariales e impuestos pagados por la compra y venta, y comisiones de intermediación inmobiliaria. Todas requieren comprobantes fiscales (CFDI) o escrituras."}},
     {"@type": "Question", "name": "¿Quién calcula y retiene el ISR en la venta de un inmueble?", "acceptedAnswer": {"@type": "Answer", "text": "El notario público que formaliza la escritura de compraventa calcula y retiene el ISR correspondiente, conforme al Art. 126 de la LISR, y lo entera directamente al SAT como pago provisional."}},
     {"@type": "Question", "name": "¿El ISR se calcula diferente si vendo un terreno o un local comercial?", "acceptedAnswer": {"@type": "Answer", "text": "El procedimiento de cálculo es el mismo para cualquier tipo de inmueble. La diferencia es que terrenos, locales comerciales, oficinas y bodegas no califican para la exención de casa habitación, por lo que toda la ganancia es gravable desde el primer peso."}},
@@ -377,7 +377,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
             <input type="hidden" id="usoExencion" value="no"/>
           </div>
         </div>
-        <div class="field-hint" style="margin-top:8px">Solo aplica para casa o departamento que sea tu vivienda principal, hasta 700,000 UDIS de ganancia exenta (Art. 93 fracción XIX inciso a) LISR).</div>
+        <div class="field-hint" style="margin-top:8px">Solo aplica para casa o departamento que sea tu vivienda principal, exenta si el precio de venta no excede 700,000 UDIS; si lo excede, solo se grava la parte proporcional del excedente (Art. 93 fracción XIX inciso a) LISR).</div>
       </div>
     </div>
 
@@ -456,7 +456,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
 
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">¿Cuándo estoy exento de pagar ISR al vender mi casa? <span class="faq-icon">+</span></button>
-    <div class="faq-a"><p>Estás exento si la propiedad es tu <strong>casa habitación principal</strong> (no una inversión), no has aplicado esta exención en los últimos 3 años, y la ganancia no excede el equivalente a <strong>700,000 UDIS</strong> (aproximadamente $6,180,000 MXN en 2026, según el valor vigente de la UDI). Si tu ganancia es menor a ese monto y cumples los requisitos, no pagarías ISR. Esta exención no aplica para terrenos baldíos, locales comerciales ni propiedades de inversión.</p></div>
+    <div class="faq-a"><p>Estás exento si la propiedad es tu <strong>casa habitación principal</strong> (no una inversión), no has aplicado esta exención en los últimos 3 años, la venta se formaliza ante notario, y el <strong>precio de venta</strong> no excede el equivalente a <strong>700,000 UDIS</strong> (aproximadamente $6,180,000 MXN en 2026, según el valor vigente de la UDI). Si el precio es menor a ese monto y cumples los requisitos, no pagas ISR. Si lo supera, solo pagas ISR por la parte proporcional del excedente. Esta exención no aplica para terrenos baldíos, locales comerciales ni propiedades de inversión.</p></div>
   </div>
 
   <div class="faq-item">
@@ -508,6 +508,16 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
 <div style="max-width:760px;margin:0 auto 30px;padding:0 20px;">
   <p style="text-align:center;font-size:14px;color:#556;">¿Quieres entender mejor cómo funciona la exención de casa habitación? Lee nuestra guía completa: <a href="/blog/isr-venta-propiedad-2026.html">ISR al vender tu casa en 2026: cuánto pagas y cómo exentarlo</a>.</p>
 </div>
+
+<div id="fuentes-oficiales" style="max-width:860px;margin:28px auto 0;padding:18px 22px;background:#fff;border:1px solid #e5e2dc;border-radius:12px;">
+    <h3 style="font-size:1.05rem;margin-bottom:8px;">Fuentes oficiales</h3>
+    <ul style="margin:0;padding-left:18px;line-height:1.8;font-size:.95rem;color:#4b5563;">
+      <li><a href="https://www.sat.gob.mx" target="_blank" rel="noopener" style="color:#9a6a10;">SAT – Servicio de Administración Tributaria</a>: ISR por enajenación de bienes inmuebles y pago provisional ante notario.</li>
+      <li><a href="https://www.diputados.gob.mx/LeyesBiblio/index.htm" target="_blank" rel="noopener" style="color:#9a6a10;">Ley del Impuesto sobre la Renta – Cámara de Diputados</a>: exención de casa habitación (artículo 93, fracción XIX, inciso a) y pago provisional (artículo 126).</li>
+      <li><a href="https://www.banxico.org.mx" target="_blank" rel="noopener" style="color:#9a6a10;">Banco de México</a>: valor oficial de la UDI para convertir el límite de 700,000 UDIS a pesos.</li>
+    </ul>
+    <p style="margin:10px 0 0;font-size:.85rem;color:#6b7280;">Cálculo estimado con fines informativos; el cálculo definitivo lo hace el notario conforme a la ley vigente.</p>
+  </div>
 
 <div class="cta-bottom">
   <h2>¿Listo para vender tu propiedad?</h2>
@@ -688,8 +698,14 @@ function calcular(){
   const gananciaTotal=Math.max(0,precioVenta-deducciones);
 
   const aplicaExencion=(tipo==='casa'||tipo==='departamento')&&esCasaHab&&!usoExencion;
-  const exentoAplicado=aplicaExencion?Math.min(EXENCION_MXN,gananciaTotal):0;
-  const gananciaGravable=Math.max(0,gananciaTotal-exentoAplicado);
+  // Art. 93 fr. XIX inciso a) LISR: el límite de 700,000 UDIS es sobre el precio de venta (contraprestación).
+  // Si el precio lo excede, solo la parte proporcional del excedente causa ISR.
+  let gananciaGravable=gananciaTotal, exentoAplicado=0;
+  if(aplicaExencion){
+    const proporcionGravada=precioVenta<=EXENCION_MXN?0:(precioVenta-EXENCION_MXN)/precioVenta;
+    gananciaGravable=Math.max(0,gananciaTotal*proporcionGravada);
+    exentoAplicado=gananciaTotal-gananciaGravable;
+  }
 
   let isr=0,tasaPromedio=0,gananciaAnualizada=0,isrAnualizado=0;
   if(gananciaGravable>0){
@@ -715,7 +731,7 @@ function calcular(){
     heroBox.classList.add('exento');
     document.getElementById('resLabel').textContent='¡ESTÁS EXENTO DE ISR! 🎉';
     document.getElementById('res-isr').textContent='$0';
-    document.getElementById('resSub').textContent='Tu ganancia está cubierta por la exención de casa habitación';
+    document.getElementById('resSub').textContent='Tu precio de venta está dentro del límite de la exención de casa habitación';
   } else {
     heroBox.classList.remove('exento');
     document.getElementById('resLabel').textContent='ISR ESTIMADO A PAGAR';
