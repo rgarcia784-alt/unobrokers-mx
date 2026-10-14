@@ -1263,19 +1263,23 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
 (function(){
 var q=new URLSearchParams(location.search),an=(q.get('asesor')||'').trim().slice(0,60),at=(q.get('wa')||'').replace(/\D/g,'');
 if(at.length===10)at='52'+at;
-if(an&&at.length>=12){
+function applyAse(an,at){
 document.body.classList.add('ase');
 document.getElementById('aseNombre').textContent=an;document.getElementById('aseNombre2').textContent=an;
 var t=document.getElementById('aseTel');t.textContent='WhatsApp '+at.slice(2).replace(/(\d{2})(\d{4})(\d{4})/,'$1 $2 $3');t.href='https://wa.me/'+at;
 document.querySelectorAll('a[href*="wa.me/523339675255"]').forEach(function(a){a.href=a.href.replace('wa.me/523339675255','wa.me/'+at)});
 document.title='Propiedades en venta en Guadalajara y Zapopan · '+an;
 }
+if(an&&at.length>=12)applyAse(an,at);
 var m=document.getElementById('shareModal'),n=document.getElementById('fNom'),w=document.getElementById('fTel'),ok=document.getElementById('shareOk');
 try{n.value=localStorage.getItem('aseN')||'';w.value=localStorage.getItem('aseW')||''}catch(e){}
 function link(){var tel=w.value.replace(/\D/g,'');if(tel.length===12&&tel.indexOf('52')===0)tel=tel.slice(2);
 if(!n.value.trim()||tel.length!==10){ok.style.color='#b91c1c';ok.textContent='Escribe tu nombre y tu WhatsApp de 10 dígitos.';return null}
 try{localStorage.setItem('aseN',n.value.trim());localStorage.setItem('aseW',tel)}catch(e){}
-return location.origin+location.pathname+'?asesor='+encodeURIComponent(n.value.trim())+'&wa='+tel}
+var l=location.origin+location.pathname+'?asesor='+encodeURIComponent(n.value.trim())+'&wa='+tel;
+if(!document.body.classList.contains('ase')){applyAse(n.value.trim(),'52'+tel)}
+try{history.replaceState(null,'',l)}catch(e){}
+return l}
 document.getElementById('shareBtn').onclick=function(){ok.textContent='';m.classList.add('on')};
 document.getElementById('doClose').onclick=function(){m.classList.remove('on')};
 m.onclick=function(e){if(e.target===m)m.classList.remove('on')};
