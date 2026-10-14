@@ -67,16 +67,21 @@ td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
         <div><label for="hasta">Hasta</label><input type="date" id="hasta" onchange="render()"></div>
         <div><label for="fAsesor">Asesor</label><select id="fAsesor" onchange="render()"></select></div>
         <div><label for="fProyecto">Proyecto</label><select id="fProyecto" onchange="render()"></select></div>
+        <div><label for="fLider">Líder de equipo</label><select id="fLider" onchange="render()"></select></div>
       </div>
       <div class="row" style="margin-top:20px;justify-content:space-between">
         <p class="total" id="total">0<small>clientes con estos filtros</small></p>
-        <button class="btn gold" onclick="descargarExcel()">Descargar Excel</button>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn" id="btnLider" onclick="descargarReporteLider()" style="display:none">Descargar reporte para el líder</button>
+          <button class="btn gold" onclick="descargarExcel()">Descargar Excel</button>
+        </div>
       </div>
     </div>
 
     <div class="grid">
       <div class="panel"><h2>Por asesor</h2><div class="tbl-wrap"><table id="tAsesor"></table></div></div>
       <div class="panel"><h2>Por proyecto</h2><div class="tbl-wrap"><table id="tProyecto"></table></div></div>
+      <div class="panel"><h2>Por líder de equipo</h2><div class="tbl-wrap"><table id="tLider"></table></div></div>
     </div>
 
     <div class="panel">
@@ -114,6 +119,13 @@ let asesores = [];
 function $(id){return document.getElementById(id);}
 function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function etiquetaAsesor(c){ return c.asesorEmail && c.asesorEmail !== c.asesorNombre ? (c.asesorNombre||'') + ' (' + c.asesorEmail + ')' : (c.asesorNombre || c.asesorEmail || ''); }
+// Líder: el que se capturó con el cliente; si es un registro anterior, el que el asesor tiene guardado hoy
+function liderCrudo(c){ if (c.liderEquipo) return c.liderEquipo; const a = asesores.find(x => x.uid === c.asesorUid); return (a && a.lider) || ''; }
+function claveLider(n){ return (n||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/\s+/g,' ').trim(); }
+function nombreBonito(n){ return (n||'').trim().replace(/\s+/g,' ').toLowerCase().replace(/(^|\s)(\S)/g,(m,a,b)=>a+b.toUpperCase()); }
+// Agrupa por líder aunque lo escriban con o sin acentos o mayúsculas
+function liderDe(c){ const k = claveLider(liderCrudo(c)); if (!k) return ''; if (!mapaLider[k]) mapaLider[k] = nombreBonito(liderCrudo(c)); return mapaLider[k]; }
+let mapaLider = {};
 function fechaDe(c){return c.creado && c.creado.toDate ? c.creado.toDate() : null;}
 function fmt(d){return d ? d.toLocaleDateString('es-MX',{day:'2-digit',month:'short',year:'numeric'}) : '';}
 
@@ -146,18 +158,23 @@ function llenarFiltros(){
   const opt = (arr,label) => '<option value="">'+label+'</option>' + [...new Set(arr)].filter(Boolean).sort().map(v=>'<option>'+esc(v)+'</option>').join('');
   $('fAsesor').innerHTML = opt(todos.map(etiquetaAsesor),'Todos');
   $('fProyecto').innerHTML = opt(todos.map(c=>c.proyecto),'Todos');
+  const lv = $('fLider').value;
+  $('fLider').innerHTML = opt(todos.map(liderDe),'Todos') + (todos.some(c=>!liderDe(c)) ? '<option value="__sin">Sin líder</option>' : '');
+  $('fLider').value = lv;
 }
 
 function filtrados(){
   const desde = $('desde').value ? new Date($('desde').value+'T00:00:00') : null;
   const hasta = $('hasta').value ? new Date($('hasta').value+'T23:59:59') : null;
-  const a = $('fAsesor').value, p = $('fProyecto').value;
+  const a = $('fAsesor').value, p = $('fProyecto').value, l = $('fLider').value;
   return todos.filter(c => {
     const f = fechaDe(c);
     if (desde && (!f || f < desde)) return false;
     if (hasta && (!f || f > hasta)) return false;
     if (a && etiquetaAsesor(c) !== a) return false;
     if (p && c.proyecto !== p) return false;
+    if (l === '__sin' && liderDe(c)) return false;
+    if (l && l !== '__sin' && liderDe(c) !== l) return false;
     return true;
   });
 }
@@ -177,17 +194,21 @@ function render(){
   $('total').innerHTML = lista.length + '<small>clientes con estos filtros</small>';
   tablaConteo('tAsesor', lista, etiquetaAsesor, 'Asesor');
   tablaConteo('tProyecto', lista, 'proyecto', 'Proyecto');
+  tablaConteo('tLider', lista, c => liderDe(c) || 'Sin líder', 'Líder');
+  const l = $('fLider').value;
+  $('btnLider').style.display = (l && l !== '__sin') ? 'inline-block' : 'none';
+  if (l && l !== '__sin') $('btnLider').textContent = 'Descargar reporte para ' + l;
   const sin = lista.filter(c => !(c.seguimientos||[]).length);
   $('tSinSeg').innerHTML = sin.length
-    ? '<tr><th>Registrado</th><th>Cliente</th><th>Termina en</th><th>Proyecto</th><th>Asesor</th></tr>' + sin.map(c =>
-        '<tr><td>'+fmt(fechaDe(c))+'</td><td>'+esc(c.nombre)+'</td><td>'+esc(c.telefono)+'</td><td>'+esc(c.proyecto)+'</td><td>'+esc(etiquetaAsesor(c))+'</td></tr>').join('')
+    ? '<tr><th>Registrado</th><th>Cliente</th><th>Termina en</th><th>Proyecto</th><th>Asesor</th><th>Líder</th></tr>' + sin.map(c =>
+        '<tr><td>'+fmt(fechaDe(c))+'</td><td>'+esc(c.nombre)+'</td><td>'+esc(c.telefono)+'</td><td>'+esc(c.proyecto)+'</td><td>'+esc(etiquetaAsesor(c))+'</td><td>'+esc(liderDe(c))+'</td></tr>').join('')
     : '<tr><td class="empty">Todos los clientes de este filtro tienen al menos un seguimiento.</td></tr>';
 }
 
 function cargarAsesores(){
   db.collection('asesores').get().then(snap => {
-    asesores = []; snap.forEach(d => { const a = d.data(); asesores.push({uid: d.id, nombre: a.nombre || '', email: a.email || ''}); });
-    llenarReasig();
+    asesores = []; snap.forEach(d => { const a = d.data(); asesores.push({uid: d.id, nombre: a.nombre || '', email: a.email || '', lider: a.liderEquipo || ''}); });
+    llenarReasig(); llenarFiltros(); render();
   }).catch(err => {
     asesores = []; llenarReasig();
     $('rError').textContent = 'No se pudo leer la lista de asesores (' + (err.code||err.message) + '). Revisa las reglas de Firestore.';
@@ -255,6 +276,47 @@ function reasignar(){
     .finally(() => { btn.disabled = false; btn.textContent = 'Reasignar seleccionados'; });
 }
 
+function filaCliente(c){
+    const segs = c.seguimientos || [];
+    const ult = segs.length ? segs[segs.length-1] : null;
+    return {
+      'Fecha de registro': fmt(fechaDe(c)),
+      'Asesor': c.asesorNombre || '',
+      'Cliente': c.nombre || '',
+      'Teléfono (últimos 4)': c.telefono || '',
+      'Proyecto': c.proyecto || '',
+      'Núm. de seguimientos': segs.length,
+      'Último seguimiento': ult ? (ult.fecha + ' - ' + ult.texto) : 'Sin seguimiento',
+      'Notas': c.notas || ''
+    };
+}
+
+// Reporte para entregar a un líder: resumen por asesor + lista de prospectos de su equipo
+function descargarReporteLider(){
+  const lider = $('fLider').value;
+  const lista = filtrados();
+  const porAsesor = {};
+  lista.forEach(c => {
+    const k = c.asesorNombre || c.asesorEmail || 'Sin asesor';
+    const a = porAsesor[k] = porAsesor[k] || { 'Asesor': k, 'Prospectos': 0, 'Con seguimiento': 0, 'Sin seguimiento': 0 };
+    a['Prospectos']++;
+    if ((c.seguimientos||[]).length) a['Con seguimiento']++; else a['Sin seguimiento']++;
+  });
+  const resumen = Object.values(porAsesor).sort((x,y)=>y['Prospectos']-x['Prospectos']);
+  resumen.push({ 'Asesor': 'TOTAL', 'Prospectos': lista.length,
+    'Con seguimiento': lista.filter(c=>(c.seguimientos||[]).length).length,
+    'Sin seguimiento': lista.filter(c=>!(c.seguimientos||[]).length).length });
+  const wb = XLSX.utils.book_new();
+  const ws1 = XLSX.utils.json_to_sheet(resumen); ws1['!cols'] = [{wch:30},{wch:12},{wch:16},{wch:16}];
+  XLSX.utils.book_append_sheet(wb, ws1, 'Resumen por asesor');
+  const ws2 = XLSX.utils.json_to_sheet(lista.slice().sort((a,b)=>(a.asesorNombre||'').localeCompare(b.asesorNombre||'')).map(filaCliente));
+  ws2['!cols'] = [{wch:14},{wch:26},{wch:28},{wch:16},{wch:22},{wch:10},{wch:45},{wch:40}];
+  XLSX.utils.book_append_sheet(wb, ws2, 'Prospectos');
+  const hoy = new Date().toISOString().slice(0,10);
+  const slug = claveLider(lider).replace(/[^a-z0-9]+/g,'-');
+  XLSX.writeFile(wb, 'reporte-' + slug + '-uno-brokers-' + hoy + '.xlsx');
+}
+
 function descargarExcel(){
   const filas = filtrados().map(c => {
     const segs = c.seguimientos || [];
@@ -266,6 +328,7 @@ function descargarExcel(){
       'Proyecto': c.proyecto || '',
       'Asesor': c.asesorNombre || '',
       'Correo del asesor': c.asesorEmail || '',
+      'Líder de equipo': liderDe(c),
       'Notas': c.notas || '',
       'Núm. de seguimientos': segs.length,
       'Último seguimiento': ult ? (ult.fecha + ' - ' + ult.texto) : '',
@@ -273,7 +336,7 @@ function descargarExcel(){
     };
   });
   const ws = XLSX.utils.json_to_sheet(filas);
-  ws['!cols'] = [{wch:14},{wch:28},{wch:16},{wch:22},{wch:24},{wch:30},{wch:40},{wch:10},{wch:45},{wch:80}];
+  ws['!cols'] = [{wch:14},{wch:28},{wch:16},{wch:22},{wch:24},{wch:30},{wch:24},{wch:40},{wch:10},{wch:45},{wch:80}];
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Clientes');
   const hoy = new Date().toISOString().slice(0,10);
