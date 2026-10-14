@@ -116,10 +116,12 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
 
     <div id="tabRegistrar" class="panel">
       <label for="fNombre">Nombre del cliente</label>
-      <input type="text" id="fNombre">
+      <input type="text" id="fNombre" placeholder="Juan" autocomplete="off">
+      <label for="fApellido">Apellido del cliente</label>
+      <input type="text" id="fApellido" placeholder="Pérez" autocomplete="off">
       <label for="fTelefono">Últimos 4 dígitos del teléfono</label>
       <input type="text" id="fTelefono" inputmode="numeric" maxlength="4" placeholder="5678">
-      <div class="hint">Si otro asesor ya tiene un cliente con el mismo nombre y la misma terminación, el registro se bloquea.</div>
+      <div class="hint">El registro se bloquea solo si ya existe un cliente con el mismo nombre, el mismo apellido y la misma terminación de teléfono.</div>
       <label for="fProyecto">Proyecto de interés</label>
       <select id="fProyecto">
         <option>VIVARIA 2360</option>
@@ -300,27 +302,43 @@ function showTab(tab) {
 }
 
 function normalizarTelefono(t){ return (t||'').replace(/\D/g,'').slice(-4); }
-// Primer nombre sin acentos ni mayúsculas: "Juán Pérez" y "juan perez" cuentan igual
-function primerNombre(n){ return (n||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim().split(/\s+/)[0] || ''; }
+// Normaliza sin acentos ni mayúsculas: "Juán Pérez" y "juan perez" cuentan igual
+function normalizar(n){ return (n||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z\u00f1 ]/g,' ').trim(); }
+function palabras(n){ return normalizar(n).split(/\s+/).filter(Boolean); }
+function primeraPalabra(n){ return palabras(n)[0] || ''; }
+
+// ¿El cliente ya registrado coincide en nombre + apellido? (la terminación ya coincide por la búsqueda)
+function mismoCliente(ex, nom, ape){
+  if (ex.nombrePila !== undefined && ex.apellido !== undefined) {
+    return primeraPalabra(ex.nombrePila) === nom && primeraPalabra(ex.apellido) === ape;
+  }
+  // Registros anteriores (solo traían el nombre completo en un campo)
+  const p = palabras(ex.nombre);
+  return p[0] === nom && p.slice(1).indexOf(ape) !== -1;
+}
 
 function registrarCliente() {
-  const nombre = $('fNombre').value.trim();
+  const nombrePila = $('fNombre').value.trim();
+  const apellido = $('fApellido').value.trim();
   const telRaw = $('fTelefono').value.trim();
   const telefono = normalizarTelefono(telRaw);
   $('dupAlert').style.display = 'none';
   $('okAlert').style.display = 'none';
-  if (!nombre || telefono.length !== 4) {
-    $('dupAlert').textContent = 'Escribe el nombre del cliente y los últimos 4 dígitos de su teléfono.';
+  if (!nombrePila || !apellido || telefono.length !== 4) {
+    $('dupAlert').textContent = 'Escribe el nombre, el apellido y los últimos 4 dígitos del teléfono del cliente.';
     $('dupAlert').style.display = 'block';
     return;
   }
+  const nombre = nombrePila + ' ' + apellido;
+  const nom = primeraPalabra(nombrePila), ape = primeraPalabra(apellido);
   const btn = $('registrarBtn'); btn.disabled = true; btn.textContent = 'Verificando...';
 
-  const clave = telefono + '|' + primerNombre(nombre);
-  db.collection('clientes').where('clave', '==', clave).limit(1).get()
+  const clave = telefono + '|' + nom + '|' + ape;
+  db.collection('clientes').where('telefono', '==', telefono).get()
     .then(snap => {
-      if (!snap.empty) {
-        const ex = snap.docs[0].data();
+      let ex = null;
+      snap.forEach(d => { if (!ex && mismoCliente(d.data(), nom, ape)) ex = d.data(); });
+      if (ex) {
         $('dupAlert').textContent = ex.asesorUid === asesorActual.uid
           ? 'Ya registraste a este cliente (' + ex.nombre + '). Búscalo en "Mis clientes" para agregarle seguimiento.'
           : 'Este cliente (' + ex.nombre + ', terminación ' + ex.telefono + ') ya lo registró ' + (ex.asesorNombre || 'otro asesor') + '. No se puede volver a registrar.';
@@ -328,14 +346,15 @@ function registrarCliente() {
         return;
       }
       return db.collection('clientes').add({
-        nombre: nombre, telefono: telefono, telefonoOriginal: telefono, clave: clave,
+        nombre: nombre, nombrePila: nombrePila, apellido: apellido,
+        telefono: telefono, telefonoOriginal: telefono, clave: clave,
         proyecto: $('fProyecto').value, notas: $('fNotas').value.trim(),
         asesorUid: asesorActual.uid, asesorNombre: asesorActual.nombre, asesorEmail: asesorActual.email || '',
         seguimientos: [], creado: firebase.firestore.FieldValue.serverTimestamp()
       }).then(() => {
         $('okAlert').textContent = 'Cliente registrado a tu nombre: ' + nombre + '.';
         $('okAlert').style.display = 'block';
-        $('fNombre').value = ''; $('fTelefono').value = ''; $('fNotas').value = '';
+        $('fNombre').value = ''; $('fApellido').value = ''; $('fTelefono').value = ''; $('fNotas').value = '';
       });
     })
     .catch(err => {
