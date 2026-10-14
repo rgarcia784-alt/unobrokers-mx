@@ -711,6 +711,7 @@
   }
 
   /* PAGO GARANTIZADO */
+  .pg-card p+p{margin-top:8px;}
   .pg-section { background: var(--dark); color: var(--cream); padding: 5rem 2rem; }
   .pg-inner { max-width: 1000px; margin: 0 auto; }
   .pg-section .section-title { color: var(--cream); }
@@ -1065,29 +1066,30 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
 
 <section class="pg-section" id="pago-garantizado" aria-labelledby="pg-title">
   <div class="pg-inner">
-    <p class="section-tag">Nuevo · Pago garantizado</p>
-    <h2 class="section-title" id="pg-title">Cotiza el pago garantizado de tu renta</h2>
-    <p class="section-sub">Si tu inquilino se atrasa o deja de pagar, tú sigues recibiendo tu renta puntual. Y el contrato ya incluye convenio de Justicia Alternativa para agilizar la recuperación de tu inmueble si hace falta.</p>
+    <p class="section-tag">Respaldo para tu renta</p>
+    <h2 class="section-title" id="pg-title">Cómo respaldamos el pago de tu renta</h2>
+    <p class="section-sub">Nuestro trabajo es <strong>entregarte un inquilino investigado que pague puntual</strong>. Por rentar tu propiedad cobramos el equivalente a <strong>un mes de renta</strong>, y en Jalisco también podemos <strong>administrarla</strong> por ti. Las dos opciones de abajo son respaldos adicionales por si algo sale mal: una para recuperar tu inmueble rápido y otra para que te sigan pagando la renta. Elige una, según tu caso.</p>
 
     <div class="pg-combo">
       <div class="pg-card">
-        <h3>Protección de renta 3 meses</h3>
-        <p>Te pagamos hasta <strong>3 meses de renta al 100%</strong>, puntuales, en cualquier momento del contrato. No importa si tu inquilino se atrasa o deja de pagar.</p>
+        <h3>Opción 1 · Contrato blindado</h3>
+        <p><strong>Solo en Jalisco</strong> (Guadalajara, Zapopan, Tlaquepaque, Tonalá y Tlajomulco).</p>
+        <p>Investigación del inquilino <strong>$999</strong> + contrato de Justicia Alternativa o transacción notarial <strong>$3,800</strong>.</p>
+        <p><strong>Precio fijo: $4,799 MXN.</strong> No paga la renta, pero si el inquilino incumple pides la ejecución directa, sin juicio largo. <a href="/transaccion-notarial-vs-justicia-alternativa-renta.html" style="color:inherit;text-decoration:underline;">¿Cuál de los dos contratos?</a></p>
       </div>
-      <div class="pg-op" aria-hidden="true">+</div>
-      <div class="pg-card">
-        <h3>Contrato de Justicia Alternativa</h3>
-        <p>Convenio con fuerza de sentencia que <strong>agiliza la recuperación de tu inmueble</strong> y te da tranquilidad jurídica, sin juicios largos.</p>
-      </div>
-      <div class="pg-op" aria-hidden="true">=</div>
+      <div class="pg-op" aria-hidden="true">o</div>
       <div class="pg-card total">
-        <h3>Renta segura</h3>
-        <p>Investigación del inquilino, <strong>rentas puntuales</strong> y la herramienta legal más rápida para resolver conflictos, en un solo paquete.</p>
+        <h3>Opción 2 · Póliza jurídica con renta garantizada</h3>
+        <p><strong>En todo México</strong>, incluida la zona metropolitana de Guadalajara y la Ciudad de México.</p>
+        <p>Investigación, contrato y pagarés, <strong>hasta 3 meses de renta garantizada</strong>, cobranza y recuperación del inmueble.</p>
+        <p><strong>Precio a cotizar</strong> según la renta y el uso del inmueble. Usa el cotizador de abajo.</p>
       </div>
     </div>
 
+    <p style="max-width:720px;margin:18px auto 0;text-align:center;font-size:15px;">¿Lo que buscas es rentar o administrar tu propiedad? <a href="#formulario" style="color:var(--gold);font-weight:600;text-decoration:underline;">Déjanos tus datos y te llamamos</a>; el respaldo lo elegimos juntos al firmar.</p>
+
     <div class="pg-calc" id="cotizador-pago-garantizado">
-      <h3>Calcula el costo de tu protección</h3>
+      <h3>Cotiza la Opción 2: póliza con renta garantizada</h3>
       <p class="pg-hint">Llena 3 datos y te mandamos el costo exacto por WhatsApp.</p>
       <div class="form-grid">
         <div class="form-group">
@@ -1100,6 +1102,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
             <option>Tlajomulco</option>
             <option>Tonalá</option>
             <option>Ciudad de México</option>
+            <option>Otra ciudad de México</option>
           </select>
         </div>
         <div class="form-group">
@@ -1123,15 +1126,15 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
       <p class="pg-err" id="pg-err" role="alert"></p>
       <button class="btn-send" type="button" onclick="cotizarPagoGarantizado()">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4.1-3.6c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.6 3.6 0 0 0-1.1 2.6 6.2 6.2 0 0 0 1.3 3.3 14.3 14.3 0 0 0 5.5 4.8c2 .9 2.8 1 3.8.8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
-        Cotizar mi pago garantizado
+        Cotizar mi póliza
       </button>
-      <p class="pg-note">Disponible para inmuebles en la zona metropolitana de Guadalajara y en la Ciudad de México. Protege rentas de hasta $150,000 al mes. La protección está sujeta a la aprobación de la investigación del inquilino.</p>
+      <p class="pg-note">La póliza está disponible en todo México y está sujeta a la aprobación de la investigación del inquilino.</p>
     </div>
   </div>
 </section>
 
 <section class="section" id="marco-legal">
-  <h2 class="section-title">Rentar conforme a la ley: SAT y Justicia Alternativa</h2>
+  <h2 class="section-title">Rentar conforme a la ley: SAT, INEGI y Justicia Alternativa</h2>
   <p style="max-width:720px;margin:0 auto 24px;text-align:center;color:#4A5568;">Lo que dicen las fuentes oficiales sobre los impuestos de tu renta y la protección legal de tu contrato en Jalisco.</p>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:1000px;margin:0 auto;">
     <div style="background:#fff;border:1px solid #e5e2dc;border-radius:12px;padding:20px 22px;">
@@ -1148,6 +1151,12 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
       <h3 style="font-family:'Lora',Georgia,serif;font-size:18px;color:var(--dark);margin-bottom:8px;">Justicia Alternativa en Jalisco</h3>
       <p style="font-size:14.5px;color:#4A5568;line-height:1.65;margin-bottom:10px;">Con la Ley de Justicia Alternativa del Estado de Jalisco, el convenio de arrendamiento validado por el Instituto de Justicia Alternativa tiene la fuerza de una sentencia, y su cumplimiento se puede exigir sin un juicio largo.</p>
       <p style="font-size:13px;margin:0;">Fuente oficial: <a href="https://transparencia.info.jalisco.gob.mx/sites/default/files//LEY_DE_JUSTICIA_ALTERNATIVA_DEL_ESTADO.pdf" target="_blank" rel="noopener" style="color:#9a6a10;">Ley de Justicia Alternativa del Estado de Jalisco</a></p>
+    </div>
+
+    <div style="background:#fff;border:1px solid #e5e2dc;border-radius:12px;padding:20px 22px;">
+      <h3 style="font-family:'Lora',Georgia,serif;font-size:18px;color:var(--dark);margin-bottom:8px;">Aumento anual de la renta: INPC</h3>
+      <p style="font-size:14.5px;color:#4A5568;line-height:1.65;margin-bottom:10px;">El ajuste de la renta al renovar se suele calcular con el Índice Nacional de Precios al Consumidor que publica el INEGI. Calcúlalo con nuestra <a href="/calculadora-ajuste-renta-inpc.html" style="color:#9a6a10;">calculadora de ajuste de renta por INPC</a>.</p>
+      <p style="font-size:13px;margin:0;">Fuente oficial: <a href="https://www.inegi.org.mx/temas/inpc/" target="_blank" rel="noopener" style="color:#9a6a10;">INEGI – INPC</a></p>
     </div>
   </div>
   <p style="max-width:720px;margin:18px auto 0;text-align:center;font-size:13px;color:#6b7280;">Información general con base en fuentes oficiales; no sustituye la asesoría de tu contador o abogado.</p>
@@ -1207,7 +1216,8 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
     <li><strong>Modalidades:</strong> autogestión o administración profesional</li>
     <li><strong>Experiencia:</strong> más de 31 años en el mercado (desde 1995)</li>
     <li><strong>Precio de salida:</strong> valuación de renta gratuita con datos de tu zona</li>
-    <li><strong>Pago garantizado:</strong> hasta 3 meses de renta, opcional</li>
+    <li><strong>Opción 1 · Contrato blindado (Jalisco):</strong> investigación $999 + contrato de Justicia Alternativa o transacción notarial $3,800 MXN</li>
+    <li><strong>Opción 2 · Póliza con renta garantizada (todo México):</strong> hasta 3 meses de renta, a cotizar</li>
     <li><strong>Contacto:</strong> 33 3967 5255</li>
   </ul>
 </div>
@@ -1222,12 +1232,12 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si mi inquilino deja de pagar la renta? <span class="faq-arrow">▾</span></button>
-      <div class="faq-a">Con el pago garantizado de UNO Brokers te pagamos hasta 3 meses de renta al 100%, puntuales, aunque tu inquilino se atrase o deje de pagar, en cualquier momento del contrato. Además, el contrato se firma con convenio de Justicia Alternativa para agilizar la recuperación de tu inmueble. Cotízalo en esta página con tu ciudad, el monto de renta y el uso del inmueble.</div>
+      <div class="faq-a">Depende de la opción que elijas. Con la póliza jurídica con renta garantizada te pagamos hasta 3 meses de renta aunque tu inquilino se atrase o deje de pagar, e incluye cobranza y recuperación del inmueble; funciona en todo México y se cotiza. En Jalisco también puedes elegir el contrato blindado: investigación ($999 MXN) más contrato de Justicia Alternativa o transacción notarial ($3,800 MXN), que no paga la renta pero permite pedir la ejecución directa sin un juicio largo.</div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto cuesta el pago garantizado de la renta? <span class="faq-arrow">▾</span></button>
-      <div class="faq-a">Depende de la ciudad, el monto de renta mensual y el uso del inmueble (habitacional, comercial o industrial). Llena el cotizador de esta página y te mandamos el costo exacto por WhatsApp. Protege rentas de hasta $150,000 al mes en la zona metropolitana de Guadalajara y en la Ciudad de México.</div>
+      <div class="faq-a">Depende de la ciudad, el monto de renta mensual y el uso del inmueble (habitacional, comercial o industrial). Llena el cotizador de esta página y te mandamos el costo exacto por WhatsApp. Si prefieres el contrato blindado en Jalisco, el precio es fijo: investigación del inquilino $999 MXN más contrato de Justicia Alternativa o transacción notarial $3,800 MXN.</div>
     </div>
 
     <div class="faq-item">
@@ -1312,7 +1322,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
     <li><strong style="color:var(--dark);">El inquilino correcto.</strong> Investigamos buró, ingresos e identidad antes de que firme, en cualquier parte de México.</li>
     <li><strong style="color:var(--dark);">El contrato correcto.</strong> Transacción notarial o convenio de Justicia Alternativa, con fuerza para actuar sin juicios largos si algo sale mal.</li>
     <li><strong style="color:var(--dark);">Más alcance.</strong> Publicamos en portales y Google, y trabajamos con una red de asesores e inmobiliarias aliadas que también buscan inquilino para tu propiedad.</li>
-    <li><strong style="color:var(--dark);">Tu renta asegurada, si la quieres.</strong> Puedes sumar el pago garantizado de hasta 3 meses de renta.</li>
+    <li><strong style="color:var(--dark);">Tu renta asegurada, si la quieres.</strong> Puedes elegir la póliza con hasta 3 meses de renta garantizada.</li>
   </ul>
   <p style="color:var(--muted); font-size:.96rem; margin-top:12px;">Si tienes poco tiempo, vives lejos de tu propiedad o ya tuviste una mala experiencia con un inquilino, la administración profesional suele pagarse sola. Si prefieres administrarla tú, también te ayudamos solo con la investigación y el contrato.</p>
   <p style="margin-top:16px; font-size:.8rem; color:var(--muted);">Contenido revisado por UNO Brokers · Última actualización: <time datetime="2026-10-13">13 de octubre de 2026</time></p>
@@ -1393,9 +1403,8 @@ function cotizarPagoGarantizado() {
   err.style.display = 'none';
   if (!ciudad) { err.textContent = 'Selecciona dónde está el inmueble.'; err.style.display = 'block'; return; }
   if (!renta || renta < 1000) { err.textContent = 'Escribe el monto de la renta mensual.'; err.style.display = 'block'; return; }
-  if (renta > 150000) { err.textContent = 'La protección cubre rentas de hasta $150,000 al mes. Escríbenos y revisamos tu caso.'; err.style.display = 'block'; }
   var fmt = renta.toLocaleString('es-MX', {maximumFractionDigits: 0});
-  var msg = 'Hola, quiero cotizar el pago garantizado de mi renta (protección de 3 meses + contrato de Justicia Alternativa):\n'
+  var msg = 'Hola, quiero cotizar la póliza jurídica con renta garantizada (hasta 3 meses):\n'
     + 'Ciudad: ' + ciudad + '\n'
     + 'Renta mensual: $' + fmt + '\n'
     + 'Uso: ' + uso
@@ -1410,10 +1419,11 @@ function cotizarPagoGarantizado() {
   r.addEventListener('input', function(){
     var v = parseFloat(r.value);
     if (v >= 1000) {
-      var p = Math.min(v, 150000) * 3;
+      var p = v * 3;
       o.textContent = 'Monto protegido: hasta $' + p.toLocaleString('es-MX', {maximumFractionDigits: 0}) + ' (3 meses de renta).';
     } else { o.textContent = ''; }
   });
+  document.querySelectorAll('input[name="pg-uso"]').forEach(function(x){ x.addEventListener('change', function(){ r.dispatchEvent(new Event('input')); }); });
 })();
 </script>
 <script type="application/ld+json">
@@ -1421,8 +1431,8 @@ function cotizarPagoGarantizado() {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"¿Qué pasa si mi inquilino deja de pagar la renta?","acceptedAnswer":{"@type":"Answer","text":"Con el pago garantizado de UNO Brokers te pagamos hasta 3 meses de renta al 100%, puntuales, aunque tu inquilino se atrase o deje de pagar, en cualquier momento del contrato. Además, el contrato se firma con convenio de Justicia Alternativa para agilizar la recuperación de tu inmueble. Cotízalo en esta página con tu ciudad, el monto de renta y el uso del inmueble."}},
-    {"@type":"Question","name":"¿Cuánto cuesta el pago garantizado de la renta?","acceptedAnswer":{"@type":"Answer","text":"Depende de la ciudad, el monto de renta mensual y el uso del inmueble (habitacional, comercial o industrial). Llena el cotizador de esta página y te mandamos el costo exacto por WhatsApp. Protege rentas de hasta $150,000 al mes en la zona metropolitana de Guadalajara y en la Ciudad de México."}},
+    {"@type":"Question","name":"¿Qué pasa si mi inquilino deja de pagar la renta?","acceptedAnswer":{"@type":"Answer","text":"Depende de la opción que elijas. Con la póliza jurídica con renta garantizada te pagamos hasta 3 meses de renta aunque tu inquilino se atrase o deje de pagar, e incluye cobranza y recuperación del inmueble; funciona en todo México y se cotiza. En Jalisco también puedes elegir el contrato blindado: investigación ($999 MXN) más contrato de Justicia Alternativa o transacción notarial ($3,800 MXN), que no paga la renta pero permite pedir la ejecución directa sin un juicio largo."}},
+    {"@type":"Question","name":"¿Cuánto cuesta el pago garantizado de la renta?","acceptedAnswer":{"@type":"Answer","text":"Depende de la ciudad, el monto de renta mensual y el uso del inmueble (habitacional, comercial o industrial). Llena el cotizador de esta página y te mandamos el costo exacto por WhatsApp. Si prefieres el contrato blindado en Jalisco, el precio es fijo: investigación del inquilino $999 MXN más contrato de Justicia Alternativa o transacción notarial $3,800 MXN."}},
     {"@type":"Question","name":"¿Cómo pongo mi casa en renta en Guadalajara?","acceptedAnswer":{"@type":"Answer","text":"El proceso es sencillo: contáctanos, visitamos tu propiedad, hacemos una valuación de renta gratuita para definir el precio de salida, publicamos con fotografía profesional, investigamos a los candidatos y firmamos el contrato con respaldo notarial o de Justicia Alternativa."}},
     {"@type":"Question","name":"¿Cuánto cobra UNO Brokers por administrar mi propiedad en renta?","acceptedAnswer":{"@type":"Answer","text":"Por rentar tu propiedad UNO Brokers cobra el equivalente a un mes de renta. Si además quieres que la administre, se suma una cuota mensual sobre las rentas cobradas por el cobro, el seguimiento de servicios y el cuidado del inmueble."}},
     {"@type":"Question","name":"¿Cómo asegurarme de que el inquilino me pague la renta puntualmente?","acceptedAnswer":{"@type":"Answer","text":"Investigamos buró de crédito, comprobantes de ingresos e identidad. El contrato incluye penalización por mora y depósito en garantía."}},
