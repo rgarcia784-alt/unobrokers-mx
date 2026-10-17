@@ -362,21 +362,21 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
         </div>
 
         <div class="plan-card highlight">
-          <span class="p-tag">25 mensualidades</span>
+          <span class="p-tag"><span class="nMeses">19</span> mensualidades</span>
           <h3>Hipotecario 5</h3>
           <div class="plan-row"><span class="pl-label">Enganche (5%)</span><span class="pl-val" id="h5-enganche">$0</span></div>
           <div class="plan-row"><span class="pl-label">Durante la obra (15%)</span><span class="pl-val" id="h5-obra">$0</span></div>
-          <div class="plan-row"><span class="pl-label">Mensualidad × 25</span><span class="pl-val" id="h5-mensual">$0</span></div>
+          <div class="plan-row"><span class="pl-label">Mensualidad × <span class="nMeses">19</span></span><span class="pl-val" id="h5-mensual">$0</span></div>
           <div class="plan-row"><span class="pl-label">A la entrega (80%)</span><span class="pl-val" id="h5-entrega">$0</span></div>
           <div class="plan-row total"><span class="pl-label">Precio del plan</span><span class="pl-val" id="h5-total">$0</span></div>
         </div>
 
         <div class="plan-card">
-          <span class="p-tag">25 mensualidades</span>
+          <span class="p-tag"><span class="nMeses">19</span> mensualidades</span>
           <h3>Hipotecario 10</h3>
           <div class="plan-row"><span class="pl-label">Enganche (10%)</span><span class="pl-val" id="h10-enganche">$0</span></div>
           <div class="plan-row"><span class="pl-label">Durante la obra (10%)</span><span class="pl-val" id="h10-obra">$0</span></div>
-          <div class="plan-row"><span class="pl-label">Mensualidad × 25</span><span class="pl-val" id="h10-mensual">$0</span></div>
+          <div class="plan-row"><span class="pl-label">Mensualidad × <span class="nMeses">19</span></span><span class="pl-val" id="h10-mensual">$0</span></div>
           <div class="plan-row"><span class="pl-label">A la entrega (80%)</span><span class="pl-val" id="h10-entrega">$0</span></div>
           <div class="plan-row total"><span class="pl-label">Precio del plan</span><span class="pl-val" id="h10-total">$0</span></div>
         </div>
@@ -392,7 +392,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
       </div>
 
       <div class="disclaimer">
-        ⚠️ Cotización estimada, sujeta a disponibilidad y cambios sin previo aviso por parte de CADU Inmobiliaria. Vigencia de 72 horas a partir de la fecha de generación. Los planes Hipotecario 5 e Hipotecario 10 se calculan con los porcentajes estándar de Vivaria 2360; confirma con tu asesor de CADU antes de firmar apartado.
+        ⚠️ Cotización estimada, sujeta a disponibilidad y cambios sin previo aviso por parte de CADU Inmobiliaria. Vigencia de 72 horas a partir de la fecha de generación. Precios con base en el sembrado de CADU de octubre 2026.<span id="h5-aviso" style="display:none"><br><b>Este departamento: confirma el precio de Hipotecario 5 y 10 con CADU antes de firmar apartado.</b></span>
       </div>
 
       <div class="actions">
@@ -723,13 +723,27 @@ renderUnits();
 updateSortIcons();
 
 /* ===================== QUOTE CALC ===================== */
-// Porcentajes fijos confirmados contra cotización de referencia (depto 10)
+// Calibrado contra cotizaciones oficiales CADU del 16-oct-2026 (deptos 10, 17, 18, 103)
+// - Hipotecario 5 = tabla por depto (ver H5)
+// - Hipotecario 10 = Hipotecario 5 - $75,000 (diferencia fija en todas las cotizaciones CADU)
+// - Mensualidades: se cuentan del mes siguiente hasta mayo 2028 (oct-2026 = 19)
 const PLAN = {
   cero:  { enganche: 0.10, entrega: 0.90 },
-  h5:    { descuento: 0.038069, enganche: 0.05, obra: 0.15, meses: 25, entrega: 0.80 },
-  h10:   { descuento: 0.059558, enganche: 0.10, obra: 0.10, meses: 25, entrega: 0.80 },
+  h5:    { enganche: 0.05, obra: 0.15, entrega: 0.80 },
+  h10:   { menosQueH5: 75000, enganche: 0.10, obra: 0.10, entrega: 0.80 },
+  ultimoMesPago: { anio: 2028, mes: 5 },
   contadoApartado: 50000
 };
+// Precio Hipotecario 5 por depto (sembrado CADU oct-2026 + cotizaciones oficiales 16-oct-2026).
+// Deptos en H5_CONFIRMAR: estimados, CADU no ha dado cotización de ese prototipo.
+const H5 = {10:3357455.20,17:3072575.20,18:3048450.40,23:3072080.80,27:3066114.40,100:3084126.40,101:3046955.20,102:3046955.20,103:3098075.20,104:3073950.40,106:3261270.40,107:3264150.40,108:3061891.10,109:3103340.80,110:3083156.10,111:3046955.20,112:3046955.20,113:3091599.90,114:3098087.70,115:3382955.20,117:3046955.20,118:3098126.40,119:4113385.79,121:4202688.44,122:4362936.86,123:3123025.50,124:3138710.70,125:3533891.06,126:3077555.20,127:3046955.20,131:3300150.40,132:3261270.40,133:3300150.40,200:3109641.90,201:3072455.20,202:3072455.20,203:3123587.70,204:3099450.40,205:3289650.40,206:3286770.40,207:3289650.40,208:3087391.10,209:3128733.30,210:3108656.10,211:3072455.20,212:3072455.20,213:3117099.90,214:3123587.70,215:3408455.20,217:3072455.20,218:3123626.40,219:4138885.79,221:4228188.44,222:4388436.86,223:3148525.50,224:3164210.70,226:3103055.20,227:3072455.20,231:3325650.40,232:3286770.40,233:3325650.40,300:3135141.90,301:3097955.20,302:3097955.20,303:3149087.70,304:3124950.40,305:3315150.40,306:3312270.40,307:3315150.40,308:2986831.20,310:3134156.10,311:3097955.20,312:3097955.20,313:3142599.90,314:3149087.70,315:3433955.20,317:3097955.20,318:3149126.40,319:4164385.79,320:4402025.44,321:4253688.44,322:4413936.86,324:3189710.70,325:3584895.36,326:3128555.20,327:3097955.20,329:3378437.70,331:3351150.40,332:3312270.40,333:3351150.40,400:3160641.90,401:3123455.20,403:3174587.70,404:3150450.40,405:3340650.40,406:3337770.40,407:3348595.40,410:3129056.10,411:3123455.20,412:3168099.90,413:3174215.20,414:3459455.20,415:3129281.70,416:3123455.20,417:3174626.40,419:4433003.24,420:4279188.44,421:4439436.86,422:3210513.90,425:3154055.20,426:3123455.20,429:3337479.60,430:3376650.40,431:3337770.40,432:3376650.40,500:3186141.90,501:3148955.20,502:3148955.20,503:3099430.94,505:2756497.45,506:3363270.40,507:3374095.40,508:2689784.90,510:3154556.10,512:3089286.44,513:3200087.70,514:3484955.20,515:3154781.70,516:3152902.70,517:3099499.74,519:4411248.24,521:4464936.86,522:3236013.90,525:3148955.20,528:3362979.60,529:3402150.40,530:3363270.40,531:3402150.40,602:3621092.55,617:3410918.35,623:3427650.40,624:3388770.40,625:3427650.40};
+const H5_CONFIRMAR = new Set([119,121,122,219,221,222,319,320,321,322,419,420,421,505,508,519,521,602,617]);
+function precioH5(u){ return H5[u.u]; }
+function mesesRestantes(){
+  const hoy = new Date();
+  const m = (PLAN.ultimoMesPago.anio - hoy.getFullYear()) * 12 + (PLAN.ultimoMesPago.mes - 1) - hoy.getMonth();
+  return Math.max(1, m);
+}
 
 let QUOTE = null;
 
@@ -739,21 +753,22 @@ function calcularCotizacion(u){
 
   const cero = { total: pl, enganche: pl * PLAN.cero.enganche, entrega: pl * PLAN.cero.entrega };
 
-  const h5precio = pl * (1 - PLAN.h5.descuento);
+  const meses = mesesRestantes();
+  const h5precio = precioH5(u);
   const h5 = {
     total: h5precio,
     enganche: h5precio * PLAN.h5.enganche,
     obra: h5precio * PLAN.h5.obra,
-    mensual: (h5precio * PLAN.h5.obra) / PLAN.h5.meses,
+    mensual: (h5precio * PLAN.h5.obra) / meses,
     entrega: h5precio * PLAN.h5.entrega
   };
 
-  const h10precio = pl * (1 - PLAN.h10.descuento);
+  const h10precio = h5precio - PLAN.h10.menosQueH5;
   const h10 = {
     total: h10precio,
     enganche: h10precio * PLAN.h10.enganche,
     obra: h10precio * PLAN.h10.obra,
-    mensual: (h10precio * PLAN.h10.obra) / PLAN.h10.meses,
+    mensual: (h10precio * PLAN.h10.obra) / meses,
     entrega: h10precio * PLAN.h10.entrega
   };
 
@@ -763,7 +778,7 @@ function calcularCotizacion(u){
     diferencia: pc - PLAN.contadoApartado
   };
 
-  return { unidad: u, cero, h5, h10, contado, fecha: new Date().toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric'}) };
+  return { unidad: u, meses, cero, h5, h10, contado, fecha: new Date().toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric'}) };
 }
 
 function renderQuote(q){
@@ -775,6 +790,8 @@ function renderQuote(q){
   document.getElementById('cm-entrega').textContent = fmt(q.cero.entrega);
   document.getElementById('cm-total').textContent = fmt(q.cero.total);
 
+  document.getElementById('h5-aviso').style.display = H5_CONFIRMAR.has(q.unidad.u) ? 'inline' : 'none';
+  document.querySelectorAll('.nMeses').forEach(e=>e.textContent=q.meses);
   document.getElementById('h5-enganche').textContent = fmt(q.h5.enganche);
   document.getElementById('h5-obra').textContent = fmt(q.h5.obra);
   document.getElementById('h5-mensual').textContent = fmt(q.h5.mensual) + '/mes';
@@ -836,8 +853,8 @@ document.getElementById('waBtn').addEventListener('click', ()=>{
     `${espacios}\n\n` +
     `Precio de lista: ${fmt(u.pl)}\n\n` +
     `Cero mensualidad: enganche ${fmt(QUOTE.cero.enganche)}, entrega ${fmt(QUOTE.cero.entrega)}\n` +
-    `Hipotecario 5: ${fmt(QUOTE.h5.total)} — enganche ${fmt(QUOTE.h5.enganche)}, ${fmt(QUOTE.h5.mensual)}/mes x25\n` +
-    `Hipotecario 10: ${fmt(QUOTE.h10.total)} — enganche ${fmt(QUOTE.h10.enganche)}, ${fmt(QUOTE.h10.mensual)}/mes x25\n` +
+    `Hipotecario 5: ${fmt(QUOTE.h5.total)} — enganche ${fmt(QUOTE.h5.enganche)}, ${fmt(QUOTE.h5.mensual)}/mes x${QUOTE.meses}\n` +
+    `Hipotecario 10: ${fmt(QUOTE.h10.total)} — enganche ${fmt(QUOTE.h10.enganche)}, ${fmt(QUOTE.h10.mensual)}/mes x${QUOTE.meses}\n` +
     `Contado: ${fmt(QUOTE.contado.total)} (apartado ${fmt(QUOTE.contado.apartado)})\n\n` +
     `Cotización generada por ${asesor} para ${cliente}. Vigencia 72 horas.`;
   window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
@@ -989,7 +1006,7 @@ document.getElementById('pdfBtn').addEventListener('click', ()=>{
     ['Total Ahorro:', ahorro(q.h5.total)],
     ['Enganche (5%):', fmt(q.h5.enganche)],
     ['Durante la obra (15%):', fmt(q.h5.obra)],
-    ['25 Mensualidades de:', fmt(q.h5.mensual)],
+    [q.meses + ' Mensualidades de:', fmt(q.h5.mensual)],
     ['A la entrega (80%):', fmt(q.h5.entrega)],
   ]);
 
@@ -998,7 +1015,7 @@ document.getElementById('pdfBtn').addEventListener('click', ()=>{
     ['Total Ahorro:', ahorro(q.h10.total)],
     ['Enganche (10%):', fmt(q.h10.enganche)],
     ['Durante la obra (10%):', fmt(q.h10.obra)],
-    ['25 Mensualidades de:', fmt(q.h10.mensual)],
+    [q.meses + ' Mensualidades de:', fmt(q.h10.mensual)],
     ['A la entrega (80%):', fmt(q.h10.entrega)],
   ]);
 
