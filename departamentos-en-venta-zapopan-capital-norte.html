@@ -274,6 +274,8 @@ fbq('track', 'PageView');
   .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(7,15,30,.55),rgba(7,15,30,.88));}
   .hero .wrap{position:relative;z-index:2;}
   .hero .wrap{padding-top:72px;padding-bottom:84px;}
+  .hero-addr{font-size:15px;color:#e8ecf3;max-width:680px;margin:-12px 0 24px;}
+  .hero-addr a{color:var(--gold-soft);}
   .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:600;margin-bottom:14px;}
   h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(30px,5.6vw,52px);line-height:1.08;max-width:760px;margin-bottom:18px;}
   .hero p.lead{font-size:clamp(16px,2.2vw,19px);max-width:620px;color:#e8ecf3;font-weight:300;margin-bottom:28px;}
@@ -308,6 +310,9 @@ fbq('track', 'PageView');
   .datos th,.datos td{text-align:left;padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top;}
   .datos th{width:38%;color:var(--navy);font-weight:600;background:var(--cream-2);}
   .datos tr:last-child th,.datos tr:last-child td{border-bottom:none;}
+  .map{width:100%;height:340px;border:0;border-radius:14px;margin-top:22px;background:#e9e4d8;}
+  .nota-z{margin-top:10px;font-size:14px;}
+  .nota-z a{color:var(--gold-soft);}
   .tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .modelos{width:100%;min-width:620px;border-collapse:collapse;background:#fff;border:1px solid var(--line);font-size:15px;}
   .modelos th,.modelos td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap;}
@@ -397,6 +402,7 @@ fbq('track', 'PageView');
     <div class="eyebrow">Capital Norte · Zapopan, Jalisco</div>
     <h1>Departamentos en venta en Zapopan: 2 recámaras en Capital Norte</h1>
     <p class="lead">Departamentos nuevos de 58 a 72 m², con 2 recámaras y 2 baños, en Capital Norte, al norte de Zapopan. Precios desde $2,757,004 y enganche desde 10%.</p>
+    <p class="hero-addr"><strong>Dirección:</strong> Av. Guadalajara 3843, col. Nuevo México, Capital Norte, Zapopan, Jalisco, C.P. 45160 · <a href="#ubicacion">Ver ubicación en el mapa</a></p>
     <div class="btn-row">
       <a class="btn btn-wa js-wa" href="https://wa.me/523339675255?text=Hola%2C%20quiero%20la%20lista%20de%20precios%20y%20el%20plan%20de%20pagos%20de%20los%20departamentos%20en%20Capital%20Norte%2C%20Zapopan.">Pedir lista de precios por WhatsApp</a>
       <a class="btn btn-ghost" href="#maqueta">Ver maqueta 3D</a>
@@ -433,6 +439,54 @@ fbq('track', 'PageView');
   </div>
 </section>
 
+<section class="zone" id="ubicacion">
+  <div class="wrap">
+    <div class="kicker">Ubicación</div>
+    <h2>Capital Norte, Zapopan: conectado a todo lo que importa</h2>
+    <p class="sub">Una zona con conectividad, servicios y vida tranquila, en un entorno verde. Está sobre Av. Guadalajara 3843, colonia Nuevo México, C.P. 45160.</p>
+    <div class="zone-grid">
+      <div class="zone-box">
+        <h3>Conectividad</h3>
+        <ul>
+          <li>Av. Juan Gil Preciado</li>
+          <li>Av. Ángel Leaño</li>
+          <li>Av. Guadalajara</li>
+          <li>Av. Aviación</li>
+        </ul>
+      </div>
+      <div class="zone-box">
+        <h3>Vida diaria</h3>
+        <ul>
+          <li>Centro Comercial Andares</li>
+          <li>Plaza Patria</li>
+          <li>Plaza Real Center</li>
+          <li>Costco San Isidro</li>
+        </ul>
+      </div>
+      <div class="zone-box">
+        <h3>Deporte y entorno</h3>
+        <ul>
+          <li>Estadio Guadalajara</li>
+          <li>Estadio Charros</li>
+          <li>Zona Real</li>
+          <li>Campo de golf Valle Imperial</li>
+        </ul>
+      </div>
+      <div class="zone-box">
+        <h3>Cultura y salud</h3>
+        <ul>
+          <li>Conjunto Santander de Artes Escénicas</li>
+          <li>JAPI · Palcco</li>
+          <li>Hospital Santa María Chapalita</li>
+          <li>Hospital Real San José</li>
+        </ul>
+      </div>
+    </div>
+    <iframe class="map" title="Mapa de Capital Norte, Av. Guadalajara 3843, Zapopan" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Guadalajara+3843,+Nuevo+M%C3%A9xico,+45160+Zapopan,+Jal.&amp;output=embed"></iframe>
+    <p class="nota-z"><a href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Guadalajara+3843,+Nuevo+M%C3%A9xico,+45160+Zapopan,+Jal." target="_blank" rel="noopener">Cómo llegar en Google Maps</a></p>
+  </div>
+</section>
+
 <section style="padding-top:0;">
   <div class="wrap">
     <div class="kicker">Datos del proyecto</div>
@@ -456,7 +510,7 @@ fbq('track', 'PageView');
   <div class="wrap">
     <div class="kicker">Maqueta 3D</div>
     <h2>Recorre la maqueta interactiva de Capital Norte</h2>
-    <p class="sub">Explora el desarrollo en 3D, elige piso y ubica los departamentos disponibles.</p>
+    <p class="sub">Explora el desarrollo en 3D, elige piso y ubica los departamentos disponibles. Dirección: Av. Guadalajara 3843, col. Nuevo México, Capital Norte, Zapopan, Jalisco. <a href="#ubicacion">Ver ubicación en el mapa</a>.</p>
     <div class="maq" id="maqBox">
       <img src="vista-aerea-desarrollo-capital-norte-zapopan.jpg" alt="Vista aérea del desarrollo de departamentos en Capital Norte, Zapopan" width="1400" height="933" loading="lazy">
       <button type="button" id="maqBtn" class="btn btn-wa">Abrir maqueta 3D interactiva</button>
@@ -515,52 +569,6 @@ fbq('track', 'PageView');
       <figure><img src="juegos-infantiles-amenidades-capital-norte.jpg" alt="Área de juegos infantiles del desarrollo en Capital Norte, Zapopan" width="1400" height="933" loading="lazy"></figure>
       <figure><img src="sala-lounge-amenidades-capital-norte.jpg" alt="Sala lounge de amenidades del desarrollo en Capital Norte" width="1400" height="933" loading="lazy"></figure>
       <figure><img src="vista-aerea-desarrollo-capital-norte-zapopan.jpg" alt="Vista aérea del desarrollo de departamentos en Capital Norte, Zapopan" width="1400" height="933" loading="lazy"></figure>
-    </div>
-  </div>
-</section>
-
-<section class="zone">
-  <div class="wrap">
-    <div class="kicker">Ubicación</div>
-    <h2>Capital Norte, Zapopan: conectado a todo lo que importa</h2>
-    <p class="sub">Una zona con conectividad, servicios y vida tranquila, en un entorno verde. Está sobre Av. Guadalajara 3843, colonia Nuevo México, C.P. 45160.</p>
-    <div class="zone-grid">
-      <div class="zone-box">
-        <h3>Conectividad</h3>
-        <ul>
-          <li>Av. Juan Gil Preciado</li>
-          <li>Av. Ángel Leaño</li>
-          <li>Av. Guadalajara</li>
-          <li>Av. Aviación</li>
-        </ul>
-      </div>
-      <div class="zone-box">
-        <h3>Vida diaria</h3>
-        <ul>
-          <li>Centro Comercial Andares</li>
-          <li>Plaza Patria</li>
-          <li>Plaza Real Center</li>
-          <li>Costco San Isidro</li>
-        </ul>
-      </div>
-      <div class="zone-box">
-        <h3>Deporte y entorno</h3>
-        <ul>
-          <li>Estadio Guadalajara</li>
-          <li>Estadio Charros</li>
-          <li>Zona Real</li>
-          <li>Campo de golf Valle Imperial</li>
-        </ul>
-      </div>
-      <div class="zone-box">
-        <h3>Cultura y salud</h3>
-        <ul>
-          <li>Conjunto Santander de Artes Escénicas</li>
-          <li>JAPI · Palcco</li>
-          <li>Hospital Santa María Chapalita</li>
-          <li>Hospital Real San José</li>
-        </ul>
-      </div>
     </div>
   </div>
 </section>
