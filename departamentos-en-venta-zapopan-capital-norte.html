@@ -314,6 +314,10 @@ fbq('track', 'PageView');
   .modelos thead th{background:var(--navy);color:#fff;font-weight:600;font-size:13px;letter-spacing:.04em;}
   .modelos tbody th{color:var(--navy);font-weight:600;background:var(--cream-2);}
   .modelos td b{color:var(--navy);font-family:'Fraunces',serif;font-size:17px;}
+  .maq{position:relative;aspect-ratio:16/9;min-height:320px;border-radius:14px;overflow:hidden;background:var(--navy);}
+  .maq img{width:100%;height:100%;object-fit:cover;opacity:.55;}
+  .maq button{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);cursor:pointer;}
+  .maq iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;}
   .nota{font-size:13px;color:var(--muted);margin-top:12px;max-width:760px;}
   .resp{font-size:17px;color:var(--ink);max-width:760px;}
   /* Gallery */
@@ -395,6 +399,7 @@ fbq('track', 'PageView');
     <p class="lead">Departamentos nuevos de 58 a 72 m², con 2 recámaras y 2 baños, en Capital Norte, al norte de Zapopan. Precios desde $2,757,004 y enganche desde 10%.</p>
     <div class="btn-row">
       <a class="btn btn-wa js-wa" href="https://wa.me/523339675255?text=Hola%2C%20quiero%20la%20lista%20de%20precios%20y%20el%20plan%20de%20pagos%20de%20los%20departamentos%20en%20Capital%20Norte%2C%20Zapopan.">Pedir lista de precios por WhatsApp</a>
+      <a class="btn btn-ghost" href="#maqueta">Ver maqueta 3D</a>
       <a class="btn btn-ghost" href="#visita">Agendar visita al showroom</a>
     </div>
   </div>
@@ -444,6 +449,19 @@ fbq('track', 'PageView');
       <tr><th>Entrega y disponibilidad</th><td>Se confirman por WhatsApp según modelo</td></tr>
       <tr><th>Comisión al comprador</th><td>Ninguna</td></tr>
     </table>
+  </div>
+</section>
+
+<section style="padding-top:0;" id="maqueta">
+  <div class="wrap">
+    <div class="kicker">Maqueta 3D</div>
+    <h2>Recorre la maqueta interactiva de Capital Norte</h2>
+    <p class="sub">Explora el desarrollo en 3D, elige piso y ubica los departamentos disponibles.</p>
+    <div class="maq" id="maqBox">
+      <img src="vista-aerea-desarrollo-capital-norte-zapopan.jpg" alt="Vista aérea del desarrollo de departamentos en Capital Norte, Zapopan" width="1400" height="933" loading="lazy">
+      <button type="button" id="maqBtn" class="btn btn-wa">Abrir maqueta 3D interactiva</button>
+    </div>
+    <p class="nota"><a href="https://maquetas.quierocasa.com.mx/maquetasWebGL/ET1/" target="_blank" rel="noopener">Abrir la maqueta en pantalla completa</a>. Funciona mejor en computadora o tablet; en el teléfono puede tardar en cargar.</p>
   </div>
 </section>
 
@@ -623,6 +641,22 @@ fbq('track', 'PageView');
       try { gtag('event', 'whatsapp_click', {page: 'departamentos-capital-norte'}); } catch(e){}
     });
   });
+</script>
+<script>
+  (function(){
+    var b=document.getElementById('maqBtn'), box=document.getElementById('maqBox');
+    if(!b||!box) return;
+    b.addEventListener('click', function(){
+      var f=document.createElement('iframe');
+      f.src='https://maquetas.quierocasa.com.mx/maquetasWebGL/ET1/';
+      f.title='Maqueta 3D interactiva de Capital Norte, Zapopan';
+      f.allow='fullscreen; accelerometer; gyroscope';
+      f.setAttribute('allowfullscreen','');
+      f.referrerPolicy='no-referrer-when-downgrade';
+      box.innerHTML=''; box.appendChild(f);
+      try { gtag('event','maqueta_3d_click',{page:'departamentos-capital-norte'}); } catch(e){}
+    });
+  })();
 </script>
 </body>
 </html>
