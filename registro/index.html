@@ -94,6 +94,7 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
       <label for="suPass">Contraseña (mínimo 6 caracteres)</label>
       <input type="password" id="suPass" autocomplete="new-password" onkeydown="if(event.key==='Enter')doSignup()">
       <button class="btn" id="signupBtn" onclick="doSignup()">Crear mi cuenta</button>
+      <div class="hint">Al crear tu cuenta aceptas el <a href="https://unobrokers.com.mx/aviso-de-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a> de UNO Brokers.</div>
       <div class="alert warn" id="signupError"></div>
       <p class="switch">¿Ya tienes cuenta? <a href="#" onclick="verRegistro(false);return false;">Entra aquí</a></p>
     </div>
@@ -140,6 +141,7 @@ input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid v
       <label for="fNotas">Notas (opcional)</label>
       <textarea id="fNotas" placeholder="Qué busca, presupuesto, cómo llegó..."></textarea>
       <button class="btn" id="registrarBtn" onclick="registrarCliente()">Registrar cliente</button>
+      <div class="hint">Registra solo clientes que te autorizaron compartir sus datos. Los tratamos conforme al <a href="https://unobrokers.com.mx/aviso-de-privacidad.html" target="_blank" rel="noopener">Aviso de Privacidad</a>.</div>
       <div class="alert warn" id="dupAlert"></div>
       <div class="alert ok" id="okAlert"></div>
     </div>
