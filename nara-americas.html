@@ -518,9 +518,24 @@
   }
 
   /* UBICACIÓN */
-  .ubi-flex { display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; }
-  .ubi-flex img { width: 100%; max-width: 380px; border-radius: 12px; display: block; }
-  .ubi-flex .ubi-text { flex: 1; min-width: 260px; color: var(--muted); font-size: 16.5px; }
+  .ubi-grid { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(0,1fr); gap: 2.25rem; align-items: stretch; }
+  .ubi-map { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(10,38,71,.10); min-height: 420px; background: var(--surface); }
+  .ubi-map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; }
+  .ubi-info { display: flex; flex-direction: column; }
+  .ubi-addr { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.5; color: var(--text); margin-bottom: 1rem; }
+  .ubi-addr svg { width: 26px; height: 26px; fill: var(--gold); flex-shrink: 0; margin-top: 2px; }
+  .ubi-text { color: var(--muted); font-size: 16px; line-height: 1.65; margin-bottom: 1.25rem; }
+  .ubi-list { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border); }
+  .ubi-list li { display: flex; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .ubi-km { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--navy); min-width: 74px; line-height: 1; }
+  .ubi-km small { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--gold); margin-left: 3px; letter-spacing: .04em; }
+  .ubi-place strong { display: block; font-size: 15.5px; color: var(--text); font-weight: 600; }
+  .ubi-place em { display: block; font-style: normal; font-size: 13.5px; color: var(--muted); }
+  .ubi-note { font-size: 12.5px; color: var(--muted); margin: .7rem 0 1.25rem; }
+  .ubi-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+  .ubi-btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 20px; border-radius: 10px; background: var(--navy); color: var(--cream); text-decoration: none; font-size: 14.5px; font-weight: 600; }
+  .ubi-btn--line { background: transparent; color: var(--navy); border: 1.5px solid var(--gold); }
+  @media (max-width: 820px) { .ubi-grid { grid-template-columns: 1fr; } .ubi-map, .ubi-map iframe { min-height: 320px; } }
 
   /* PAGOS */
   .pay-section { background: var(--navy); padding: 5rem 2rem; }
@@ -1040,9 +1055,20 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
   <p class="section-label">Ubicación</p>
   <h2 class="section-title">Sobre el corredor<br>Américas</h2>
   <div class="divider-line"></div>
-  <div class="ubi-flex">
-    <img src="https://rgarcia784-alt.github.io/nara-americas-tools/nara-ubicacion.jpg" alt="Mapa de ubicación NARA Américas" loading="lazy">
-    <p class="ubi-text">NARA Américas se ubica sobre uno de los corredores financieros y comerciales más importantes de Guadalajara, rodeado de espacios verdes como el Bosque Los Colomos, y a minutos de Andares, Plaza Patria y Punto Sao Paulo.</p>
+  <div class="ubi-grid">
+    <div class="ubi-map">
+      <iframe title="Mapa de ubicación de NARA Américas, Prolongación Américas 1650, Zapopan" src="https://www.google.com/maps?q=20.712957,-103.3834562&amp;z=15&amp;hl=es&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <div class="ubi-info">
+      <p class="ubi-addr"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span><strong>Prolongación Américas 1650</strong><br>Rinconada de Altamira, 45160 Zapopan, Jal.</span></p>
+      <p class="ubi-text">NARA Américas se ubica sobre uno de los corredores financieros y comerciales más importantes de Guadalajara, rodeado de espacios verdes como el Bosque Los Colomos, y a minutos de Andares, Plaza Patria y Punto São Paulo.</p>
+      <ul class="ubi-list"><li><span class="ubi-km">0.5<small>km</small></span><span class="ubi-place"><strong>Plaza Patria</strong><em>Centro comercial, cines y servicios</em></span></li><li><span class="ubi-km">1.1<small>km</small></span><span class="ubi-place"><strong>Bosque Los Colomos</strong><em>Más de 90 hectáreas de bosque urbano</em></span></li><li><span class="ubi-km">1.5<small>km</small></span><span class="ubi-place"><strong>Punto São Paulo</strong><em>Restaurantes, oficinas y hoteles</em></span></li><li><span class="ubi-km">3.0<small>km</small></span><span class="ubi-place"><strong>Andares</strong><em>Moda, restaurantes y corporativos</em></span></li><li><span class="ubi-km">3.3<small>km</small></span><span class="ubi-place"><strong>Hospital Puerta de Hierro</strong><em>Hospital privado</em></span></li></ul>
+      <p class="ubi-note">Distancias aproximadas en línea recta desde el desarrollo.</p>
+      <div class="ubi-btns">
+        <a class="ubi-btn" href="https://www.google.com/maps/search/?api=1&amp;query=NARA%20Am%C3%A9ricas%20Zapopan&amp;query_place_id=ChIJ80vo1vSvKIQROL4m-IdH-bA" target="_blank" rel="noopener">Abrir en Google Maps</a>
+        <a class="ubi-btn ubi-btn--line" href="https://waze.com/ul?ll=20.712957,-103.3834562&amp;navigate=yes" target="_blank" rel="noopener">Cómo llegar con Waze</a>
+      </div>
+    </div>
   </div>
 </section>
 
