@@ -54,6 +54,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "¿Cuánto ISR se paga al vender una casa en México?", "acceptedAnswer": {"@type": "Answer", "text": "El ISR por venta de inmuebles se calcula sobre la ganancia, no sobre el precio total de venta. La ganancia se obtiene restando al precio de venta el costo de adquisición actualizado por inflación, las mejoras comprobables, los gastos notariales y la comisión del agente inmobiliario. Esa ganancia se divide entre los años que tuviste la propiedad (máximo 20) y se le aplica la tarifa progresiva del Art. 152 de la LISR para obtener una tasa promedio."}},
+    {"@type": "Question", "name": "¿Cómo se calcula el ISR si la casa es de varios hermanos o la heredamos?", "acceptedAnswer": {"@type": "Answer", "text": "Cuando una propiedad es de varios copropietarios, cada uno calcula su ISR sobre su parte del precio de venta y de las deducciones (Reglamento de la LISR). Si la heredaron, el costo y la fecha de adquisición son los de quien falleció (Art. 124 LISR), y la exención de casa habitación solo aplica al heredero que vive ahí. El notario hace el cálculo oficial de cada uno."}},
     {"@type": "Question", "name": "¿Cuándo estoy exento de pagar ISR al vender mi casa?", "acceptedAnswer": {"@type": "Answer", "text": "Estás exento si la propiedad es tu casa habitación principal, no has aplicado esta exención en los últimos 3 años, la venta se formaliza ante notario, y el precio de venta no excede el equivalente a 700,000 UDIS (aproximadamente $6,180,000 MXN en 2026). Si el precio es mayor, solo pagas ISR por la parte proporcional del excedente (artículo 93, fracción XIX, inciso a) de la Ley del ISR). Esta exención no aplica para terrenos baldíos, locales comerciales ni propiedades de inversión."}},
     {"@type": "Question", "name": "¿Qué gastos puedo deducir al calcular el ISR de mi venta?", "acceptedAnswer": {"@type": "Answer", "text": "La Ley del ISR permite deducir el costo comprobado de adquisición actualizado por inflación, inversiones en construcciones y mejoras comprobables, gastos notariales e impuestos pagados por la compra y venta, y comisiones de intermediación inmobiliaria. Todas requieren comprobantes fiscales (CFDI) o escrituras."}},
     {"@type": "Question", "name": "¿Quién calcula y retiene el ISR en la venta de un inmueble?", "acceptedAnswer": {"@type": "Answer", "text": "El notario público que formaliza la escritura de compraventa calcula y retiene el ISR correspondiente, conforme al Art. 126 de la LISR, y lo entera directamente al SAT como pago provisional."}},
@@ -295,6 +296,34 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
     </div>
 
     <div class="card">
+      <div class="card-header"><div class="icon">👥</div><h2>DUEÑOS Y ORIGEN DE LA PROPIEDAD</h2></div>
+      <div class="card-body">
+        <div class="form-grid">
+          <div class="field form-full">
+            <label>¿Cómo la adquiriste?</label>
+            <div class="toggle-row">
+              <div class="toggle-opt active" data-target="origen" data-value="compra">La compré</div>
+              <div class="toggle-opt" data-target="origen" data-value="herencia">La heredé</div>
+            </div>
+            <input type="hidden" id="origen" value="compra"/>
+            <div class="field-hint" id="hintHerencia" style="display:none">En una herencia, el costo y la fecha de compra son los de <strong>quien falleció</strong> (Art. 124 LISR). Escríbelos abajo en "Fecha de compra" y "Precio de compra".</div>
+          </div>
+          <div class="field">
+            <label for="numDuenos">¿Cuántos dueños son?</label>
+            <input type="number" id="numDuenos" value="1" min="1" max="10" step="1"/>
+            <div class="field-hint">Por ejemplo, 3 si son tres hermanos</div>
+          </div>
+          <div class="field">
+            <label for="pctDueno">Tu porcentaje de la propiedad (%)</label>
+            <input type="number" id="pctDueno" value="100" min="1" max="100" step="0.01"/>
+            <div class="field-hint">Se llena solo en partes iguales; cámbialo si tu parte es distinta</div>
+          </div>
+        </div>
+        <div class="field-hint" style="margin-top:8px">Cuando hay varios dueños, cada uno calcula su ISR sobre su parte de la venta y de los gastos (Reglamento de la LISR). Por eso el resultado es lo que te toca pagar a ti.</div>
+      </div>
+    </div>
+
+    <div class="card">
       <div class="card-header"><div class="icon">🏠</div><h2>DATOS DEL INMUEBLE</h2></div>
       <div class="card-body">
         <div class="form-grid">
@@ -314,7 +343,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
             <input type="text" id="colonia" placeholder="Ej. Valle Real, Zapopan"/>
           </div>
           <div class="field">
-            <label>Fecha de compra</label>
+            <label id="lblFechaCompra">Fecha de compra</label>
             <input type="date" id="fechaCompra"/>
           </div>
           <div class="field">
@@ -331,7 +360,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
       <div class="card-body">
         <div class="form-grid">
           <div class="field">
-            <label>Precio de compra (MXN)</label>
+            <label id="lblPrecioCompra">Precio de compra (MXN)</label>
             <input type="number" id="precioCompra" placeholder="Ej. 1800000" min="0"/>
           </div>
           <div class="field">
@@ -361,7 +390,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
       <div class="card-body">
         <div class="form-grid">
           <div class="field form-full">
-            <label>¿Es tu casa habitación principal?</label>
+            <label>¿Es tu casa habitación principal? (¿tú vives ahí?)</label>
             <div class="toggle-row">
               <div class="toggle-opt active" data-target="esCasaHab" data-value="si">Sí</div>
               <div class="toggle-opt" data-target="esCasaHab" data-value="no">No</div>
@@ -452,6 +481,11 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
   <div class="faq-item">
     <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto ISR se paga al vender una casa en México? <span class="faq-icon">+</span></button>
     <div class="faq-a"><p>El ISR por venta de inmuebles (enajenación de bienes) se calcula sobre la <strong>ganancia</strong>, no sobre el precio total de venta. La ganancia se obtiene restando al precio de venta el costo de adquisición actualizado por inflación, las mejoras comprobables, los gastos notariales y la comisión del agente inmobiliario. Esa ganancia se divide entre los años que tuviste la propiedad (máximo 20) y se le aplica la tarifa progresiva del Art. 152 de la LISR para obtener una tasa promedio, que finalmente se aplica al total de la ganancia. Usa nuestra calculadora para obtener un estimado de tu caso específico.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">¿Cómo se calcula el ISR si la casa es de varios hermanos o la heredamos? <span class="faq-icon">+</span></button>
+    <div class="faq-a"><p>Cuando una propiedad es de varios copropietarios, <strong>cada uno calcula su ISR sobre su parte</strong> del precio de venta y de las deducciones (Reglamento de la LISR). Si la heredaron, el costo y la fecha de adquisición son los de <strong>quien falleció</strong> (Art. 124 LISR), y la exención de casa habitación solo aplica al heredero que vive ahí. En esta calculadora elige "La heredé" y escribe cuántos dueños son: te muestra el ISR de tu parte. El notario hace el cálculo oficial de cada uno.</p></div>
   </div>
 
   <div class="faq-item">
@@ -654,7 +688,18 @@ document.querySelectorAll('.toggle-opt').forEach(opt=>{
     document.querySelectorAll(`.toggle-opt[data-target="${target}"]`).forEach(o=>o.classList.remove('active'));
     this.classList.add('active');
     document.getElementById(target).value=this.dataset.value;
+    if(target==='origen')actualizarOrigen();
   });
+});
+function actualizarOrigen(){
+  const h=document.getElementById('origen').value==='herencia';
+  document.getElementById('lblFechaCompra').textContent=h?'Fecha en que la compró quien falleció':'Fecha de compra';
+  document.getElementById('lblPrecioCompra').textContent=h?'Precio que pagó quien falleció (MXN)':'Precio de compra (MXN)';
+  document.getElementById('hintHerencia').style.display=h?'block':'none';
+}
+document.getElementById('numDuenos').addEventListener('input',function(){
+  const n=Math.min(10,Math.max(1,parseInt(this.value)||1));
+  document.getElementById('pctDueno').value=Math.round(10000/n)/100;
 });
 
 // Default dates
@@ -674,6 +719,12 @@ function calcular(){
   const comisionPct=parseFloat(document.getElementById('comision').value)||0;
   const esCasaHab=document.getElementById('esCasaHab').value==='si';
   const usoExencion=document.getElementById('usoExencion').value==='si';
+  const origen=document.getElementById('origen').value;
+  const numDuenos=Math.min(10,Math.max(1,parseInt(document.getElementById('numDuenos').value)||1));
+  let pct=parseFloat(document.getElementById('pctDueno').value)||100;
+  pct=Math.min(100,Math.max(0.01,pct));
+  if(numDuenos===1)pct=100;
+  const s=pct/100;
 
   if(!fechaCompraStr){alert('Ingresa la fecha de compra');return;}
   if(!fechaVentaStr){alert('Ingresa la fecha de venta');return;}
@@ -690,19 +741,23 @@ function calcular(){
   const aniosDivisor=Math.min(20,Math.max(1,Math.round(anios)));
 
   const factorActualizacion=Math.pow(1+INFLACION_ANUAL_EST,anios);
-  const costoActualizado=precioCompra*factorActualizacion;
-  const mejorasActualizadas=mejoras*factorActualizacion;
-  const comisionMonto=precioVenta*(comisionPct/100);
-  const deducciones=costoActualizado+mejorasActualizadas+gastosNotariales+comisionMonto;
+  // Copropiedad: cada dueño calcula sobre su parte de la venta y de las deducciones
+  const precioVentaTotal=precioVenta;
+  const precioVentaParte=precioVenta*s;
+  const costoActualizado=precioCompra*factorActualizacion*s;
+  const mejorasActualizadas=mejoras*factorActualizacion*s;
+  const gastosNotarialesParte=gastosNotariales*s;
+  const comisionMonto=precioVenta*(comisionPct/100)*s;
+  const deducciones=costoActualizado+mejorasActualizadas+gastosNotarialesParte+comisionMonto;
 
-  const gananciaTotal=Math.max(0,precioVenta-deducciones);
+  const gananciaTotal=Math.max(0,precioVentaParte-deducciones);
 
   const aplicaExencion=(tipo==='casa'||tipo==='departamento')&&esCasaHab&&!usoExencion;
   // Art. 93 fr. XIX inciso a) LISR: el límite de 700,000 UDIS es sobre el precio de venta (contraprestación).
   // Si el precio lo excede, solo la parte proporcional del excedente causa ISR.
   let gananciaGravable=gananciaTotal, exentoAplicado=0;
   if(aplicaExencion){
-    const proporcionGravada=precioVenta<=EXENCION_MXN?0:(precioVenta-EXENCION_MXN)/precioVenta;
+    const proporcionGravada=precioVentaParte<=EXENCION_MXN?0:(precioVentaParte-EXENCION_MXN)/precioVentaParte;
     gananciaGravable=Math.max(0,gananciaTotal*proporcionGravada);
     exentoAplicado=gananciaTotal-gananciaGravable;
   }
@@ -719,7 +774,8 @@ function calcular(){
     cliente:document.getElementById('cliente').value||'No especificado',
     email:document.getElementById('email').value,
     tel:document.getElementById('telefono').value,
-    tipo,colonia,fechaCompraStr,fechaVentaStr,precioCompra,precioVenta,mejoras,gastosNotariales,comisionPct,
+    tipo,colonia,fechaCompraStr,fechaVentaStr,precioCompra,precioVenta:precioVentaParte,precioVentaTotal,mejoras,gastosNotariales:gastosNotarialesParte,comisionPct,
+    origen,numDuenos,pct,
     esCasaHab,usoExencion,anios,aniosDivisor,costoActualizado,mejorasActualizadas,comisionMonto,deducciones,
     gananciaTotal,aplicaExencion,exentoAplicado,gananciaGravable,tasaPromedio,isr,
     fecha:new Date().toLocaleDateString('es-MX',{day:'2-digit',month:'long',year:'numeric'})
@@ -731,23 +787,27 @@ function calcular(){
     heroBox.classList.add('exento');
     document.getElementById('resLabel').textContent='¡ESTÁS EXENTO DE ISR! 🎉';
     document.getElementById('res-isr').textContent='$0';
-    document.getElementById('resSub').textContent='Tu precio de venta está dentro del límite de la exención de casa habitación';
+    document.getElementById('resSub').textContent=pct<100?'Tu parte del precio de venta está dentro del límite de la exención de casa habitación':'Tu precio de venta está dentro del límite de la exención de casa habitación';
   } else {
     heroBox.classList.remove('exento');
-    document.getElementById('resLabel').textContent='ISR ESTIMADO A PAGAR';
+    document.getElementById('resLabel').textContent=pct<100?'ISR ESTIMADO DE TU PARTE ('+pct+'%)':'ISR ESTIMADO A PAGAR';
     document.getElementById('res-isr').textContent=fmt(isr);
-    document.getElementById('resSub').textContent='Sobre la ganancia gravable de la operación';
+    const iguales=numDuenos>1&&Math.abs(pct-100/numDuenos)<0.05;
+    document.getElementById('resSub').textContent=pct<100?(iguales?'Si los '+numDuenos+' dueños están en la misma situación, entre todos pagarían cerca de '+fmt(isr*numDuenos):'Sobre tu parte de la ganancia gravable'):'Sobre la ganancia gravable de la operación';
   }
   document.getElementById('res-ganancia').textContent=fmt(gananciaGravable);
   document.getElementById('res-tasa').textContent=(tasaPromedio*100).toFixed(2)+'%';
   document.getElementById('res-anios').textContent=anios.toFixed(1);
 
   // Tabla desglose
-  let rows=`
-    <tr><td>Precio de venta</td><td>${fmt(precioVenta)}</td></tr>
+  let rows='';
+  if(origen==='herencia')rows+=`<tr><td>Propiedad heredada: costo y fecha de quien falleció (Art. 124 LISR)</td><td>Sí</td></tr>`;
+  if(pct<100)rows+=`<tr><td>Precio de venta total</td><td>${fmt(precioVentaTotal)}</td></tr><tr><td>Tu parte de la propiedad (${numDuenos} dueños)</td><td>${pct}%</td></tr>`;
+  rows+=`
+    <tr><td>${pct<100?'Tu parte del precio de venta':'Precio de venta'}</td><td>${fmt(precioVentaParte)}</td></tr>
     <tr class="resta"><td>(-) Costo de adquisición actualizado</td><td>${fmt(costoActualizado)}</td></tr>`;
   if(mejoras>0)rows+=`<tr class="resta"><td>(-) Mejoras actualizadas</td><td>${fmt(mejorasActualizadas)}</td></tr>`;
-  if(gastosNotariales>0)rows+=`<tr class="resta"><td>(-) Gastos notariales de compra</td><td>${fmt(gastosNotariales)}</td></tr>`;
+  if(gastosNotariales>0)rows+=`<tr class="resta"><td>(-) Gastos notariales de compra</td><td>${fmt(gastosNotarialesParte)}</td></tr>`;
   if(comisionMonto>0)rows+=`<tr class="resta"><td>(-) Comisión de agente (${comisionPct}%)</td><td>${fmt(comisionMonto)}</td></tr>`;
   rows+=`<tr class="subtotal"><td>= Ganancia total</td><td>${fmt(gananciaTotal)}</td></tr>`;
   if(aplicaExencion)rows+=`<tr class="exencion"><td>(-) Exención casa habitación</td><td>${fmt(exentoAplicado)}</td></tr>`;
@@ -755,7 +815,7 @@ function calcular(){
     <tr class="subtotal"><td>= Ganancia gravable</td><td>${fmt(gananciaGravable)}</td></tr>
     <tr><td>Años transcurridos (divisor)</td><td>${aniosDivisor}</td></tr>
     <tr><td>Tasa promedio aplicable</td><td>${(tasaPromedio*100).toFixed(2)}%</td></tr>
-    <tr class="final"><td>ISR ESTIMADO A PAGAR</td><td>${fmt(isr)}</td></tr>`;
+    <tr class="final"><td>${pct<100?'ISR ESTIMADO DE TU PARTE':'ISR ESTIMADO A PAGAR'}</td><td>${fmt(isr)}</td></tr>`;
   document.getElementById('desglosetable_placeholder');
   document.getElementById('desgloseTable').innerHTML=rows;
 
@@ -828,11 +888,12 @@ function generarPDF(){
     ['Tipo',san(TL[d.tipo]||d.tipo)],['Colonia/Zona',san(d.colonia)||'No especificada'],
     ['Fecha de compra',d.fechaCompraStr],['Fecha de venta',d.fechaVentaStr],
     ['Anios transcurridos',d.anios.toFixed(1)],['Es casa habitacion principal',d.esCasaHab?'Si':'No'],
+    ['Forma de adquisicion',d.origen==='herencia'?'Herencia':'Compra'],['Tu parte',d.pct+'% ('+d.numDuenos+(d.numDuenos>1?' duenos)':' dueno)')],
   ]);
 
   secH('CALCULO DEL ISR — TARIFA 2026 (ART. 152 LISR)',TEAL);
   const rows=[
-    ['Precio de venta',fmt(d.precioVenta)],
+    [d.pct<100?'Tu parte del precio de venta':'Precio de venta',fmt(d.precioVenta)],
     ['(-) Costo de adquisicion actualizado',fmt(d.costoActualizado)],
   ];
   if(d.mejoras>0)rows.push(['(-) Mejoras actualizadas',fmt(d.mejorasActualizadas)]);
@@ -860,7 +921,7 @@ function generarPDF(){
   doc.roundedRect(mar,y,W-(mar*2),26,3,3,'F');
   const isExento=d.gananciaGravable<=0&&d.aplicaExencion;
   doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(...(isExento?TEAL:[150,175,200]));
-  doc.text(isExento?'ESTAS EXENTO DE ISR':'ISR ESTIMADO A PAGAR',W/2,y+8,{align:'center'});
+  doc.text(isExento?'ESTAS EXENTO DE ISR':(d.pct<100?'ISR ESTIMADO DE TU PARTE ('+d.pct+'%)':'ISR ESTIMADO A PAGAR'),W/2,y+8,{align:'center'});
   doc.setFont('helvetica','bold');doc.setFontSize(22);doc.setTextColor(...(isExento?TEAL:AMBER));
   doc.text(fmt(d.isr),W/2,y+19,{align:'center'});
   y+=32;
