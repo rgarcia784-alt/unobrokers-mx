@@ -27,7 +27,7 @@
   "@type": "BreadcrumbList",
   "itemListElement": [
     {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://unobrokers.com.mx/"},
-    {"@type": "ListItem", "position": 2, "name": "Administración de Rentas", "item": "https://unobrokers.com.mx/administracion-de-rentas.html"},
+    {"@type": "ListItem", "position": 2, "name": "Rentar mi propiedad", "item": "https://unobrokers.com.mx/rentar-propiedad-guadalajara.html"},
     {"@type": "ListItem", "position": 3, "name": "Calculadora de Ajuste de Renta por INPC"}
   ]
 }
@@ -87,7 +87,7 @@
     ]
   },
   "datePublished": "2026-09-06",
-  "dateModified": "2026-10-14"
+  "dateModified": "2026-10-20"
 }
 </script>
 
@@ -572,6 +572,13 @@
     #printDoc .pd-firmas div { flex:1; border-top:1px solid #333; padding-top:6px; font-size:10pt; text-align:center; }
     #printDoc .pd-foot { margin-top:40px; font-size:9pt; color:#777; border-top:1px solid #ddd; padding-top:8px; }
   }
+  .next-step{margin-top:22px;padding:18px;border:1px solid rgba(201,162,75,.45);border-radius:12px;background:var(--cream)}
+  .next-step .ns-title{font-weight:700;color:var(--navy-deep);margin:0 0 10px;font-size:1rem}
+  .next-step .ns-item{display:block;text-decoration:none;color:var(--navy-deep);background:#fff;border:1px solid rgba(11,31,58,.1);border-radius:10px;padding:12px 14px;margin-top:8px}
+  .next-step .ns-item:hover{border-color:var(--gold)}
+  .next-step .ns-item strong{display:block;font-size:.95rem}
+  .next-step .ns-item span{display:block;font-size:.85rem;color:#5b6475;margin-top:2px}
+  .next-step .ns-item::after{content:'→';float:right;margin-top:-30px;color:var(--gold);font-weight:700}
 </style>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WBZQNYLQYF"></script>
@@ -598,7 +605,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
   <div class="wrap">
     <a href="https://unobrokers.com.mx">Inicio</a>
     <span>/</span>
-    <a href="https://unobrokers.com.mx/administracion-de-rentas.html">Administración de rentas</a>
+    <a href="https://unobrokers.com.mx/rentar-propiedad-guadalajara.html">Administración de rentas</a>
     <span>/</span>
     <span class="current">Calculadora INPC</span>
   </div>
@@ -697,6 +704,12 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
         <a class="btn-dl alt" id="btnCompartir" href="#" target="_blank" rel="noopener">Enviar resultado por WhatsApp</a>
       </div>
       <div class="field-hint">Al descargar, elige "Guardar como PDF". Ideal para mandarlo a tu inquilino junto con el aviso de renovación.</div>
+      <div class="next-step" aria-label="Siguiente paso para propietarios">
+        <p class="ns-title">¿Y ahora qué sigue con tu renta?</p>
+        <a class="ns-item" data-ns="investigacion" href="https://unobrokers.com.mx/investigacion-inquilinos.html"><strong>¿Tu inquilino se va?</strong><span>Investiga al siguiente antes de firmar: desde $499, en 24 horas hábiles.</span></a>
+        <a class="ns-item" data-ns="rentar" href="https://unobrokers.com.mx/rentar-propiedad-guadalajara.html"><strong>¿Quieres que la rentemos por ti?</strong><span>Publicamos, investigamos y hacemos el contrato por un mes de renta.</span></a>
+        <a class="ns-item" data-ns="contrato" href="https://unobrokers.com.mx/transaccion-notarial-vs-justicia-alternativa-renta.html"><strong>¿Vas a renovar el contrato?</strong><span>Blíndalo con transacción notarial o Justicia Alternativa.</span></a>
+      </div>
       </div>
 
     </div>
@@ -803,7 +816,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
     <ul class="related-list">
       <li><a href="https://unobrokers.com.mx/generador-contrato-renta.html">Generador de contrato de arrendamiento</a></li>
       <li><a href="https://unobrokers.com.mx/investigacion-inquilinos.html">Investigación de inquilinos y buró de crédito</a></li>
-      <li><a href="https://unobrokers.com.mx/administracion-de-rentas.html">Administración de rentas en Guadalajara y Zapopan</a></li>
+      <li><a href="https://unobrokers.com.mx/rentar-propiedad-guadalajara.html">Administración de rentas en Guadalajara y Zapopan</a></li>
       <li><a href="https://unobrokers.com.mx/calculadora-opinion-valor.html">Calculadora de opinión de valor de tu propiedad</a></li>
     </ul>
   </div>
@@ -814,7 +827,6 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
   <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
     <a href="/rentar-propiedad-guadalajara.html" style="background:#fff;border:1px solid #e5e2dc;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;color:#1a1a1a;text-decoration:none;">Rentar mi propiedad</a>
     <a href="/generador-contrato-renta.html" style="background:#fff;border:1px solid #e5e2dc;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;color:#1a1a1a;text-decoration:none;">Contrato de renta gratis</a>
-    <a href="/administracion-de-rentas.html" style="background:#fff;border:1px solid #e5e2dc;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:600;color:#1a1a1a;text-decoration:none;">Administración de rentas</a>
   </div>
 </section>
 
@@ -1003,5 +1015,6 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
   actualizarCompartir();
 </script>
 
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('.ns-item');if(!a)return;try{gtag('event','embudo_inpc',{destino:a.getAttribute('data-ns')})}catch(x){}try{fbq('track','ViewContent',{content_name:'embudo_inpc_'+a.getAttribute('data-ns')})}catch(x){}});</script>
 </body>
 </html>
