@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,7 +10,7 @@
 <meta property="og:site_name" content="UNO Brokers">
 <meta property="og:locale" content="es_MX">
 <meta property="og:url" content="https://unobrokers.com.mx/calculadora-isr-venta-propiedad.html">
-<meta property="og:image" content="https://unobrokers.com.mx/default.jpg">
+<meta property="og:image" content="https://unobrokers.com.mx/og-calculadora-isr-venta-propiedad.jpg">
 <link rel="canonical" href="https://unobrokers.com.mx/calculadora-isr-venta-propiedad.html">
 <link rel="icon" href="https://unobrokers.com.mx/favicon.ico">
 <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Calculadora de ISR por Venta de Propiedad 2026 | UNO Brokers">
 <meta name="twitter:description" content="Calcula gratis el ISR que pagarías al vender tu casa, departamento o terreno en Guadalajara y Zapopan. Calculadora actualizada con la tarifa fiscal 2026 y exención de casa habitación. UNO Brokers.">
-<meta name="twitter:image" content="https://unobrokers.com.mx/default.jpg">
+<meta name="twitter:image" content="https://unobrokers.com.mx/og-calculadora-isr-venta-propiedad.jpg">
 
 <meta name="description" content="Calcula gratis el ISR al vender tu casa, departamento o terreno en Guadalajara y Zapopan. Actualizada con la tarifa fiscal 2026."/>
 <script type="application/ld+json">
@@ -219,6 +219,22 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
       "item": "https://unobrokers.com.mx/calculadora-isr-venta-propiedad.html"
     }
   ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "url": "https://unobrokers.com.mx/calculadora-isr-venta-propiedad.html",
+  "name": "Calculadora de ISR por Venta de Propiedad 2026 | UNO Brokers",
+  "inLanguage": "es-MX",
+  "dateModified": "2026-10-20",
+  "publisher": {
+    "@type": "RealEstateAgent",
+    "@id": "https://unobrokers.com.mx/#organizacion",
+    "name": "UNO Brokers",
+    "url": "https://unobrokers.com.mx/"
+  }
 }
 </script>
 </head>
@@ -655,17 +671,17 @@ applyAgentBranding();
 
 // ══ TARIFA ANUAL ISR 2026 — Art. 152 LISR (Anexo 8 RMF 2026) ══
 const TARIFA_ANUAL_2026=[
-  {li:0.12,ls:8952.48,cuota:0,pct:0.0192},
-  {li:8952.60,ls:75984.60,cuota:171.84,pct:0.0640},
-  {li:75984.72,ls:133536.12,cuota:4461.96,pct:0.1088},
-  {li:133536.24,ls:155229.84,cuota:10723.56,pct:0.1600},
-  {li:155229.96,ls:185852.52,cuota:14194.56,pct:0.1792},
-  {li:185852.64,ls:374837.88,cuota:19671.84,pct:0.2136},
-  {li:374838.00,ls:590796.00,cuota:48065.52,pct:0.2352},
-  {li:590796.12,ls:1127926.80,cuota:98849.40,pct:0.30},
-  {li:1127926.92,ls:1503902.40,cuota:259988.64,pct:0.32},
-  {li:1503902.52,ls:4511707.32,cuota:380302.20,pct:0.34},
-  {li:4511707.44,ls:Infinity,cuota:1402954.44,pct:0.35},
+  {li:0.01,ls:10135.11,cuota:0,pct:0.0192},
+  {li:10135.12,ls:86022.11,cuota:194.59,pct:0.0640},
+  {li:86022.12,ls:151176.19,cuota:5051.37,pct:0.1088},
+  {li:151176.20,ls:175735.66,cuota:12140.13,pct:0.1600},
+  {li:175735.67,ls:210403.69,cuota:16069.64,pct:0.1792},
+  {li:210403.70,ls:424353.97,cuota:22282.14,pct:0.2136},
+  {li:424353.98,ls:668840.14,cuota:67981.92,pct:0.2352},
+  {li:668840.15,ls:1276925.98,cuota:125485.07,pct:0.30},
+  {li:1276925.99,ls:1702567.97,cuota:307910.81,pct:0.32},
+  {li:1702567.98,ls:5107703.92,cuota:444116.23,pct:0.34},
+  {li:5107703.93,ls:Infinity,cuota:1601862.46,pct:0.35},
 ];
 const UDI_2026=8.83;
 const EXENCION_UDIS=700000;
@@ -678,7 +694,7 @@ const fmt=n=>'$'+Math.round(n).toLocaleString('es-MX');
 
 function calcularISRAnual(base){
   if(base<=0)return 0;
-  const b=TARIFA_ANUAL_2026.find(x=>base>=x.li&&base<=x.ls)||TARIFA_ANUAL_2026[TARIFA_ANUAL_2026.length-1];
+  const b=[...TARIFA_ANUAL_2026].reverse().find(x=>base>=x.li)||TARIFA_ANUAL_2026[0];
   return b.cuota+(base-b.li)*b.pct;
 }
 
