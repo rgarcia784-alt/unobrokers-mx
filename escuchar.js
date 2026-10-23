@@ -23,7 +23,23 @@
   var bPlay = document.getElementById('ub-play'), lbl = document.getElementById('ub-label'),
       bSpeed = document.getElementById('ub-speed'), bStop = document.getElementById('ub-stop');
 
-  var SKIP = 'nav,footer,script,style,noscript,button,form,select,input,textarea,svg,iframe,#ub-listen,.wa-float,.wa,[aria-hidden="true"],.breadcrumb,.breadcrumbs,.share,.nav,.topbar,.menu';
+  // Si la página tiene una barra fija abajo (p. ej. "Escribir por WhatsApp" en móvil), subir el botón encima de ella
+  function placeAboveBars() {
+    var off = 0, vw = window.innerWidth, vh = window.innerHeight, all = document.body.querySelectorAll('div,nav,section,aside,footer,a');
+    for (var i = 0; i < all.length; i++) {
+      var el = all[i]; if (box.contains(el)) continue;
+      var cs = window.getComputedStyle(el);
+      if (cs.position !== 'fixed' || cs.display === 'none' || cs.visibility === 'hidden') continue;
+      var r = el.getBoundingClientRect();
+      if (r.width > vw * 0.6 && r.height > 0 && r.height < vh * 0.4 && Math.abs(r.bottom - vh) < 4) off = Math.max(off, r.height);
+    }
+    box.style.bottom = off ? (off + 12) + 'px' : '';
+  }
+  placeAboveBars();
+  window.addEventListener('load', placeAboveBars);
+  var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(placeAboveBars, 200); });
+
+  var SKIP = 'nav,footer,script,style,noscript,button,form,select,input,textarea,svg,iframe,#ub-listen,.wa-float,.wa,[aria-hidden="true"],.breadcrumb,.breadcrumbs,.share,.nav,.topbar,.menu,.bar,.all-photos,.gallery';
   var SEL = 'h1,h2,h3,h4,p,li,summary,blockquote,tr,dt,dd,figcaption,.num,.stat-box .num,.eyebrow';
 
   function root() {

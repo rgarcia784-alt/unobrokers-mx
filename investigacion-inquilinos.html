@@ -761,5 +761,6 @@ function ok(){c.textContent='¡CLABE copiada!';setTimeout(function(){c.textConte
 if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){});}else{var r=document.createRange();r.selectNodeContents(document.getElementById('clabe-basico'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');ok();}catch(x){}}});
 })();
 </script>
+<script src="/escuchar.js?v=2" defer></script>
 </body>
 </html>
