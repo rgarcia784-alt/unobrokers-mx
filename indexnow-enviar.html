@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Avisar a Bing (IndexNow) | UNO Brokers</title>
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;background:#F7F3EA;color:#0B1F3A;margin:0;padding:24px}
+.box{max-width:720px;margin:0 auto;background:#fff;border-radius:16px;padding:28px;box-shadow:0 6px 24px rgba(11,31,58,.08)}
+h1{font-size:1.5rem;margin:0 0 8px}p{line-height:1.5}
+button{background:#0B1F3A;color:#fff;border:2px solid #C9A24B;border-radius:999px;padding:14px 24px;font-size:1rem;font-weight:600;cursor:pointer;margin:6px 6px 6px 0}
+button:disabled{opacity:.5;cursor:default}
+input{width:100%;box-sizing:border-box;padding:12px;border:1px solid #ccc;border-radius:10px;font-size:1rem;margin:6px 0}
+#log{background:#0B1F3A;color:#F2D88E;border-radius:10px;padding:14px;font:13px/1.5 monospace;height:260px;overflow:auto;white-space:pre-wrap;margin-top:14px}
+.big{font-size:1.2rem;font-weight:700;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Avisar a Bing de páginas nuevas o cambiadas</h1>
+<p>Esta herramienta avisa por IndexNow a Bing (que usa ChatGPT para buscar), Yandex, Naver y Seznam para que revisen tus páginas. Es privada: no aparece en Google.</p>
+<button id="all">Enviar todas las páginas del sitemap</button>
+<p style="margin-top:22px"><b>Solo una página nueva:</b> pega su dirección completa.</p>
+<input id="one" placeholder="https://unobrokers.com.mx/blog/mi-articulo.html">
+<button id="send1">Enviar esta página</button>
+<div class="big" id="status"></div>
+<div id="log"></div>
+</div>
+<script>
+var KEY="cb34103156ea20898fc6b196702488e3", HOST="unobrokers.com.mx";
+var log=document.getElementById('log'), st=document.getElementById('status');
+function w(t){log.textContent+=t+"\n";log.scrollTop=log.scrollHeight}
+function ping(u){
+  var api="https://api.indexnow.org/indexnow?url="+encodeURIComponent(u)+"&key="+KEY;
+  return fetch(api,{mode:"no-cors",cache:"no-store"}).then(function(){return true},function(){return false});
+}
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+document.getElementById('all').onclick=async function(){
+  var b=this;b.disabled=true;log.textContent="";st.textContent="Leyendo sitemap...";
+  var x=await fetch("/sitemap.xml",{cache:"no-store"}).then(function(r){return r.text()});
+  var urls=(x.match(/<loc>([^<]+)<\/loc>/g)||[]).map(function(s){return s.replace(/<\/?loc>/g,"").trim()}).filter(function(u){return u.indexOf(HOST)>-1});
+  var ok=0;
+  for(var i=0;i<urls.length;i++){
+    var r=await ping(urls[i]); if(r) ok++;
+    w((r?"✓ ":"✗ ")+urls[i]); st.textContent="Enviando "+(i+1)+" de "+urls.length+"...";
+    await sleep(350);
+  }
+  st.textContent="Listo: se enviaron "+ok+" de "+urls.length+" páginas.";b.disabled=false;
+};
+document.getElementById('send1').onclick=async function(){
+  var u=document.getElementById('one').value.trim();
+  if(u.indexOf("https://"+HOST)!==0){st.textContent="La dirección debe empezar con https://"+HOST;return}
+  var r=await ping(u); w((r?"✓ ":"✗ ")+u); st.textContent=r?"Listo: se avisó a Bing.":"No se pudo enviar. Revisa tu conexión.";
+};
+</script>
+</body>
+</html>
