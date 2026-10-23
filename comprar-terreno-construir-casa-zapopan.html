@@ -371,5 +371,6 @@ function render(){
 document.querySelectorAll('.opts').forEach(function(g){g.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;g.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');render();try{gtag('event','embudo_pregunta',{respuesta:b.textContent})}catch(x){}})});
 render();
 </script>
+<script src="/escuchar.js?v=1" defer></script>
 </body>
 </html>
