@@ -5,7 +5,7 @@ Antes de crear una página nueva, revisar esta lista por REF o dirección para e
 
 | # | REF Tokko | Propiedad | Operación | Precio | URL en unobrokers.com.mx | Fecha |
 |---|-----------|-----------|-----------|--------|---------------------------|-------|
-| 1 | UAP8679965 | Loft amueblado, Universitaria, Zapopan | Renta | $16,000 MXN | `loft-renta-universitaria-zapopan.html` | 2026-09-05 |
+| 1 | UAP8679965 | Loft amueblado, Universitaria, Zapopan | Renta | $16,500 MXN (lanzamiento 1er año; regular $18,000) | `renta/loft-amueblado-renta-cerca-uag-zapopan.html` (la URL vieja `loft-renta-universitaria-zapopan.html` redirige) | 2026-09-05, rehecha 2026-10-24 |
 | 2 | EB-UD5791 | Depto. 2 rec., Sant Uriel, Chapalita | Renta | $26,000 MXN | `depto-renta-sant-uriel-chapalita.html` | 2026-09-05 |
 | 3 | UOF9314399 | Oficinas privadas (4), Country Club, GDL | Renta | $24,000 MXN c/u | `oficinas-renta-country-club-guadalajara.html` | 2026-09-05 |
 | 4 | UAP8649929 | Penthouse PH2, The Landmark Reserve, Puerta de Hierro | Renta | $218,000 MXN | `penthouse-renta-landmark-reserve-puerta-de-hierro.html` | 2026-09-05 |
