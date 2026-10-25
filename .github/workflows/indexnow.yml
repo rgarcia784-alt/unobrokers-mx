@@ -1,0 +1,69 @@
+# Avisa a Bing (IndexNow) en automático cada vez que se suben páginas a GitHub.
+# Usa la clave que ya está publicada en https://unobrokers.com.mx/cb34103156ea20898fc6b196702488e3.txt
+name: Avisar a Bing (IndexNow)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Esperar a que se publique el sitio
+        run: sleep 90
+
+      - name: Enviar páginas cambiadas a IndexNow
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import json, os, subprocess, urllib.request
+          HOST = "unobrokers.com.mx"
+          KEY = "cb34103156ea20898fc6b196702488e3"
+          before, after = os.environ["BEFORE"], os.environ["AFTER"]
+          if set(before) == {"0"}:
+              cmd = ["git", "show", "--name-only", "--diff-filter=AM", "--format=", after]
+          else:
+              cmd = ["git", "diff", "--name-only", "--diff-filter=AM", before, after]
+          files = [f for f in subprocess.check_output(cmd, text=True).splitlines() if f.endswith(".html")]
+          skip = {"indexnow-enviar.html", "404.html"}
+          urls = []
+          for f in files:
+              if os.path.basename(f) in skip or f.startswith(".github/"):
+                  continue
+              if os.path.basename(f) == "index.html":
+                  f = f[: -len("index.html")]
+              urls.append("https://%s/%s" % (HOST, f))
+          if not urls:
+              print("No hay páginas HTML nuevas o cambiadas.")
+              raise SystemExit(0)
+          print("Páginas a enviar:")
+          for u in urls:
+              print("  " + u)
+          body = json.dumps({
+              "host": HOST,
+              "key": KEY,
+              "keyLocation": "https://%s/%s.txt" % (HOST, KEY),
+              "urlList": urls[:10000],
+          }).encode("utf-8")
+          req = urllib.request.Request(
+              "https://api.indexnow.org/indexnow",
+              data=body,
+              headers={"Content-Type": "application/json; charset=utf-8"},
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  print("IndexNow respondió:", r.status)
+          except urllib.error.HTTPError as e:
+              print("IndexNow respondió:", e.code, e.read()[:300])
+              if e.code not in (200, 202):
+                  raise SystemExit(1)
+          PY
