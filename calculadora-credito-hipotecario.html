@@ -131,7 +131,7 @@ fbq('track', 'PageView');
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{--navy:#0B1F3A;--navy2:#070f1e;--gold:#C9A24B;--gold2:#d4b06a;--cream:#F7F3EA;--cream2:#f4ede0;--white:#fff;--text:#172033;--muted:#5b6475;--line:rgba(11,31,58,.12);--ok:#128C4A;--warn:#a5520f}
@@ -287,6 +287,20 @@ section.wrap.cities-sec p.lead{color:#49505e!important}
 .faq details > p{color:#505867!important}
 .faq p > sup{color:#505867!important}
 .num > b{color:#4c5361!important}
+/* Legibilidad 2 (25 oct 2026): letra mas firme en celular */
+body{font-weight:500}
+:root{--muted:#3a4252}
+td,td.num{color:var(--text)!important;font-weight:500}
+td b{font-weight:700}
+td small,#banks td > small,.best td > small,.field > small,.note,.legend,dl.list dt{color:#3a4252!important;font-weight:500}
+td small{font-size:13.5px}
+.tbl tr > th,th,th.num{color:#4a3a12!important;font-weight:600}
+.alert{font-weight:500}
+.kpi span{font-weight:500}
+.kpi.main span{color:rgba(247,243,234,.92)}
+.hero .lead{color:rgba(247,243,234,.92)}
+.faq details > p,.city > p,.faq p > sup,section.wrap.cities-sec p.lead,.note > a,.legend > span,.list > dt,.list dt > span,p.note{color:#3a4252!important;font-weight:500}
+.num > b{color:var(--text)!important}
 </style>
 </head>
 <body>
