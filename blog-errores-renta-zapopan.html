@@ -57,7 +57,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#0c1f3d;
@@ -174,14 +174,21 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
 }
 </script><style id="ub-legible">
 /* Legibilidad: contraste minimo WCAG AA */
-div.meta{font-weight:400!important}
-p.lead{font-weight:400!important}
+div.meta{font-weight:500!important}
+p.lead{font-weight:500!important}
 div.num{color:#6c5426!important}
-.inline-cta > p{font-weight:400!important}
+.inline-cta > p{font-weight:500!important}
 .wrap details > p{color:#505060!important}
-.final-cta > p{font-weight:400!important}
-.related-card > p{font-weight:400!important;color:#525963!important}
+.final-cta > p{font-weight:500!important}
+.related-card > p{font-weight:500!important;color:#525963!important}
 footer div.wrap{color:#97a2b1!important}
+</style>
+<style id="ub-legible-2">
+/* Legibilidad 2 (25 oct 2026): letra mas firme y textos mas oscuros en celular */
+body{font-weight:500}
+span.eyebrow,div.meta,p.lead,div.error-block > p,div.inline-cta > p,div.wrap > p,div.wrap > div > ul > li,div.wrap > details > p,div.final-cta > p,a.related-card > p,div.wrap,footer > div > a,p.ub-footlinks,p.ub-footlinks > a{font-weight:500!important}
+p.ub-footlinks{color:#94a0af!important}
+p.ub-footlinks > a{color:#94a0af!important}
 </style>
 </head>
 <body>
