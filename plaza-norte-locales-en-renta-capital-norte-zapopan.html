@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plaza Norte — Locales Comerciales en Renta · Zapopan | UNO Brokers</title>
+<meta name="description" content="10 locales en renta en Plaza Norte, Paseo del Alva, Capital Norte Zapopan. Desde $300/m² todo incluido. Zona con +5,000 viviendas y demanda sin cobertura. OXXO, 7-Eleven, farmacias y restaurantes: la zona lo pide. UNO Brokers: 33 3967 5255.">
+<meta property="og:title" content="Plaza Norte — Locales en Renta · Capital Norte, Zapopan">
+<meta property="og:description" content="10 locales comerciales desde 46 m². Desde $300/m² mantenimiento incluido. +5,000 viviendas. Sin tienda de conveniencia en el área. La oportunidad está aquí.">
+<meta property="og:type" content="website">
+<meta name="google-site-verification" content="EqndrvvlBoLYS8l8fV3r0jH_qymDV-tJn9qHZBj02Ig" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0f1c2e;
+  --navy2:#162339;
+  --navy3:#1e2f45;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --gold3:rgba(201,168,76,.12);
+  --cream:#f7f4ed;
+  --white:#ffffff;
+  --text:#0f1c2e;
+  --muted:#5a6a7e;
+  --border:rgba(15,28,46,0.1);
+  --green:#1a7a2e;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text);font-size:15px;line-height:1.7}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(15,28,46,0.97);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:62px;border-bottom:1px solid rgba(201,168,76,.1)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--cream);text-decoration:none;letter-spacing:1px}
+.nav-logo span{color:var(--gold)}
+.nav-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;font-size:13px;font-weight:500;padding:8px 18px;border-radius:24px;text-decoration:none}
+.nav-wa svg{width:15px;height:15px;fill:#fff;flex-shrink:0}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;overflow:hidden;background:var(--navy)}
+.hero-bg{
+  position:absolute;inset:0;
+  background-image:url('plaza-alva-render-frontal.jpg');
+  background-size:cover;background-position:center 40%;
+  opacity:.28
+}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(160deg,rgba(15,28,46,.6) 0%,rgba(6,14,26,.93) 100%)}
+.hero-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:64px 64px}
+.hero-content{position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem}
+.hero-eyebrow{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;opacity:0;animation:up .9s ease forwards .2s}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(60px,11vw,116px);font-weight:300;color:var(--cream);line-height:.9;margin-bottom:.5rem;opacity:0;animation:up .9s ease forwards .4s}
+.hero h1 em{font-style:italic;color:var(--gold);display:block}
+.hero-loc{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:rgba(247,244,237,.4);margin-bottom:2.5rem;opacity:0;animation:up .9s ease forwards .6s}
+.hero-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:3rem;opacity:0;animation:up .9s ease forwards .8s}
+.pill{background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:var(--gold);font-size:12px;letter-spacing:.5px;padding:7px 16px;border-radius:20px;white-space:nowrap}
+.hero-cta{opacity:0;animation:up .9s ease forwards 1s}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-size:15px;font-weight:500;padding:14px 32px;border-radius:32px;text-decoration:none}
+.btn-wa svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+.hero-scroll{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.35;z-index:10}
+.hero-scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent);animation:pulse-line 2s ease infinite}
+.hero-scroll span{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--cream)}
+
+/* STATS */
+.stats{background:var(--navy2);border-bottom:1px solid rgba(201,168,76,.12);display:flex;justify-content:center;flex-wrap:wrap}
+.stat{text-align:center;padding:1.75rem 2.5rem;border-right:1px solid rgba(255,255,255,.06)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:var(--gold);line-height:1}
+.stat-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(247,244,237,.4);margin-top:4px}
+
+/* SECCIÓN GENÉRICA */
+.sec{padding:5rem 2rem;max-width:980px;margin:0 auto}
+.sec-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;margin-bottom:.5rem}
+.sec-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,42px);font-weight:300;color:var(--navy);line-height:1.15;margin-bottom:.5rem}
+.sec-sub{font-size:14px;color:var(--muted);max-width:540px;margin-bottom:2.5rem}
+
+/* ZONA / CONTEXTO — fondo navy */
+.zona-sec{background:var(--navy);padding:5rem 2rem}
+.zona-inner{max-width:980px;margin:0 auto}
+.zona-inner .sec-title{color:var(--cream)}
+.zona-inner .sec-sub{color:rgba(247,244,237,.5)}
+
+.zona-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.1);border-radius:16px;overflow:hidden;margin-top:2rem}
+.zona-item{background:var(--navy2);padding:1.75rem;display:flex;flex-direction:column;gap:.35rem}
+.zona-item-num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--gold);line-height:1}
+.zona-item-label{font-size:12px;font-weight:500;color:var(--cream);letter-spacing:.5px}
+.zona-item-desc{font-size:12px;color:rgba(247,244,237,.45);line-height:1.5}
+
+/* GIROS IDEALES */
+.giros-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:.5rem}
+.giro{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.4rem;transition:all .2s;display:flex;flex-direction:column;gap:.3rem}
+.giro:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,28,46,.07)}
+.giro-icon{font-size:26px}
+.giro-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:500;color:var(--navy)}
+.giro-why{font-size:12px;color:var(--muted);line-height:1.5}
+.giro-tag{display:inline-block;font-size:10px;letter-spacing:1px;font-weight:600;text-transform:uppercase;padding:3px 9px;border-radius:8px;width:fit-content;margin-top:2px}
+.tag-hot{background:rgba(201,168,76,.15);color:#8a6d2a}
+.tag-ok{background:rgba(74,103,65,.1);color:#3d5e35}
+
+/* LOCALES */
+.locales-sec{background:var(--white);padding:5rem 2rem}
+.locales-inner{max-width:980px;margin:0 auto}
+.nivel-tabs{display:flex;gap:8px;margin-bottom:2rem}
+.ntab{font-size:13px;padding:7px 20px;border-radius:24px;border:1px solid var(--border);background:var(--cream);color:var(--muted);cursor:pointer;transition:all .2s;font-family:'Jost',sans-serif}
+.ntab.active{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+.locales-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.lc{background:var(--cream);border:1px solid var(--border);border-radius:16px;padding:1.4rem;transition:all .2s;position:relative}
+.lc:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 28px rgba(15,28,46,.07)}
+.lc.esquina{border-color:rgba(201,168,76,.35)}
+.esq-badge{position:absolute;top:.9rem;right:.9rem;background:var(--gold);color:var(--navy);font-size:9px;letter-spacing:1.5px;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:8px}
+.lc-num{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--navy);line-height:1;margin-bottom:2px}
+.lc-nivel{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.lc-m2{font-size:21px;font-weight:300;color:var(--navy)}
+.lc-m2 small{font-size:13px;color:var(--muted)}
+.lc-tarifa{font-size:11px;color:var(--muted);margin-bottom:2px}
+.lc-renta{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--navy)}
+.lc-renta small{font-family:'Jost',sans-serif;font-size:12px;font-weight:300}
+.lc-incl{font-size:11px;color:var(--gold);margin-bottom:12px}
+.wa-btn{display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;font-size:12px;font-weight:500;padding:7px 14px;border-radius:18px;text-decoration:none}
+.wa-btn svg{width:13px;height:13px;fill:#fff;flex-shrink:0}
+.hidden{display:none}
+
+/* VENTAJAS */
+.vent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.vent{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.5rem;transition:all .2s}
+.vent:hover{border-color:var(--gold);transform:translateY(-2px)}
+.vent-ic{font-size:26px;margin-bottom:.5rem}
+.vent h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--navy);margin-bottom:.3rem}
+.vent p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* UBICACIÓN */
+.ubi-sec{background:var(--navy);padding:5rem 2rem}
+.ubi-inner{max-width:980px;margin:0 auto}
+.ubi-inner .sec-title{color:var(--cream)}
+.ubi-inner .sec-sub{color:rgba(247,244,237,.5)}
+.map-block{margin-top:2rem;border-radius:16px;overflow:hidden;border:1px solid rgba(201,168,76,.2);background:var(--navy2);display:flex;align-items:center;justify-content:center;min-height:320px;flex-direction:column;gap:1.5rem;padding:3rem;text-align:center}
+.map-pin-big{font-size:52px}
+.map-addr{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:var(--cream);line-height:1.3}
+.map-addr small{display:block;font-family:'Jost',sans-serif;font-size:12px;font-weight:300;color:rgba(247,244,237,.4);letter-spacing:1px;margin-top:6px}
+.btn-map{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-size:13px;font-weight:600;padding:11px 24px;border-radius:24px;text-decoration:none;transition:background .2s}
+.btn-map:hover{background:var(--gold2)}
+.ubi-chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:1.5rem}
+.chip{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);color:rgba(247,244,237,.65);font-size:12px;padding:6px 14px;border-radius:16px}
+
+/* CTA */
+.cta{background:linear-gradient(145deg,var(--navy),#060e1a);padding:5.5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(201,168,76,.07) 0%,transparent 65%)}
+.cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5vw,54px);font-weight:300;color:var(--cream);margin-bottom:.75rem;position:relative;z-index:1}
+.cta p{font-size:15px;color:rgba(247,244,237,.5);margin-bottom:2.5rem;position:relative;z-index:1}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-wa-lg{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;font-size:15px;font-weight:500;padding:14px 32px;border-radius:32px;text-decoration:none}
+.btn-wa-lg svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+.btn-tel{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(247,244,237,.2);color:var(--cream);font-size:14px;padding:14px 28px;border-radius:32px;text-decoration:none;transition:all .2s}
+.btn-tel:hover{border-color:var(--gold);color:var(--gold)}
+.btn-tel svg{width:16px;height:16px;fill:currentColor}
+
+footer{background:#040c18;padding:2rem;text-align:center;font-size:12px;color:rgba(247,244,237,.2)}
+footer a{color:var(--gold);text-decoration:none}
+
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-line{0%{opacity:1;transform:scaleY(1) translateY(0)}100%{opacity:0;transform:scaleY(.2) translateY(8px)}}
+
+@media(max-width:720px){
+  .giros-grid,.vent-grid{grid-template-columns:1fr 1fr}
+  .zona-grid{grid-template-columns:1fr}
+  .stat{padding:1.25rem 1.5rem;border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+  .stat:last-child{border-bottom:none}
+  .sec,.zona-sec,.locales-sec,.ubi-sec,.cta{padding:3.5rem 1.25rem}
+  .locales-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .giros-grid,.vent-grid{grid-template-columns:1fr}
+}
+
+/* PLANO */
+.plano-sec{background:var(--navy2);padding:5rem 2rem}
+.plano-inner{max-width:980px;margin:0 auto;text-align:center}
+.plano-inner .sec-eyebrow{justify-content:center}
+.plano-inner .sec-title{color:var(--cream)}
+.plano-inner .sec-sub{color:rgba(247,244,237,.5);margin-left:auto;margin-right:auto}
+.plano-frame{margin-top:2rem;border:1px solid rgba(201,168,76,.2);border-radius:16px;overflow:hidden;background:var(--navy3);cursor:zoom-in}
+.render-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.render-grid .plano-frame{margin-top:0}
+@media(max-width:720px){.render-grid{grid-template-columns:1fr}}
+.plano-frame img{display:block;width:100%;height:auto}
+.plano-hint{margin-top:.75rem;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(247,244,237,.35)}
+.plano-btns{margin-top:2rem;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-download{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--navy);font-size:14px;font-weight:600;padding:13px 28px;border-radius:30px;text-decoration:none}
+.btn-download svg{width:16px;height:16px}
+.plano-lightbox{display:none;position:fixed;inset:0;z-index:500;background:rgba(6,10,18,.94);align-items:center;justify-content:center;padding:2rem;cursor:zoom-out}
+.plano-lightbox.open{display:flex}
+.plano-lightbox img{max-width:100%;max-height:100%;border-radius:6px}
+.plano-lightbox-close{position:absolute;top:1.5rem;right:2rem;color:var(--cream);font-size:32px;line-height:1;opacity:.7}
+</style>
+<link rel="canonical" href="https://unobrokers.com.mx/plaza-norte-locales-en-renta-capital-norte-zapopan.html">
+<meta property="og:url" content="https://unobrokers.com.mx/plaza-norte-locales-en-renta-capital-norte-zapopan.html">
+<meta property="og:image" content="https://unobrokers.com.mx/plaza-alva-render-fachada.jpg">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WBZQNYLQYF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-WBZQNYLQYF');</script>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2207762516622595');fbq('track','PageView');</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">UNO <span>Brokers</span></a>
+  <a class="nav-wa" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20Plaza%20Norte%2C%20locales%20en%20renta%20en%20Capital%20Norte%2C%20Zapopan" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+    Consultar disponibilidad
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Plaza Comercial · Zapopan, Jalisco</p>
+    <h1>Plaza<em>Norte</em></h1>
+    <p class="hero-loc">Paseo del Alva · Capital Norte · Alva Residencial</p>
+    <div class="hero-pills">
+      <span class="pill">10 locales disponibles</span>
+      <span class="pill">Desde $300 / m²</span>
+      <span class="pill">Mantenimiento incluido</span>
+      <span class="pill">+5,000 viviendas en la zona</span>
+      <span class="pill">Sin tienda ancla en el área</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn-wa" href="https://wa.me/523339675255?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Plaza%20Norte%2C%20Zapopan%2C%20locales%20en%20renta" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+        Solicitar información
+      </a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    <span>Explorar</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">10</div><div class="stat-label">Locales disponibles</div></div>
+  <div class="stat"><div class="stat-num">478</div><div class="stat-label">m² superficie total</div></div>
+  <div class="stat"><div class="stat-num">46–61</div><div class="stat-label">m² por local</div></div>
+  <div class="stat"><div class="stat-num">$300</div><div class="stat-label">desde / m² todo incl.</div></div>
+  <div class="stat"><div class="stat-num">+300%</div><div class="stat-label">crecimiento de la zona en 10 años</div></div>
+</div>
+
+<!-- ZONA: CONTEXTO DE MERCADO -->
+<section class="zona-sec">
+  <div class="zona-inner">
+    <p class="sec-eyebrow" style="color:var(--gold)">La oportunidad</p>
+    <h2 class="sec-title">Capital Norte: la zona residencial de mayor crecimiento en Zapopan</h2>
+    <p class="sec-sub">Los datos hablan solos. La demanda existe. La oferta comercial formal aún no llega.</p>
+    <div class="zona-grid">
+      <div class="zona-item">
+        <div class="zona-item-num">+5,000</div>
+        <div class="zona-item-label">Viviendas en radio 1 km</div>
+        <div class="zona-item-desc">Alva Residencial (Tierra y Armonía), Valle Imperial, Alva Apartments, Coto Grand y más de 64 desarrollos activos en la zona.</div>
+      </div>
+      <div class="zona-item">
+        <div class="zona-item-num">300%</div>
+        <div class="zona-item-label">Crecimiento de la zona (2014–2025)</div>
+        <div class="zona-item-desc">Capital Norte nació en 2014 con pocas decenas de viviendas. Hoy suma miles de unidades habitacionales y sigue en construcción activa con más de 64 desarrollos en la zona.</div>
+      </div>
+      <div class="zona-item">
+        <div class="zona-item-num">0</div>
+        <div class="zona-item-label">Tiendas de conveniencia en Paseo del Alva</div>
+        <div class="zona-item-desc">Sin OXXO ni 7-Eleven en el corredor inmediato. +5,000 familias sin cobertura. Una oportunidad real para el primer operador que llegue.</div>
+      </div>
+      <div class="zona-item">
+        <div class="zona-item-num">1,440</div>
+        <div class="zona-item-label">Autos por día en la vialidad</div>
+        <div class="zona-item-desc">Todo residente que entra o sale de Alva Residencial transita frente a la plaza. Flujo constante sin inversión en marketing.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GIROS IDEALES -->
+<section class="sec">
+  <p class="sec-eyebrow">Quién encaja aquí</p>
+  <h2 class="sec-title">Giros ideales para Plaza Norte</h2>
+  <p class="sec-sub">Basado en la demanda real de la zona y la ausencia de oferta comercial formal en el corredor.</p>
+  <div class="giros-grid">
+
+    <div class="giro">
+      <div class="giro-icon">🏪</div>
+      <div class="giro-name">OXXO · 7-Eleven</div>
+      <div class="giro-why">+5,000 viviendas sin tienda ancla en Paseo del Alva. El primer operador captura toda la demanda cautiva. Local esquina de 61 m² es ideal.</div>
+      <span class="giro-tag tag-hot">Alta demanda</span>
+    </div>
+
+    <div class="giro">
+      <div class="giro-icon">💊</div>
+      <div class="giro-name">Farmacia</div>
+      <div class="giro-why">Familias nivel medio-alto con alta frecuencia de compra. La zona ya tiene Hospital Ángel Leaño y Hospital Santa María Chapalita cercanos: flujo de pacientes garantizado.</div>
+      <span class="giro-tag tag-hot">Alta demanda</span>
+    </div>
+
+    <div class="giro">
+      <div class="giro-icon">☕</div>
+      <div class="giro-name">Cafetería · Punto de café</div>
+      <div class="giro-why">Perfil de residentes jóvenes con home office. Alta recurrencia de visita. La zona carece de opciones de café de proximidad dentro del corredor residencial.</div>
+      <span class="giro-tag tag-hot">Alta demanda</span>
+    </div>
+
+    <div class="giro">
+      <div class="giro-icon">🔬</div>
+      <div class="giro-name">Laboratorio clínico · Chopo</div>
+      <div class="giro-why">Zona con Hospital Ángel Leaño y Hospital Santa María Chapalita cercanos. Familias nivel medio-alto con seguro médico y alta frecuencia de estudios. 46 m² es el formato estándar para laboratorio de proximidad.</div>
+      <span class="giro-tag tag-hot">Alta demanda</span>
+    </div>
+
+    <div class="giro">
+      <div class="giro-icon">✂️</div>
+      <div class="giro-name">Barbería · Estética</div>
+      <div class="giro-why">Servicios de proximidad con alta repetición. Demanda de familias establecidas en cotos privados cercanos. 46 m² son suficientes para operar.</div>
+      <span class="giro-tag tag-ok">Buena opción</span>
+    </div>
+
+    <div class="giro">
+      <div class="giro-icon">🍕</div>
+      <div class="giro-name">Restaurante · Comida rápida</div>
+      <div class="giro-why">El local esquina de 61 m² admite operación de alimentos con terraza. La zona carece de opciones gastronómicas de proximidad dentro del radio residencial.</div>
+      <span class="giro-tag tag-hot">Alta demanda</span>
+    </div>
+
+    <div class="giro">
+      <div class="giro-icon">🏥</div>
+      <div class="giro-name">Consultorio médico · Dental</div>
+      <div class="giro-why">Perfil socioeconómico medio-alto con seguro de gastos médicos. Alta recurrencia. Locales de 46 m² son el formato estándar para consultorios en plazas de proximidad.</div>
+      <span class="giro-tag tag-ok">Buena opción</span>
+    </div>
+
+    <div class="giro">
+      <div class="giro-icon">🐾</div>
+      <div class="giro-name">Veterinaria · Pet shop</div>
+      <div class="giro-why">Fraccionamientos como Alva Residencial tienen zonas para mascotas. Los residentes de nivel medio-alto tienen alta tenencia de mascotas y alto gasto en su cuidado.</div>
+      <span class="giro-tag tag-ok">Buena opción</span>
+    </div>
+
+    <div class="giro">
+      <div class="giro-icon">📦</div>
+      <div class="giro-name">Franquicia de servicios</div>
+      <div class="giro-why">Lavandería, papelería, impresiones, mensajería. Servicios cotidianos que hoy obligan a los residentes a salir de la zona. Formato ideal para primer establecimiento.</div>
+      <span class="giro-tag tag-ok">Buena opción</span>
+    </div>
+
+    <div class="giro">
+      <div class="giro-icon">💻</div>
+      <div class="giro-name">Oficina · Coworking</div>
+      <div class="giro-why">Capital Norte concentra trabajadores remotos y emprendedores. Planta alta a $300/m² ofrece el precio más competitivo para oficinas en zona residencial premium.</div>
+      <span class="giro-tag tag-ok">Buena opción</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- LOCALES -->
+<section class="locales-sec" id="locales">
+  <div class="locales-inner">
+    <p class="sec-eyebrow">Disponibilidad</p>
+    <h2 class="sec-title">10 locales disponibles</h2>
+    <p class="sec-sub" style="color:var(--muted);margin-bottom:2rem">Planta baja desde $330/m² · Planta alta desde $300/m² · Esquinas con prima de $20/m² · Mantenimiento incluido en todos.</p>
+    <div class="nivel-tabs">
+      <button class="ntab active" onclick="filtrar('todos',this)">Todos</button>
+      <button class="ntab" onclick="filtrar('pb',this)">Planta Baja</button>
+      <button class="ntab" onclick="filtrar('pa',this)">Planta Alta</button>
+    </div>
+    <div class="locales-grid" id="grid">
+
+      <div class="lc esquina" data-nivel="pb">
+        <span class="esq-badge">Esquina</span>
+        <div class="lc-num">01</div><div class="lc-nivel">Planta Baja</div>
+        <div class="lc-m2">61.3 <small>m²</small></div>
+        <div class="lc-tarifa">$350 / m²</div>
+        <div class="lc-renta">$21,455 <small>/ mes</small></div>
+        <div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%201%20de%20Plaza%20Norte%20(61.3%20m%C2%B2%2C%20PB%20esquina%2C%20%2421%2C455%2Fmes)" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          Preguntar
+        </a>
+      </div>
+
+      <!-- Locales 2–5 PB -->
+      <div class="lc" data-nivel="pb">
+        <div class="lc-num">02</div><div class="lc-nivel">Planta Baja</div>
+        <div class="lc-m2">46.2 <small>m²</small></div><div class="lc-tarifa">$330 / m²</div>
+        <div class="lc-renta">$15,246 <small>/ mes</small></div><div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%202%20de%20Plaza%20Norte%20(46.2%20m%C2%B2%2C%20PB%2C%20%2415%2C246%2Fmes)" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>Preguntar</a>
+      </div>
+      <div class="lc" data-nivel="pb">
+        <div class="lc-num">03</div><div class="lc-nivel">Planta Baja</div>
+        <div class="lc-m2">46.2 <small>m²</small></div><div class="lc-tarifa">$330 / m²</div>
+        <div class="lc-renta">$15,246 <small>/ mes</small></div><div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%203%20de%20Plaza%20Norte%20(46.2%20m%C2%B2%2C%20PB%2C%20%2415%2C246%2Fmes)" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>Preguntar</a>
+      </div>
+      <div class="lc" data-nivel="pb">
+        <div class="lc-num">04</div><div class="lc-nivel">Planta Baja</div>
+        <div class="lc-m2">46.2 <small>m²</small></div><div class="lc-tarifa">$330 / m²</div>
+        <div class="lc-renta">$15,246 <small>/ mes</small></div><div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%204%20de%20Plaza%20Norte%20(46.2%20m%C2%B2%2C%20PB%2C%20%2415%2C246%2Fmes)" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>Preguntar</a>
+      </div>
+      <div class="lc" data-nivel="pb">
+        <div class="lc-num">05</div><div class="lc-nivel">Planta Baja</div>
+        <div class="lc-m2">46.2 <small>m²</small></div><div class="lc-tarifa">$330 / m²</div>
+        <div class="lc-renta">$15,246 <small>/ mes</small></div><div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%205%20de%20Plaza%20Norte%20(46.2%20m%C2%B2%2C%20PB%2C%20%2415%2C246%2Fmes)" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>Preguntar</a>
+      </div>
+
+      <!-- PA -->
+      <div class="lc esquina" data-nivel="pa">
+        <span class="esq-badge">Esquina</span>
+        <div class="lc-num">06</div><div class="lc-nivel">Planta Alta</div>
+        <div class="lc-m2">61.3 <small>m²</small></div><div class="lc-tarifa">$320 / m²</div>
+        <div class="lc-renta">$19,616 <small>/ mes</small></div><div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%206%20de%20Plaza%20Norte%20(61.3%20m%C2%B2%2C%20PA%20esquina%2C%20%2419%2C616%2Fmes)" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>Preguntar</a>
+      </div>
+
+      <div class="lc" data-nivel="pa">
+        <div class="lc-num">07</div><div class="lc-nivel">Planta Alta</div>
+        <div class="lc-m2">46.2 <small>m²</small></div><div class="lc-tarifa">$300 / m²</div>
+        <div class="lc-renta">$13,860 <small>/ mes</small></div><div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%207%20de%20Plaza%20Norte%20(46.2%20m%C2%B2%2C%20PA%2C%20%2413%2C860%2Fmes)" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>Preguntar</a>
+      </div>
+      <div class="lc" data-nivel="pa">
+        <div class="lc-num">08</div><div class="lc-nivel">Planta Alta</div>
+        <div class="lc-m2">46.2 <small>m²</small></div><div class="lc-tarifa">$300 / m²</div>
+        <div class="lc-renta">$13,860 <small>/ mes</small></div><div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%208%20de%20Plaza%20Norte%20(46.2%20m%C2%B2%2C%20PA%2C%20%2413%2C860%2Fmes)" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>Preguntar</a>
+      </div>
+      <div class="lc" data-nivel="pa">
+        <div class="lc-num">09</div><div class="lc-nivel">Planta Alta</div>
+        <div class="lc-m2">46.2 <small>m²</small></div><div class="lc-tarifa">$300 / m²</div>
+        <div class="lc-renta">$13,860 <small>/ mes</small></div><div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%209%20de%20Plaza%20Norte%20(46.2%20m%C2%B2%2C%20PA%2C%20%2413%2C860%2Fmes)" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>Preguntar</a>
+      </div>
+      <div class="lc" data-nivel="pa">
+        <div class="lc-num">10</div><div class="lc-nivel">Planta Alta</div>
+        <div class="lc-m2">46.2 <small>m²</small></div><div class="lc-tarifa">$300 / m²</div>
+        <div class="lc-renta">$13,860 <small>/ mes</small></div><div class="lc-incl">✓ Mantenimiento incluido</div>
+        <a class="wa-btn" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20el%20Local%2010%20de%20Plaza%20Norte%20(46.2%20m%C2%B2%2C%20PA%2C%20%2413%2C860%2Fmes)" target="_blank"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>Preguntar</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VENTAJAS -->
+<section class="sec">
+  <p class="sec-eyebrow">Por qué Plaza Norte</p>
+  <h2 class="sec-title">Ventajas comerciales</h2>
+  <p class="sec-sub">Una plaza diseñada para captar clientes desde el primer día de operación.</p>
+  <div class="vent-grid">
+    <div class="vent"><div class="vent-ic">📍</div><h3>Captación natural de esquina</h3><p>Predio en esquina sobre Paseo del Alva, vialidad principal de Alva Residencial. Todo residente que entra o sale transita frente a los locales. Flujo garantizado sin inversión en mercadotecnia.</p></div>
+    <div class="vent"><div class="vent-ic">🏘️</div><h3>Demanda cautiva sin competencia</h3><p>+5,000 viviendas en radio 1 km (Alva Apartments, Cotos 1–5, Valle Imperial). Escasa oferta comercial formal en el corredor. El primer operador consolida la relación con toda la comunidad.</p></div>
+    <div class="vent"><div class="vent-ic">📋</div><h3>Permiso vigente · Certeza jurídica</h3><p>Plano de permisos emitido por la Dirección de Licencias de Zapopan. Entrega en obra gris lista para customización según el giro. Sin trámites pendientes.</p></div>
+    <div class="vent"><div class="vent-ic">✅</div><h3>Renta todo incluido</h3><p>Mantenimiento de áreas comunes, ductos, estacionamiento y área verde en la renta mensual. Sin cuotas ocultas ni costos operativos sorpresa para el arrendatario.</p></div>
+    <div class="vent"><div class="vent-ic">🔄</div><h3>Flexibilidad de giro</h3><p>46 m² para comercio, salud, educación o servicios. El local esquina de 61 m² admite ancla gastronómica, farmacia o tienda de conveniencia. Formato estándar para franquicias.</p></div>
+    <div class="vent"><div class="vent-ic">🏛️</div><h3>Respaldo SERYSI</h3><p>Desarrollado bajo el grupo corporativo SERYSI, con experiencia en desarrollo vertical residencial en la ZMG. Arrendatario respaldado por un desarrollador institucional consolidado.</p></div>
+  </div>
+</section>
+
+<!-- PLANO -->
+<!-- RENDERS -->
+<section class="plano-sec" style="background:var(--navy2);">
+  <div class="plano-inner">
+    <p class="sec-eyebrow">Vista arquitectónica</p>
+    <h2 class="sec-title">Así lucirá Plaza Alva</h2>
+    <p class="sec-sub">Fachada, distribución de locales y balcón corrido en planta alta.</p>
+    <div class="render-grid">
+      <div class="plano-frame" onclick="document.getElementById('render1Lightbox').classList.add('open')">
+        <img src="plaza-alva-render-frontal.jpg" alt="Render fachada Plaza Alva, vista frontal en esquina" loading="lazy">
+      </div>
+      <div class="plano-frame" onclick="document.getElementById('render2Lightbox').classList.add('open')">
+        <img src="plaza-alva-render-fachada.jpg" alt="Render fachada Plaza Alva, vista de frente con locales rotulados" loading="lazy">
+      </div>
+    </div>
+    <p class="plano-hint">Toca una imagen para ampliar</p>
+  </div>
+</section>
+
+<div class="plano-lightbox" id="render1Lightbox" onclick="this.classList.remove('open')">
+  <span class="plano-lightbox-close">&times;</span>
+  <img src="plaza-alva-render-frontal.jpg" alt="Render fachada Plaza Alva ampliado, vista frontal">
+</div>
+
+<div class="plano-lightbox" id="render2Lightbox" onclick="this.classList.remove('open')">
+  <span class="plano-lightbox-close">&times;</span>
+  <img src="plaza-alva-render-fachada.jpg" alt="Render fachada Plaza Alva ampliado, vista de frente">
+</div>
+
+<section class="plano-sec">
+  <div class="plano-inner">
+    <p class="sec-eyebrow">Plano de permisos</p>
+    <h2 class="sec-title">Distribución de los 10 locales</h2>
+    <p class="sec-sub">Planta baja, planta alta, alzados y detalles constructivos emitidos por la Dirección de Licencias de Zapopan.</p>
+    <div class="plano-frame" onclick="document.getElementById('planoLightbox').classList.add('open')">
+      <img src="plano-plaza-norte-web.jpg" alt="Plano de permisos Plaza Norte - distribución de locales" loading="lazy">
+    </div>
+    <p class="plano-hint">Toca la imagen para ampliar</p>
+    <div class="plano-btns">
+      <a class="btn-download" href="PLAZA_ALVA_plano_de_permisos_01.pdf" target="_blank">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+        Descargar plano en PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="plano-lightbox" id="planoLightbox" onclick="this.classList.remove('open')">
+  <span class="plano-lightbox-close">&times;</span>
+  <img src="plano-plaza-norte-web.jpg" alt="Plano de permisos Plaza Norte ampliado">
+</div>
+
+<!-- UBICACIÓN -->
+<section class="ubi-sec">
+  <div class="ubi-inner">
+    <p class="sec-eyebrow" style="color:var(--gold)">Ubicación</p>
+    <h2 class="sec-title">Paseo del Alva esq. Bv. Valle Imperial</h2>
+    <p class="sec-sub">Capital Norte · Alva Residencial · CP 45134 · Zapopan, Jalisco</p>
+    <div class="map-block">
+      <div class="map-pin-big">📍</div>
+      <div class="map-addr">
+        Paseo del Alva esq. Bv. Valle Imperial
+        <small>Capital Norte · Alva Residencial · CP 45134 · Zapopan, Jalisco</small>
+      </div>
+      <a class="btn-map" href="https://maps.app.goo.gl/e61Xa6dQwRnQaiEcA" target="_blank">Abrir en Google Maps ↗</a>
+    </div>
+    <div class="ubi-chips">
+      <span class="chip">🚗 Acceso Bv. Valle Imperial / Periférico Norte</span>
+      <span class="chip">🏥 Hospital Ángel Leaño · 5 min</span>
+      <span class="chip">🏫 Colegio Tepeyac cercano</span>
+      <span class="chip">🏌️ Campo de golf Valle Imperial</span>
+      <span class="chip">📮 CP 45134 · Zapopan</span>
+    </div>
+  </div>
+</section>
+
+<!-- Cross-link: Locales GDL -->
+<section style="background:var(--navy2);padding:44px 24px;text-align:center;">
+  <div class="sec" style="padding:0;">
+    <p style="color:var(--cream);font-size:1.1rem;margin-bottom:8px;font-family:'Cormorant Garamond',serif;font-size:1.5rem;">¿Tienes tu propio local comercial en Zapopan o Guadalajara?</p>
+    <p style="color:#c8cedb;font-size:.95rem;max-width:520px;margin:0 auto 20px;font-weight:300;">También te ayudamos a rentarlo o venderlo, conectándolo con marcas y negocios que buscan una ubicación como la tuya.</p>
+    <a href="https://rgarcia784-alt.github.io/locales-comerciales-gdl/" style="display:inline-block;background:var(--gold);color:var(--navy);padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;">Cotiza tu local gratis →</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>¿Quieres instalar tu negocio<br>en Plaza Norte?</h2>
+  <p>Escríbenos por WhatsApp. Te enviamos planos, disponibilidad y condiciones de renta hoy.</p>
+  <div class="cta-btns">
+    <a class="btn-wa-lg" href="https://wa.me/523339675255?text=Hola%2C%20me%20interesa%20informaci%C3%B3n%20sobre%20Plaza%20Norte%2C%20locales%20comerciales%20en%20renta%2C%20Capital%20Norte%20Zapopan" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.522 5.854L.054 23.454a.75.75 0 00.91.91l5.6-1.468A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.745 9.745 0 01-4.964-1.358l-.356-.212-3.323.871.887-3.235-.232-.373A9.745 9.745 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      Escribir por WhatsApp
+    </a>
+    <a class="btn-tel" href="tel:+523339675255">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      33 3967 5255
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Plaza Norte · Zapopan, Jalisco · Comercialización <a href="https://www.unobrokers.mx">UNO Brokers</a> · Tel: 33 3967 5255</p>
+  <p style="margin-top:6px">© 2026 UNO Brokers · <a href="https://www.unobrokers.mx/Privacidad">Aviso de Privacidad</a></p>
+</footer>
+
+<script>
+function filtrar(nivel, btn) {
+  document.querySelectorAll('.ntab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.lc').forEach(c => {
+    c.classList.toggle('hidden', nivel !== 'todos' && c.dataset.nivel !== nivel);
+  });
+}
+</script>
+</body>
+</html>
