@@ -67,6 +67,8 @@ Antes de crear una página nueva, revisar esta lista por REF o dirección para e
 | 59 | UAP7405808 | Departamento en venta inversión The Lighthouse Puerta del Va | Venta | $4,100,000 MXN | `departamento-en-venta-inversion-the-lighthouse-puerta-del-valle-zapopa.html` | 2026-09-08 (Lote 3) |
 | 60 | EB-MO9938 | Lote residencial en venta en Zapopan | Los Sueños Residencia | Venta | $10,838,000 MXN | `lote-residencial-en-venta-en-zapopan-los-suenos-residencial-eb-mo9938.html` | 2026-09-08 (Lote 3) |
 | 61 | ULO8515979 | Local Comercial en Preventa sobre Av. Américas, Zapopan | 29 | Venta | $23,280,000 MXN | `local-comercial-en-preventa-sobre-av-americas-zapopan-291-m2.html` | 2026-09-08 (Lote 3) |
+| 62 | UHO12841909 | Casa 3 rec., Ricardo Güiraldes 5584, Vallarta Universidad, Zapopan | Renta | $20,000 MXN | `renta/casa-en-renta-vallarta-universidad-zapopan.html` | 2026-10-28 |
+| 63 | UHO12841909 | Casa 3 rec., Ricardo Güiraldes 5584, Vallarta Universidad, Zapopan (misma casa, ahora también en venta) | Venta | $7,850,000 MXN | `venta/casa-en-venta-vallarta-universidad-zapopan.html` | 2026-10-29 |
 
 ## Cómo usar este archivo
 - Antes de pedirle a Claude una página nueva, busca la REF de Tokko (aparece como "REF. XXXXXXX" en la ficha) en la columna correspondiente.
