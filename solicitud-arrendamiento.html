@@ -73,6 +73,9 @@
   .hero{background:linear-gradient(160deg,var(--navy) 0%, var(--navy-deep) 100%);color:#fff;padding:56px 0 46px;text-align:center;}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px;}
   .eyebrow::before,.eyebrow::after{content:"";width:22px;height:1px;background:var(--gold);display:inline-block;}
+  .btn-blanco{display:inline-block;margin:22px auto 0;background:#25D366;color:#fff;border:0;border-radius:10px;padding:15px 26px;font-size:1.05rem;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(37,211,102,.35);}
+  .btn-blanco:hover{filter:brightness(1.05);}
+  .blanco-nota{display:block;margin-top:8px;color:#cdd8e3;font-size:.85rem;}
   .hero h1{color:#fff;font-size:clamp(1.9rem,4vw,2.6rem);}
   .hero p{max-width:560px;margin:14px auto 0;color:#cdd8e3;font-weight:300;font-size:1.02rem;}
 
@@ -203,6 +206,11 @@ p.ub-footlinks > a{color:#94a0af!important}
     <span class="eyebrow">Gratis · Sin registro</span>
     <h1>Solicitud de Arrendamiento</h1>
     <p id="heroP">Genera la solicitud que todo candidato a inquilino debe llenar antes de firmar contrato: datos generales, identificación, ocupación, referencias y obligado solidario. Descarga en PDF o Word en minutos.</p>
+
+    <div>
+      <button type="button" class="btn-blanco" onclick="descargarFormatoBlanco()">📄 Descargar formato en blanco (PDF)</button>
+      <span class="blanco-nota">Para imprimir y llenar a mano · o llénalo en línea abajo</span>
+    </div>
 
     <div class="personaliza-box" id="personalizaBox">
       <button class="personaliza-toggle" id="personalizaToggle">
@@ -635,6 +643,107 @@ Esta solicitud fue generada a través de ${AGENT.name} · ${AGENT.telDisplay}`;
   document.getElementById('resultado').classList.add('show');
   document.getElementById('resultado').scrollIntoView({behavior:'smooth', block:'start'});
 });
+
+
+// ===== FORMATO EN BLANCO (PDF para imprimir y llenar a mano) =====
+function descargarFormatoBlanco(){
+  if(!window.jspdf){ alert('Cargando, intenta de nuevo en un segundo.'); return; }
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit:'mm', format:'letter' });
+  const L=18, R=18, T=20, B=18;
+  const W=doc.internal.pageSize.getWidth(), H=doc.internal.pageSize.getHeight();
+  const UW=W-L-R;
+  let y=T;
+  const navy=[12,31,61], gold=[155,120,46], txt=[28,37,48];
+  function salto(h){ if(y+h>H-B-8){ pie(); doc.addPage(); y=T; } }
+  function pie(){
+    doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(120,120,120);
+    doc.text(`Formato gratuito · ${AGENT.name} · WhatsApp ${AGENT.telDisplay} · unobrokers.com.mx/solicitud-arrendamiento.html`, W/2, H-10, {align:'center'});
+  }
+  function titulo(t){
+    salto(14); y+=3;
+    doc.setFont('helvetica','bold'); doc.setFontSize(10.5); doc.setTextColor(...gold);
+    doc.text(t, L, y); y+=1.8;
+    doc.setDrawColor(198,161,91); doc.setLineWidth(0.3); doc.line(L,y,W-R,y); y+=7;
+  }
+  // fila de campos: [[etiqueta, fraccionAncho], ...]
+  function fila(campos){
+    salto(9);
+    let x=L;
+    campos.forEach(([lab,fr],i)=>{
+      const w=UW*fr - (i<campos.length-1?4:0);
+      doc.setFont('helvetica','normal'); doc.setFontSize(8.8); doc.setTextColor(...txt);
+      if(lab) doc.text(lab+':', x, y);
+      const lw=lab ? doc.getTextWidth(lab+':')+1.5 : 0;
+      doc.setDrawColor(150,150,150); doc.setLineWidth(0.2);
+      doc.line(x+lw, y+0.8, x+w, y+0.8);
+      x+=UW*fr;
+    });
+    y+=8.2;
+  }
+  // Encabezado
+  doc.setFont('helvetica','bold'); doc.setFontSize(16); doc.setTextColor(...navy);
+  doc.text('SOLICITUD DE ARRENDAMIENTO', W/2, y, {align:'center'}); y+=5.5;
+  doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(100,100,100);
+  doc.text('Con obligado solidario (aval) · Formato para llenar a mano', W/2, y, {align:'center'}); y+=4;
+  doc.setDrawColor(198,161,91); doc.setLineWidth(0.6); doc.line(L,y,W-R,y); y+=8;
+  fila([['Fecha',0.4],['Recibida por',0.6]]);
+
+  titulo('DATOS DEL INMUEBLE Y ARRENDADOR');
+  fila([['Domicilio del inmueble en renta',1]]);
+  fila([['',1]]);
+  fila([['Arrendador / Inmobiliaria',0.62],['Renta mensual $',0.38]]);
+
+  titulo('DATOS GENERALES DEL SOLICITANTE (ARRENDATARIO)');
+  fila([['Nombre completo',1]]);
+  fila([['Fecha de nacimiento',0.5],['Estado civil',0.5]]);
+  fila([['Teléfono',0.42],['Correo electrónico',0.58]]);
+  fila([['Domicilio actual',1]]);
+  fila([['Tiempo en ese domicilio',0.45],['Motivo de la mudanza',0.55]]);
+  fila([['Número de personas que habitarán',0.55],['Mascotas (sí/no, cuáles)',0.45]]);
+
+  titulo('IDENTIFICACIÓN');
+  fila([['CURP',0.5],['INE / identificación, número',0.5]]);
+
+  titulo('OCUPACIÓN');
+  fila([['Ocupación / puesto',0.5],['Empresa',0.5]]);
+  fila([['Ingreso mensual $',0.5],['Antigüedad laboral',0.5]]);
+  fila([['Domicilio y teléfono de la empresa',1]]);
+
+  titulo('REFERENCIAS PERSONALES');
+  fila([['1. Nombre',0.46],['Teléfono',0.27],['Relación',0.27]]);
+  fila([['2. Nombre',0.46],['Teléfono',0.27],['Relación',0.27]]);
+
+  titulo('REFERENCIA DE ARRENDADOR ANTERIOR');
+  fila([['Nombre',0.6],['Teléfono',0.4]]);
+
+  titulo('DATOS DEL OBLIGADO SOLIDARIO (AVAL)');
+  fila([['Nombre completo',1]]);
+  fila([['Relación con el solicitante',0.5],['Estado civil',0.5]]);
+  fila([['Teléfono',0.42],['Correo electrónico',0.58]]);
+  fila([['Domicilio',1]]);
+  fila([['¿Es propietario de ese domicilio? (sí/no)',0.55],['CURP',0.45]]);
+  fila([['INE / identificación, número',0.5],['Ocupación / puesto',0.5]]);
+  fila([['Empresa',0.5],['Ingreso mensual $',0.5]]);
+  fila([['Antigüedad laboral',1]]);
+
+  titulo('DECLARACIÓN');
+  doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(...txt);
+  const decl = 'El solicitante manifiesta que los datos proporcionados son verídicos y autoriza al arrendador y/o a su representante a verificarlos con fines de evaluación para el arrendamiento del inmueble descrito. El obligado solidario manifiesta que sus datos son verídicos y declara su conformidad en constituirse como obligado solidario del solicitante para garantizar el cumplimiento de todas las obligaciones derivadas del contrato de arrendamiento que en su caso se celebre, incluyendo el pago de rentas, mantenimiento y demás cargos, renunciando expresamente a los beneficios de orden y excusión que la ley le concede.';
+  doc.splitTextToSize(decl, UW).forEach(l=>{ salto(5); doc.text(l, L, y); y+=4.2; });
+  y+=4;
+  salto(26); y+=16;
+  doc.setDrawColor(...txt); doc.setLineWidth(0.3);
+  doc.line(L, y, L+75, y); doc.line(W-R-75, y, W-R, y); y+=4.5;
+  doc.setFont('helvetica','bold'); doc.setFontSize(8.5);
+  doc.text('FIRMA DEL SOLICITANTE', L+37.5, y, {align:'center'});
+  doc.text('FIRMA DEL OBLIGADO SOLIDARIO', W-R-37.5, y, {align:'center'});
+  y+=7;
+  doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(100,100,100);
+  doc.text('Anexar copia de: INE del solicitante y del aval, comprobante de domicilio, últimos 3 recibos de nómina o estados de cuenta.', L, y);
+  pie();
+  doc.save('solicitud-arrendamiento-formato-en-blanco.pdf');
+}
 
 function descargarWord(){
   const contenido = document.getElementById('contractText').innerText;
