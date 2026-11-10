@@ -609,6 +609,7 @@ div.p > small{font-weight:500!important}
       <li><b>173.80</b><span>m² de terreno</span></li>
       <li><b>3</b><span>autos</span></li>
     </ul>
+    <button type="button" class="btn btn-gold" data-ficha style="margin:.4rem 0 1rem;width:100%;max-width:420px">📄 Descargar ficha PDF</button>
 
     <p class="quick" style="border-left-color:#C9A24B"><strong>Esta casa también está en venta:</strong> $7,850,000 MXN. <a href="https://unobrokers.com.mx/venta/casa-en-venta-vallarta-universidad-zapopan.html" style="color:#7a5c16;font-weight:700">Ver la ficha de venta</a></p>
 
@@ -800,6 +801,7 @@ div.p > small{font-weight:500!important}
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.43 15.1L2 22l5.03-1.58A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.3 14.96l-.3-.19-2.98.94.97-2.9-.2-.31A8.1 8.1 0 0 1 12.04 3.8Zm-3.2 3.9c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.06 3.3 5.1 4.5 2.52 1 3.03.8 3.58.75.55-.05 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57Z"/></svg>
       Escribir por WhatsApp
     </a>
+    <button type="button" class="btn btn-gold" data-ficha>📄 Descargar ficha PDF</button>
     <button type="button" class="btn btn-line" data-open-share>Compartir como asesor</button>
     <a class="tel" id="telLink" href="tel:+523339675255">Llamar a UNO Brokers: 33 3967 5255</a>
     <p class="ref">Referencia UHO12841909</p>
@@ -835,7 +837,7 @@ div.p > small{font-weight:500!important}
   <div class="box">
     <button type="button" class="close" aria-label="Cerrar">&times;</button>
     <h2 id="shareTitle">Comparte esta propiedad con tus datos</h2>
-    <p>Escribe tu nombre y tu WhatsApp. Te generamos un link: cuando tu cliente lo abra, el botón de contacto le escribe directo a ti.</p>
+    <p>Escribe tu nombre y tu WhatsApp. Te generamos un link: cuando tu cliente lo abra, el botón de contacto le escribe directo a ti, y si descarga la ficha PDF sale con tu nombre y tu WhatsApp.</p>
     <label for="advName">Tu nombre</label>
     <input id="advName" type="text" autocomplete="name" maxlength="40" placeholder="Ana Pérez">
     <label for="advPhone">Tu WhatsApp (10 dígitos)</label>
@@ -989,5 +991,7 @@ div.p > small{font-weight:500!important}
 })();
 </script>
 <script src="/escuchar.js?v=2" defer></script>
+<script type="application/json" id="fichaData">{"operacion": "En renta", "ref": "UHO12841909", "titulo": "Casa en renta en Vallarta Universidad, Zapopan", "precio": "$20,000", "precioNota": "MXN al mes", "direccion": "Ricardo Güiraldes 5584, Col. Vallarta Universidad, Zapopan, Jal. · Junto a la UAG", "datos": [["3", "recámaras con baño"], ["3½", "baños + servicio"], ["265 m²", "construcción"], ["3", "autos"], ["Sí", "acepta mascotas"]], "gancho": "Llegar a casa y que todo quepa: la familia, los coches y hasta el perro. También funciona como oficina a puerta cerrada.", "descripcion": "Casa de 3 niveles en una calle tranquila de Vallarta Universidad, entre Av. Vallarta y Av. Patria, a minutos de Andares, Providencia y la UAG. Como oficina: recepción y sala de juntas en planta baja, 3 privados con baño propio arriba y cochera para 3 autos, para trabajo administrativo sin atención masiva al público.", "caracteristicas": ["Cochera semicubierta para 3 autos", "Recibidor y medio baño de visitas", "Sala y comedor amplios e iluminados", "Cocina equipada con barra y alacena", "Recámara principal con vestidor y baño", "2 recámaras más, cada una con baño", "Estar de televisión", "Cuarto de servicio con baño", "Área de lavado techada", "Acepta mascotas"], "archivo": "ficha-casa-renta-vallarta-universidad.pdf", "url": "https://unobrokers.com.mx/renta/casa-en-renta-vallarta-universidad-zapopan.html", "fotos": ["https://static.tokkobroker.com/pictures/12841909_52046468010021498094516389242623445613457445238363139127548780802904543141438.jpg", "https://static.tokkobroker.com/pictures/12841909_103883716386234736143417811389659382537027354164384562632917152944969606445192.jpg", "https://static.tokkobroker.com/pictures/12841909_114327833117506834005524780787242072940829773214712434836640507932978074721157.jpg", "https://static.tokkobroker.com/pictures/12841909_83385198294991350106719267138920966036813390933149432404673667528161938776493.jpg"]}</script>
+<script src="/ficha-pdf.js?v=1" defer></script>
 </body>
 </html>

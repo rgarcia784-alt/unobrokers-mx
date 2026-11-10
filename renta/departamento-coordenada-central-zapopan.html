@@ -577,6 +577,7 @@ div.p > small{font-weight:500!important}
       <li><b>77.54</b><span>m² privativos</span></li>
       <li><b>1</b><span>estacionamiento</span></li>
     </ul>
+    <button type="button" class="btn btn-gold" data-ficha style="margin:.4rem 0 1rem;width:100%;max-width:420px">📄 Descargar ficha PDF</button>
 
     <p class="gancho" style="font-size:1.18rem;line-height:1.55;margin:1.2rem 0 1rem;padding:.9rem 1.1rem;border-left:4px solid currentColor;background:rgba(0,0,0,.035);border-radius:4px"><strong>Llega con tu maleta y esa misma noche ya estás en casa.</strong> Muebles, línea blanca y recámaras listas; abajo, alberca y vigilancia las 24 horas. A un lado de CUCEA y cerca del Mercado del Mar: si vienes a estudiar, a dar clases o a trabajar por temporada, no pierdes ni un día amueblando ni una hora en el tráfico. Y si eres papá o mamá, duermes tranquilo sabiendo que tu hijo vive en una torre segura, a pasos de su escuela.</p>
 
@@ -738,6 +739,7 @@ div.p > small{font-weight:500!important}
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.43 15.1L2 22l5.03-1.58A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.3 14.96l-.3-.19-2.98.94.97-2.9-.2-.31A8.1 8.1 0 0 1 12.04 3.8Zm-3.2 3.9c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.06 3.3 5.1 4.5 2.52 1 3.03.8 3.58.75.55-.05 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.8-1.67-2.1-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57Z"/></svg>
       Escribir por WhatsApp
     </a>
+    <button type="button" class="btn btn-gold" data-ficha>📄 Descargar ficha PDF</button>
     <button type="button" class="btn btn-line" data-open-share>Compartir como asesor</button>
     <a class="tel" id="telLink" href="tel:+523339675255">Llamar a UNO Brokers: 33 3967 5255</a>
     <p class="ref">Referencia UAP10339090</p>
@@ -773,7 +775,7 @@ div.p > small{font-weight:500!important}
   <div class="box">
     <button type="button" class="close" aria-label="Cerrar">&times;</button>
     <h2 id="shareTitle">Comparte esta propiedad con tus datos</h2>
-    <p>Escribe tu nombre y tu WhatsApp. Te generamos un link: cuando tu cliente lo abra, el botón de contacto le escribe directo a ti.</p>
+    <p>Escribe tu nombre y tu WhatsApp. Te generamos un link: cuando tu cliente lo abra, el botón de contacto le escribe directo a ti, y si descarga la ficha PDF sale con tu nombre y tu WhatsApp.</p>
     <label for="advName">Tu nombre</label>
     <input id="advName" type="text" autocomplete="name" maxlength="40" placeholder="Ana Pérez">
     <label for="advPhone">Tu WhatsApp (10 dígitos)</label>
@@ -927,5 +929,7 @@ div.p > small{font-weight:500!important}
 })();
 </script>
 <script src="/escuchar.js?v=2" defer></script>
+<script type="application/json" id="fichaData">{"operacion": "En renta", "ref": "UAP10339090", "titulo": "Departamento amueblado en renta, Coordenada Central, Zapopan", "precio": "$17,000", "precioNota": "MXN al mes · amueblado", "direccion": "Av. José Parres Arias 175, Torre A, Zapopan · A un lado de CUCEA (UdeG), cerca del Mercado del Mar", "datos": [["2", "recámaras"], ["2", "baños completos"], ["77.54 m²", "privativos"], ["1", "estacionamiento"], ["24 h", "seguridad"]], "gancho": "Llega con tu maleta y esa misma noche ya estás en casa: muebles, línea blanca y recámaras listas.", "descripcion": "Departamento amueblado y equipado en la Torre A de Coordenada Central, una de las torres más cotizadas de Zapopan, a un lado de CUCEA y cerca de la estación Mercado del Mar de la Línea 3. Ideal para estudiantes y profesores, ejecutivos que llegan a Guadalajara y personal de temporada.", "caracteristicas": ["Amueblado", "Línea blanca", "Cocina equipada", "Lavandería", "Sala y comedor", "Alberca", "Salón de fiestas", "Estacionamiento subterráneo", "Seguridad 24 horas", "Acceso controlado"], "archivo": "ficha-departamento-coordenada-central.pdf", "url": "https://unobrokers.com.mx/renta/departamento-coordenada-central-zapopan.html", "fotos": ["https://static.tokkobroker.com/pictures/10339090_15185698977150140070451326768583469822896021554911001912355494449932525671354.jpg", "https://static.tokkobroker.com/pictures/10339090_56842952473436887810188707908354619330746653791681345648565235999852826188051.jpg", "https://static.tokkobroker.com/pictures/10339090_49775198386046345797730211594633175425751190315408319860276267738301034546564.jpg", "https://static.tokkobroker.com/pictures/10339090_73036358129174444662951278537692672438309735153574629306879183866238194893123.jpg"]}</script>
+<script src="/ficha-pdf.js?v=1" defer></script>
 </body>
 </html>
