@@ -24,7 +24,7 @@
         },
         {
           nombre: "Desarrollos en preventa",
-          items: ["vivaria", "nara", "nubax", "los_suenos", "lope_de_vega"]
+          items: ["nara", "lope_de_vega", "nubax", "los_suenos"]
         },
         {
           nombre: "Inversión",
@@ -83,12 +83,6 @@
       wa: "Hola, quiero generar un contrato de renta."
     },
 
-    vivaria: {
-      titulo: "VIVARIA 2360",
-      texto: "Departamentos en preventa a 470m del Tren Ligero L2, en el corazón de Guadalajara.",
-      link: "vivaria-2360.html",
-      wa: "Hola, me interesa VIVARIA 2360."
-    },
     nara: {
       titulo: "NARA Américas",
       texto: "Desarrollo mixto en preventa en el corredor Américas, Zapopan.",
