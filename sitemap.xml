@@ -690,4 +690,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://unobrokers.com.mx/blog/banxico-baja-tasa-cetes-o-bienes-raices-noviembre-2026.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
