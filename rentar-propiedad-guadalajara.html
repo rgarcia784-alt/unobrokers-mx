@@ -1312,6 +1312,26 @@ p.ub-footlinks > a{color:#a2a6a1!important}
   <div class="faq-list" id="faq-list">
 
     <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Qué inmobiliaria me ayuda a rentar mi casa en Guadalajara, Zapopan o Tonalá? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">UNO Brokers renta casas y departamentos en toda la zona metropolitana de Guadalajara: Guadalajara, Zapopan, Tonalá, Tlaquepaque y Tlajomulco. Nos encargamos de todo: valuación de renta gratuita, publicidad en portales inmobiliarios y Google, visitas, investigación del inquilino y contrato con respaldo notarial o de Justicia Alternativa. Tenemos más de 31 años de experiencia.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Quiero rentar mi departamento, ¿también lo manejan? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Sí. Rentamos departamentos, casas, locales, oficinas y bodegas, amueblados o sin amueblar. El proceso es el mismo: valuamos la renta, publicamos, investigamos a los candidatos y firmamos el contrato. Si tu departamento está en condominio, revisamos también el reglamento y las cuotas de mantenimiento.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Cuánto cobra una inmobiliaria por rentar mi casa? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Lo más común en Guadalajara y Zapopan es cobrar el equivalente a un mes de renta por conseguir y contratar al inquilino. En UNO Brokers cobramos eso, y la administración mensual (cobro de rentas y seguimiento) es opcional. La valuación de renta de tu propiedad no tiene costo.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">¿Qué requisitos le piden al inquilino? <span class="faq-arrow">▾</span></button>
+      <div class="faq-a">Solicitud de renta, identificación oficial, comprobantes de ingresos de los últimos 3 meses con ingresos de al menos 3 veces la renta, trabajo estable e investigación del inquilino (Buró de Crédito con costo adicional). En lugar de aval, pedimos un respaldo de 2 meses: un mes de depósito más un mes de renta por adelantado, con un esquema de pago que protege al propietario.</div>
+    </div>
+
+    <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">¿Qué pasa si mi inquilino deja de pagar la renta? <span class="faq-arrow">▾</span></button>
       <div class="faq-a">Depende de la opción que elijas. Con la póliza jurídica con renta garantizada te pagamos hasta 3 meses de renta aunque tu inquilino se atrase o deje de pagar, e incluye cobranza y recuperación del inmueble; funciona en todo México y se cotiza. En Jalisco también puedes elegir el contrato blindado: investigación ($999 MXN) más contrato de Justicia Alternativa o transacción notarial ($3,800 MXN), que no paga la renta pero permite pedir la ejecución directa sin un juicio largo.</div>
     </div>
@@ -1541,6 +1561,10 @@ function cotizarPagoGarantizado() {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {"@type": "Question", "name": "¿Qué inmobiliaria me ayuda a rentar mi casa en Guadalajara, Zapopan o Tonalá?", "acceptedAnswer": {"@type": "Answer", "text": "UNO Brokers renta casas y departamentos en toda la zona metropolitana de Guadalajara: Guadalajara, Zapopan, Tonalá, Tlaquepaque y Tlajomulco. Nos encargamos de todo: valuación de renta gratuita, publicidad en portales inmobiliarios y Google, visitas, investigación del inquilino y contrato con respaldo notarial o de Justicia Alternativa. Tenemos más de 31 años de experiencia."}},
+    {"@type": "Question", "name": "Quiero rentar mi departamento, ¿también lo manejan?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Rentamos departamentos, casas, locales, oficinas y bodegas, amueblados o sin amueblar. El proceso es el mismo: valuamos la renta, publicamos, investigamos a los candidatos y firmamos el contrato. Si tu departamento está en condominio, revisamos también el reglamento y las cuotas de mantenimiento."}},
+    {"@type": "Question", "name": "¿Cuánto cobra una inmobiliaria por rentar mi casa?", "acceptedAnswer": {"@type": "Answer", "text": "Lo más común en Guadalajara y Zapopan es cobrar el equivalente a un mes de renta por conseguir y contratar al inquilino. En UNO Brokers cobramos eso, y la administración mensual (cobro de rentas y seguimiento) es opcional. La valuación de renta de tu propiedad no tiene costo."}},
+    {"@type": "Question", "name": "¿Qué requisitos le piden al inquilino?", "acceptedAnswer": {"@type": "Answer", "text": "Solicitud de renta, identificación oficial, comprobantes de ingresos de los últimos 3 meses con ingresos de al menos 3 veces la renta, trabajo estable e investigación del inquilino (Buró de Crédito con costo adicional). En lugar de aval, pedimos un respaldo de 2 meses: un mes de depósito más un mes de renta por adelantado, con un esquema de pago que protege al propietario."}},
     {"@type":"Question","name":"¿Qué pasa si mi inquilino deja de pagar la renta?","acceptedAnswer":{"@type":"Answer","text":"Depende de la opción que elijas. Con la póliza jurídica con renta garantizada te pagamos hasta 3 meses de renta aunque tu inquilino se atrase o deje de pagar, e incluye cobranza y recuperación del inmueble; funciona en todo México y se cotiza. En Jalisco también puedes elegir el contrato blindado: investigación ($999 MXN) más contrato de Justicia Alternativa o transacción notarial ($3,800 MXN), que no paga la renta pero permite pedir la ejecución directa sin un juicio largo."}},
     {"@type":"Question","name":"¿Cuánto cuesta el pago garantizado de la renta?","acceptedAnswer":{"@type":"Answer","text":"Depende de la ciudad, el monto de renta mensual y el uso del inmueble (habitacional, comercial o industrial). Llena el cotizador de esta página y te mandamos el costo exacto por WhatsApp. Si prefieres el contrato blindado en Jalisco, el precio es fijo: investigación del inquilino $999 MXN más contrato de Justicia Alternativa o transacción notarial $3,800 MXN."}},
     {"@type":"Question","name":"¿Cómo pongo mi casa en renta en Guadalajara?","acceptedAnswer":{"@type":"Answer","text":"El proceso es sencillo: contáctanos, visitamos tu propiedad, hacemos una valuación de renta gratuita para definir el precio de salida, publicamos con fotografía profesional, investigamos a los candidatos y firmamos el contrato con respaldo notarial o de Justicia Alternativa."}},
