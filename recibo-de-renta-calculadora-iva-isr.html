@@ -135,7 +135,7 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
   <div class="wrap">
     <span class="hero-tag">Herramienta gratis · Actualizada 2026</span>
     <h1>Recibo de renta 2026: <span>calculadora de IVA, ISR y retenciones</span></h1>
-    <p><strong>Respuesta rápida:</strong> una casa o departamento sin amueblar no lleva IVA; locales, oficinas, bodegas, terrenos y casas amuebladas llevan 16%. Solo hay retenciones cuando una empresa le renta a una persona física: 10% de ISR (1.25% si el dueño está en RESICO) y dos terceras partes del IVA. Calcula tu caso exacto y descarga tu recibo de renta en PDF.</p>
+    <p><strong>Respuesta rápida:</strong> una casa o departamento sin amueblar no lleva IVA; locales, oficinas, bodegas, terrenos y casas amuebladas llevan 16%. Solo hay retenciones cuando una empresa le renta a una persona física: 10% de ISR (1.25% si el dueño está en RESICO) y dos terceras partes del IVA. Calcula tu caso exacto, o al revés: cuánto cobrar para recibir lo que quieres, y descarga tu recibo de renta en PDF.</p>
     <div class="cta">
       <a class="btn btn-gold" href="#calculadora">Calcular mi renta</a>
       <a class="btn btn-ghost" href="#recibo-form">Hacer mi recibo</a>
@@ -149,10 +149,17 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
     <p>Elige el tipo de inmueble y quién es el dueño y quién paga. La calculadora aplica las reglas del SAT para todo México y te dice qué poner en tu factura.</p>
     <div class="card">
       <div class="grid2">
+        <div style="grid-column:1/-1">
+          <label for="modo">¿Qué quieres calcular?</label>
+          <select id="modo">
+            <option value="dir">Sé la renta: calcular impuestos y lo que recibo</option>
+            <option value="inv">Sé cuánto quiero recibir: calcular cuánto cobrar</option>
+          </select>
+        </div>
         <div>
-          <label for="renta">Renta mensual (sin IVA)</label>
+          <label for="renta" id="rentaLbl">Renta mensual (sin IVA)</label>
           <input id="renta" type="number" inputmode="decimal" min="0" step="0.01" value="20000">
-          <div class="hint">Monto de la renta antes de impuestos.</div>
+          <div class="hint" id="rentaHint">Monto de la renta antes de impuestos.</div>
         </div>
         <div>
           <label for="tipo">Tipo de inmueble</label>
@@ -339,12 +346,18 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
   var NOM={hab:'Casa o departamento para vivir (sin amueblar)',amu:'Casa o departamento amueblado',hos:'Renta por noches / hospedaje',loc:'Local comercial',ofi:'Oficina o consultorio',bod:'Bodega o nave industrial',ter:'Terreno o estacionamiento',mix:'Uso mixto (vivienda + negocio)',agr:'Finca agrícola o ganadera'};
   var last={};
   function calc(){
-    var renta=parseFloat($('renta').value)||0, tipo=$('tipo').value, dueno=$('dueno').value, inq=$('inq').value;
+    var monto=parseFloat($('renta').value)||0, tipo=$('tipo').value, dueno=$('dueno').value, inq=$('inq').value, inv=$('modo').value==='inv';
     $('mixBox').style.display = tipo==='mix'?'block':'none';
+    $('rentaLbl').textContent = inv?'¿Cuánto quieres recibir en tu cuenta al mes?':'Renta mensual (sin IVA)';
+    $('rentaHint').textContent = inv?'Lo que te debe llegar después de IVA y retenciones.':'Monto de la renta antes de impuestos.';
     var pct=Math.min(100,Math.max(0,parseFloat($('pctHab').value)||0));
-    var baseIva=0;
-    if(['amu','hos','loc','ofi','bod','ter'].indexOf(tipo)>-1) baseIva=renta;
-    else if(tipo==='mix') baseIva=renta*(100-pct)/100;
+    var fIva=0;
+    if(['amu','hos','loc','ofi','bod','ter'].indexOf(tipo)>-1) fIva=1;
+    else if(tipo==='mix') fIva=(100-pct)/100;
+    var aplicaRet=(dueno!=='pm' && inq==='pm');
+    var tIsr=aplicaRet?(dueno==='pf626'?0.0125:0.10):0, tRetIva=aplicaRet?0.16*fIva*2/3:0;
+    var renta = inv ? Math.ceil(monto/(1+0.16*fIva-tIsr-tRetIva)*100-1e-6)/100 : monto;
+    var baseIva=renta*fIva;
     var iva=r2(baseIva*0.16);
     var retIsr=0, retIva=0, notes=[];
     var pfDueno = dueno!=='pm';
@@ -378,10 +391,11 @@ document.addEventListener('click',function(e){var l=e.target.closest&&e.target.c
       '</table>'+resico+
       '<div class="notes"><ul>'+notes.map(function(n){return '<li>'+n+'</li>'}).join('')+'</ul></div>'+
       '<div class="cfdi"><b>Datos para tu factura (CFDI 4.0):</b><br>Régimen del dueño: '+reg+' · Clave de producto: 80131500 · Unidad: E48 · Objeto de impuesto: 02 · IVA: '+(iva?'Tasa 16%':'Exento')+(retIsr?' · Retención ISR: '+(dueno==='pf626'?'1.25%':'10%'):'')+(retIva?' · Retención IVA: 10.6667%':'')+' · Uso del CFDI del inquilino: '+uso+'.</div>';
+    if(inv) html='<div class="notes" style="margin:0 0 12px;background:#fbf6e9;border-left-color:#C9A24B"><b>Para recibir '+fmt(monto)+' debes cobrar una renta de '+fmt(renta)+(iva?' + IVA':'')+'.</b> Pon esa cantidad en tu contrato'+(iva?' ("'+fmt(renta)+' más IVA")':'')+' y en tu factura.'+(iva-retIva>0?' Ojo: de lo que recibes, '+fmt(r2(iva-retIva))+' es IVA que tú pagas al SAT; tu ISR lo declaras aparte (lo que te retienen se resta).':' Tu ISR lo declaras aparte al SAT (lo que te retienen se resta).')+'</div>'+html;
     $('res').innerHTML=html;
     last={renta:renta,iva:iva,total:total,retIsr:retIsr,retIva:retIva,neto:neto,tipo:NOM[tipo]};
   }
-  ['renta','tipo','dueno','inq','pctHab'].forEach(function(id){$(id).addEventListener('input',calc);$(id).addEventListener('change',calc);});
+  ['modo','renta','tipo','dueno','inq','pctHab'].forEach(function(id){$(id).addEventListener('input',calc);$(id).addEventListener('change',calc);});
   calc();
 
   // Número a letras (pesos mexicanos)
