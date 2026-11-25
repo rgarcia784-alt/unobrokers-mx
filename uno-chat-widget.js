@@ -124,9 +124,9 @@
 
   // ---------- Estilos ----------
   var css = "\n" +
-  "#unoChatBtn{position:fixed;bottom:24px;left:20px;width:58px;height:58px;border-radius:50%;background:#0f1923;color:#c9a84c;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:9999;border:2px solid #c9a84c;transition:transform .2s}" +
+  "#unoChatBtn{position:fixed;bottom:84px;left:20px;width:58px;height:58px;border-radius:50%;background:#0f1923;color:#c9a84c;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:9999;border:2px solid #c9a84c;transition:transform .2s}" +
   "#unoChatBtn:hover{transform:scale(1.08)}" +
-  "#unoChatPanel{position:fixed;bottom:92px;left:20px;width:330px;max-width:90vw;max-height:70vh;background:#fff;border-radius:16px;box-shadow:0 16px 48px rgba(0,0,0,.25);display:none;flex-direction:column;overflow:hidden;z-index:9999;font-family:'DM Sans',Arial,sans-serif}" +
+  "#unoChatPanel{position:fixed;bottom:152px;left:20px;width:330px;max-width:90vw;max-height:70vh;background:#fff;border-radius:16px;box-shadow:0 16px 48px rgba(0,0,0,.25);display:none;flex-direction:column;overflow:hidden;z-index:9999;font-family:'DM Sans',Arial,sans-serif}" +
   "#unoChatPanel.open{display:flex}" +
   "#unoChatHeader{background:#0f1923;color:#f7f4ef;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}" +
   "#unoChatHeader b{font-size:14.5px}" +
